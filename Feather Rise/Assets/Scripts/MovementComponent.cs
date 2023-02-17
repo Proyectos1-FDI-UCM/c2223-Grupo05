@@ -35,12 +35,9 @@ public class MovementComponent : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float _playerDirection = Input.GetAxisRaw("Horizontal");
         _touchingFloor = Physics2D.OverlapBox(_floorControler.position, _floorDimensions, 0, _floor);
-        if (Input.GetKeyDown(KeyCode.Space)) Jump(); //se quita al poner el InputComponent
-        if ( _playerDirection != 0) Move(_playerDirection);
     }
-    void Jump()
+    public void Jump()
     {
         if(_touchingFloor)
         {
@@ -48,7 +45,7 @@ public class MovementComponent : MonoBehaviour
         }
 
     }
-    void Move(float _playerDirection)
+    public void Move(float _playerDirection) //Está público para poder acceder desde el Input (Intentar cambiar)
     {
         _playerRB.velocity = new Vector2(_playerDirection * _moveSpeed, _playerRB.velocity.y);
 
