@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class InputComponent : MonoBehaviour
 {
-    float _playerHorizontalDirection;
-    MovementComponent _myMovementeComponent;
+    private float _playerHorizontalDirection;
+    private Vector2 _mousePosition;
+    private MovementComponent _myMovementComponent;
+    private CameraComponent _myCameraComponent;
 
     // Start is called before the first frame update
     void Start()
     {
-        _myMovementeComponent = GetComponent<MovementComponent>();
+        _myMovementComponent = GetComponent<MovementComponent>();
+        _myCameraComponent = Camera.main.gameObject.GetComponent<CameraComponent>();
     }
 
     // Update is called once per frame
@@ -19,17 +22,21 @@ public class InputComponent : MonoBehaviour
         _playerHorizontalDirection = Input.GetAxis("Horizontal"); // Se recibe Input Horizontal
         if (_playerHorizontalDirection != 0)    // Si hay movimiento horizontal
         {
-            _myMovementeComponent.Move(_playerHorizontalDirection); // Llama al método Move (Horizontal) del MovementComponent
+            _myMovementComponent.Move(_playerHorizontalDirection); // Llama al método Move (Horizontal) del MovementComponent
             
         }
         if (Input.GetButtonDown("Jump"))    // Si se recibe Input de Salto
         {
-            _myMovementeComponent.Jump();   // Llama al método Jump del MovementComponent
+            _myMovementComponent.Jump();   // Llama al método Jump del MovementComponent
         }
         if (Input.GetButtonDown("Dash"))   
         {
             //_myMovementeComponent.Dash();   // Llama al método Dash del MovementComponent
         }
-
+        if (Input.GetButtonDown("Fire2"))
+        {
+            _mousePosition = Input.mousePosition;
+            Debug.Log(_mousePosition);
+        }
     }
 }
