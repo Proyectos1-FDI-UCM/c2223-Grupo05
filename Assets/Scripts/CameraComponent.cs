@@ -18,10 +18,4 @@ public class CameraComponent : MonoBehaviour
     {
         
     }
-
-    Vector2 ScreenToWorld()
-    {
-        _mousePosition = _myCameraComponent.ScreenToWorldPoint(Input.mousePosition);
-        return _mousePosition;
-    }
 }
