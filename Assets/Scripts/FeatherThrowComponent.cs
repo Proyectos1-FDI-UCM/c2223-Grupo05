@@ -19,7 +19,7 @@ public class FeatherThrowComponent : MonoBehaviour
 
     public void FeatherThrow(Vector2 mousePosition)
     {
-        _relativeFeatherPosition = mousePosition - (Vector2)transform.position;
+        _relativeFeatherPosition = mousePosition - new Vector2(transform.position.x, transform.position.y);
 
         Debug.Log("Posición relativa del ratón:" + _relativeFeatherPosition);
     }

@@ -24,18 +24,27 @@ public class MovementComponent : MonoBehaviour
     [SerializeField] private float _jumpForce;
     [SerializeField] private float _moveSpeed;
     #endregion
-    
+
+    private Animator _playerAnim;
+
 
     // Start is called before the first frame update
     void Start()
     {
         _playerRB = GetComponent<Rigidbody2D>();
+        //_playerAnim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
         _touchingFloor = Physics2D.OverlapBox(_floorControler.position, _floorDimensions, 0, _floor);
+
+        /*if (_playerRB.velocity.x < 0.1 && _playerRB.velocity.x > -0.1)
+        {
+            _playerAnim.SetFloat("horizontal", _playerRB.velocity.x);
+        }
+        _playerAnim.SetFloat("Salto", _playerRB.velocity.y);*/
     }
     public void Jump()
     {
