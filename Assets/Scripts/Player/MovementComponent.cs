@@ -24,6 +24,14 @@ public class MovementComponent : MonoBehaviour
     private bool _touchingFloor;
     private bool _lookingRight = true;
 
+    [Header("Dash")]
+
+    [SerializeField] private float _dashVelocity;
+    [SerializeField] private float _timeDash = 0.2f;
+    private float _initialGravity;
+    private bool _canDash = true;
+    private bool _canMove = true;
+
     private Animator _playerAnim;
 
 
@@ -32,7 +40,12 @@ public class MovementComponent : MonoBehaviour
     {
         _playerRB = GetComponent<Rigidbody2D>();
         _playerAnim = GetComponent<Animator>();
+
+        _initialGravity = _playerRB.gravityScale;
+
+        
     }
+    
 
     private void FixedUpdate()
     {
@@ -40,6 +53,9 @@ public class MovementComponent : MonoBehaviour
         _playerAnim.SetBool("onFloor", _touchingFloor);
         _playerAnim.SetFloat("Horizontal", Mathf.Abs(_playerRB.velocity.x));
         _playerAnim.SetFloat("Vertical", _playerRB.velocity.y);
+        
+       
+            
     }
     public void Jump()
     {
@@ -61,8 +77,33 @@ public class MovementComponent : MonoBehaviour
         {
             Turn();
         }
+
+    }
+
+
+    public IEnumerator Dash()
+    {
+        if (!_touchingFloor)
+        {
+            GetComponent<InputComponent>().enabled = false;
+            Debug.Log("neverita");
+            _canMove = false;
+            _canDash = false;
+            _playerRB.gravityScale = 0;
+
+            GetComponent<InputComponent>().enabled = _canMove;
+            _playerRB.velocity = new Vector2(_dashVelocity * transform.localScale.x, 0);
+            yield return new WaitForSeconds(_timeDash);
+
+            _playerRB.velocity = new Vector2(_moveSpeed * transform.localScale.x, _playerRB.velocity.y);
+            _canMove = true;
+            _canDash = true;
+            _playerRB.gravityScale = _initialGravity;
+            GetComponent<InputComponent>().enabled = _canMove;
+        }
         
     }
+
 
     private void Turn()
     {
