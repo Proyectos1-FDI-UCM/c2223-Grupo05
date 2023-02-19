@@ -37,7 +37,7 @@ public class InputComponent : MonoBehaviour
         {
             _mousePosition = Input.mousePosition;                       // Se guarda la posición del cursor
             Debug.Log("Posición global del ratón:" + _mousePosition);
-            _myFeatherThrowComponent.FeatherThrow(_mousePosition);
+            _myFeatherThrowComponent.FeatherObjective(_mousePosition);
         }
     }
 }
