@@ -16,7 +16,7 @@ public class FeatherThrowComponent : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void FeatherObjective(Vector2 mousePosition)                   // Se calcula la posición donde se lanzará la pluma
@@ -26,5 +26,18 @@ public class FeatherThrowComponent : MonoBehaviour
         _relativeFeatherPosition = mousePosition - _playerScreenPosition;   // Posición del ratón respecto al jugador
 
         Debug.Log("Posición relativa del ratón:" + _relativeFeatherPosition);
+
+        //FeatherObjective(_relativeFeatherPosition);
+
+    }
+
+    private void FeatherAngle(Vector2 relativeFeatherPosition)
+    {
+        float x = relativeFeatherPosition.y;    // x = cateto opuesto
+        float y = Mathf.Sqrt(Mathf.Pow(relativeFeatherPosition.x, 2) + Mathf.Pow(relativeFeatherPosition.y, 2));    // y = hipotenusa
+        float z = x / y;
+
+        float _angulo = Mathf.Asin(z);      // Ángulo = Arcoseno (x/y)
+        Debug.Log("Ángulo respecto al jugador: " + _angulo);
     }
 }
