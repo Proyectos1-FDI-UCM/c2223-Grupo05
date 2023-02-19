@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
 
 
@@ -7,23 +8,21 @@ public class MovementComponent : MonoBehaviour
 {
     Rigidbody2D _playerRB;
 
-    #region toJump
+    
+    [Header("Jump")]
+
     [SerializeField] private Transform _floorControler; //controlador del suelo
-
     [SerializeField] private Vector2 _floorDimensions;
-
     [SerializeField] private LayerMask _floor;
+    [SerializeField] private float _jumpForce;
+
+    [Header("Movement")]
+    
+    [SerializeField] private float _moveSpeed;
+    
 
     private bool _touchingFloor;
-    #endregion
-
-    #region toMove
-    /// <summary>
-    /// Variables relacionadas con el movimiento del jugador
-    /// </summary>
-    [SerializeField] private float _jumpForce;
-    [SerializeField] private float _moveSpeed;
-    #endregion
+    private bool _lookingRight = true;
 
     private Animator _playerAnim;
 
@@ -32,19 +31,15 @@ public class MovementComponent : MonoBehaviour
     void Start()
     {
         _playerRB = GetComponent<Rigidbody2D>();
-        //_playerAnim = GetComponent<Animator>();
+        _playerAnim = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void FixedUpdate()
     {
         _touchingFloor = Physics2D.OverlapBox(_floorControler.position, _floorDimensions, 0, _floor);
-
-        /*if (_playerRB.velocity.x < 0.1 && _playerRB.velocity.x > -0.1)
-        {
-            _playerAnim.SetFloat("horizontal", _playerRB.velocity.x);
-        }
-        _playerAnim.SetFloat("Salto", _playerRB.velocity.y);*/
+        _playerAnim.SetBool("onFloor", _touchingFloor);
+        _playerAnim.SetFloat("Horizontal", Mathf.Abs(_playerRB.velocity.x));
+        _playerAnim.SetFloat("Vertical", _playerRB.velocity.y);
     }
     public void Jump()
     {
@@ -54,11 +49,29 @@ public class MovementComponent : MonoBehaviour
         }
 
     }
-    public void Move(float _playerDirection) //Está público para poder acceder desde el Input (Intentar cambiar)
+    public void Move(float _playerDirection) 
     {
+        
         _playerRB.velocity = new Vector2(_playerDirection * _moveSpeed, _playerRB.velocity.y);
-
+        if(_playerDirection > 0 && !_lookingRight)
+        {
+            Turn();
+        }
+        else if (_playerDirection < 0 && _lookingRight)
+        {
+            Turn();
+        }
+        
     }
+
+    private void Turn()
+    {
+        _lookingRight = !_lookingRight;
+        Vector3 scale = transform.localScale;
+        scale.x *= -1;
+        transform.localScale = scale;
+    }
+
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;
