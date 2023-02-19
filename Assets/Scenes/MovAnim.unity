@@ -285,8 +285,8 @@ MonoBehaviour:
   _floor:
     serializedVersion: 2
     m_Bits: 8
-  _jumpForce: 7
-  _moveSpeed: 4
+  _jumpForce: 12
+  _moveSpeed: 5
 --- !u!50 &1469385948
 Rigidbody2D:
   serializedVersion: 4

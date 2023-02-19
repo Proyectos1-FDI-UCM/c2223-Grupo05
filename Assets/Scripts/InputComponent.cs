@@ -19,7 +19,7 @@ public class InputComponent : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _playerHorizontalDirection = Input.GetAxis("Horizontal");       // Se recibe Input Horizontal
+        _playerHorizontalDirection = Input.GetAxisRaw("Horizontal");       // Se recibe Input Horizontal
         if (_playerHorizontalDirection != 0)                            // Si hay movimiento horizontal
         {
             _myMovementComponent.Move(_playerHorizontalDirection);      // Llama al método Move (Horizontal) del MovementComponent
