@@ -4,14 +4,9 @@ using UnityEngine;
 
 public class FeatherThrowComponent : MonoBehaviour
 {
-    private Vector3 _relativeFeatherPosition;
+    private Vector2 _relativeFeatherPosition;
     private Camera _myCam;
     private Vector2 _playerScreenPosition;
-
-    [SerializeField] private GameObject _featherPrefab;
-    [SerializeField] private Transform _spawnPoint;
-
-
     // Start is called before the first frame update
     void Start()
     {
@@ -28,31 +23,21 @@ public class FeatherThrowComponent : MonoBehaviour
     {
         _playerScreenPosition = _myCam.WorldToScreenPoint(gameObject.transform.position);   // Posici鏮 del jugador en la pantalla
 
-        _relativeFeatherPosition =  (Vector3)(mousePosition - _playerScreenPosition);   // Posici鏮 del rat鏮 respecto al jugador
-
-        Quaternion rotation = FeatherAngle(_relativeFeatherPosition);
+        _relativeFeatherPosition = mousePosition - _playerScreenPosition;   // Posici鏮 del rat鏮 respecto al jugador
 
         Debug.Log("Posici鏮 relativa del rat鏮:" + _relativeFeatherPosition);
 
-        rotation.x += 90;
+        //FeatherObjective(_relativeFeatherPosition);
 
-        Instantiate(_featherPrefab, _spawnPoint.position, rotation);
-        
     }
 
-    private Quaternion FeatherAngle(Vector3 relativeFeatherPosition)
+    private void FeatherAngle(Vector2 relativeFeatherPosition)
     {
-        Quaternion rotation = Quaternion.LookRotation(relativeFeatherPosition, Vector3.left);
-        return rotation;
+        float x = relativeFeatherPosition.y;    // x = cateto opuesto
+        float y = Mathf.Sqrt(Mathf.Pow(relativeFeatherPosition.x, 2) + Mathf.Pow(relativeFeatherPosition.y, 2));    // y = hipotenusa
+        float z = x / y;
 
-        //float x = relativeFeatherPosition.y;    // x = cateto opuesto
-        //float y = Mathf.Sqrt(Mathf.Pow(relativeFeatherPosition.x, 2) + Mathf.Pow(relativeFeatherPosition.y, 2));    // y = hipotenusa
-        //float z = x / y;
-
-        //float angulo = Mathf.Asin(z);      // 聲gulo = Arcoseno (x/y) en radiantes
-        //angulo = angulo * Mathf.Rad2Deg;  // Conversi鏮 de 聲gulo de radiantes a grados
-        //Debug.Log("聲gulo respecto al jugador: " + angulo);
-        //return angulo;
-        
+        float _angulo = Mathf.Asin(z);      // 聲gulo = Arcoseno (x/y)
+        Debug.Log("聲gulo respecto al jugador: " + _angulo);
     }
 }
