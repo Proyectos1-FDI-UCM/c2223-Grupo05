@@ -1153,7 +1153,15 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 --- !u!1 &818991278
+=======
+<<<<<<< Updated upstream
+--- !u!1 &671268436
+=======
+--- !u!1 &915901286
+>>>>>>> Stashed changes
+>>>>>>> 90391e871431e7e5fdb00ab2aaa40ea993228a8e
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1161,8 +1169,15 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
+<<<<<<< HEAD
   - component: {fileID: 818991279}
   - component: {fileID: 818991280}
+=======
+<<<<<<< Updated upstream
+  - component: {fileID: 671268437}
+  - component: {fileID: 671268439}
+  - component: {fileID: 671268438}
+>>>>>>> 90391e871431e7e5fdb00ab2aaa40ea993228a8e
   m_Layer: 0
   m_Name: Green_Nebula_06-1024x1024
   m_TagString: Untagged
@@ -1170,13 +1185,33 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+<<<<<<< HEAD
 --- !u!4 &818991279
+=======
+--- !u!4 &671268437
+=======
+  - component: {fileID: 915901287}
+  m_Layer: 0
+  m_Name: FeatherSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &915901287
+>>>>>>> Stashed changes
+>>>>>>> 90391e871431e7e5fdb00ab2aaa40ea993228a8e
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
   m_GameObject: {fileID: 818991278}
+=======
+<<<<<<< Updated upstream
+  m_GameObject: {fileID: 671268436}
+>>>>>>> 90391e871431e7e5fdb00ab2aaa40ea993228a8e
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -19.32, y: 4.32, z: 0.7882556}
   m_LocalScale: {x: 2.8, y: 2.8, z: 1}
@@ -1228,6 +1263,7 @@ SpriteRenderer:
   m_SortingOrder: -8
   m_Sprite: {fileID: 21300000, guid: b062ebe4e0e374640b51a8a563f716b9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+<<<<<<< HEAD
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1237,6 +1273,40 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+=======
+  m_Origin: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0, y: 0, z: 1}
+  m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
+  m_TileOrientation: 0
+  m_TileOrientationMatrix:
+    e00: 1
+    e01: 0
+    e02: 0
+    e03: 0
+    e10: 0
+    e11: 1
+    e12: 0
+    e13: 0
+    e20: 0
+    e21: 0
+    e22: 1
+    e23: 0
+    e30: 0
+    e31: 0
+    e32: 0
+    e33: 1
+=======
+  m_GameObject: {fileID: 915901286}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.222, y: 0.143, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1699263763}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+>>>>>>> Stashed changes
+>>>>>>> 90391e871431e7e5fdb00ab2aaa40ea993228a8e
 --- !u!1 &1032828120
 GameObject:
   m_ObjectHideFlags: 0
@@ -102058,6 +102128,7 @@ GameObject:
   - component: {fileID: 1699263759}
   - component: {fileID: 1699263758}
   - component: {fileID: 1699263757}
+  - component: {fileID: 1699263764}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -102097,7 +102168,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f261e84f50f6b449afd9ae85f61c7c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< Updated upstream
   _dashCoolDown: 3
+=======
+  _dashCoolDown: 0
+>>>>>>> Stashed changes
 --- !u!114 &1699263759
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -102116,9 +102191,15 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   _jumpForce: 12
+<<<<<<< Updated upstream
   _moveSpeed: 4
   _dashVelocity: 6.5
   _timeDash: 0.4
+=======
+  _moveSpeed: 7
+  _dashVelocity: 0
+  _timeDash: 0
+>>>>>>> Stashed changes
 --- !u!50 &1699263760
 Rigidbody2D:
   serializedVersion: 4
@@ -102221,6 +102302,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 538003960}
+<<<<<<< Updated upstream
   - {fileID: 1845464452}
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -102342,11 +102424,19 @@ Transform:
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1845464453
+=======
+  - {fileID: 915901287}
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1699263764
+>>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< Updated upstream
   m_GameObject: {fileID: 1845464451}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -102420,6 +102510,16 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+=======
+  m_GameObject: {fileID: 1699263756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61f7558bf8483854e82551ba23169e1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _featherPrefab: {fileID: 6303040042159055399, guid: 83be84c469972994fa1fb15f4d9aade8, type: 3}
+  _spawnPoint: {fileID: 915901287}
+>>>>>>> Stashed changes
 --- !u!1 &2018328211
 GameObject:
   m_ObjectHideFlags: 0
