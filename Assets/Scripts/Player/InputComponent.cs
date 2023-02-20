@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using UnityEngine;
 
 public class InputComponent : MonoBehaviour
@@ -8,7 +9,8 @@ public class InputComponent : MonoBehaviour
     private Vector2 _mousePosition;
     private MovementComponent _myMovementComponent;
     private FeatherThrowComponent _myFeatherThrowComponent;
-    private float _timeToDash = 2f;
+    [SerializeField] private float _dashCoolDown;
+    private float _timeToDash = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -30,10 +32,10 @@ public class InputComponent : MonoBehaviour
         {
             _myMovementComponent.Jump();                                // Llama al método Jump del MovementComponent
         }
-        if (Input.GetButtonDown("Dash") && _timeToDash > 2f)                                // Si se recibe Input de Dash 
+        if (Input.GetButtonDown("Dash") && _timeToDash > _dashCoolDown) // Si se recibe Input de Dash 
         {
-
-            _myMovementComponent.StartCoroutine(_myMovementComponent.Dash());                            // Llama al método Dash del MovementComponent
+            _myMovementComponent.StartCoroutine(_myMovementComponent.Dash()); // Llama al método Dash del MovementComponent
+            _timeToDash = 0;
         }
         if (Input.GetButtonDown("FeatherThrow"))                        // Si se recibe Input de Lanzamiento de Pluma
         {
@@ -41,9 +43,8 @@ public class InputComponent : MonoBehaviour
             Debug.Log("Posición global del ratón:" + _mousePosition);
             _myFeatherThrowComponent.FeatherObjective(_mousePosition);
         }
-        if(_timeToDash < 2.1f)
-        {
-            _timeToDash += Time.deltaTime;
-        }
+
+        _timeToDash += Time.deltaTime;
+        
     }
 }

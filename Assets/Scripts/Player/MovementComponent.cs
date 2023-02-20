@@ -27,7 +27,9 @@ public class MovementComponent : MonoBehaviour
     [Header("Dash")]
 
     [SerializeField] private float _dashVelocity;
-    [SerializeField] private float _timeDash = 0.2f;
+    [SerializeField] private float _timeDash;
+   
+
     private float _initialGravity;
     private bool _canDash = true;
     private bool _canMove = true;
@@ -45,17 +47,17 @@ public class MovementComponent : MonoBehaviour
 
         
     }
-    
+    private void Update()
+    {
+        _playerAnim.SetBool("onFloor", _touchingFloor);
+        _playerAnim.SetFloat("Horizontal", Mathf.Abs(_playerRB.velocity.x));
+        _playerAnim.SetFloat("Vertical", _playerRB.velocity.y);
+        _playerAnim.SetBool("Dash", _canDash);
+    }
 
     private void FixedUpdate()
     {
         _touchingFloor = Physics2D.OverlapBox(_floorControler.position, _floorDimensions, 0, _floor);
-        _playerAnim.SetBool("onFloor", _touchingFloor);
-        _playerAnim.SetFloat("Horizontal", Mathf.Abs(_playerRB.velocity.x));
-        _playerAnim.SetFloat("Vertical", _playerRB.velocity.y);
-        
-       
-            
     }
     public void Jump()
     {
@@ -82,26 +84,24 @@ public class MovementComponent : MonoBehaviour
 
 
     public IEnumerator Dash()
-    {
-        if (!_touchingFloor)
-        {
-            GetComponent<InputComponent>().enabled = false;
-            Debug.Log("neverita");
-            _canMove = false;
-            _canDash = false;
-            _playerRB.gravityScale = 0;
+    { 
+            if (!_touchingFloor) // Dash only if jumping
+            {
+                GetComponent<InputComponent>().enabled = false;
+                Debug.Log("neverita");
+                _canMove = false;
+                _canDash = false;
+                _playerRB.gravityScale = 0;
+                _playerRB.velocity = new Vector2(_dashVelocity * transform.localScale.x, 0);
 
-            GetComponent<InputComponent>().enabled = _canMove;
-            _playerRB.velocity = new Vector2(_dashVelocity * transform.localScale.x, 0);
-            yield return new WaitForSeconds(_timeDash);
+                yield return new WaitForSeconds(_timeDash); //dash execution time
 
-            _playerRB.velocity = new Vector2(_moveSpeed * transform.localScale.x, _playerRB.velocity.y);
-            _canMove = true;
-            _canDash = true;
-            _playerRB.gravityScale = _initialGravity;
-            GetComponent<InputComponent>().enabled = _canMove;
-        }
-        
+                _playerRB.velocity = new Vector2(0, _playerRB.velocity.y); //stop dash 
+                _canMove = true;
+                _canDash = true;
+                _playerRB.gravityScale = _initialGravity;
+                GetComponent<InputComponent>().enabled = true;
+            }
     }
 
 
