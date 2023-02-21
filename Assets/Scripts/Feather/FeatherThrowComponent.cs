@@ -9,6 +9,8 @@ public class FeatherThrowComponent : MonoBehaviour
     private Camera _myCam;
     private Vector2 _playerScreenPosition;
     private float _featherAngle;
+    private int _featherCounter = 3;
+
     [SerializeField] GameObject _featherPrefab;
     [SerializeField] Transform _spawnPoint;
     // Start is called before the first frame update
@@ -29,11 +31,12 @@ public class FeatherThrowComponent : MonoBehaviour
 
         _relativeFeatherPosition = mousePosition - _playerScreenPosition;   // Posición del ratón respecto al jugador
 
-        Debug.Log("Posición relativa del ratón:" + _relativeFeatherPosition);
-
         _featherAngle = FeatherAngle(_relativeFeatherPosition);
-
-        Instantiate(_featherPrefab, _spawnPoint.position, Quaternion.identity);
+        if (_featherCounter > 0)                                                // Esto va en el GameManager (?????) (temporal)
+        {
+            Instantiate(_featherPrefab, _spawnPoint.position, Quaternion.identity);
+            _featherCounter--;
+        }
     }
 
     private float FeatherAngle(Vector2 relativeFeatherPosition)
@@ -44,7 +47,6 @@ public class FeatherThrowComponent : MonoBehaviour
 
         float angulo = Mathf.Asin(z);      // Ángulo = Arcoseno (x/y) em radiantes
         angulo *= Mathf.Rad2Deg;           // Pasamos el ángulo de radiantes a grados
-        Debug.Log("Ángulo respecto al jugador: " + angulo);
 
         return angulo;
     }

@@ -88,7 +88,6 @@ public class MovementComponent : MonoBehaviour
             if (!_touchingFloor) // Dash only if jumping
             {
                 GetComponent<InputComponent>().enabled = false;
-                Debug.Log("neverita");
                 _canMove = false;
                 _canDash = false;
                 _playerRB.gravityScale = 0;

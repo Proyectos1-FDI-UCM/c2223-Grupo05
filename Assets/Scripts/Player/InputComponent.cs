@@ -44,7 +44,6 @@ public class InputComponent : MonoBehaviour
         if (Input.GetButtonDown("FeatherThrow"))                        // Si se recibe Input de Lanzamiento de Pluma
         {
             _mousePosition = Input.mousePosition;                       // Se guarda la posición del cursor
-            Debug.Log("Posición global del ratón:" + _mousePosition);
             _myFeatherThrowComponent.FeatherObjective(_mousePosition);
         }
 
