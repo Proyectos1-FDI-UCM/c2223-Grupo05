@@ -38,8 +38,13 @@ public class InputComponent : MonoBehaviour
         }
         if (Input.GetButtonDown("Dash") && _timeToDash > _dashCoolDown) // Si se recibe Input de Dash 
         {
-            _myMovementComponent.StartCoroutine(_myMovementComponent.Dash()); // Llama al método Dash del MovementComponent
-            _timeToDash = 0;
+            Debug.Log(_timeToDash);
+            _myMovementComponent.StartCoroutine(_myMovementComponent.Dash());  // Llama al método Dash del MovementComponent
+            if (!GetComponent<MovementComponent>().CanDash)
+            {
+                _timeToDash = 0;
+            }
+            
         }
         if (Input.GetButtonDown("FeatherThrow"))                        // Si se recibe Input de Lanzamiento de Pluma
         {

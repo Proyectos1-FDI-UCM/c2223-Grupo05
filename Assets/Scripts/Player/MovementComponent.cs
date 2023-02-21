@@ -32,6 +32,7 @@ public class MovementComponent : MonoBehaviour
 
     private float _initialGravity;
     private bool _canDash = true;
+    public bool CanDash { get { return _canDash; } }
     // private bool _canMove = true; (no se usa)
 
     private Animator _playerAnim;
