@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditorInternal;
 using UnityEngine;
 
 public class FeatherThrowComponent : MonoBehaviour
@@ -7,6 +8,9 @@ public class FeatherThrowComponent : MonoBehaviour
     private Vector2 _relativeFeatherPosition;
     private Camera _myCam;
     private Vector2 _playerScreenPosition;
+    private float _featherAngle;
+    [SerializeField] GameObject _featherPrefab;
+    [SerializeField] Transform _spawnPoint;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,17 +31,21 @@ public class FeatherThrowComponent : MonoBehaviour
 
         Debug.Log("Posici鏮 relativa del rat鏮:" + _relativeFeatherPosition);
 
-        //FeatherObjective(_relativeFeatherPosition);
+        _featherAngle = FeatherAngle(_relativeFeatherPosition);
 
+        Instantiate(_featherPrefab, _spawnPoint.position, Quaternion.identity);
     }
 
-    private void FeatherAngle(Vector2 relativeFeatherPosition)
+    private float FeatherAngle(Vector2 relativeFeatherPosition)
     {
         float x = relativeFeatherPosition.y;    // x = cateto opuesto
         float y = Mathf.Sqrt(Mathf.Pow(relativeFeatherPosition.x, 2) + Mathf.Pow(relativeFeatherPosition.y, 2));    // y = hipotenusa
         float z = x / y;
 
-        float _angulo = Mathf.Asin(z);      // 聲gulo = Arcoseno (x/y)
-        Debug.Log("聲gulo respecto al jugador: " + _angulo);
+        float angulo = Mathf.Asin(z);      // 聲gulo = Arcoseno (x/y) em radiantes
+        angulo *= Mathf.Rad2Deg;           // Pasamos el 嫕gulo de radiantes a grados
+        Debug.Log("聲gulo respecto al jugador: " + angulo);
+
+        return angulo;
     }
 }
