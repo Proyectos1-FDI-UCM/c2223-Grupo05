@@ -9,7 +9,7 @@ public class FeatherThrowComponent : MonoBehaviour
     private Camera _myCam;
     private Vector2 _playerScreenPosition;
     private float _featherAngle;
-    // private int _featherCounter = 3;   (ya se hará)
+    private int _featherCounter = 3;   //(ya se hará)
 
     static private FeatherThrowComponent _instance;
 
@@ -38,13 +38,12 @@ public class FeatherThrowComponent : MonoBehaviour
 
         _featherAngle = FeatherAngle(_relativeFeatherPosition);
 
-        Instantiate(_featherPrefab, spawnPoint.position, Quaternion.identity);
 
-        /*if (_featherCounter > 0)                                                // Esto va en el GameManager (?????) (temporal)
+        if (_featherCounter > 0)                                                // Esto va en el GameManager (?????) (temporal)
         {
-            Instantiate(_featherPrefab, _spawnPoint.position, Quaternion.identity);
+            Instantiate(_featherPrefab, spawnPoint.position, Quaternion.identity);
             _featherCounter--;
-        }*/
+        }
     }
 
     private float FeatherAngle(Vector2 relativeFeatherPosition)

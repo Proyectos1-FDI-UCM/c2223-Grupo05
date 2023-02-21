@@ -14,7 +14,8 @@ public class FeatherComponent : MonoBehaviour
 
     [SerializeField] private float _speed;
     [SerializeField] private float _featherRotation;
-    private bool _stillInRange = false;          // Innecesario de momento (Seguramente borrar)
+    private bool _canReturn = false;     
+    public bool CanReturn { get { return _canReturn; } }
 
     // Start is called before the first frame update
     void Start()
@@ -39,23 +40,15 @@ public class FeatherComponent : MonoBehaviour
     {
         _playerPos = FeatherThrowComponent.Instance.spawnPoint.position;
 
-        if (_stillInRange)
+        if (_canReturn)
         {
             Return(_playerPos);
         }
-        Debug.Log(_stillInRange);
     }
-
-    private void OnTriggerExit2D(Collider2D collision)
+    public void ActivateReturn()
     {
-        if (collision.gameObject.layer == 6)
-        {
-            _stillInRange = true;
-            Debug.Log("Fuera de rango");
-            
-        }
-    }
-
+        _canReturn = !_canReturn;
+    }       
     private void Return(Vector3 endPos)
     {
         Vector3 direction = endPos - transform.position;
