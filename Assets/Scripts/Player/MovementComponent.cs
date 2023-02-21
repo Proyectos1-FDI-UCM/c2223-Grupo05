@@ -32,7 +32,7 @@ public class MovementComponent : MonoBehaviour
 
     private float _initialGravity;
     private bool _canDash = true;
-    private bool _canMove = true;
+    // private bool _canMove = true; (no se usa)
 
     private Animator _playerAnim;
 
@@ -84,19 +84,19 @@ public class MovementComponent : MonoBehaviour
 
 
     public IEnumerator Dash()
-    { 
-            if (!_touchingFloor) // Dash only if jumping
-            {
-                GetComponent<InputComponent>().enabled = false;
-                _canMove = false;
-                _canDash = false;
+    {
+        if (!_touchingFloor) // Dash only if jumping
+        {
+            GetComponent<InputComponent>().enabled = false;
+            //_canMove = false;
+            _canDash = false;
                 _playerRB.gravityScale = 0;
                 _playerRB.velocity = new Vector2(_dashVelocity * transform.localScale.x, 0);
 
                 yield return new WaitForSeconds(_timeDash); //dash execution time
 
                 _playerRB.velocity = new Vector2(0, _playerRB.velocity.y); //stop dash 
-                _canMove = true;
+                //_canMove = true;
                 _canDash = true;
                 _playerRB.gravityScale = _initialGravity;
                 GetComponent<InputComponent>().enabled = true;

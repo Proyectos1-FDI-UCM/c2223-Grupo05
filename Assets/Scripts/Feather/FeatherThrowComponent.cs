@@ -9,20 +9,25 @@ public class FeatherThrowComponent : MonoBehaviour
     private Camera _myCam;
     private Vector2 _playerScreenPosition;
     private float _featherAngle;
-    private int _featherCounter = 3;
+    // private int _featherCounter = 3;   (ya se hará)
 
-    [SerializeField] GameObject _featherPrefab;
-    [SerializeField] Transform _spawnPoint;
+    static private FeatherThrowComponent _instance;
+
+    //Instancia publica del propio player para pasar posicion constante para el Return de la pluma
+    static public FeatherThrowComponent Instance { get { return _instance; } } 
+
+
+    [SerializeField] private GameObject _featherPrefab;
+    public Transform spawnPoint;
     // Start is called before the first frame update
     void Start()
     {
         _myCam = Camera.main;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Awake()
     {
-
+        _instance = this;
     }
 
     public void FeatherObjective(Vector2 mousePosition)                   // Se calcula la posición donde se lanzará la pluma
@@ -32,11 +37,14 @@ public class FeatherThrowComponent : MonoBehaviour
         _relativeFeatherPosition = mousePosition - _playerScreenPosition;   // Posición del ratón respecto al jugador
 
         _featherAngle = FeatherAngle(_relativeFeatherPosition);
-        if (_featherCounter > 0)                                                // Esto va en el GameManager (?????) (temporal)
+
+        Instantiate(_featherPrefab, spawnPoint.position, Quaternion.identity);
+
+        /*if (_featherCounter > 0)                                                // Esto va en el GameManager (?????) (temporal)
         {
             Instantiate(_featherPrefab, _spawnPoint.position, Quaternion.identity);
             _featherCounter--;
-        }
+        }*/
     }
 
     private float FeatherAngle(Vector2 relativeFeatherPosition)
