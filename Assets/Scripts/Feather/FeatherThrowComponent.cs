@@ -8,8 +8,8 @@ public class FeatherThrowComponent : MonoBehaviour
     private Vector2 _relativeFeatherPosition;
     private Camera _myCam;
     private Vector2 _playerScreenPosition;
-    private float _featherAngle;
-    private int _featherCounter = 3;   //(ya se hará)
+    //private float _featherAngle;
+  
 
     static private FeatherThrowComponent _instance;
 
@@ -30,19 +30,20 @@ public class FeatherThrowComponent : MonoBehaviour
         _instance = this;
     }
 
+
+    //Calcula direccion de lanzaminto e instancia la pluma 
     public void FeatherObjective(Vector2 mousePosition)                   // Se calcula la posición donde se lanzará la pluma
     {
         _playerScreenPosition = _myCam.WorldToScreenPoint(gameObject.transform.position);   // Posición del jugador en la pantalla
 
         _relativeFeatherPosition = mousePosition - _playerScreenPosition;   // Posición del ratón respecto al jugador
 
-        _featherAngle = FeatherAngle(_relativeFeatherPosition);
+        //_featherAngle = FeatherAngle(_relativeFeatherPosition);
 
-
-        if (_featherCounter > 0)                                                // Esto va en el GameManager (?????) (temporal)
+        if (GameManager.Instance.FeatherCant > 0)                                                
         {
             Instantiate(_featherPrefab, spawnPoint.position, Quaternion.identity);
-            _featherCounter--;
+            GameManager.Instance.RemoveFeather();
         }
     }
 

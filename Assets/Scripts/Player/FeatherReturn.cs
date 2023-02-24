@@ -11,8 +11,8 @@ public class FeatherReturn : MonoBehaviour
         {
             if (collision.GetComponent<FeatherComponent>().CanReturn)
             {
-                //GameManager --> featherCounter++
-                
+
+                GameManager.Instance.AddFeather();
                 Object.Destroy(collision.gameObject);
             }
             
