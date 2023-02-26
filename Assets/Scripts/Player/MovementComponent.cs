@@ -45,7 +45,6 @@ public class MovementComponent : MonoBehaviour
         _playerAnim = GetComponent<Animator>();
 
         _initialGravity = _playerRB.gravityScale;
-
         
     }
     private void Update()

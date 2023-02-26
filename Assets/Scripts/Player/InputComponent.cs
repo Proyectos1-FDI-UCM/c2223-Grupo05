@@ -38,7 +38,6 @@ public class InputComponent : MonoBehaviour
         }
         if (Input.GetButtonDown("Dash") && _timeToDash > _dashCoolDown) // Si se recibe Input de Dash 
         {
-            Debug.Log(_timeToDash);
             _myMovementComponent.StartCoroutine(_myMovementComponent.Dash());  // Llama al método Dash del MovementComponent
             if (!GetComponent<MovementComponent>().CanDash)
             {

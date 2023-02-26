@@ -19,6 +19,7 @@ public class FeatherThrowComponent : MonoBehaviour
 
     [SerializeField] private GameObject _featherPrefab;
     public Transform spawnPoint;
+
     // Start is called before the first frame update
     void Start()
     {

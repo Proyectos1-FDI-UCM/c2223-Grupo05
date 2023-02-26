@@ -20,7 +20,7 @@ public class FeatherComponent : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       
+       //Mirar para cambiarlo con la posición relativa del jugador
 
         _camera = Camera.main;
         _myRigidBody = GetComponent<Rigidbody2D>();
@@ -36,7 +36,7 @@ public class FeatherComponent : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void Update() //Quizás nos renta más ponerlo en el fixedupdate (debido a q al fin y al cabo lo llamamos casi por las fisicas)
     {
         _playerPos = FeatherThrowComponent.Instance.spawnPoint.position;
 
