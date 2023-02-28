@@ -7,7 +7,8 @@ public class FeatherStates : MonoBehaviour
 {
     public enum FeatherState {FEATHER, PLATFORM}
 
-    public FeatherState _currentState;
+    private FeatherState _currentState;
+   
     private FeatherState _nextState;
 
     private void EnterState(FeatherState state)
@@ -15,11 +16,12 @@ public class FeatherStates : MonoBehaviour
         switch (state)
         {
             case FeatherState.FEATHER:
-
+                this.gameObject.transform.GetChild((int)FeatherState.FEATHER).gameObject.SetActive(true);
 
                 break;
             case FeatherState.PLATFORM:
-
+                this.gameObject.transform.GetChild((int)FeatherState.PLATFORM).gameObject.SetActive(true);
+                //this.gameObject.transform.GetChild((int)FeatherState.PLATFORM).gameObject.GetComponent<PolygonCollider2D>().enabled = true;
 
                 break;
         }
@@ -29,12 +31,12 @@ public class FeatherStates : MonoBehaviour
         switch (state)
         {
             case FeatherState.FEATHER:
-
+                this.gameObject.transform.GetChild((int)FeatherState.FEATHER).gameObject.SetActive(false);
 
                 break;
             case FeatherState.PLATFORM:
-
-
+                this.gameObject.transform.GetChild((int)FeatherState.PLATFORM ).gameObject.SetActive(false);
+                //this.gameObject.transform.GetChild((int)FeatherState.PLATFORM).gameObject.GetComponent<PolygonCollider2D>().enabled = false; 
                 break;
         }
     }
@@ -46,12 +48,18 @@ public class FeatherStates : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        _currentState = FeatherState.PLATFORM;
+        _nextState = FeatherState.FEATHER;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if(_nextState != _currentState)
+        {
+            ExitState(_currentState);
+            _currentState = _nextState;
+            EnterState(_currentState);
+        }
     }
 }

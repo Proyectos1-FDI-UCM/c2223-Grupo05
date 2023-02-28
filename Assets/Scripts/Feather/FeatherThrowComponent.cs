@@ -8,7 +8,7 @@ public class FeatherThrowComponent : MonoBehaviour
     private Vector2 _relativeFeatherPosition;
     private Camera _myCam;
     private Vector2 _playerScreenPosition;
-     [SerializeField] private GameObject[] _featherArray = new GameObject[3];
+    [SerializeField] private GameObject[] _featherArray = new GameObject[3];
     //private float _featherAngle;
   
 
