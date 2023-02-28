@@ -21,7 +21,11 @@ public class FeatherStates : MonoBehaviour
                 break;
             case FeatherState.PLATFORM:
                 this.gameObject.transform.GetChild((int)FeatherState.PLATFORM).gameObject.SetActive(true);
-                //this.gameObject.transform.GetChild((int)FeatherState.PLATFORM).gameObject.GetComponent<PolygonCollider2D>().enabled = true;
+                GetComponent<FeatherComponent>().Stop();
+                GetComponent<FeatherComponent>().enabled = false;
+                GetComponent<Rigidbody2D>().isKinematic = true;
+                transform.rotation = Quaternion.identity;
+               
 
                 break;
         }
@@ -36,7 +40,7 @@ public class FeatherStates : MonoBehaviour
                 break;
             case FeatherState.PLATFORM:
                 this.gameObject.transform.GetChild((int)FeatherState.PLATFORM ).gameObject.SetActive(false);
-                //this.gameObject.transform.GetChild((int)FeatherState.PLATFORM).gameObject.GetComponent<PolygonCollider2D>().enabled = false; 
+                
                 break;
         }
     }

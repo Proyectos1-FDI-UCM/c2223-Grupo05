@@ -47,6 +47,10 @@ public class FeatherComponent : MonoBehaviour
     {
         _canReturn = !_canReturn;
     }       
+    public void Stop()
+    {
+        _myRigidBody.velocity = Vector3.zero;
+    }
     private void Return(Vector3 endPos)
     {
         Vector3 direction = endPos - transform.position;
