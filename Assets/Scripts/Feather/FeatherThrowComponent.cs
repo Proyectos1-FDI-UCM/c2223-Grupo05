@@ -8,13 +8,14 @@ public class FeatherThrowComponent : MonoBehaviour
     private Vector2 _relativeFeatherPosition;
     private Camera _myCam;
     private Vector2 _playerScreenPosition;
+     [SerializeField] private GameObject[] _featherArray = new GameObject[3];
     //private float _featherAngle;
   
 
-    static private FeatherThrowComponent _instance;
+    
 
     //Instancia publica del propio player para pasar posicion constante para el Return de la pluma
-    static public FeatherThrowComponent Instance { get { return _instance; } } 
+    
 
 
     [SerializeField] private GameObject _featherPrefab;
@@ -24,11 +25,6 @@ public class FeatherThrowComponent : MonoBehaviour
     void Start()
     {
         _myCam = Camera.main;
-    }
-
-    private void Awake()
-    {
-        _instance = this;
     }
 
 
@@ -43,12 +39,14 @@ public class FeatherThrowComponent : MonoBehaviour
 
         if (GameManager.Instance.FeatherCant > 0)                                                
         {
-            Instantiate(_featherPrefab, spawnPoint.position, Quaternion.identity);
+            GameObject go = Instantiate(_featherPrefab, spawnPoint.position, Quaternion.identity);
+            _featherArray[Mathf.Abs(GameManager.Instance.FeatherCant - 3)] = go;
+            
             GameManager.Instance.RemoveFeather();
         }
     }
 
-    private float FeatherAngle(Vector2 relativeFeatherPosition)
+    /*private float FeatherAngle(Vector2 relativeFeatherPosition)
     {
         float x = relativeFeatherPosition.y;    // x = cateto opuesto
         float y = Mathf.Sqrt(Mathf.Pow(relativeFeatherPosition.x, 2) + Mathf.Pow(relativeFeatherPosition.y, 2));    // y = hipotenusa
@@ -58,5 +56,5 @@ public class FeatherThrowComponent : MonoBehaviour
         angulo *= Mathf.Rad2Deg;           // Pasamos el ángulo de radiantes a grados
 
         return angulo;
-    }
+    }*/
 }

@@ -43,6 +43,10 @@ public class GameManager : MonoBehaviour
 
     #region METHODS
 
+    public GameObject SetPlayer()
+    {
+        return _player;
+    }
     #region STATES
 
     public void ChangeState(GameStates state)

@@ -9,9 +9,9 @@ public class FeatherComponent : MonoBehaviour
     private Camera _camera;
     private Rigidbody2D _myRigidBody;
     [SerializeField] private LayerMask _featherRange;
+    private GameObject _player;
 
-    private Vector3 _playerPos;
-
+   
     [SerializeField] private float _speed;
     [SerializeField] private float _featherRotation;
     private bool _canReturn = false;     
@@ -20,8 +20,8 @@ public class FeatherComponent : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       //Mirar para cambiarlo con la posición relativa del jugador
-
+        //Mirar para cambiarlo con la posición relativa del jugador
+        _player = GameManager.Instance.SetPlayer();
         _camera = Camera.main;
         _myRigidBody = GetComponent<Rigidbody2D>();
         _mousePosition = _camera.ScreenToWorldPoint(Input.mousePosition);
@@ -36,13 +36,11 @@ public class FeatherComponent : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update() //Quizás nos renta más ponerlo en el fixedupdate (debido a q al fin y al cabo lo llamamos casi por las fisicas)
+    void Update()
     {
-        _playerPos = FeatherThrowComponent.Instance.spawnPoint.position;
-
         if (_canReturn)
         {
-            Return(_playerPos);
+            Return(_player.transform.position);
         }
     }
     public void ActivateReturn()
