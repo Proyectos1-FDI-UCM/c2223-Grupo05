@@ -15,7 +15,7 @@ public class InputComponent : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _myMovementComponent = GetComponent<MovementComponent>();  
+        _myMovementComponent = GetComponent<MovementComponent>();
         _myFeatherThrowComponent = GetComponent<FeatherThrowComponent>();
     }
 
@@ -26,12 +26,14 @@ public class InputComponent : MonoBehaviour
         if (_playerHorizontalDirection != 0)                            // Si hay movimiento horizontal
         {
             _myMovementComponent.Move(_playerHorizontalDirection);      // Llama al método Move (Horizontal) del MovementComponent
-            
+            _myMovementComponent.RayCast2D(_playerHorizontalDirection);
+            if (_myMovementComponent.RayCast2D(_playerHorizontalDirection)) _myMovementComponent.Move(0);
         }
         else
         {
-            _myMovementComponent.Move(0);   
+            _myMovementComponent.Move(0);
         }
+
         if (Input.GetButtonDown("Jump"))                                // Si se recibe Input de Salto
         {
             _myMovementComponent.Jump();                                // Llama al método Jump del MovementComponent
@@ -43,18 +45,20 @@ public class InputComponent : MonoBehaviour
             {
                 _timeToDash = 0;
             }
-            
+
         }
         if (Input.GetButtonDown("FeatherThrow"))                        // Si se recibe Input de Lanzamiento de Pluma
         {
             _mousePosition = Input.mousePosition;                       // Se guarda la posición del cursor
 
-            //si direccion player y destino flechas son contrarios girar player
+            //si dirección player y destino flechas son contrarios girar player
 
             _myFeatherThrowComponent.FeatherObjective(_mousePosition);
         }
 
         _timeToDash += Time.deltaTime;
-        
+
     }
 }
+
+

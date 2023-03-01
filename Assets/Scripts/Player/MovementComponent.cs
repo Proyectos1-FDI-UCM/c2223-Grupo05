@@ -7,8 +7,13 @@ using UnityEngine;
 public class MovementComponent : MonoBehaviour
 {
     Rigidbody2D _playerRB;
+    Transform _playerTransform;
 
-    
+
+    [SerializeField] private float _rayDistance;
+    [SerializeField] private LayerMask _walls;
+    [SerializeField] private float _offSet;
+
     [Header("Jump")]
 
     [SerializeField] private Transform _floorControler; //controlador del suelo
@@ -17,9 +22,9 @@ public class MovementComponent : MonoBehaviour
     [SerializeField] private float _jumpForce;
 
     [Header("Movement")]
-    
+
     [SerializeField] private float _moveSpeed;
-    
+
 
     private bool _touchingFloor;
     private bool _lookingRight = true;
@@ -28,7 +33,7 @@ public class MovementComponent : MonoBehaviour
 
     [SerializeField] private float _dashVelocity;
     [SerializeField] private float _timeDash;
-   
+
 
     private float _initialGravity;
     private bool _canDash = true;
@@ -43,9 +48,9 @@ public class MovementComponent : MonoBehaviour
     {
         _playerRB = GetComponent<Rigidbody2D>();
         _playerAnim = GetComponent<Animator>();
-
+        _playerTransform = transform;
         _initialGravity = _playerRB.gravityScale;
-        
+
     }
     private void Update()
     {
@@ -61,17 +66,17 @@ public class MovementComponent : MonoBehaviour
     }
     public void Jump()
     {
-        if(_touchingFloor)
+        if (_touchingFloor)
         {
             _playerRB.AddForce(new Vector2(0, _jumpForce), ForceMode2D.Impulse);
         }
 
     }
-    public void Move(float _playerDirection) 
+    public void Move(float _playerDirection)
     {
-        
+
         _playerRB.velocity = new Vector2(_playerDirection * _moveSpeed, _playerRB.velocity.y);
-        if(_playerDirection > 0 && !_lookingRight)
+        if (_playerDirection > 0 && !_lookingRight)
         {
             Turn();
         }
@@ -90,19 +95,31 @@ public class MovementComponent : MonoBehaviour
             GetComponent<InputComponent>().enabled = false;
             //_canMove = false;
             _canDash = false;
-                _playerRB.gravityScale = 0;
-                _playerRB.velocity = new Vector2(_dashVelocity * transform.localScale.x, 0);
+            _playerRB.gravityScale = 0;
+            _playerRB.velocity = new Vector2(_dashVelocity * transform.localScale.x, 0);
 
-                yield return new WaitForSeconds(_timeDash); //dash execution time
+            yield return new WaitForSeconds(_timeDash); //dash execution time
 
-                _playerRB.velocity = new Vector2(0, _playerRB.velocity.y); //stop dash 
-                //_canMove = true;
-                _canDash = true;
-                _playerRB.gravityScale = _initialGravity;
-                GetComponent<InputComponent>().enabled = true;
-            }
+            _playerRB.velocity = new Vector2(0, _playerRB.velocity.y); //stop dash 
+                                                                       //_canMove = true;
+            _canDash = true;
+            _playerRB.gravityScale = _initialGravity;
+            GetComponent<InputComponent>().enabled = true;
+        }
     }
-
+    public bool RayCast2D(float _playerDirection)
+    {
+        Vector2 _myOffSet = new Vector2(_playerTransform.position.x, _playerTransform.position.y - _offSet); 
+        bool _stop = false;
+        RaycastHit2D _ray = Physics2D.Raycast(_playerTransform.position, Vector2.right * _playerDirection, _rayDistance, _walls);
+        RaycastHit2D _rayFeet = Physics2D.Raycast(_myOffSet, Vector2.right * _playerDirection, _rayDistance, _walls);
+        if (((_ray || _rayFeet) && _playerRB.velocity.x > 0 && Input.GetKey(KeyCode.D)) || ((_ray || _rayFeet) && _playerRB.velocity.x < 0 && Input.GetKey(KeyCode.A)))
+        {
+            _stop = true;
+        }
+        return _stop;
+        //Debug.DrawRay(_myOffSet, Vector2.right * _playerDirection, Color.white);
+    }
 
     private void Turn()
     {
@@ -118,3 +135,5 @@ public class MovementComponent : MonoBehaviour
         Gizmos.DrawWireCube(_floorControler.position, _floorDimensions);
     }
 }
+
+
