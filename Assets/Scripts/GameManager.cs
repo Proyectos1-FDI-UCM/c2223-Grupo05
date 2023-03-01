@@ -105,6 +105,7 @@ public class GameManager : MonoBehaviour
     {
         _feathersCant--;
     }
+    
 
     #endregion
 
