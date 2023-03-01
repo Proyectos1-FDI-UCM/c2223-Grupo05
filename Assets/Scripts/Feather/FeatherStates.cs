@@ -17,13 +17,16 @@ public class FeatherStates : MonoBehaviour
         {
             case FeatherState.FEATHER:
                 this.gameObject.transform.GetChild((int)FeatherState.FEATHER).gameObject.SetActive(true);
+                GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+                GetComponent<FeatherComponent>().enabled = true;
+                GetComponent<PolygonCollider2D>().enabled = true;
 
                 break;
             case FeatherState.PLATFORM:
                 this.gameObject.transform.GetChild((int)FeatherState.PLATFORM).gameObject.SetActive(true);
-                GetComponent<FeatherComponent>().Stop();
+                GetComponent<Rigidbody2D>().bodyType=  RigidbodyType2D.Static;
                 GetComponent<FeatherComponent>().enabled = false;
-                GetComponent<Rigidbody2D>().isKinematic = true;
+                GetComponent<PolygonCollider2D>().enabled= false;
                 transform.rotation = Quaternion.identity;
                
 
