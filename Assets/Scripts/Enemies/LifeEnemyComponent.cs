@@ -31,5 +31,6 @@ public class LifeEnemyComponent : MonoBehaviour
     private void Die()
     {
         //animación de muerte
+        Destroy(gameObject);
     }
 }

@@ -9,7 +9,7 @@ public class PlayerCombat : MonoBehaviour
     private Transform _attackPoint;
 
     [SerializeField]
-    private Transform _attackSize;
+    private Vector2 _attackSize;
 
     private float _angleAttack= 90f;
 
@@ -21,6 +21,7 @@ public class PlayerCombat : MonoBehaviour
 
     [SerializeField]
     private int _attackDamage;
+
     // Update is called once per frame
     void Update()
     {
@@ -30,14 +31,23 @@ public class PlayerCombat : MonoBehaviour
     // play attack animation, detect enemies in range attack, damage them
     public void Attack()
     {
+        
         //animation
-        Collider2D[] _hitEnemies = Physics2D.OverlapCapsuleAll(_attackPoint.position, _attackSize.position ,_direction, _angleAttack  ,_enemylayer);
-
-        foreach(Collider2D enemies in _hitEnemies)
+        if (GetComponent<MovementComponent>().TouchingFloor)
         {
-            enemies.GetComponent<LifeEnemyComponent>().TakeDamage(_attackDamage);
-            Debug.Log("Tocado");
+            GetComponent<InputComponent>().enabled = false;
+            Debug.Log("suelo");
+            Collider2D[] _hitEnemies = Physics2D.OverlapCapsuleAll(_attackPoint.position, _attackSize, _direction, _angleAttack, _enemylayer);
+
+            foreach (Collider2D enemies in _hitEnemies)
+            {
+                Debug.Log("Tocado");
+                enemies.GetComponent<LifeEnemyComponent>().TakeDamage(_attackDamage);
+
+            }
+            GetComponent<InputComponent>().enabled = true;
         }
+        
         
     }
 
@@ -47,7 +57,7 @@ public class PlayerCombat : MonoBehaviour
         {
             return;
         }
-        
+
     }
 
 

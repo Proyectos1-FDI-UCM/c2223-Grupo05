@@ -27,6 +27,7 @@ public class MovementComponent : MonoBehaviour
 
 
     private bool _touchingFloor;
+    public bool TouchingFloor { get { return _touchingFloor; } }
     private bool _lookingRight = true;
 
     [Header("Dash")]
@@ -38,6 +39,7 @@ public class MovementComponent : MonoBehaviour
     private float _initialGravity;
     private bool _canDash = true;
     public bool CanDash { get { return _canDash; } }
+
     // private bool _canMove = true; (no se usa)
 
     private Animator _playerAnim;
