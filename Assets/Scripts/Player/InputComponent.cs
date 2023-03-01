@@ -26,14 +26,12 @@ public class InputComponent : MonoBehaviour
         if (_playerHorizontalDirection != 0)                            // Si hay movimiento horizontal
         {
             _myMovementComponent.Move(_playerHorizontalDirection);      // Llama al método Move (Horizontal) del MovementComponent
-            _myMovementComponent.RayCast2D(_playerHorizontalDirection);
-            if (_myMovementComponent.RayCast2D(_playerHorizontalDirection)) _myMovementComponent.Move(0);
+            
         }
-        else 
+        else
         {
             _myMovementComponent.Move(0);   
         }
-        
         if (Input.GetButtonDown("Jump"))                                // Si se recibe Input de Salto
         {
             _myMovementComponent.Jump();                                // Llama al método Jump del MovementComponent

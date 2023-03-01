@@ -7,11 +7,7 @@ using UnityEngine;
 public class MovementComponent : MonoBehaviour
 {
     Rigidbody2D _playerRB;
-    Transform _playerTransform;
 
-
-    [SerializeField] private float _rayDistance;
-    [SerializeField] private LayerMask _walls;
     
     [Header("Jump")]
 
@@ -47,7 +43,7 @@ public class MovementComponent : MonoBehaviour
     {
         _playerRB = GetComponent<Rigidbody2D>();
         _playerAnim = GetComponent<Animator>();
-        _playerTransform = transform;
+
         _initialGravity = _playerRB.gravityScale;
         
     }
@@ -106,17 +102,7 @@ public class MovementComponent : MonoBehaviour
                 GetComponent<InputComponent>().enabled = true;
             }
     }
-    public bool RayCast2D(float _playerDirection)
-    {
-        bool _stop = false;
-        RaycastHit2D ray = Physics2D.Raycast(_playerTransform.position, Vector2.right * _playerDirection, _rayDistance, _walls);
-        if ((ray && _playerRB.velocity.x > 0 && Input.GetKey(KeyCode.D)) || (ray && _playerRB.velocity.x < 0 && Input.GetKey(KeyCode.A)))
-        {
-            _stop = true;
-        }
-        return _stop;
-        //Debug.DrawRay(_playerTransform.position, Vector2.right * _playerDirection, Color.white);
-    }
+
 
     private void Turn()
     {
