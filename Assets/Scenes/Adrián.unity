@@ -5747,7 +5747,7 @@ Sprite:
         format: 0
         dimension: 0
       m_DataSize: 80
-      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
+      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
     m_Bindpose: []
     textureRect:
       serializedVersion: 2
@@ -89597,7 +89597,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1934898655}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.006, y: 0, z: 0}
+  m_LocalPosition: {x: 1.3, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -90216,6 +90216,7 @@ GameObject:
   - component: {fileID: 2519033432567387590}
   - component: {fileID: 2519033432567387591}
   - component: {fileID: 2519033432567387593}
+  - component: {fileID: 2519033432567387596}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -90256,6 +90257,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a850ad94f876b9c4a80868b298147732, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _rayDistance: 0
+  _walls:
+    serializedVersion: 2
+    m_Bits: 0
+  _offSet: 0
   _floorControler: {fileID: 2519033431006162829}
   _floorDimensions: {x: 0.5, y: 0.2}
   _floor:
@@ -90310,6 +90316,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61f7558bf8483854e82551ba23169e1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _featherArray:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   _featherPrefab: {fileID: 4888245590559077814, guid: 9a22b9180019fa54caeba961cdea215a, type: 3}
   spawnPoint: {fileID: 2519033430490705682}
 --- !u!212 &2519033432567387594
@@ -90353,7 +90363,7 @@ SpriteRenderer:
   m_SortingLayerID: -248209905
   m_SortingLayer: 2
   m_SortingOrder: 8
-  m_Sprite: {fileID: 21300000, guid: 52aa63ff49a8fa147b82233eba05fdbe, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5cf3a44943c304f428484fe9be3e1fa7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -90380,3 +90390,20 @@ CapsuleCollider2D:
   m_Offset: {x: -0.031326294, y: -0.008543539}
   m_Size: {x: 0.3836937, y: 0.657087}
   m_Direction: 0
+--- !u!114 &2519033432567387596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2519033432567387585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5124baf7a0a5c24cb80df8cc9ba8433, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _attackPoint: {fileID: 1934898656}
+  _attackRange: 0.5
+  _enemylayer:
+    serializedVersion: 2
+    m_Bits: 0

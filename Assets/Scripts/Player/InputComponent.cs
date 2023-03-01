@@ -9,6 +9,7 @@ public class InputComponent : MonoBehaviour
     private Vector2 _mousePosition;
     private MovementComponent _myMovementComponent;
     private FeatherThrowComponent _myFeatherThrowComponent;
+    private PlayerCombat _myAttackComponent;
     [SerializeField] private float _dashCoolDown;
     private float _timeToDash = 0;
 
@@ -17,6 +18,7 @@ public class InputComponent : MonoBehaviour
     {
         _myMovementComponent = GetComponent<MovementComponent>();
         _myFeatherThrowComponent = GetComponent<FeatherThrowComponent>();
+        _myAttackComponent = GetComponent<PlayerCombat>();
     }
 
     // Update is called once per frame
@@ -56,6 +58,10 @@ public class InputComponent : MonoBehaviour
             _myFeatherThrowComponent.FeatherObjective(_mousePosition);
         }
 
+        if(Input.GetButtonDown("Basic Attack"))
+        {
+            _myAttackComponent.Attack();
+        }
         _timeToDash += Time.deltaTime;
 
     }

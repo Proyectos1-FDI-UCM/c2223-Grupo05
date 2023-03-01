@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class P : MonoBehaviour
+public class PlayerCombat : MonoBehaviour
 {
     [SerializeField] 
     private Transform _attackPoint;
@@ -19,7 +19,7 @@ public class P : MonoBehaviour
     }
 
     // play attack animation, detect enemies in range attack, damage them
-    void Attack()
+    public void Attack()
     {
         //animation
         Collider2D[] _hitEnemies = Physics2D.OverlapCircleAll(_attackPoint.position, _attackRange, _enemylayer);
