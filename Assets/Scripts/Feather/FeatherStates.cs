@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class FeatherStates : MonoBehaviour
 {
-    public enum FeatherState {FEATHER, PLATFORM}
+    public enum FeatherState {FEATHER, PLATFORM, RETURN}
 
     private FeatherState _currentState;
    
@@ -27,8 +27,10 @@ public class FeatherStates : MonoBehaviour
                 GetComponent<Rigidbody2D>().bodyType=  RigidbodyType2D.Static;
                 GetComponent<FeatherComponent>().enabled = false;
                 GetComponent<PolygonCollider2D>().enabled= false;
-                transform.rotation = Quaternion.identity;
-               
+                transform.rotation = Quaternion.identity;             
+
+                break;
+            case FeatherState.RETURN:
 
                 break;
         }
@@ -43,7 +45,7 @@ public class FeatherStates : MonoBehaviour
                 break;
             case FeatherState.PLATFORM:
                 this.gameObject.transform.GetChild((int)FeatherState.PLATFORM ).gameObject.SetActive(false);
-                
+            
                 break;
         }
     }
