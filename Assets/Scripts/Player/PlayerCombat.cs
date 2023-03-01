@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class PlayerCombat : MonoBehaviour
@@ -8,10 +9,18 @@ public class PlayerCombat : MonoBehaviour
     private Transform _attackPoint;
 
     [SerializeField]
-    private float _attackRange;
+    private Transform _attackSize;
+
+    private float _angleAttack= 90f;
+
+    [SerializeField]
+    private CapsuleDirection2D _direction;
 
     [SerializeField]
     private LayerMask _enemylayer;
+
+    [SerializeField]
+    private int _attackDamage;
     // Update is called once per frame
     void Update()
     {
@@ -22,12 +31,14 @@ public class PlayerCombat : MonoBehaviour
     public void Attack()
     {
         //animation
-        Collider2D[] _hitEnemies = Physics2D.OverlapCircleAll(_attackPoint.position, _attackRange, _enemylayer);
+        Collider2D[] _hitEnemies = Physics2D.OverlapCapsuleAll(_attackPoint.position, _attackSize.position ,_direction, _angleAttack  ,_enemylayer);
 
         foreach(Collider2D enemies in _hitEnemies)
         {
-            Debug.Log("Golpeado");
+            enemies.GetComponent<LifeEnemyComponent>().TakeDamage(_attackDamage);
+            Debug.Log("Tocado");
         }
+        
     }
 
     private void OnDrawGizmosSelected()
@@ -36,7 +47,7 @@ public class PlayerCombat : MonoBehaviour
         {
             return;
         }
-        Gizmos.DrawWireSphere(_attackPoint.position, _attackRange);
+        
     }
 
 
