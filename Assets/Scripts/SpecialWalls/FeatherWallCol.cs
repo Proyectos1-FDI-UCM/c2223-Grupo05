@@ -10,7 +10,6 @@ public class FeatherWallCol : MonoBehaviour
         {
             //collision.gameObject.GetComponent<FeatherPlatformComp>().SetFeatherToWall(this.transform.position);
             collision.GetComponent<FeatherStates>().ChangeState(FeatherStates.FeatherState.PLATFORM);
-            Debug.Log("xD");
         }
     }
 }

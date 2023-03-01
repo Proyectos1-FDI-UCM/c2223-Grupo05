@@ -58,9 +58,16 @@ public class InputComponent : MonoBehaviour
             _myFeatherThrowComponent.FeatherObjective(_mousePosition);
         }
 
-        if(Input.GetButtonDown("Basic Attack"))
+        if (Input.GetButtonDown("Basic Attack"))
         {
             _myAttackComponent.Attack();
+        }
+
+        if (Input.GetButtonDown("Feather Return"))
+        {
+            _myFeatherThrowComponent.CollectFeathers();
+            // Volvemos a cambiar los estados de las plumas (accedemos a cada una del array del FeatherThrowComponent)
+            // Llamamos a Return de cada FeatherComponent
         }
         _timeToDash += Time.deltaTime;
 

@@ -8,7 +8,7 @@ public class FeatherThrowComponent : MonoBehaviour
     private Vector2 _relativeFeatherPosition;
     private Camera _myCam;
     private Vector2 _playerScreenPosition;
-    [SerializeField] private GameObject[] _featherArray = new GameObject[3];
+    [SerializeField] public GameObject[] _featherArray = new GameObject[3]; // Cambiado a public para acceder desde Input
     //private float _featherAngle;
   
 
@@ -46,15 +46,16 @@ public class FeatherThrowComponent : MonoBehaviour
         }
     }
 
-    /*private float FeatherAngle(Vector2 relativeFeatherPosition)
+    public void CollectFeathers()
     {
-        float x = relativeFeatherPosition.y;    // x = cateto opuesto
-        float y = Mathf.Sqrt(Mathf.Pow(relativeFeatherPosition.x, 2) + Mathf.Pow(relativeFeatherPosition.y, 2));    // y = hipotenusa
-        float z = x / y;
-
-        float angulo = Mathf.Asin(z);      // Ángulo = Arcoseno (x/y) em radiantes
-        angulo *= Mathf.Rad2Deg;           // Pasamos el ángulo de radiantes a grados
-
-        return angulo;
-    }*/
+        for (int i = 0; i < _featherArray.Length; i++)
+        {
+            if (_featherArray[i] != null)
+            {
+                _featherArray[i].GetComponent<FeatherStates>().ChangeState(FeatherStates.FeatherState.FEATHER);
+                _featherArray[i].GetComponent<FeatherComponent>().ActivateReturn();
+                Debug.Log("Se supone q se cambia a pluma de nuevo");
+            }
+        }      
+    }
 }
