@@ -52,10 +52,9 @@ public class FeatherThrowComponent : MonoBehaviour
         {
             if (_featherArray[i] != null)
             {
-                _featherArray[i].GetComponent<FeatherStates>().ChangeState(FeatherStates.FeatherState.RETURN);
-                _featherArray[i].GetComponent<FeatherReturn>().ActivateReturn();
-                Debug.Log("Se supone q se cambia a pluma de nuevo");
+                _featherArray[i].gameObject.GetComponent<FeatherStates>().ChangeState(FeatherStates.FeatherState.RETURN);
             }
+            Debug.Log(i);
         }      
     }
 }

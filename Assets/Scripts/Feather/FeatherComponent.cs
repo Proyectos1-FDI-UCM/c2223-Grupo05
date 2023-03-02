@@ -10,6 +10,8 @@ public class FeatherComponent : MonoBehaviour
     private Rigidbody2D _myRigidBody;
     [SerializeField] private LayerMask _featherRange;
     private GameObject _player;
+    private Quaternion _rotation;
+    public Quaternion Rotation { get { return _rotation; } }
 
 
     [SerializeField] private float _speed;
@@ -31,6 +33,7 @@ public class FeatherComponent : MonoBehaviour
         _myRigidBody.velocity = new Vector2(direction.x, direction.y).normalized * _speed;
 
         float rot = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
-        transform.parent.rotation = Quaternion.Euler(0, 0, rot + _featherRotation);
+        _rotation = Quaternion.Euler(0, 0, rot + _featherRotation);
+        transform.parent.rotation = _rotation;
     }
 }

@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
+using UnityEditor.Search;
 using UnityEditor.Tilemaps;
 using UnityEngine;
 
 public class FeatherStates : MonoBehaviour
 {
     public enum FeatherState {FEATHER, PLATFORM, RETURN}
+    private GameObject _player;
 
     [SerializeField]private FeatherState _currentState;
     public FeatherState CurrrentState { get { return _currentState; } }
@@ -23,33 +26,30 @@ public class FeatherStates : MonoBehaviour
                 
                 break;
             case FeatherState.PLATFORM:
-                Debug.Log("Plataformita");
+                //seteamos todo lo que no vaya a interferir con el estado antes de cambiar para que no haya errores en la maquina de estados
+                this.gameObject.transform.GetChild((int)FeatherState.FEATHER).gameObject.SetActive(false);
+                //Se realiza lo que verdaderamente hace el estado
                 this.gameObject.transform.GetChild((int)FeatherState.PLATFORM).gameObject.SetActive(true);
                 GetComponent<Rigidbody2D>().bodyType=  RigidbodyType2D.Static;
-                transform.rotation = Quaternion.identity;             
+                transform.rotation = Quaternion.identity;      
                 break;
           
             case FeatherState.RETURN:
+                //seteamos todo lo que no vaya a interferir con el estado antes de cambiar para que no haya errores en la maquina de estados
+                this.gameObject.transform.GetChild((int)FeatherState.FEATHER).gameObject.SetActive(false);
+                this.gameObject.transform.GetChild((int)FeatherState.PLATFORM).gameObject.SetActive(false);
+                //Se realiza lo que verdaderamente hace el estado
                 this.gameObject.transform.GetChild((int)FeatherState.RETURN).gameObject.SetActive(true);
                 GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+                transform.rotation = this.gameObject.transform.GetChild((int)FeatherState.FEATHER).gameObject.GetComponent<FeatherComponent>().Rotation;
                 this.gameObject.transform.GetChild((int)FeatherState.RETURN).gameObject.GetComponent<FeatherReturn>().ActivateReturn();
                 break;
         }
     }
-    private void ExitState(FeatherState state)
+    public void FreezeAutoReturn()
     {
-        switch (state)
-        {
-            case FeatherState.FEATHER:
-                this.gameObject.transform.GetChild((int)FeatherState.FEATHER).gameObject.SetActive(false);
-
-                break;
-            case FeatherState.PLATFORM:
-                this.gameObject.transform.GetChild((int)FeatherState.PLATFORM ).gameObject.SetActive(false);
-                break;
-        }
+        _player.GetComponentInChildren<FeatherDetectionComponent>().enabled = false;
     }
-
     public void ChangeState(FeatherState newState)
     {
         _nextState = newState;
@@ -61,6 +61,7 @@ public class FeatherStates : MonoBehaviour
         this.gameObject.transform.GetChild((int)FeatherState.FEATHER).gameObject.SetActive(false);
         this.gameObject.transform.GetChild((int)FeatherState.PLATFORM).gameObject.SetActive(false);
         this.gameObject.transform.GetChild((int)FeatherState.RETURN).gameObject.SetActive(false);
+        _player = GameManager.Instance.SetPlayer();
     }
     // Start is called before the first frame update
     void Start()
@@ -76,10 +77,8 @@ public class FeatherStates : MonoBehaviour
     {
         if(_nextState != _currentState)
         {
-            ExitState(_currentState);
-            Debug.Log(_currentState);
+            if (_nextState == FeatherState.PLATFORM) FreezeAutoReturn(); //Sirve para desactivar el Return que tiene en player en FeatherRange
             _currentState = _nextState;
-            
             EnterState(_currentState);
         }
         
