@@ -46,16 +46,16 @@ public class FeatherThrowComponent : MonoBehaviour
         }
     }
 
-    public void CollectFeathers()
+    /*public void CollectFeathers()
     {
         for (int i = 0; i < _featherArray.Length; i++)
         {
             if (_featherArray[i] != null)
             {
                 _featherArray[i].GetComponent<FeatherStates>().ChangeState(FeatherStates.FeatherState.FEATHER);
-                _featherArray[i].GetComponent<FeatherComponent>().ActivateReturn();
+                _featherArray[i].GetComponent<FeatherReturn>().ActivateReturn();
                 Debug.Log("Se supone q se cambia a pluma de nuevo");
             }
         }      
-    }
+    }*/
 }

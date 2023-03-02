@@ -11,19 +11,18 @@ public class FeatherComponent : MonoBehaviour
     [SerializeField] private LayerMask _featherRange;
     private GameObject _player;
 
-   
+
     [SerializeField] private float _speed;
     [SerializeField] private float _featherRotation;
-    private bool _canReturn = false;     
-    public bool CanReturn { get { return _canReturn; } }
+   
 
     // Start is called before the first frame update
     void Start()
     {
         //Mirar para cambiarlo con la posición relativa del jugador
-        _player = GameManager.Instance.SetPlayer();
+       
         _camera = Camera.main;
-        _myRigidBody = GetComponent<Rigidbody2D>();
+        _myRigidBody = GetComponentInParent<Rigidbody2D>();
         _mousePosition = _camera.ScreenToWorldPoint(Input.mousePosition);
 
         Vector3 direction = _mousePosition - transform.position;
@@ -32,28 +31,6 @@ public class FeatherComponent : MonoBehaviour
         _myRigidBody.velocity = new Vector2(direction.x, direction.y).normalized * _speed;
 
         float rot = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0, 0, rot + _featherRotation);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (_canReturn)
-        {
-            Return(_player.transform.position);
-        }
-    }
-    public void ActivateReturn()
-    {
-        _canReturn = !_canReturn;
-    }       
-    public void Stop()
-    {
-        _myRigidBody.velocity = Vector3.zero;
-    }
-    private void Return(Vector3 endPos)
-    {
-        Vector3 direction = endPos - transform.position;
-        _myRigidBody.velocity = new Vector3(direction.x, direction.y).normalized * _speed;
+        transform.parent.rotation = Quaternion.Euler(0, 0, rot + _featherRotation);
     }
 }

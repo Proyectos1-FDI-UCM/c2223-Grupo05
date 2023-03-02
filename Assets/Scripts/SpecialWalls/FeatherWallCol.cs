@@ -8,8 +8,7 @@ public class FeatherWallCol : MonoBehaviour
     {
         if ((bool)collision.gameObject.GetComponent<FeatherComponent>())
         {
-            //collision.gameObject.GetComponent<FeatherPlatformComp>().SetFeatherToWall(this.transform.position);
-            collision.GetComponent<FeatherStates>().ChangeState(FeatherStates.FeatherState.PLATFORM);
+            collision.GetComponentInParent<FeatherStates>().ChangeState(FeatherStates.FeatherState.PLATFORM);
         }
     }
 }

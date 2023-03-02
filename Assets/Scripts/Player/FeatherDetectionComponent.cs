@@ -8,11 +8,7 @@ public class FeatherDetectionComponent : MonoBehaviour
     {
         if ((bool)collision.gameObject.GetComponent<FeatherComponent>())
         {
-            if(!collision.GetComponent<FeatherComponent>().CanReturn)
-            {
-                collision.GetComponent<FeatherComponent>().ActivateReturn();
-            }
+            collision.GetComponentInParent<FeatherStates>().ChangeState(FeatherStates.FeatherState.RETURN);
         }
-            
     }
 }
