@@ -6,7 +6,7 @@ public class FeatherDetectionComponent : MonoBehaviour
 {
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if ((bool)collision.gameObject.GetComponent<FeatherComponent>())
+        if ((bool)collision.gameObject.GetComponent<FeatherComponent>() && GetComponentInParent<FeatherStates>().CurrrentState != FeatherStates.FeatherState.PLATFORM)
         {
             collision.GetComponentInParent<FeatherStates>().ChangeState(FeatherStates.FeatherState.RETURN);
         }

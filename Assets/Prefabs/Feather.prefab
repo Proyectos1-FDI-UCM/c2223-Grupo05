@@ -271,7 +271,7 @@ MonoBehaviour:
   _featherRange:
     serializedVersion: 2
     m_Bits: 64
-  _speed: 20
+  _speed: 5
   _featherRotation: 295
 --- !u!60 &2744142808304395120
 PolygonCollider2D:
@@ -393,6 +393,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6639819cad00864b8406bbb756268e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _currentState: 1
+  _nextState: 0
 --- !u!50 &1108807400941091127
 Rigidbody2D:
   serializedVersion: 4
@@ -408,7 +410,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.17
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1

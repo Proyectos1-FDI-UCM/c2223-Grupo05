@@ -7,12 +7,15 @@ public class FeatherStates : MonoBehaviour
 {
     public enum FeatherState {FEATHER, PLATFORM, RETURN}
 
-    private FeatherState _currentState;
+    [SerializeField]private FeatherState _currentState;
+    public FeatherState CurrrentState { get { return _currentState; } }
    
-    private FeatherState _nextState;
+    [SerializeField]private FeatherState _nextState;
 
     private void EnterState(FeatherState state)
     {
+
+        
         switch (state)
         {
             case FeatherState.FEATHER:
@@ -20,25 +23,16 @@ public class FeatherStates : MonoBehaviour
                 
                 break;
             case FeatherState.PLATFORM:
+                Debug.Log("Plataformita");
                 this.gameObject.transform.GetChild((int)FeatherState.PLATFORM).gameObject.SetActive(true);
-<<<<<<< Updated upstream
                 GetComponent<Rigidbody2D>().bodyType=  RigidbodyType2D.Static;
-                GetComponent<FeatherComponent>().enabled = false;
-                GetComponent<PolygonCollider2D>().enabled= false;
                 transform.rotation = Quaternion.identity;             
-
                 break;
-            case FeatherState.RETURN:
-=======
-                GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
-                transform.rotation = Quaternion.identity;
-                break;
+          
             case FeatherState.RETURN:
                 this.gameObject.transform.GetChild((int)FeatherState.RETURN).gameObject.SetActive(true);
                 GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
                 this.gameObject.transform.GetChild((int)FeatherState.RETURN).gameObject.GetComponent<FeatherReturn>().ActivateReturn();
->>>>>>> Stashed changes
-
                 break;
         }
     }
@@ -52,12 +46,6 @@ public class FeatherStates : MonoBehaviour
                 break;
             case FeatherState.PLATFORM:
                 this.gameObject.transform.GetChild((int)FeatherState.PLATFORM ).gameObject.SetActive(false);
-<<<<<<< Updated upstream
-            
-=======
-                break;
-            case FeatherState.RETURN:
->>>>>>> Stashed changes
                 break;
         }
     }
@@ -65,6 +53,8 @@ public class FeatherStates : MonoBehaviour
     public void ChangeState(FeatherState newState)
     {
         _nextState = newState;
+        Debug.Log("new state: " + newState);
+        Debug.Log("next state: " + _nextState);
     }
     private void Awake()
     {
@@ -87,9 +77,11 @@ public class FeatherStates : MonoBehaviour
         if(_nextState != _currentState)
         {
             ExitState(_currentState);
+            Debug.Log(_currentState);
             _currentState = _nextState;
+            
             EnterState(_currentState);
         }
-        Debug.Log(_currentState);
+        
     }
 }
