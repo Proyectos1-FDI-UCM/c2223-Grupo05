@@ -12,6 +12,9 @@ public class InputComponent : MonoBehaviour
     private PlayerCombat _myAttackComponent;
     [SerializeField] private float _dashCoolDown;
     private float _timeToDash = 0;
+    [SerializeField]
+    private float _attackRate;
+    float _nextAttackTime = 0f;
 
     // Start is called before the first frame update
     void Start()
@@ -57,11 +60,15 @@ public class InputComponent : MonoBehaviour
 
             _myFeatherThrowComponent.FeatherObjective(_mousePosition);
         }
-
-        if (Input.GetButtonDown("Basic Attack"))
+        if(Time.time >= _nextAttackTime)
         {
-            _myAttackComponent.Attack();
+            if (Input.GetButtonDown("Basic Attack"))
+            {
+                _myAttackComponent.Attack();
+                _nextAttackTime = Time.time + 1f / _attackRate; //de esta forma decidimos las veces que podemos atacar por segundo
+            }
         }
+        
 
         if (Input.GetButtonDown("Feather Return"))
         {

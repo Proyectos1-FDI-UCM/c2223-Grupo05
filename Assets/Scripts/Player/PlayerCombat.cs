@@ -22,20 +22,17 @@ public class PlayerCombat : MonoBehaviour
     [SerializeField]
     private int _attackDamage;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [SerializeField]
+    private Animator _myAnimation;
+
 
     // play attack animation, detect enemies in range attack, damage them
     public void Attack()
     {
-        
-        //animation
         if (GetComponent<MovementComponent>().TouchingFloor)
         {
             GetComponent<InputComponent>().enabled = false;
+            _myAnimation.SetTrigger("Attack");
             Debug.Log("suelo");
             Collider2D[] _hitEnemies = Physics2D.OverlapCapsuleAll(_attackPoint.position, _attackSize, _direction, _angleAttack, _enemylayer);
 
@@ -45,7 +42,7 @@ public class PlayerCombat : MonoBehaviour
                 enemies.GetComponent<LifeEnemyComponent>().TakeDamage(_attackDamage);
 
             }
-            GetComponent<InputComponent>().enabled = true;
+            
         }
         
         
@@ -58,6 +55,10 @@ public class PlayerCombat : MonoBehaviour
             return;
         }
 
+    }
+    public void ActivaInput()
+    {
+        GetComponent<InputComponent>().enabled = true;
     }
 
 
