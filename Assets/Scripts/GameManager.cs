@@ -1,3 +1,4 @@
+using System.IO.Compression;
 using System.Net.Http.Headers;
 using TMPro.EditorUtilities;
 using Unity.VisualScripting;
@@ -28,7 +29,7 @@ public class GameManager : MonoBehaviour
     public int Soul { get { return _souls; } }
     
 
-    private int _lifes; //implementaar dinamica del nivel; 
+    private int _lifes = 0; //implementaar dinamica del nivel; 
     private int _maxLifes = 2;
 
     #endregion
@@ -82,13 +83,16 @@ public class GameManager : MonoBehaviour
         switch (newState)
         {
             case GameStates.START:
-            case GameStates.TUTORIAL:
-
-                if (_souls <= 0) _nextState = GameStates.GAMEOVER; //si las almas son cero actualiza al estado GameOver
                 break;
-
+            case GameStates.TUTORIAL:
+                if(_souls <= 0){
+                    _player.GetComponent<RespawnComponent>().Respawn();
+                }
+                break;
             case GameStates.LEVEL:
+                break;
             case GameStates.GAMEOVER:
+                break;
             case GameStates.PAUSE:
                 break;
         }
@@ -113,6 +117,8 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         _feathersCant = 3; //temporal hasta introducir dinamica del tutorial de ir recogiendo las plumas una a una
+        _currentState = GameStates.TUTORIAL;
+        _nextState = GameStates.TUTORIAL;
     }
 
     // Update is called once per frame
@@ -125,5 +131,35 @@ public class GameManager : MonoBehaviour
             EnterState(_currentState);
         }
         UpdateState(_currentState);
+    }
+    //metodo para perder vidas
+    public void Loselifes()
+    {
+        Debug.Log("HOOLA");
+        if (_lifes > 0)
+        {
+             
+            _lifes--;
+            //avisar al HUD de cambio en vidas
+        }
+        else
+        {
+            Debug.Log("OK");
+            LoseSouls();
+            Debug.Log(_souls);
+        }
+    }
+
+    //metodo para perder almas
+    public void LoseSouls()
+    {
+        _souls--;
+        
+       
+        //avisar al HUD de cambio en almas
+    }
+    public void ResetSouls()
+    {
+        _souls = 3;
     }
 }

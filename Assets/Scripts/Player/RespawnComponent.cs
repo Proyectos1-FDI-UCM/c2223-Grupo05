@@ -17,6 +17,7 @@ public class RespawnComponent : MonoBehaviour
     public void Respawn()
     {
         transform.position = _respawnPoint;
+        GameManager.Instance.ResetSouls();
         Debug.Log("Resp");
     }
     //public void Oncheckpoint()
