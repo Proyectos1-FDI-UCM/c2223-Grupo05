@@ -9,7 +9,6 @@ public class MovementComponent : MonoBehaviour
     Rigidbody2D _playerRB;
     Transform _playerTransform;
 
-
     [SerializeField] private float _rayDistance;
     [SerializeField] private LayerMask _walls;
     [SerializeField] private float _offSet;
@@ -122,7 +121,7 @@ public class MovementComponent : MonoBehaviour
         return _stop;
         //Debug.DrawRay(_myOffSet, Vector2.right * _playerDirection, Color.white);
     }
-
+    
     private void Turn()
     {
         _lookingRight = !_lookingRight;

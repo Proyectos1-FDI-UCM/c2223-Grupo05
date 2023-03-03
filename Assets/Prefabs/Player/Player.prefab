@@ -172,7 +172,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dashCoolDown: 3
-  _attackRate: 0
+  _attackRate: 2
 --- !u!95 &7359455741108222208
 Animator:
   serializedVersion: 4

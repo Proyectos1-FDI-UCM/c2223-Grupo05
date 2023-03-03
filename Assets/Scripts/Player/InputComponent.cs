@@ -66,6 +66,7 @@ public class InputComponent : MonoBehaviour
             {
                 _myAttackComponent.Attack();
                 _nextAttackTime = Time.time + 1f / _attackRate; //de esta forma decidimos las veces que podemos atacar por segundo
+                _myMovementComponent.Move(0);
             }
         }
         

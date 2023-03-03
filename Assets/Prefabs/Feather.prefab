@@ -435,7 +435,7 @@ MonoBehaviour:
   _featherRange:
     serializedVersion: 2
     m_Bits: 64
-  _speed: 5
+  _speed: 25
   _featherRotation: 295
 --- !u!60 &2744142808304395120
 PolygonCollider2D:
