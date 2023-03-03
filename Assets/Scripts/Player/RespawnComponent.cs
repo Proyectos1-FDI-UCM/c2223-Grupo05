@@ -4,19 +4,19 @@ using UnityEngine;
 
 public class RespawnComponent : MonoBehaviour
 {
-    private Vector3 _Respawnpoint;
-    public Transform _VoidDetector;
+    private Vector3 _respawnPoint;
+    //[SerializeField ]private Transform _voidDetector;
 
     // Start is called before the first frame update
     void Start()
     {
-        _Respawnpoint = transform.position;
+        _respawnPoint = transform.position;
     }
 
     //Transforma la posicion del jugador a la posicion inicla del juego
     public void Respawn()
     {
-        transform.position = _Respawnpoint;
+        transform.position = _respawnPoint;
         Debug.Log("Resp");
     }
     //public void Oncheckpoint()
@@ -24,8 +24,8 @@ public class RespawnComponent : MonoBehaviour
 
     //}
     // Update is called once per frame
-    void Update()
+    /*void Update()
     {
-        _VoidDetector.position = new Vector2(transform.position.x, _VoidDetector.position.y);
-    }
+        _voidDetector.position = new Vector2(transform.position.x, _voidDetector.position.y);
+    }*/
 }

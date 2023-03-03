@@ -11,13 +11,10 @@ public class VoidComponent : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("trigger");
-        if (collision.gameObject.layer == 10)
+        if ((bool)collision.gameObject.GetComponent<InputComponent>())
         {
-            Debug.Log("IF");
-            _myRespawnComponent.Respawn();
+            collision.gameObject.GetComponent<RespawnComponent>().Respawn();
         }
-
     }
 }
 
