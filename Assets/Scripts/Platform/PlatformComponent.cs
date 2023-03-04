@@ -4,29 +4,36 @@ using UnityEngine;
 
 public class PlatformComponent : MonoBehaviour
 {
-    [SerializeField] private bool _canMove = false;
+    [SerializeField] private bool _moveTowardsTarget = false;
+    public bool MoveTowardsTarget { get { return _moveTowardsTarget; } }
 
     [SerializeField] private Transform _targetPosition;
+    public Transform TargetPosition { get { return _targetPosition; } }
+    private Vector2 _startPosition;
 
     [SerializeField] private float _speed;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        _startPosition = transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (_canMove)
+        if (_moveTowardsTarget)
         {
             PlatformBehaviour(_targetPosition.position);
+        }
+        else
+        {
+            PlatformBehaviour(_startPosition);
         }
     }
     public void ChangeMove()
     {
-        _canMove = !_canMove;
+        _moveTowardsTarget = !_moveTowardsTarget;
     }
 
     void PlatformBehaviour(Vector2 targetPosition)
