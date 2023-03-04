@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class ButtonComponent : MonoBehaviour
 {
@@ -12,13 +13,17 @@ public class ButtonComponent : MonoBehaviour
     {
         if (!_buttonActivated && (bool)collision.gameObject.GetComponent<FeatherComponent>() && collision.gameObject.GetComponentInParent<FeatherStates>().CurrrentState == FeatherStates.FeatherState.FEATHER)
         {
-            Debug.Log("Entra en collider");
             _buttonActivated = !_buttonActivated;
 
             _myPlatformComponent.ChangeMove();
+            gameObject.GetComponentInChildren<Light2D>().intensity = 2;
 
             collision.gameObject.GetComponentInParent<FeatherStates>().FreezeAutoReturn();
             collision.gameObject.GetComponentInParent<FeatherStates>().ChangeState(FeatherStates.FeatherState.PLATFORM);
+        }
+        else if (_buttonActivated && (bool)collision.gameObject.GetComponent<FeatherComponent>() && collision.gameObject.GetComponentInParent<FeatherStates>().CurrrentState == FeatherStates.FeatherState.FEATHER)
+        {
+            collision.gameObject.GetComponentInParent<FeatherStates>().ChangeState(FeatherStates.FeatherState.RETURN);
         }
     }
 
@@ -32,14 +37,11 @@ public class ButtonComponent : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        Debug.Log("La pluma pasa");
-        // Condicion antigua if: (bool)collision.gameObject.GetComponent<PlatformFeatherComponent>() && collision.gameObject.GetComponentInParent<FeatherStates>().CurrrentState == FeatherStates.FeatherState.PLATFORM
-        // Dentro del anterior if: collision.gameObject.GetComponentInParent<FeatherStates>().ChangeState(FeatherStates.FeatherState.RETURN);
-        if (_buttonActivated && collision.gameObject.GetComponentInParent<FeatherStates>().CurrrentState == FeatherStates.FeatherState.PLATFORM)
+        if (_buttonActivated && (bool)collision.gameObject.GetComponent<FeatherReturn>() && collision.gameObject.GetComponentInParent<FeatherStates>().CurrrentState == FeatherStates.FeatherState.RETURN)
         {
-            Debug.Log("Se sale la pluma");
             _buttonActivated = !_buttonActivated;
             _myPlatformComponent.ChangeMove();
+            gameObject.GetComponentInChildren<Light2D>().intensity = 1;
 
         }
     }

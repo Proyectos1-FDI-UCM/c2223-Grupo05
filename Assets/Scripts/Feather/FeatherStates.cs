@@ -53,8 +53,6 @@ public class FeatherStates : MonoBehaviour
     public void ChangeState(FeatherState newState)
     {
         _nextState = newState;
-        Debug.Log("new state: " + newState);
-        Debug.Log("next state: " + _nextState);
     }
     private void Awake()
     {
