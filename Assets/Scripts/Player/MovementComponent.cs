@@ -10,7 +10,6 @@ public class MovementComponent : MonoBehaviour
     Transform _playerTransform;
 
     [SerializeField] private float _rayDistance;
-    [SerializeField] private LayerMask _walls;
     [SerializeField] private float _offSet;
 
     [Header("Jump")]
@@ -22,8 +21,13 @@ public class MovementComponent : MonoBehaviour
 
     [Header("Movement")]
 
+    [SerializeField] private Transform _wallsController;
+    [SerializeField] private Vector2 _wallsDimensions;
+    [SerializeField] private LayerMask _walls;
     [SerializeField] private float _moveSpeed;
 
+
+    private bool _touchingWalls;
 
     private bool _touchingFloor;
     public bool TouchingFloor { get { return _touchingFloor; } }
@@ -64,6 +68,7 @@ public class MovementComponent : MonoBehaviour
     private void FixedUpdate()
     {
         _touchingFloor = Physics2D.OverlapBox(_floorControler.position, _floorDimensions, 0, _floor);
+        _touchingWalls = Physics2D.OverlapBox(_wallsController.position, _wallsDimensions, 0, _walls);
     }
     public void Jump()
     {
@@ -75,8 +80,11 @@ public class MovementComponent : MonoBehaviour
     }
     public void Move(float _playerDirection)
     {
-
-        _playerRB.velocity = new Vector2(_playerDirection * _moveSpeed, _playerRB.velocity.y);
+        if(!_touchingWalls)
+        {
+            _playerRB.velocity = new Vector2(_playerDirection * _moveSpeed, _playerRB.velocity.y);
+        }
+        
         if (_playerDirection > 0 && !_lookingRight)
         {
             Turn();
@@ -108,20 +116,21 @@ public class MovementComponent : MonoBehaviour
             GetComponent<InputComponent>().enabled = true;
         }
     }
-    public bool RayCast2D(float _playerDirection)
-    {
-        Vector2 _myOffSet = new Vector2(_playerTransform.position.x, _playerTransform.position.y - _offSet); 
-        bool _stop = false;
-        RaycastHit2D _ray = Physics2D.Raycast(_playerTransform.position, Vector2.right * _playerDirection, _rayDistance, _walls);
-        RaycastHit2D _rayFeet = Physics2D.Raycast(_myOffSet, Vector2.right * _playerDirection, _rayDistance, _walls);
-        if (((_ray || _rayFeet) && _playerRB.velocity.x > 0 && Input.GetKey(KeyCode.D)) || ((_ray || _rayFeet) && _playerRB.velocity.x < 0 && Input.GetKey(KeyCode.A)))
-        {
-            _stop = true;
-        }
-        return _stop;
-        //Debug.DrawRay(_myOffSet, Vector2.right * _playerDirection, Color.white);
-    }
+    //public bool RayCast2D(float _playerDirection)
+    //{
+    //    Vector2 _myOffSet = new Vector2(_playerTransform.position.x, _playerTransform.position.y - _offSet); 
+    //    bool _stop = false;
+    //    RaycastHit2D _ray = Physics2D.Raycast(_playerTransform.position, Vector2.right * _playerDirection, _rayDistance, _walls);
+    //    RaycastHit2D _rayFeet = Physics2D.Raycast(_myOffSet, Vector2.right * _playerDirection, _rayDistance, _walls);
+    //    if (((_ray || _rayFeet) && _playerRB.velocity.x > 0 && Input.GetKey(KeyCode.D)) || ((_ray || _rayFeet) && _playerRB.velocity.x < 0 && Input.GetKey(KeyCode.A)))
+    //    {
+    //        _stop = true;
+    //    }
+    //    return _stop;
+    //    //Debug.DrawRay(_myOffSet, Vector2.right * _playerDirection, Color.white);
+    //}
     
+
     private void Turn()
     {
         _lookingRight = !_lookingRight;
@@ -134,6 +143,7 @@ public class MovementComponent : MonoBehaviour
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireCube(_floorControler.position, _floorDimensions);
+        Gizmos.DrawWireCube(_wallsController.position, _wallsDimensions);
     }
 }
 
