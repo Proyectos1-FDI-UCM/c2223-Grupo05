@@ -109,7 +109,36 @@ public class GameManager : MonoBehaviour
     {
         _feathersCant--;
     }
-    
+    //metodo para perder vidas
+    public void Loselifes()
+    {
+        Debug.Log("HOOLA");
+        if (_lifes > 0)
+        {
+
+            _lifes--;
+            //avisar al HUD de cambio en vidas
+        }
+        else
+        {
+            Debug.Log("OK");
+            LoseSouls();
+            Debug.Log(_souls);
+        }
+    }
+
+    //metodo para perder almas
+    public void LoseSouls()
+    {
+        _souls--;
+
+
+        //avisar al HUD de cambio en almas
+    }
+    public void ResetSouls()
+    {
+        _souls = 3;
+    }
 
     #endregion
 
@@ -132,34 +161,5 @@ public class GameManager : MonoBehaviour
         }
         UpdateState(_currentState);
     }
-    //metodo para perder vidas
-    public void Loselifes()
-    {
-        Debug.Log("HOOLA");
-        if (_lifes > 0)
-        {
-             
-            _lifes--;
-            //avisar al HUD de cambio en vidas
-        }
-        else
-        {
-            Debug.Log("OK");
-            LoseSouls();
-            Debug.Log(_souls);
-        }
-    }
-
-    //metodo para perder almas
-    public void LoseSouls()
-    {
-        _souls--;
-        
-       
-        //avisar al HUD de cambio en almas
-    }
-    public void ResetSouls()
-    {
-        _souls = 3;
-    }
+    
 }

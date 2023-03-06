@@ -26,21 +26,23 @@ public class FeatherStates : MonoBehaviour
                 
                 break;
             case FeatherState.PLATFORM:
+                //_player.gameObject.GetComponent<InputComponent>().enabled = false;
                 //seteamos todo lo que no vaya a interferir con el estado antes de cambiar para que no haya errores en la maquina de estados
                 this.gameObject.transform.GetChild((int)FeatherState.FEATHER).gameObject.SetActive(false);
                 //Se realiza lo que verdaderamente hace el estado
                 this.gameObject.transform.GetChild((int)FeatherState.PLATFORM).gameObject.SetActive(true);
                 GetComponent<Rigidbody2D>().bodyType=  RigidbodyType2D.Static;
-                transform.rotation = Quaternion.identity;      
+                transform.rotation = Quaternion.identity;
+                //_player.gameObject.GetComponent<InputComponent>().enabled = true;
                 break;
           
             case FeatherState.RETURN:
                 //seteamos todo lo que no vaya a interferir con el estado antes de cambiar para que no haya errores en la maquina de estados
+                GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
                 this.gameObject.transform.GetChild((int)FeatherState.FEATHER).gameObject.SetActive(false);
                 this.gameObject.transform.GetChild((int)FeatherState.PLATFORM).gameObject.SetActive(false);
                 //Se realiza lo que verdaderamente hace el estado
                 this.gameObject.transform.GetChild((int)FeatherState.RETURN).gameObject.SetActive(true);
-                GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
                 transform.rotation = this.gameObject.transform.GetChild((int)FeatherState.FEATHER).gameObject.GetComponent<FeatherComponent>().Rotation;
                 this.gameObject.transform.GetChild((int)FeatherState.RETURN).gameObject.GetComponent<FeatherReturn>().ActivateReturn();
                 break;
