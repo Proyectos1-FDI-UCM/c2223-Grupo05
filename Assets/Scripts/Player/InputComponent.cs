@@ -15,6 +15,7 @@ public class InputComponent : MonoBehaviour
     [SerializeField]
     private float _attackRate;
     float _nextAttackTime = 0f;
+    [SerializeField] private LayerMask _interactuableLayer;
 
     // Start is called before the first frame update
     void Start()
@@ -32,6 +33,7 @@ public class InputComponent : MonoBehaviour
         {
             _myMovementComponent.Move(_playerHorizontalDirection);      // Llama al método Move (Horizontal) del MovementComponent
         }
+
         else
         {
             _myMovementComponent.Move(0);
@@ -41,6 +43,7 @@ public class InputComponent : MonoBehaviour
         {
             _myMovementComponent.Jump();                                // Llama al método Jump del MovementComponent
         }
+
         if (Input.GetButtonDown("Dash") && _timeToDash > _dashCoolDown) // Si se recibe Input de Dash 
         {
             _myMovementComponent.StartCoroutine(_myMovementComponent.Dash());  // Llama al método Dash del MovementComponent
@@ -50,6 +53,7 @@ public class InputComponent : MonoBehaviour
             }
 
         }
+
         if (Input.GetButtonDown("FeatherThrow"))                        // Si se recibe Input de Lanzamiento de Pluma
         {
             _mousePosition = Input.mousePosition;                       // Se guarda la posición del cursor
@@ -58,6 +62,7 @@ public class InputComponent : MonoBehaviour
 
             _myFeatherThrowComponent.FeatherObjective(_mousePosition);
         }
+
         if(Time.time >= _nextAttackTime)
         {
             if (Input.GetButtonDown("Basic Attack"))
@@ -73,8 +78,14 @@ public class InputComponent : MonoBehaviour
         {
             if(GameManager.Instance.FeatherCant == 0)
             _myFeatherThrowComponent.CollectFeathers();
-            // Volvemos a cambiar los estados de las plumas (accedemos a cada una del array del FeatherThrowComponent)
-            // Llamamos a Return de cada FeatherComponent
+        }
+
+        if (Input.GetButtonDown("Interact"))
+        {
+            if (Physics2D.OverlapBox(transform.position, new Vector2(5,5), 0, _interactuableLayer)) //Temporal para hacernos una idea de como va a ser
+            {
+                //Llamar a método para interactuar
+            }
         }
         _timeToDash += Time.deltaTime;
 
