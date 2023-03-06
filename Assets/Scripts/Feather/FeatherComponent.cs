@@ -16,8 +16,7 @@ public class FeatherComponent : MonoBehaviour
 
     [SerializeField] private float _speed;
     [SerializeField] private float _featherRotation;
-   
-
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -36,4 +35,5 @@ public class FeatherComponent : MonoBehaviour
         _rotation = Quaternion.Euler(0, 0, rot + _featherRotation);
         transform.parent.rotation = _rotation;
     }
+    
 }
