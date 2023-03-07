@@ -12,8 +12,9 @@ public class SpinComponent : MonoBehaviour
 
     [SerializeField] private float _spinVelocity;
     [SerializeField] private float _timeSpin;
+    [SerializeField] private float _timeSpin1;
 
-    private float _initialGravity;
+    
 
     private bool _touchingFloor;
     public bool TouchingFloor { get { return _touchingFloor; } }
@@ -47,15 +48,16 @@ public class SpinComponent : MonoBehaviour
         Debug.Log("Spin");
         GetComponent<PatrolComponent>().enabled = false;
         _canSpin = false;
-        //_enemyRB.gravityScale = 0;
+        
+        yield return new WaitForSeconds(_timeSpin); //spin execution time
         _enemyRB.velocity = new Vector2(_spinVelocity * transform.localScale.x * (-1f), 0);
 
-        yield return new WaitForSeconds(_timeSpin); //spin execution time
+        yield return new WaitForSeconds(_timeSpin1); //spin execution time
 
-        // _enemyRB.velocity = new Vector2(0, _enemyRB.velocity.y); //stop spin 
+        
         _canSpin = true;
         GetComponent<PatrolComponent>().enabled = true;
-        //_enemyRB.gravityScale = _initialGravity;
+        
 
     }
 }
