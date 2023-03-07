@@ -8,12 +8,14 @@ using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class ChestComponent : MonoBehaviour
 {
-    private bool _interaction;
+    private bool _canInteract;
+    [SerializeField] private GameObject _content;
+
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if ((bool)collision.GetComponent<InputComponent>())
+        if ((bool)collision.GetComponent<InputComponent>())         // Cuando el jugador está en el área del cofre
         {
-            _interaction = true;
+            _canInteract = true;                                    // Puede interactuar
         }
     }
 
@@ -21,18 +23,18 @@ public class ChestComponent : MonoBehaviour
     {
         if ((bool)collision.GetComponent<InputComponent>())
         {
-            gameObject.GetComponentInChildren<Light2D>().intensity = 1;
-            _interaction = false;
+            _canInteract = false;
         }
     }
 
     private void Update()
     {
-        if (_interaction)
+        if (_canInteract)
         {
-            if (Input.GetButtonDown("Interact"))
+            if (Input.GetButtonDown("Interact"))                    // Habría que ver como recibir el input de forma externa
             {
-                gameObject.GetComponentInChildren<Light2D>().intensity = 5;
+                gameObject.GetComponentInChildren<Light2D>().intensity = 0;
+                //Añadir acciones correspondientes a cuando se abre el cofre
             }
         }
     }
