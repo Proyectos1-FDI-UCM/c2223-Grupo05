@@ -17,7 +17,7 @@ public class InputComponent : MonoBehaviour
     private float _attackRate;
     float _nextAttackTime = 0f;
     [SerializeField] private LayerMask _interactuableLayer;
-
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -66,7 +66,7 @@ public class InputComponent : MonoBehaviour
 
         if(Time.time >= _nextAttackTime)
         {
-            if (Input.GetButtonDown("Basic Attack"))
+            if (Input.GetButtonDown("Basic Attack") && GameManager.Instance._sword == true)
             {
                 _myAttackComponent.Attack();
                 _nextAttackTime = Time.time + 1f / _attackRate; //de esta forma decidimos las veces que podemos atacar por segundo

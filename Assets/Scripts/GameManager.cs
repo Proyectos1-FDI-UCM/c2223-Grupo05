@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
 
     private int _lifes = 0; //implementaar dinamica del nivel; 
     private int _maxLifes;  //estaba como maxLifes = 2, pero da el error de que no se usa, en el futuro lo volvemos a añadir
-
+    public bool _sword = false; //variable para saber si tenemos la esapda o no
     #endregion
 
 
@@ -99,8 +99,11 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
-
-
+    //metodo para cambiar la variable de la espada a true
+    public void Sword()
+    {
+        _sword = true;
+    }
     public void AddFeather()
     {
         _feathersCant++;
@@ -144,7 +147,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _feathersCant = 3; //temporal hasta introducir dinamica del tutorial de ir recogiendo las plumas una a una
+        _feathersCant = 0; //temporal hasta introducir dinamica del tutorial de ir recogiendo las plumas una a una
         _currentState = GameStates.TUTORIAL;
         _nextState = GameStates.TUTORIAL;
     }
