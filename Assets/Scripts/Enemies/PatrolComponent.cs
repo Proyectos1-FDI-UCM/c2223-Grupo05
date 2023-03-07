@@ -7,6 +7,7 @@ public class PatrolComponent : MonoBehaviour
     Rigidbody2D _enemyRB;
     Transform _enemyTransform;
     private bool _lookingRight;
+    public bool lookingRight { get { return _lookingRight; } }
     private bool _touchingFloor;
 
     [Header("Move")]
@@ -21,7 +22,7 @@ public class PatrolComponent : MonoBehaviour
 
     private float _direction = 1;
 
-    RaycastHit2D _floorRay;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -40,7 +41,7 @@ public class PatrolComponent : MonoBehaviour
             _enemyRB.velocity = new Vector2(0, 0);
             if(_time > _timeCoolDown)
             {
-                Turn(ref _moveSpeed);
+                Turn();
                 Move();
                 _time = 0;
             }
@@ -56,7 +57,7 @@ public class PatrolComponent : MonoBehaviour
         _enemyRB.velocity = new Vector2(_moveSpeed * _direction * -1, _enemyRB.velocity.y);
     }
 
-    private void Turn(ref float _direction)
+    public void Turn()
     {
         _lookingRight = !_lookingRight;
         Vector3 scale = transform.localScale;

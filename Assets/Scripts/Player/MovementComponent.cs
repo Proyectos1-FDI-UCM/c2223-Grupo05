@@ -6,8 +6,8 @@ using UnityEngine;
 
 public class MovementComponent : MonoBehaviour
 {
-    Rigidbody2D _playerRB;
-    Transform _playerTransform;
+    private Rigidbody2D _playerRB;
+    private Transform _playerTransform;
 
     [SerializeField] private float _rayDistance;
     [SerializeField] private float _offSet;
