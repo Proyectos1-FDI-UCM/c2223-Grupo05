@@ -32,6 +32,8 @@ public class MovementComponent : MonoBehaviour
     private bool _touchingFloor;
     public bool TouchingFloor { get { return _touchingFloor; } }
     private bool _lookingRight = true;
+    public bool LookingRight { get { return _lookingRight; } }
+    
 
     [Header("Dash")]
 
@@ -131,7 +133,7 @@ public class MovementComponent : MonoBehaviour
     //}
     
 
-    private void Turn()
+    public void Turn()
     {
         _lookingRight = !_lookingRight;
         Vector3 scale = transform.localScale;

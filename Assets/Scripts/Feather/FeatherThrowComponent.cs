@@ -7,6 +7,7 @@ public class FeatherThrowComponent : MonoBehaviour
 {
     private Vector2 _relativeFeatherPosition;
     private Camera _myCam;
+    private MovementComponent _movementComp;
     private Vector2 _playerScreenPosition;
     [SerializeField] public GameObject[] _featherArray = new GameObject[3]; // Cambiado a public para acceder desde Input
     //private float _featherAngle;
@@ -25,6 +26,7 @@ public class FeatherThrowComponent : MonoBehaviour
     void Start()
     {
         _myCam = Camera.main;
+        _movementComp = GetComponent<MovementComponent>();
     }
 
 
@@ -34,15 +36,25 @@ public class FeatherThrowComponent : MonoBehaviour
         _playerScreenPosition = _myCam.WorldToScreenPoint(gameObject.transform.position);   // Posición del jugador en la pantalla
 
         _relativeFeatherPosition = mousePosition - _playerScreenPosition;   // Posición del ratón respecto al jugador
+        Debug.Log(_relativeFeatherPosition);
+    
+        if(_relativeFeatherPosition.x < 0 && _movementComp.LookingRight)
+        {
+            _movementComp.Turn();
+            
+        }
+        else if(_relativeFeatherPosition.x > 0 && !_movementComp.LookingRight)
+        {
+            _movementComp.Turn();
 
-        //_featherAngle = FeatherAngle(_relativeFeatherPosition);
-
+        }
         if (GameManager.Instance.FeatherCant > 0)                                                
         {
             GameObject go = Instantiate(_featherPrefab, spawnPoint.position, Quaternion.identity);
             _featherArray[GameManager.Instance.FeatherCant - 1] = go;
             GameManager.Instance.RemoveFeather();
         }
+        
     }
 
     public void CollectFeathers()
