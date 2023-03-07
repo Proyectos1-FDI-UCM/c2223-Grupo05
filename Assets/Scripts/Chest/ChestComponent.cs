@@ -10,6 +10,7 @@ public class ChestComponent : MonoBehaviour
 {
     private bool _canInteract;
     [SerializeField] private GameObject _content;
+    [SerializeField] private float _objectOffset;
 
     private void OnTriggerStay2D(Collider2D collision)
     {
@@ -34,6 +35,8 @@ public class ChestComponent : MonoBehaviour
             if (Input.GetButtonDown("Interact"))                    // Habría que ver como recibir el input de forma externa
             {
                 gameObject.GetComponentInChildren<Light2D>().intensity = 0;
+
+                Instantiate(_content, new Vector2(transform.position.x, transform.position.y + _objectOffset), Quaternion.identity);
                 //Añadir acciones correspondientes a cuando se abre el cofre
             }
         }
