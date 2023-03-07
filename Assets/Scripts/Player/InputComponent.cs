@@ -10,6 +10,7 @@ public class InputComponent : MonoBehaviour
     private MovementComponent _myMovementComponent;
     private FeatherThrowComponent _myFeatherThrowComponent;
     private PlayerCombat _myAttackComponent;
+    private ChestComponent _myChestComponent;
     [SerializeField] private float _dashCoolDown;
     private float _timeToDash = 0;
     [SerializeField]
@@ -82,10 +83,7 @@ public class InputComponent : MonoBehaviour
 
         if (Input.GetButtonDown("Interact"))
         {
-            if (Physics2D.OverlapBox(transform.position, new Vector2(5,5), 0, _interactuableLayer)) //Temporal para hacernos una idea de como va a ser
-            {
-                //Llamar a método para interactuar
-            }
+            //Habría q ver la interacción del cofre desde input, de momento en el propio cofre
         }
         _timeToDash += Time.deltaTime;
 

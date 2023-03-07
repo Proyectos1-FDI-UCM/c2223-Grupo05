@@ -139,7 +139,6 @@ public class GameManager : MonoBehaviour
     {
         _souls = 3;
     }
-
     #endregion
 
     // Start is called before the first frame update
