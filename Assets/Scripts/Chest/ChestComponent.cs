@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
@@ -11,6 +12,12 @@ public class ChestComponent : MonoBehaviour
     private bool _canInteract;
     [SerializeField] private GameObject _content;
     [SerializeField] private float _objectOffset;
+    private float _countdown = 0;
+    [SerializeField] private float _limit;
+    private bool _opened = false;
+
+
+    private Animator _myAnimator;
 
     private void OnTriggerStay2D(Collider2D collision)
     {
@@ -32,13 +39,32 @@ public class ChestComponent : MonoBehaviour
     {
         if (_canInteract)
         {
-            if (Input.GetButtonDown("Interact"))                    // Habría que ver como recibir el input de forma externa
+            
+            if (Input.GetButtonDown("Interact"))     // Habría que ver como recibir el input de forma externa
             {
-                gameObject.GetComponentInChildren<Light2D>().intensity = 0;
+                _opened = true;
+
+                gameObject.GetComponentInChildren<Light2D>().intensity = 0; /*Mathf.Lerp(gameObject.GetComponentInChildren<Light2D>().intensity, 0, 0.1f * Time.time);*/
+
+                _myAnimator.SetBool("Opened", _opened);
+
+                //_countdown += Time.deltaTime;
+
+                //if (_countdown > _limit)
+                //{
 
                 Instantiate(_content, new Vector2(transform.position.x, transform.position.y + _objectOffset), Quaternion.identity);
-                //Añadir acciones correspondientes a cuando se abre el cofre
+
+                this.enabled = false;
+
+                //}
+                //_canInteract = false;
             }
         }
+    }
+
+    private void Start()
+    {
+        _myAnimator = GetComponent<Animator>();
     }
 }
