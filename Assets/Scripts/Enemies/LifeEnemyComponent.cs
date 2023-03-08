@@ -13,12 +13,6 @@ public class LifeEnemyComponent : MonoBehaviour
         _currentHealth = _maxHealth;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void TakeDamage(int damage)
     {
         _currentHealth -= damage;

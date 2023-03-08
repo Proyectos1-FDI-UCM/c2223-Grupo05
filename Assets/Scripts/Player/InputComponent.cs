@@ -86,8 +86,7 @@ public class InputComponent : MonoBehaviour
         {
             if(GameManager.Instance.FeatherCant <= 0 )
             {
-                _myFeatherThrowComponent.CollectFeathers();
-                
+                _myFeatherThrowComponent.CollectFeathers();   
             }
             
         }
@@ -96,7 +95,11 @@ public class InputComponent : MonoBehaviour
         {
             //Habría q ver la interacción del cofre desde input, de momento en el propio cofre
         }
-        _timeToDash += Time.deltaTime;
+        if(_timeToDash <= _dashCoolDown)
+        {
+            _timeToDash += Time.deltaTime;
+        }
+       
 
     }
 }

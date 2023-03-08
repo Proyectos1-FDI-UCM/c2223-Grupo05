@@ -130,7 +130,13 @@ public class GameManager : MonoBehaviour
           
         }
     }
-
+    public void LoseMoreThanOneLife(int num)
+    {
+        for(int i = 0; i < num; i++) 
+        {
+            Loselifes();
+        }
+    }
     //metodo para perder almas
     public void LoseSouls()
     {

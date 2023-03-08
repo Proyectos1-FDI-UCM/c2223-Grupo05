@@ -36,6 +36,7 @@ public class SpinComponent : MonoBehaviour
     }
     public IEnumerator Spin()
     {
+        //Gira al detectar al jugador si no está orientado a este
         Vector3 _playerRelativePos = _player.transform.position - this.transform.position;
         if(_playerRelativePos.x < 0 && _patrol.lookingRight) 
         {
