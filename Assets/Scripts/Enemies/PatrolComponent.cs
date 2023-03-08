@@ -6,6 +6,7 @@ public class PatrolComponent : MonoBehaviour
 {
     Rigidbody2D _enemyRB;
     Transform _enemyTransform;
+    Animator _animator;
     private bool _lookingRight;
     public bool lookingRight { get { return _lookingRight; } }
     private bool _touchingFloor;
@@ -29,6 +30,7 @@ public class PatrolComponent : MonoBehaviour
     {
         _enemyRB = GetComponent<Rigidbody2D>();
         _enemyTransform = transform;
+        _animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -47,6 +49,7 @@ public class PatrolComponent : MonoBehaviour
             }
             _time += Time.deltaTime;
         }
+        _animator.SetFloat("Horizontal", Mathf.Abs(_enemyRB.velocity.x));
     }
     private void FixedUpdate()
     {
@@ -55,6 +58,7 @@ public class PatrolComponent : MonoBehaviour
     private void Move()
     {
         _enemyRB.velocity = new Vector2(_moveSpeed * _direction * -1, _enemyRB.velocity.y);
+        
     }
 
     public void Turn()
