@@ -60,8 +60,15 @@ public class InputComponent : MonoBehaviour
             _mousePosition = Input.mousePosition;                       // Se guarda la posición del cursor
 
             //si dirección player y destino flechas son contrarios girar player
-
+            
+            
             _myFeatherThrowComponent.FeatherObjective(_mousePosition);
+            if (GameManager.Instance.FeatherCant > 0)
+            {
+                GameManager.Instance.RemoveFeather();
+            }
+            
+            
         }
 
         if(Time.time >= _nextAttackTime)
@@ -77,8 +84,12 @@ public class InputComponent : MonoBehaviour
 
         if (Input.GetButtonDown("Feather Return"))
         {
-            if(GameManager.Instance.FeatherCant == 0)
-            _myFeatherThrowComponent.CollectFeathers();
+            if(GameManager.Instance.FeatherCant <= 0 )
+            {
+                _myFeatherThrowComponent.CollectFeathers();
+                
+            }
+            
         }
 
         if (Input.GetButtonDown("Interact"))

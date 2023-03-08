@@ -7,11 +7,10 @@ public class CheckReturn : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        
         if((bool)collision.gameObject.GetComponent<FeatherReturn>())
         {
             GameManager.Instance.AddFeather();
-            Object.Destroy(collision.transform.parent.gameObject);
+            Destroy(collision.transform.parent.gameObject);
         }
     }
 }

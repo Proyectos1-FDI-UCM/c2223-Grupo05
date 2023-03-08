@@ -4,8 +4,7 @@ using System.Threading;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
-using static FeatherStates;
-using static UnityEditor.Experimental.GraphView.GraphView;
+
 
 public class ChestComponent : MonoBehaviour
 {

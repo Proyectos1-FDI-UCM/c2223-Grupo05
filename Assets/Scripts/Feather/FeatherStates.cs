@@ -1,8 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
-using UnityEditor.Search;
-using UnityEditor.Tilemaps;
+
 using UnityEngine;
 
 public class FeatherStates : MonoBehaviour
@@ -26,14 +25,15 @@ public class FeatherStates : MonoBehaviour
                 
                 break;
             case FeatherState.PLATFORM:
-                //_player.gameObject.GetComponent<InputComponent>().enabled = false;
+                
                 //seteamos todo lo que no vaya a interferir con el estado antes de cambiar para que no haya errores en la maquina de estados
                 this.gameObject.transform.GetChild((int)FeatherState.FEATHER).gameObject.SetActive(false);
                 //Se realiza lo que verdaderamente hace el estado
                 this.gameObject.transform.GetChild((int)FeatherState.PLATFORM).gameObject.SetActive(true);
-                GetComponent<Rigidbody2D>().bodyType=  RigidbodyType2D.Static;
+                GetComponent<Rigidbody2D>().bodyType =  RigidbodyType2D.Static;
                 transform.rotation = Quaternion.identity;
-                //_player.gameObject.GetComponent<InputComponent>().enabled = true;
+                
+
                 break;
           
             case FeatherState.RETURN:

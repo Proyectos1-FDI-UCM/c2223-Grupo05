@@ -11,6 +11,7 @@ public class FeatherWallCol : MonoBehaviour
         {
             collision.gameObject.GetComponentInParent<FeatherStates>().FreezeAutoReturn();
             collision.gameObject.GetComponentInParent<FeatherStates>().ChangeState(FeatherStates.FeatherState.PLATFORM);
+            
         }
     }
 }

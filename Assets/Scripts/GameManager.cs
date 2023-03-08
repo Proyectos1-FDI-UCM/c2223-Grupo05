@@ -1,9 +1,8 @@
 using System.IO.Compression;
 using System.Net.Http.Headers;
-using TMPro.EditorUtilities;
+
 using Unity.VisualScripting;
-using Unity.VisualScripting.Dependencies.Sqlite;
-using UnityEditor.Build;
+
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -21,7 +20,7 @@ public class GameManager : MonoBehaviour
 
     private GameStates _currentState;
     private GameStates _nextState;
-
+   
     private int _feathersCant; // Amount of feather that can be shot
     public  int FeatherCant { get { return _feathersCant; } }
 
@@ -107,7 +106,9 @@ public class GameManager : MonoBehaviour
     public void AddFeather()
     {
         _feathersCant++;
+        
     }
+    
     public void RemoveFeather()
     {
         _feathersCant--;
@@ -115,7 +116,7 @@ public class GameManager : MonoBehaviour
     //metodo para perder vidas
     public void Loselifes()
     {
-        Debug.Log("HOOLA");
+        
         if (_lifes > 0)
         {
 
@@ -124,9 +125,9 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("OK");
+            
             LoseSouls();
-            Debug.Log(_souls);
+          
         }
     }
 
@@ -147,7 +148,8 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _feathersCant = 0; //temporal hasta introducir dinamica del tutorial de ir recogiendo las plumas una a una
+        _feathersCant = 0;
+
         _currentState = GameStates.TUTORIAL;
         _nextState = GameStates.TUTORIAL;
     }
@@ -162,6 +164,7 @@ public class GameManager : MonoBehaviour
             EnterState(_currentState);
         }
         UpdateState(_currentState);
+        Debug.Log(FeatherCant);
     }
     
 }
