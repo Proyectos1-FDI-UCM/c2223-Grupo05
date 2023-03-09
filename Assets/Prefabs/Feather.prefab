@@ -437,9 +437,6 @@ MonoBehaviour:
     m_Bits: 64
   _speed: 25
   _featherRotation: 295
-  _wallsLayer:
-    serializedVersion: 2
-    m_Bits: 256
 --- !u!60 &2744142808304395120
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -609,7 +606,7 @@ Transform:
   m_GameObject: {fileID: 6064304094974134201}
   m_LocalRotation: {x: 0.29731408, y: -0.43630108, z: 0.7125832, w: 0.46202916}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 1}
+  m_LocalScale: {x: 4, y: 4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8469905358046953671}
