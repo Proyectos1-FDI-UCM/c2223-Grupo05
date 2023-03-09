@@ -292,7 +292,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _attackPoint: {fileID: 3543779754771735780}
-  _attackSize: {x: 1, y: 3}
+  _attackSize: {x: 1, y: 3.8}
   _direction: 1
   _enemylayer:
     serializedVersion: 2
