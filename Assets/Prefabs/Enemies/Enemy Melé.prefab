@@ -128,6 +128,7 @@ GameObject:
   - component: {fileID: 1301605595433793616}
   - component: {fileID: 1301605595433793617}
   - component: {fileID: 1301605595433793618}
+  - component: {fileID: 1982846469}
   m_Layer: 9
   m_Name: "Enemy Mel\xE9"
   m_TagString: Untagged
@@ -267,6 +268,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc7c9c1798edecf47b4f2b8b6f3b8827, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _spinDamage: 0
 --- !u!114 &1301605595433793616
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -298,9 +300,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 849681db58da1a14c895fc0f5bb3eeac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spinVelocity: 4
+  _spinVelocity: 6
   _timeSpin: 1
-  _countdown: 0.5
+  _timeSpin1: 1
 --- !u!114 &1301605595433793618
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -313,6 +315,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ffec681b79eb464da1749747be9ebfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &1982846469
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1301605595433793620}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c15d0e5d308c4e44496f2d9378896d1a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1301605595952616301
 GameObject:
   m_ObjectHideFlags: 0
