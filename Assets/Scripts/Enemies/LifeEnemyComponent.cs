@@ -18,18 +18,20 @@ public class LifeEnemyComponent : MonoBehaviour
     void Update()
     {
         _animator.SetBool("Death", _isDeath);
-        if (_currentHealth < 0)
+        if (_currentHealth <= 0)
         {
+            _isDeath = true;
             this.gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             this.gameObject.GetComponent<PatrolComponent>().enabled = false;
             this.gameObject.GetComponent<SpinComponent>().enabled = false;
             this.gameObject.GetComponent<CircleCollider2D>().enabled = false;
-            _isDeath = true;
+
         }
     }
     public void TakeDamage(int damage)
     {
         _currentHealth -= damage;
+       
     }
     public void Die()
     {

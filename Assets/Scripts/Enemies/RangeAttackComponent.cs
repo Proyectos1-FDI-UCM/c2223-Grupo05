@@ -15,7 +15,11 @@ public class RangeAttackComponent : MonoBehaviour
         if ((bool)collision.gameObject.GetComponent<InputComponent>())
         {
             Debug.Log("Entro");
-            _spinComponent.StartCoroutine(_spinComponent.Spin());
+            if (_spinComponent.CanSpin)
+            {
+                _spinComponent.StartCoroutine(_spinComponent.Spin());
+            }
+            
         }
     }
     
