@@ -2,30 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyProjectil : MonoBehaviour
+public class EnemyShoot : MonoBehaviour
 {
     [SerializeField] private GameObject _projectile;
 
     [SerializeField] private float _force;
-    [SerializeField] private float _timeToShoot;
-    [SerializeField] private float _shootCooldown;
+    [SerializeField] private Transform _playerTransform;
     
 
     // Start is called before the first frame update
     void Start()
     {
-        _shootCooldown = _timeToShoot;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("disparo");
-        _shootCooldown -= Time.deltaTime;
-        if(_shootCooldown < 0)
-        {
-            Shoot();
-        }
+        
     }
     public void Shoot()
     {
@@ -38,6 +32,6 @@ public class EnemyProjectil : MonoBehaviour
         {
             arrow.GetComponent<Rigidbody2D>().AddForce(new Vector2(-1 * _force, 0), ForceMode2D.Force);
         }
-        _shootCooldown = _timeToShoot;
+        
     }
 }
