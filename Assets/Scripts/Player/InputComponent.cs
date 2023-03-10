@@ -82,15 +82,6 @@ public class InputComponent : MonoBehaviour
         }
         
 
-        if (Input.GetButtonDown("Feather Return"))
-        {
-            if(GameManager.Instance.FeatherCant <= 0 )
-            {
-                _myFeatherThrowComponent.CollectFeathers();   
-            }
-            
-        }
-
         if (Input.GetButtonDown("Interact"))
         {
             //Habría q ver la interacción del cofre desde input, de momento en el propio cofre

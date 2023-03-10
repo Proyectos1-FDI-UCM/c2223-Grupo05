@@ -11,7 +11,6 @@ public class FeatherThrowComponent : MonoBehaviour
     private Camera _myCam;
     private MovementComponent _movementComp;
     private Vector2 _playerScreenPosition;
-    [SerializeField] public GameObject[] _featherArray = new GameObject[3]; // Cambiado a public para acceder desde Input
     private GameObject _player;
     //private float _featherAngle;
     //Instancia publica del propio player para pasar posicion constante para el Return de la pluma
@@ -49,25 +48,13 @@ public class FeatherThrowComponent : MonoBehaviour
         if (GameManager.Instance.FeatherCant > 0)
         {
             GameObject go = Instantiate(_featherPrefab, spawnPoint.position, Quaternion.identity);
-            _featherArray[GameManager.Instance.FeatherCant - 1] = go;
+            
         }
             
         
     }
     
-    public void CollectFeathers()
-    {
-        
-        for (int i = _featherArray.Length - 1; i >= 0; i--)
-        {
-            if (_featherArray[i] != null && _featherArray[i].GetComponent<FeatherStates>().CurrrentState == FeatherStates.FeatherState.PLATFORM)
-            {
-                _featherArray[i].gameObject.GetComponent<FeatherStates>().ChangeState(FeatherStates.FeatherState.RETURN);
-                _featherArray[i] = null;
-            }
-            Debug.Log(i);
-        }
-        
+    
 
-    }
+    
 }
