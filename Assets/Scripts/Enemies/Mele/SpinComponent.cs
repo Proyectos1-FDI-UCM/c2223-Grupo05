@@ -17,7 +17,7 @@ public class SpinComponent : MonoBehaviour
     [SerializeField] private float _timeSpin;
     [SerializeField] private float _spinCoolDown = 4;
     private float _currentTime = 0;
-    private bool _finishCharge = false;
+    private bool _finishCharge = true;
 
     
 

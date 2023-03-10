@@ -9,6 +9,7 @@ public class EnemyProjectil : MonoBehaviour
     [SerializeField] private float _force;
     [SerializeField] private float _timeToShoot;
     [SerializeField] private float _shootCooldown;
+    
 
     // Start is called before the first frame update
     void Start()
