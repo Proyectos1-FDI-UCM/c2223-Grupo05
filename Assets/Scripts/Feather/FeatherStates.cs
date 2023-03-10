@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
-
+using TMPro;
 using UnityEngine;
 
 public class FeatherStates : MonoBehaviour
@@ -75,6 +75,10 @@ public class FeatherStates : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(GameManager.Instance.FeatherCant <= 0 && Input.GetButtonDown("Feather Return") && _currentState == FeatherState.PLATFORM)
+        {
+            _nextState = FeatherState.RETURN;
+        }
         if(_nextState != _currentState)
         {
             if (_nextState == FeatherState.PLATFORM) FreezeAutoReturn(); //Sirve para desactivar el Return que tiene en player en FeatherRange

@@ -14,7 +14,6 @@ public class FeatheritemComponent : MonoBehaviour
         if ((bool)collision.gameObject.GetComponent<InputComponent>())
         {
             GameManager.Instance.AddFeather();
-            _player.GetComponent<FeatherThrowComponent>().CollectFeathers();
             Destroy(gameObject);
         }
     }
