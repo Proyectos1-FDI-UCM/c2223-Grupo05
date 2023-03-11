@@ -28630,8 +28630,8 @@ PolygonCollider2D:
       - {x: 24.181778, y: 22.812584}
       - {x: 3.6369333, y: 22.89037}
       - {x: 3.5675817, y: -10.268953}
-      - {x: 116.02829, y: -10.086554}
-      - {x: 116.38745, y: 58.086483}
+      - {x: 166.48572, y: -9.289858}
+      - {x: 171.09392, y: 66.85014}
 --- !u!1 &490743146
 GameObject:
   m_ObjectHideFlags: 0
@@ -28865,7 +28865,7 @@ GameObject:
   - component: {fileID: 545544075}
   - component: {fileID: 545544074}
   m_Layer: 0
-  m_Name: Chest Pluma
+  m_Name: Chest 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29375,7 +29375,7 @@ GameObject:
   - component: {fileID: 708855465}
   - component: {fileID: 708855464}
   m_Layer: 0
-  m_Name: Chest Pluma 4
+  m_Name: Chest Pluma (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76596,6 +76596,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _myRigidbody2D: {fileID: 1937118965}
+  _woodCoponent: {fileID: 0}
 --- !u!213 &1499726298
 Sprite:
   m_ObjectHideFlags: 0

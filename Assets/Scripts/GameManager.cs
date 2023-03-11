@@ -154,7 +154,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _feathersCant = 3;
+        _feathersCant = 0;
 
         _currentState = GameStates.TUTORIAL;
         _nextState = GameStates.TUTORIAL;

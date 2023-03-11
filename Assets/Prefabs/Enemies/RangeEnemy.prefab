@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1909364541277898344}
   - component: {fileID: 1909364541277898347}
   - component: {fileID: 89988560}
+  - component: {fileID: 89988561}
   m_Layer: 9
   m_Name: RangeEnemy
   m_TagString: Untagged
@@ -153,12 +154,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rangeControler: {fileID: 4382606737501290916}
-  _rangeRadius: 5
+  _rangeRadius: 10
   _playerLayer:
     serializedVersion: 2
     m_Bits: 128
   _timeToShoot: 0
   _shootCooldown: 2
+--- !u!114 &89988561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1909364541277898350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b684c3787794a84fb4e67fec8dc2b80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _projectile: {fileID: 3353817156695826134, guid: 8ae885af07ec9b2449d639af8dc8e4d7, type: 3}
+  _arrowTransform: {fileID: 0}
+  _force: 100
 --- !u!1 &1909364542454961588
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,7 +7,6 @@ using static UnityEditor.Experimental.GraphView.GraphView;
 public class EnemyShoot : MonoBehaviour
 {
     [SerializeField] private GameObject _projectile;
-    [SerializeField] private Transform _arrowTransform;
     [SerializeField] private float _force;
     private GameObject _player;
     
