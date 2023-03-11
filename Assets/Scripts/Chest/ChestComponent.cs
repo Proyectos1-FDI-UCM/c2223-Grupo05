@@ -11,8 +11,8 @@ public class ChestComponent : MonoBehaviour
     private bool _canInteract;
     [SerializeField] private GameObject _content;
     [SerializeField] private float _objectOffset;
-    private float _countdown = 0;
-    [SerializeField] private float _limit;
+    //private float _countdown = 0;
+    //[SerializeField] private float _limit;
     private bool _opened = false;
 
 
