@@ -7,7 +7,7 @@ using static UnityEditor.Experimental.GraphView.GraphView;
 public class EnemyShoot : MonoBehaviour
 {
     [SerializeField] private GameObject _projectile;
-
+    [SerializeField] private Transform _arrowTransform;
     [SerializeField] private float _force;
     private GameObject _player;
     
@@ -37,8 +37,10 @@ public class EnemyShoot : MonoBehaviour
         }
         else if (_playerRelativePos.x > 0 && _lookingRight) Turn();
 
-        GameObject arrow = Instantiate(_projectile, transform.position, Quaternion.identity);
         Vector3 direction = _player.transform.position - transform.position;
+        float rot = Mathf.Atan2(-direction.y, -direction.x) * Mathf.Rad2Deg;
+        GameObject arrow = Instantiate(_projectile, transform.position, Quaternion.Euler(0,0,rot+180));
+        
         if (transform.localScale.x < 0)
         {
             
@@ -49,6 +51,8 @@ public class EnemyShoot : MonoBehaviour
             
             arrow.GetComponent<Rigidbody2D>().AddForce(new Vector2(direction.x, direction.y)*_force, ForceMode2D.Force);
         }
+        
+        
         
     }
     public void Turn()
