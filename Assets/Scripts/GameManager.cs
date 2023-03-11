@@ -170,7 +170,7 @@ public class GameManager : MonoBehaviour
             EnterState(_currentState);
         }
         UpdateState(_currentState);
-        Debug.Log(FeatherCant);
+        
     }
     
 }

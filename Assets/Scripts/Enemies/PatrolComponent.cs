@@ -39,7 +39,7 @@ public class PatrolComponent : MonoBehaviour
         Move();
         if(!_touchingFloor)
         {
-            Debug.Log("Para");
+            
             _enemyRB.velocity = new Vector2(0, 0);
             if(_time > _timeCoolDown)
             {

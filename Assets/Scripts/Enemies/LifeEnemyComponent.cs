@@ -31,11 +31,12 @@ public class LifeEnemyComponent : MonoBehaviour
     public void TakeDamage(int damage)
     {
         _currentHealth -= damage;
-       
+        
     }
     public void Die()
     {
         //animación de muerte
         Destroy(gameObject);
+        
     }
 }
