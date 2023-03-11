@@ -18,8 +18,8 @@ public class SpinComponent : MonoBehaviour
     [SerializeField] private float _spinCoolDown = 4;
     private float _currentTime = 0;
     private bool _finishCharge = true;
-
-    
+    private bool _enabledSpinDamage =  false; //allows to activate 2 point life out
+    public bool EnableSpinDamage { get { return _enabledSpinDamage; } }
 
     private bool _touchingFloor;
     public bool TouchingFloor { get { return _touchingFloor; } }
@@ -27,6 +27,7 @@ public class SpinComponent : MonoBehaviour
     private bool _canSpin = true;
     public bool CanSpin { get { return _canSpin; } }
     // Start is called before the first frame update
+
     void Start()
     {
 
@@ -54,6 +55,7 @@ public class SpinComponent : MonoBehaviour
     }
     public IEnumerator Spin()
     {
+        _enabledSpinDamage = true;
         //Gira al detectar al jugador si no está orientado a este
         Vector3 _playerRelativePos = _player.transform.position - this.transform.position;
         if(_playerRelativePos.x < 0 && _patrol.lookingRight) 
@@ -73,6 +75,7 @@ public class SpinComponent : MonoBehaviour
        
         
         yield return new WaitForSeconds(_timeCharge); //spin charge time
+
         GetComponent<LifeEnemyComponent>().enabled = false;
         _finishCharge = true; //activa animacion spin
         _enemyRB.velocity = new Vector2(_spinVelocity * transform.localScale.x * (-1f), 0);
@@ -85,6 +88,7 @@ public class SpinComponent : MonoBehaviour
         GetComponent<PatrolComponent>().enabled = true;
 
         _canSpin = false;
+        _enabledSpinDamage = false;
 
     }
 }
