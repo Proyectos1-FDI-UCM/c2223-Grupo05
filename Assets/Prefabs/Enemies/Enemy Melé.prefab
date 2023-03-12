@@ -127,7 +127,6 @@ GameObject:
   - component: {fileID: 1301605595433793711}
   - component: {fileID: 1301605595433793616}
   - component: {fileID: 1301605595433793617}
-  - component: {fileID: 1301605595433793618}
   - component: {fileID: 1982846469}
   m_Layer: 9
   m_Name: "Enemy Mel\xE9"
@@ -300,21 +299,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spinVelocity: 6
-  _timeCharge: 0
-  _timeSpin: 1
+  _timeCharge: 0.7
+  _timeSpin: 0.7
   _spinCoolDown: 4
---- !u!114 &1301605595433793618
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1301605595433793620}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ffec681b79eb464da1749747be9ebfa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!95 &1982846469
 Animator:
   serializedVersion: 4
@@ -345,6 +332,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1301605595952616300}
   - component: {fileID: 4375682271626934846}
+  - component: {fileID: 784420220194474209}
   m_Layer: 9
   m_Name: AttackRange
   m_TagString: Untagged
@@ -393,6 +381,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &784420220194474209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1301605595952616301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ffec681b79eb464da1749747be9ebfa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1301605596782627355
 GameObject:
   m_ObjectHideFlags: 0

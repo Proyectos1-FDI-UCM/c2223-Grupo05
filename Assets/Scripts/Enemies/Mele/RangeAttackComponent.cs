@@ -8,9 +8,9 @@ public class RangeAttackComponent : MonoBehaviour
     private SpinComponent _spinComponent;
     private void Start()
     {
-        _spinComponent = GetComponent<SpinComponent>();
+        _spinComponent = GetComponentInParent<SpinComponent>();
     }
-    private void OnTriggerStay2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if ((bool)collision.gameObject.GetComponent<InputComponent>())
         {
