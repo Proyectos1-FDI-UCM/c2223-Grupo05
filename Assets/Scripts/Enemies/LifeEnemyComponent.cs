@@ -33,7 +33,7 @@ public class LifeEnemyComponent : MonoBehaviour
     public void TakeDamage(int damage)
     {
         _currentHealth -= damage;
-        _showDamage.StartCoroutine(_showDamage.ModSprite());
+        _showDamage.StartCoroutine(_showDamage.ModSprite(this.gameObject));
     }
     
     public void Die()

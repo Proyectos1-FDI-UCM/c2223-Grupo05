@@ -121,13 +121,13 @@ public class GameManager : MonoBehaviour
         {
 
             _lifes--;
+            _player.GetComponent<ShowDamage>().StartCoroutine(GetComponent<ShowDamage>().ModSprite(_player.gameObject)); //animacion de daño
             //avisar al HUD de cambio en vidas
         }
         else
         {
-            
             LoseSouls();
-          
+            _player.GetComponent<ShowDamage>().StartCoroutine(_player.GetComponent<ShowDamage>().ModSprite(_player.gameObject)); //animacion de daño
         }
     }
     
@@ -135,13 +135,13 @@ public class GameManager : MonoBehaviour
     public void LoseSouls()
     {
         _souls--;
-
+        Debug.Log("DUUUSSS" + _souls);
 
         //avisar al HUD de cambio en almas
     }
     public void ResetSouls()
     {
-        _souls = 2;
+        _souls = 3;
     }
     #endregion
 
