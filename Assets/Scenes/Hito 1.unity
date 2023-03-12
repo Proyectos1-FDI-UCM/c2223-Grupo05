@@ -83935,7 +83935,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1301605595433793708, guid: 56ebc95cd99776a49810d8a680bbd17b, type: 3}
       propertyPath: m_GravityScale
-      value: 100
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1301605595433793708, guid: 56ebc95cd99776a49810d8a680bbd17b, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1301605595433793711, guid: 56ebc95cd99776a49810d8a680bbd17b, type: 3}
       propertyPath: _spinDamage
@@ -83945,8 +83949,23 @@ PrefabInstance:
       propertyPath: m_Icon
       value: 
       objectReference: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
-    m_RemovedComponents:
-    - {fileID: 1301605595952616299, guid: 56ebc95cd99776a49810d8a680bbd17b, type: 3}
+    - target: {fileID: 4375682271626934846, guid: 56ebc95cd99776a49810d8a680bbd17b, type: 3}
+      propertyPath: m_Size.x
+      value: 5.8279037
+      objectReference: {fileID: 0}
+    - target: {fileID: 4375682271626934846, guid: 56ebc95cd99776a49810d8a680bbd17b, type: 3}
+      propertyPath: m_Size.y
+      value: 0.7813144
+      objectReference: {fileID: 0}
+    - target: {fileID: 4375682271626934846, guid: 56ebc95cd99776a49810d8a680bbd17b, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.0084114075
+      objectReference: {fileID: 0}
+    - target: {fileID: 4375682271626934846, guid: 56ebc95cd99776a49810d8a680bbd17b, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.10934281
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 56ebc95cd99776a49810d8a680bbd17b, type: 3}
 --- !u!4 &1982846460 stripped
 Transform:
