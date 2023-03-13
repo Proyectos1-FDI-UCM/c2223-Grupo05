@@ -9,8 +9,10 @@ public class EnemyShoot : MonoBehaviour
     [SerializeField] private GameObject _projectile;
     [SerializeField] private float _force;
     private GameObject _player;
+
     
 
+    
     private bool _lookingRight = true;
     public bool LookingRight { get { return _lookingRight; } }
 
@@ -50,9 +52,9 @@ public class EnemyShoot : MonoBehaviour
             
             arrow.GetComponent<Rigidbody2D>().AddForce(new Vector2(direction.x, direction.y)*_force, ForceMode2D.Force);
         }
+
         
-        
-        
+
     }
     public void Turn()
     {
