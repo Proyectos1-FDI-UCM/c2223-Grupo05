@@ -7,7 +7,7 @@ using UnityEngine.Rendering.Universal;
 
 public class PlayerCombat : MonoBehaviour
 {
-    [Header("ATACK")] 
+    [Header("ATTACK")] 
     [SerializeField] 
     private Transform _attackPoint;
 
@@ -27,6 +27,12 @@ public class PlayerCombat : MonoBehaviour
 
     [SerializeField]
     private Animator _myAnimation;
+
+    [Header("AIR ATTACK")]
+    [SerializeField]
+    private Transform _attackPosition;
+    [SerializeField]
+    private float _radius;
 
     [Header("ILUMINATION")]
     [Range(0, 4)]
@@ -62,6 +68,19 @@ public class PlayerCombat : MonoBehaviour
 
             }
         }
+        else
+        {
+            //GetComponent<InputComponent>().enabled = false;
+            Debug.Log("aire");
+            Collider2D[] _hitEnemisOnAir = Physics2D.OverlapCircleAll(_attackPosition.position, _radius, _enemylayer);
+
+            foreach(Collider2D _enemiesOnAir in _hitEnemisOnAir)
+            {
+                Debug.Log("Tocado");
+                _enemiesOnAir.GetComponent<LifeEnemyComponent>().TakeDamage(_attackDamage);
+            }
+
+        }
     }
     //Se activa al final de la animacion de ataque
     public void UnableLight()
@@ -78,7 +97,7 @@ public class PlayerCombat : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
-        if(_attackPoint== null)
+        if(_attackPoint == null)
         {
             return;
         }
