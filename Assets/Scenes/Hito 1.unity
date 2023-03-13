@@ -86004,7 +86004,7 @@ MonoBehaviour:
     m_Bits: 8
   _jumpForce: 12
   _wallsController: {fileID: 958352704688138106}
-  _wallsDimensions: {x: 0.3, y: 1.6}
+  _wallsDimensions: {x: 0.3, y: 1.4}
   _walls:
     serializedVersion: 2
     m_Bits: 256
