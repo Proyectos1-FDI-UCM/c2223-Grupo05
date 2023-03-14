@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class WoodComponent : MonoBehaviour
 {
-    private Transform _startTransform;
     private Rigidbody2D _myRigidbody2D;
 
     private bool _falling = false;
@@ -13,31 +12,35 @@ public class WoodComponent : MonoBehaviour
     [SerializeField] private float _waitingSeconds = 0.5f;
     public bool Falling { get { return _falling; } set { _falling = value; } }
 
+    private bool _canFall = true;
+    public bool CanFall { get { return _canFall; } set { _canFall = value; } }
+
     [SerializeField] private float _returningVelocity;
     [SerializeField] private Transform _limitPoint;
+    private Vector2 _startPosition;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if ((bool)collision.GetComponent<InputComponent>())
         {
-            Debug.Log("Jugador la palma");
+            collision.GetComponent<RespawnComponent>().Respawn();
         }
     }
     private IEnumerator ChangeToReturn()
     {
-        Debug.Log("Para");
         _myRigidbody2D.gravityScale = 0;
         _myRigidbody2D.velocity = Vector2.zero;
 
         yield return new WaitForSeconds(_waitingSeconds);
 
+        _myRigidbody2D.gravityScale = -1;
         _returning = true;
 
     } 
     // Start is called before the first frame update
     void Start()
     {
-        _startTransform = transform;
+        _startPosition = transform.position;
         _myRigidbody2D = GetComponent<Rigidbody2D>();
     }
 
@@ -46,7 +49,6 @@ public class WoodComponent : MonoBehaviour
     {
         if (_falling)
         {
-            Debug.Log("Cayendo");
             if (transform.position.y <= _limitPoint.position.y)
             {
                 _falling = false;
@@ -55,10 +57,11 @@ public class WoodComponent : MonoBehaviour
         }
         if (_returning)
         {
-            Debug.Log("Volviendo");
-            Vector2.MoveTowards(transform.position, _startTransform.position, _returningVelocity * Time.deltaTime);
-            if (transform.position.y >= _startTransform.position.y)
+            if (transform.position.y >= _startPosition.y)
             {
+                _myRigidbody2D.gravityScale = 0;
+                _myRigidbody2D.velocity = Vector2.zero;
+                _canFall = true;
                 _returning = false;
             }
         }

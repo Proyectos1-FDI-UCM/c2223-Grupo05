@@ -6,13 +6,12 @@ public class TrunkDetectionComponent : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D _myRigidbody2D;
     [SerializeField] private WoodComponent _woodCoponent;
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
-        if ((bool)collision.GetComponent<InputComponent>())
+        if ((bool)collision.GetComponent<InputComponent>() && _woodCoponent.CanFall)
         {
-            Debug.Log("Tronco va");
-
-            _myRigidbody2D.gravityScale = 1;
+            _myRigidbody2D.gravityScale = 2;
+            _woodCoponent.CanFall = false;
             _woodCoponent.Falling = true;
         }
     }
