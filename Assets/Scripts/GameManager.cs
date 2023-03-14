@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
 
     private int _souls = 3;
     public int Soul { get { return _souls; } }
+    private bool _isDeath = false;
     
 
     private int _lifes = 0; //implementaar dinamica del nivel; 
@@ -85,9 +86,11 @@ public class GameManager : MonoBehaviour
             case GameStates.START:
                 break;
             case GameStates.TUTORIAL:
-                if(_souls <= 0){
-                    _player.GetComponent<RespawnComponent>().Respawn();
+                if (_souls <= 0)
+                {
+                    _isDeath = true;
                 }
+                _player.GetComponent<Animator>().SetBool("Death", _isDeath);
                 break;
             case GameStates.LEVEL:
                 break;
@@ -153,13 +156,14 @@ public class GameManager : MonoBehaviour
     public void ResetSouls()
     {
         _souls = 3;
+        _isDeath = false;
     }
     #endregion
 
     // Start is called before the first frame update
     void Start()
     {
-        _feathersCant = 0;
+        _feathersCant = 3;
 
         _currentState = GameStates.TUTORIAL;
         _nextState = GameStates.TUTORIAL;
@@ -169,7 +173,8 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(_nextState != _currentState)
+       
+        if (_nextState != _currentState)
         {
             ExitState(_currentState);
             _currentState = _nextState;
