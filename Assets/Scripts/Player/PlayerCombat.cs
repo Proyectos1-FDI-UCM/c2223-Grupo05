@@ -31,8 +31,7 @@ public class PlayerCombat : MonoBehaviour
     
 
     [Header("AIR ATTACK")]
-    [SerializeField]
-    private Transform _attackPosition;
+
     [SerializeField]
     private float _radius;
 
@@ -41,7 +40,8 @@ public class PlayerCombat : MonoBehaviour
     [SerializeField] private float _attackLight;
     private Light2D _light;
     private Color _color;
-    private float _intensity;   
+    private float _intensity;
+    private float _gravIni;
 
     private void Start()
     {
@@ -49,6 +49,7 @@ public class PlayerCombat : MonoBehaviour
         _animator = GetComponent<Animator>();
         _color = _light.color;
         _intensity = _light.intensity;
+        _gravIni = GetComponent<Rigidbody2D>().gravityScale;
     }
 
     // play attack animation, detect enemies in range attack, damage them
@@ -74,15 +75,17 @@ public class PlayerCombat : MonoBehaviour
         }
         else
         {
-            //GetComponent<InputComponent>().enabled = false;
+            GetComponent<InputComponent>().enabled = false;
             Debug.Log("aire");
-            Collider2D[] _hitEnemisOnAir = Physics2D.OverlapCircleAll(_attackPosition.position, _radius, _enemylayer);
+            GetComponent<Rigidbody2D>().gravityScale = 0;
+            GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            ActivateLight();
+            _animator.SetTrigger("Air");
+            Collider2D[] _hitEnemisOnAir = Physics2D.OverlapCircleAll(_attackPoint.position, _radius, _enemylayer);
 
 
 
-            //Set animation
-
-
+            
             foreach(Collider2D _enemiesOnAir in _hitEnemisOnAir)
             {
                 Debug.Log("Tocado");
@@ -116,6 +119,7 @@ public class PlayerCombat : MonoBehaviour
     public void ActivaInput()
     {
         GetComponent<InputComponent>().enabled = true;
+        GetComponent<Rigidbody2D>().gravityScale = _gravIni;
     }
 
 
