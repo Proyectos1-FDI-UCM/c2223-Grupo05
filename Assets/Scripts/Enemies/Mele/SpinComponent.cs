@@ -48,7 +48,7 @@ public class SpinComponent : MonoBehaviour
             if(_currentTime >= _spinCoolDown)
             {
                 _canSpin = true;
-                
+                GetComponentInChildren<BoxCollider2D>().enabled = true;
             }
         }
         
@@ -56,6 +56,7 @@ public class SpinComponent : MonoBehaviour
     public IEnumerator Spin()
     {
         _enabledSpinDamage = true;
+        GetComponentInChildren<BoxCollider2D>().enabled = false;
         //Gira al detectar al jugador si no está orientado a este
         Vector3 _playerRelativePos = _player.transform.position - this.transform.position;
         if(_playerRelativePos.x < 0 && _patrol.lookingRight) 
