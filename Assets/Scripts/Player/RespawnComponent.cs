@@ -5,14 +5,13 @@ using UnityEngine;
 
 public class RespawnComponent : MonoBehaviour
 {
-    private Vector3 _respawnPoint;
+    
     private float _gravIni;
     private Rigidbody2D _rb;
     
     void Start()
     {
         _gravIni = GetComponent<Rigidbody2D>().gravityScale;
-        _respawnPoint = transform.position;
         _rb = GetComponent<Rigidbody2D>();
     }
 
@@ -31,7 +30,7 @@ public class RespawnComponent : MonoBehaviour
 
     public void Respawn() //Llamar cuando tengamos HUD y esas vainas
     {
-        
+
         GameManager.Instance.ResetSouls();
         for (int i = 0; i < transform.childCount; i++)
         {
@@ -40,8 +39,10 @@ public class RespawnComponent : MonoBehaviour
         GetComponent<CapsuleCollider2D>().enabled = true;
         GetComponent<InputComponent>().enabled = true;
         _rb.gravityScale = _gravIni;
-        transform.position = _respawnPoint;
+        GameManager.Instance.Respawne();
         Debug.Log("Resp");
+        
+
+
     }
-    
 }

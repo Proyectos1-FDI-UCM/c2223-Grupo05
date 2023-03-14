@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour
     private int _lifes = 0; //implementaar dinamica del nivel; 
     private int _maxLifes;  //estaba como maxLifes = 2, pero da el error de que no se usa, en el futuro lo volvemos a añadir
     public bool _sword = false; //variable para saber si tenemos la esapda o no
+    private Vector3 _respawnPoint;
     #endregion
 
 
@@ -103,6 +104,16 @@ public class GameManager : MonoBehaviour
     {
         _sword = true;
     }
+    public void Respawne()
+    {
+        
+        _player.transform.position = _respawnPoint;
+    }
+    public void Checkpoint()
+    {
+        _respawnPoint = _player.transform.position;
+        
+    }
     public void AddFeather()
     {
         _feathersCant++;
@@ -152,6 +163,7 @@ public class GameManager : MonoBehaviour
 
         _currentState = GameStates.TUTORIAL;
         _nextState = GameStates.TUTORIAL;
+        _respawnPoint = transform.position;
     }
 
     // Update is called once per frame
