@@ -29,7 +29,7 @@ public class LifeEnemyComponent : MonoBehaviour
             this.gameObject.GetComponent<SpinComponent>().enabled = false;
             this.gameObject.GetComponent<CircleCollider2D>().enabled = false;
         }
-        _animator.SetBool("Death", _isDeath);
+        _animator.SetBool("Death", _isDeath); //Activa animacion de muerte y al final de la anim llama a Die()
     }
     public void TakeDamage(int damage)
     {
@@ -39,7 +39,6 @@ public class LifeEnemyComponent : MonoBehaviour
     
     public void Die()
     {
-        //animación de muerte
         Destroy(gameObject);
         
     }

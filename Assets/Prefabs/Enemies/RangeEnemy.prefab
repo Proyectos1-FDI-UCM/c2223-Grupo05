@@ -16,6 +16,8 @@ GameObject:
   - component: {fileID: 89988560}
   - component: {fileID: 89988561}
   - component: {fileID: 361749327560396361}
+  - component: {fileID: 6218319825279991229}
+  - component: {fileID: 1364956816}
   m_Layer: 9
   m_Name: RangeEnemy
   m_TagString: Untagged
@@ -195,6 +197,32 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &6218319825279991229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1909364541277898350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae269abd0973dd143a6384cdfae7067b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHealth: 3
+--- !u!114 &1364956816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1909364541277898350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f672d4e5931f7f74f98609218e6da454, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _timeOfDamage: 0.2
 --- !u!1 &1909364542454961588
 GameObject:
   m_ObjectHideFlags: 0
