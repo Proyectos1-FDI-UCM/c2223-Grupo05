@@ -34,21 +34,14 @@ public class PlayerCombat : MonoBehaviour
 
     [SerializeField]
     private float _radius;
-
-    [Header("ILUMINATION")]
-    [Range(0, 4)]
-    [SerializeField] private float _attackLight;
-    private Light2D _light;
-    private Color _color;
-    private float _intensity;
     private float _gravIni;
 
     private void Start()
     {
-        _light = this.gameObject.GetComponentInChildren<Light2D>();
+      
         _animator = GetComponent<Animator>();
-        _color = _light.color;
-        _intensity = _light.intensity;
+       
+        
         _gravIni = GetComponent<Rigidbody2D>().gravityScale;
     }
 
@@ -61,7 +54,7 @@ public class PlayerCombat : MonoBehaviour
             GetComponent<InputComponent>().enabled = false;
 
             _animator.SetTrigger("Attack");
-            ActivateLight();
+            
 
             Debug.Log("suelo");
             Collider2D[] _hitEnemies = Physics2D.OverlapCapsuleAll(_attackPoint.position, _attackSize, _direction, _angleAttack, _enemylayer);
@@ -69,7 +62,7 @@ public class PlayerCombat : MonoBehaviour
             foreach (Collider2D enemies in _hitEnemies)
             {
                 Debug.Log("Tocado");
-                enemies.GetComponent<LifeEnemyComponent>().TakeDamage(_attackDamage);
+                enemies.GetComponent<LifeEnemyComponent>().TakeDamage(_attackDamage, transform.localScale.x);
 
             }
         }
@@ -79,7 +72,7 @@ public class PlayerCombat : MonoBehaviour
             Debug.Log("aire");
             GetComponent<Rigidbody2D>().gravityScale = 0;
             GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-            ActivateLight();
+          
             _animator.SetTrigger("Air");
             Collider2D[] _hitEnemisOnAir = Physics2D.OverlapCircleAll(_attackPoint.position, _radius, _enemylayer);
 
@@ -89,24 +82,13 @@ public class PlayerCombat : MonoBehaviour
             foreach(Collider2D _enemiesOnAir in _hitEnemisOnAir)
             {
                 Debug.Log("Tocado");
-                _enemiesOnAir.GetComponent<LifeEnemyComponent>().TakeDamage(_attackDamage);
+                _enemiesOnAir.GetComponent<LifeEnemyComponent>().TakeDamage(_attackDamage, transform.localScale.x);
             }
-
         }
     }
     //Se activa al final de la animacion de ataque
-    public void UnableLight()
-    {
-        _light.color = _color;
-        _light.intensity = _intensity;
-    }
-    private void ActivateLight()
-    {
-        _light.color = Color.Lerp(_light.color, Color.white, 0.3f);
-        _light.intensity = Mathf.Lerp(_light.intensity, _attackLight, 0.3f);
-
-    }
-
+   
+   
     private void OnDrawGizmosSelected()
     {
         if(_attackPoint == null)

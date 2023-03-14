@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -23,6 +22,7 @@ public class PatrolComponent : MonoBehaviour
     private float _time;
 
     private float _direction = 1;
+    public float Direction { get { return _direction; } }
 
     
 

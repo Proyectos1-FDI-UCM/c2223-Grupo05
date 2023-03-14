@@ -161,6 +161,7 @@ GameObject:
   - component: {fileID: 1982846469}
   - component: {fileID: 5302122464883213471}
   - component: {fileID: 1982846470}
+  - component: {fileID: 1982846471}
   m_Layer: 9
   m_Name: "Enemy Mel\xE9"
   m_TagString: Untagged
@@ -387,6 +388,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _timeOfDamage: 0.2
+--- !u!114 &1982846471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1301605595433793620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f5980855987af74c8db24ed60df4cb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _recForceX: 20
+  _recForceY: 10
 --- !u!1 &1301605595952616301
 GameObject:
   m_ObjectHideFlags: 0

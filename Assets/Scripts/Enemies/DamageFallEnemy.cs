@@ -43,7 +43,7 @@ public class DamageFallEnemy : MonoBehaviour
             {
 
                 print("take");
-                GetComponent<LifeEnemyComponent>().TakeDamage(1);
+                GetComponent<LifeEnemyComponent>().TakeDamage(1, 1);
                 _yVelocity = 0;
 
             }
