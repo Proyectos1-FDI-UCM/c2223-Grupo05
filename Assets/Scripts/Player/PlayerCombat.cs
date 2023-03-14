@@ -7,6 +7,9 @@ using UnityEngine.Rendering.Universal;
 
 public class PlayerCombat : MonoBehaviour
 {
+
+    private Animator _animator;
+
     [Header("ATTACK")] 
     [SerializeField] 
     private Transform _attackPoint;
@@ -25,8 +28,7 @@ public class PlayerCombat : MonoBehaviour
     [SerializeField]
     private int _attackDamage;
 
-    [SerializeField]
-    private Animator _myAnimation;
+    
 
     [Header("AIR ATTACK")]
     [SerializeField]
@@ -43,8 +45,8 @@ public class PlayerCombat : MonoBehaviour
 
     private void Start()
     {
-        
         _light = this.gameObject.GetComponentInChildren<Light2D>();
+        _animator = GetComponent<Animator>();
         _color = _light.color;
         _intensity = _light.intensity;
     }
@@ -56,8 +58,10 @@ public class PlayerCombat : MonoBehaviour
         {
             //Se desactiva input para que no se mueva mientras ataca
             GetComponent<InputComponent>().enabled = false;
-            _myAnimation.SetTrigger("Attack");
+
+            _animator.SetTrigger("Attack");
             ActivateLight();
+
             Debug.Log("suelo");
             Collider2D[] _hitEnemies = Physics2D.OverlapCapsuleAll(_attackPoint.position, _attackSize, _direction, _angleAttack, _enemylayer);
 
@@ -73,6 +77,11 @@ public class PlayerCombat : MonoBehaviour
             //GetComponent<InputComponent>().enabled = false;
             Debug.Log("aire");
             Collider2D[] _hitEnemisOnAir = Physics2D.OverlapCircleAll(_attackPosition.position, _radius, _enemylayer);
+
+
+
+            //Set animation
+
 
             foreach(Collider2D _enemiesOnAir in _hitEnemisOnAir)
             {

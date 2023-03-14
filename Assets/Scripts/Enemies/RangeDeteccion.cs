@@ -21,7 +21,7 @@ public class RangeDeteccion : MonoBehaviour
     void Start()
     {
         _projectile= GetComponent<EnemyShoot>();
-        _animator= GetComponent<Animator>();
+        _animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -31,11 +31,12 @@ public class RangeDeteccion : MonoBehaviour
     }
     private void Update()
     {
-        _animator.SetBool("canShoot", _detection);
+       
         if (_detection && _timeToShoot > _shootCooldown )
         {
             Debug.Log("Detectado");
-            
+
+            _animator.SetTrigger("ShootCharge");
             _projectile.GetComponentInParent<EnemyShoot>().Shoot();
             
             _timeToShoot = 0;
