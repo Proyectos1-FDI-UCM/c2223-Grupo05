@@ -24,6 +24,7 @@ public class LifeEnemyComponent : MonoBehaviour
         {
             _isDeath = true;
             this.gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            this.gameObject.GetComponent<Rigidbody2D>().gravityScale = 0;
             this.gameObject.GetComponent<PatrolComponent>().enabled = false;
             this.gameObject.GetComponent<SpinComponent>().enabled = false;
             this.gameObject.GetComponent<CircleCollider2D>().enabled = false;

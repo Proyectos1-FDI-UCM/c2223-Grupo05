@@ -18,6 +18,7 @@ public class RangeAttackComponent : MonoBehaviour
             if (_spinComponent.CanSpin)
             {
                 _spinComponent.StartCoroutine(_spinComponent.Spin());
+                
             }
             
         }
