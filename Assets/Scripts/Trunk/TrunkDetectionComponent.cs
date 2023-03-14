@@ -10,7 +10,7 @@ public class TrunkDetectionComponent : MonoBehaviour
     {
         if ((bool)collision.GetComponent<InputComponent>())
         {
-            Debug.Log("CaeTronco");
+            Debug.Log("Tronco va");
 
             _myRigidbody2D.gravityScale = 1;
             _woodCoponent.Falling = true;
@@ -25,6 +25,6 @@ public class TrunkDetectionComponent : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

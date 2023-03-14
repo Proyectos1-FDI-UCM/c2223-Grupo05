@@ -9,6 +9,8 @@ public class WoodComponent : MonoBehaviour
     private Rigidbody2D _myRigidbody2D;
 
     private bool _falling = false;
+    private bool _returning = false;
+    [SerializeField] private float _waitingSeconds = 0.5f;
     public bool Falling { get { return _falling; } set { _falling = value; } }
 
     [SerializeField] private float _returningVelocity;
@@ -21,10 +23,16 @@ public class WoodComponent : MonoBehaviour
             Debug.Log("Jugador la palma");
         }
     }
-    private void ChangeState()
+    private IEnumerator ChangeToReturn()
     {
+        Debug.Log("Para");
+        _myRigidbody2D.gravityScale = 0;
         _myRigidbody2D.velocity = Vector2.zero;
-        _myRigidbody2D.gravityScale = -1 * (_returningVelocity);
+
+        yield return new WaitForSeconds(_waitingSeconds);
+
+        _returning = true;
+
     } 
     // Start is called before the first frame update
     void Start()
@@ -38,10 +46,20 @@ public class WoodComponent : MonoBehaviour
     {
         if (_falling)
         {
-            if (transform.position.y >= _limitPoint.position.y)
+            Debug.Log("Cayendo");
+            if (transform.position.y <= _limitPoint.position.y)
             {
-                ChangeState();
                 _falling = false;
+                StartCoroutine(ChangeToReturn());                
+            }
+        }
+        if (_returning)
+        {
+            Debug.Log("Volviendo");
+            Vector2.MoveTowards(transform.position, _startTransform.position, _returningVelocity * Time.deltaTime);
+            if (transform.position.y >= _startTransform.position.y)
+            {
+                _returning = false;
             }
         }
     }
