@@ -24,11 +24,8 @@ public class EnemyShoot : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
+   
     public void Shoot()
     {
         Vector3 _playerRelativePos = _player.transform.position - this.transform.position;
