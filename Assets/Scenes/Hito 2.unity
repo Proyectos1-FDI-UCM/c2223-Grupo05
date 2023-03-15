@@ -27684,7 +27684,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 707416044}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -12.173622, y: -5.196684, z: -19.955824}
+  m_LocalPosition: {x: -12.042236, y: -5.1960735, z: -19.955824}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -75267,8 +75267,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   _attackDamage: 1
-  _myAnimation: {fileID: 7741347684084574812}
-  _attackLight: 2.71
+  _radius: 0
 --- !u!4 &3116258753566495277
 Transform:
   m_ObjectHideFlags: 0
