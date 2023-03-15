@@ -19431,7 +19431,7 @@ MonoBehaviour:
   m_Intensity: 2.5
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
-  m_ApplyToSortingLayers: 0f9e34f100000000
+  m_ApplyToSortingLayers: 000000004d29da2f0f9e34f1
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -71440,7 +71440,7 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
-  m_ApplyToSortingLayers: 000000000f9e34f1
+  m_ApplyToSortingLayers: 000000004d29da2f0f9e34f1
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -71566,7 +71566,7 @@ MonoBehaviour:
   m_Intensity: 2.5
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
-  m_ApplyToSortingLayers: 0f9e34f100000000
+  m_ApplyToSortingLayers: 000000004d29da2f0f9e34f1
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -72939,7 +72939,7 @@ MonoBehaviour:
   m_Intensity: 2.5
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
-  m_ApplyToSortingLayers: 0f9e34f100000000
+  m_ApplyToSortingLayers: 000000004d29da2f0f9e34f1
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -83898,6 +83898,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 911523359}
     m_Modifications:
+    - target: {fileID: 1982846471, guid: 56ebc95cd99776a49810d8a680bbd17b, type: 3}
+      propertyPath: _waitTime
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1982846471, guid: 56ebc95cd99776a49810d8a680bbd17b, type: 3}
+      propertyPath: _recForceX
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1982846471, guid: 56ebc95cd99776a49810d8a680bbd17b, type: 3}
+      propertyPath: _recForceY
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1301605595357953092, guid: 56ebc95cd99776a49810d8a680bbd17b, type: 3}
+      propertyPath: m_ApplyToSortingLayers.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1301605595357953092, guid: 56ebc95cd99776a49810d8a680bbd17b, type: 3}
+      propertyPath: m_ApplyToSortingLayers.Array.data[1]
+      value: -248209905
+      objectReference: {fileID: 0}
+    - target: {fileID: 1301605595357953092, guid: 56ebc95cd99776a49810d8a680bbd17b, type: 3}
+      propertyPath: m_ApplyToSortingLayers.Array.data[2]
+      value: 802826573
+      objectReference: {fileID: 0}
     - target: {fileID: 1301605595433793619, guid: 56ebc95cd99776a49810d8a680bbd17b, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -83945,10 +83969,6 @@ PrefabInstance:
     - target: {fileID: 1301605595433793620, guid: 56ebc95cd99776a49810d8a680bbd17b, type: 3}
       propertyPath: m_Name
       value: "Enemy Mel\xE9"
-      objectReference: {fileID: 0}
-    - target: {fileID: 1301605595433793620, guid: 56ebc95cd99776a49810d8a680bbd17b, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 56ebc95cd99776a49810d8a680bbd17b, type: 3}
@@ -85469,7 +85489,6 @@ MonoBehaviour:
     m_Bits: 512
   _attackDamage: 1
   _radius: 5
-  _attackLight: 3.6
 --- !u!4 &3116258753566495277
 Transform:
   m_ObjectHideFlags: 0
@@ -85555,11 +85574,11 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -248209905
-  m_SortingLayer: 2
+  m_SortingLayerID: 802826573
+  m_SortingLayer: 1
   m_SortingOrder: 8
   m_Sprite: {fileID: 21300000, guid: 52aa63ff49a8fa147b82233eba05fdbe, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.71949524, g: 0.28773582, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -85824,7 +85843,7 @@ MonoBehaviour:
   m_Intensity: 2
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
-  m_ApplyToSortingLayers: 0f9e34f100000000
+  m_ApplyToSortingLayers: 0f9e34f1000000004d29da2f
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0

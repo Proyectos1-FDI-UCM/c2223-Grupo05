@@ -167,7 +167,7 @@ public class GameManager : MonoBehaviour
 
         _currentState = GameStates.TUTORIAL;
         _nextState = GameStates.TUTORIAL;
-        _respawnPoint = transform.position;
+        _respawnPoint = _player.transform.position;
     }
 
     // Update is called once per frame
