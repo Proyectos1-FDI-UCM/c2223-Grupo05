@@ -13,6 +13,8 @@ public class FallingPlatformComponent : MonoBehaviour
     private float _delay;
     [SerializeField]
     private float _amountOfShakes;
+    [SerializeField]
+    private GameObject _myColliderObject;
 
     //booleanos de control
     private bool _readyToShake;
@@ -36,7 +38,6 @@ public class FallingPlatformComponent : MonoBehaviour
         if (_readyToShake)
         {
             Vector2 _shakePosition = _myTransform.position + Random.insideUnitSphere * (Time.deltaTime * _amountOfShakes);
-            //_shakePosition.y = _myOriginalPos.y;
 
             _myTransform.position = _shakePosition;
         }
@@ -61,6 +62,7 @@ public class FallingPlatformComponent : MonoBehaviour
         _readyToShake = false;
         _fall = true;
         gameObject.GetComponent<BoxCollider2D>().enabled = false;
+        _myColliderObject.GetComponent<BoxCollider2D>().enabled = false;
         
          
     }
