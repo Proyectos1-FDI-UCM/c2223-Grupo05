@@ -6,7 +6,6 @@ public class PlayerDetectorComponent : MonoBehaviour
 {
     private FallingPlatformComponent _myFallingPlatformComponent;
 
-
     private void Start()
     {
         _myFallingPlatformComponent = GetComponent<FallingPlatformComponent>();

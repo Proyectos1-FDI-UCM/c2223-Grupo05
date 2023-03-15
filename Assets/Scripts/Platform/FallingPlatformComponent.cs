@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class FallingPlatformComponent : MonoBehaviour
 {
-    private Rigidbody2D _myRigidBody;
     private Transform _myTransform;
-    private GameObject _myPlatform;
 
     [Header("FALLING")]
     [SerializeField]
@@ -14,7 +12,9 @@ public class FallingPlatformComponent : MonoBehaviour
     [SerializeField]
     private float _amountOfShakes;
     [SerializeField]
-    private GameObject _myColliderObject;
+    private GameObject _myPlatform;
+    private Transform _myPlatformTransform;
+    private Rigidbody2D _myPlatformRB;
 
     //booleanos de control
     private bool _readyToShake;
@@ -26,9 +26,9 @@ public class FallingPlatformComponent : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _myRigidBody = GetComponent<Rigidbody2D>();
-        _myTransform = transform;
-        _myPlatform = GetComponent<GameObject>();
+        _myPlatformRB = _myPlatform.GetComponent<Rigidbody2D>();
+        _myPlatformTransform = _myPlatform.transform;
+        
         //_myOriginalPos = _myTransform.position;
     }
 
@@ -37,14 +37,14 @@ public class FallingPlatformComponent : MonoBehaviour
     {
         if (_readyToShake)
         {
-            Vector2 _shakePosition = _myTransform.position + Random.insideUnitSphere * (Time.deltaTime * _amountOfShakes);
+            Vector2 _shakePosition = _myPlatformTransform.position + Random.insideUnitSphere * (Time.deltaTime * _amountOfShakes);
 
-            _myTransform.position = _shakePosition;
+            _myPlatformTransform.position = _shakePosition;
         }
         else if (_fall)
         {
-            _myRigidBody.constraints = RigidbodyConstraints2D.None;
-            _myRigidBody.constraints = RigidbodyConstraints2D.FreezeRotation;
+            _myPlatformRB.constraints = RigidbodyConstraints2D.None;
+            _myPlatformRB.constraints = RigidbodyConstraints2D.FreezeRotation;
         }
         
     }
@@ -52,6 +52,7 @@ public class FallingPlatformComponent : MonoBehaviour
     
     public IEnumerator Falling()
     {
+        Debug.Log("Enumerator");
         yield return new WaitForSeconds(_delay);
 
         _readyToShake = true;
@@ -61,9 +62,15 @@ public class FallingPlatformComponent : MonoBehaviour
 
         _readyToShake = false;
         _fall = true;
+
+        //desactivamos los colliders para que no colisionen
+        //Debug.Log("Se desactica collider");
+        _myPlatform.GetComponent<BoxCollider2D>().enabled = false;
         gameObject.GetComponent<BoxCollider2D>().enabled = false;
-        _myColliderObject.GetComponent<BoxCollider2D>().enabled = false;
         
+        yield return new WaitForSeconds(2f);
+
+        Destroy(_myPlatform);
          
     }
     
