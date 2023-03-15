@@ -33,7 +33,6 @@ public class BossManager : MonoBehaviour
             case BossStates.Teleport:
             case BossStates.Throw:
                 break;
-
         }
     }
     private void UpdateState(BossStates newState)
