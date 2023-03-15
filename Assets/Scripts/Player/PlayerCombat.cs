@@ -79,10 +79,10 @@ public class PlayerCombat : MonoBehaviour
 
 
             
-            foreach(Collider2D _enemiesOnAir in _hitEnemisOnAir)
+            foreach(Collider2D enemiesOnAir in _hitEnemisOnAir)
             {
                 Debug.Log("Tocado");
-                _enemiesOnAir.GetComponent<LifeEnemyComponent>().TakeDamage(_attackDamage, transform.localScale.x);
+                enemiesOnAir.GetComponent<LifeEnemyComponent>().TakeDamage(_attackDamage, transform.localScale.x);
             }
         }
     }

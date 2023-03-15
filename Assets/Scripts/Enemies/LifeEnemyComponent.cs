@@ -25,28 +25,38 @@ public class LifeEnemyComponent : MonoBehaviour
     }
     void Update()
     {
-        
+
         if (_currentHealth <= 0)
         {
             _isDeath = true;
             this.gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             this.gameObject.GetComponent<Rigidbody2D>().gravityScale = 0;
-            _patrolComp.enabled = false;
-            this.gameObject.GetComponent<SpinComponent>().enabled = false;
-            this.gameObject.GetComponent<CircleCollider2D>().enabled = false;
+            
+            if ((bool)this.gameObject.GetComponent<SpinComponent>()) //evaula si es mele
+            {
+                this.gameObject.GetComponent<SpinComponent>().enabled = false;
+                _patrolComp.enabled = false;
+            }
+            this.gameObject.GetComponent<CapsuleCollider2D>().enabled = false;
         }
         _animator.SetBool("Death", _isDeath); //Activa animacion de muerte y al final de la anim llama a Die()
     }
     public void TakeDamage(int damage, float playerDirection)
     {
-        _patrolComp.enabled = false;
+        
         _currentHealth -= damage;
         _showDamage.StartCoroutine(_showDamage.ModSprite(this.gameObject)); //Animacion daño
         _recComp.Recoil(playerDirection);
+        if ((bool)this.gameObject.GetComponent<SpinComponent>())
+        {
+            _patrolComp.enabled = false;
+        }
+            Debug.Log(_currentHealth + "NAshe");
     }
     
     public void Die()
     {
+
         Destroy(gameObject);
         
     }

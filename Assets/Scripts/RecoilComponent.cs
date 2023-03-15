@@ -28,8 +28,11 @@ public class RecoilComponent : MonoBehaviour
         }
         if (_counter >= _waitTime)
         {
-            GetComponent<PatrolComponent>().enabled = true;
-            GetComponent<PatrolComponent>().enabled = true;
+            if ((bool)this.gameObject.GetComponent<SpinComponent>())
+            {
+                GetComponent<PatrolComponent>().enabled = true;
+            }
+            
             _counter = 0;
         }
 
