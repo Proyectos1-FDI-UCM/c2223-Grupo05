@@ -27,8 +27,10 @@ public class ShowRay : MonoBehaviour
         RaycastHit2D _raycastHit2D = Physics2D.Raycast(transform.position, transform.right, _range);
         if (_raycastHit2D)
         {
-            if(_raycastHit2D.transform.GetComponent<InputComponent>())
-            StartCoroutine(LineGenerator(_raycastHit2D.point));
+            if (_raycastHit2D.transform.GetComponent<InputComponent>())
+            {
+                StartCoroutine(LineGenerator(_raycastHit2D.point));
+            }
         }
         else
         {
