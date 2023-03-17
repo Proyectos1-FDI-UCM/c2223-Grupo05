@@ -41,12 +41,10 @@ public class EnemyShoot : MonoBehaviour
         
         if (transform.localScale.x < 0)
         {
-            _showRay.GetComponent<ShowRay>().ShootRay();
             arrow.GetComponent<Rigidbody2D>().AddForce(new Vector2( direction.x, direction.y)*_force, ForceMode2D.Force);
         }
         else
         {
-            _showRay.GetComponent<ShowRay>().ShootRay();
             arrow.GetComponent<Rigidbody2D>().AddForce(new Vector2(direction.x, direction.y)*_force, ForceMode2D.Force);
         }
 

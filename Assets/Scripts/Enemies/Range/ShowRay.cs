@@ -4,49 +4,61 @@ using UnityEngine;
 
 public class ShowRay : MonoBehaviour
 {
+    Transform _myTransform;
+
     [SerializeField]
     private float _range;
     [SerializeField]
     private LineRenderer _lineRenderer;
     [SerializeField]
     private float _rayTime;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField]
+    private LayerMask _playerLayer;
+    [SerializeField]
+    private Transform _playerTransform;
+    private bool _stopRay;
 
-    // Update is called once per frame
-    void Update()
+    RaycastHit2D _raycastHit2D;
+
+    private void Start()
     {
-        
+        _myTransform = transform;
     }
-    public void ShootRay()
+    private void Update()
     {
-        
-        RaycastHit2D _raycastHit2D = Physics2D.Raycast(transform.position, transform.right, _range);
+        _raycastHit2D = Physics2D.Raycast(_myTransform.position, _playerTransform.position, Mathf.Infinity, _playerLayer);
         if (_raycastHit2D)
         {
-            if (_raycastHit2D.transform.GetComponent<InputComponent>())
-            {
-                StartCoroutine(LineGenerator(_raycastHit2D.point));
-            }
+            
         }
-        else
-        {
-            Vector3 NoPoint = new Vector3(_range, 0, 0) * transform.right.x + transform.position;
-            StartCoroutine(LineGenerator(NoPoint));
-        }
+        
     }
-    private IEnumerator LineGenerator(Vector3 target)
+    //public void ShootRay()
+    //{
+    //    _raycastHit2D = Physics2D.Raycast(transform.position, transform.right, _range, _playerLayer);
+    //    if (_raycastHit2D )
+    //    {
+    //        StartCoroutine(LineGenerator(_raycastHit2D.point));
+    //    }
+    //    else
+    //    {
+    //        Vector3 NoPoint = new Vector3(_range, 0, 0) * transform.right.x + transform.position;
+    //        StartCoroutine(LineGenerator(NoPoint));
+    //    }
+        
+    //}
+    public IEnumerator CanRay()
     {
-        Debug.Log("rayo");
-        _lineRenderer.enabled = true;
-        _lineRenderer.SetPosition(0, transform.position);
-        _lineRenderer.SetPosition(1, target);
-        _lineRenderer.startColor= Color.red;
-        yield return new WaitForSeconds(_rayTime);
         _lineRenderer.enabled = false;
-        _lineRenderer.endColor= Color.red;
+        _lineRenderer.endColor = Color.red;
+
+        yield return new WaitForSeconds(_rayTime);
+
+        
+    }
+    public void StopRay()
+    {
+        _lineRenderer.SetPosition(0, transform.position);
+        _lineRenderer.SetPosition(1, _playerTransform.position);
     }
 }

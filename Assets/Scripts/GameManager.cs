@@ -20,7 +20,8 @@ public class GameManager : MonoBehaviour
 
     private GameStates _currentState;
     private GameStates _nextState;
-   
+
+    [SerializeField]
     private int _feathersCant; // Amount of feather that can be shot
     public  int FeatherCant { get { return _feathersCant; } }
 
@@ -163,7 +164,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _feathersCant = 3;
+        _feathersCant = 0;
 
         _currentState = GameStates.TUTORIAL;
         _nextState = GameStates.TUTORIAL;
