@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class RangeDeteccion : MonoBehaviour
 {
+    private ShowRay _showRay;
     [Header("Range")]
 
     [SerializeField] private Transform _rangeControler; //controlador del suelo
@@ -26,6 +27,7 @@ public class RangeDeteccion : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        _showRay= GetComponent<ShowRay>();
         _projectile= GetComponent<EnemyShoot>();
         _animator = GetComponent<Animator>();
         _myTransform = transform;
@@ -38,7 +40,7 @@ public class RangeDeteccion : MonoBehaviour
     }
     private void Update()
     {
-       if(_detection )
+       if(_detection && !_showRay.StopRay)
        {
             RaycastHit2D _raycastHit2D = Physics2D.Raycast(_myTransform.position, _playerTransform.position, Mathf.Infinity, _playerLayer);
             _lineRenderer.startColor = Color.red;
@@ -46,7 +48,7 @@ public class RangeDeteccion : MonoBehaviour
             _lineRenderer.SetPosition(0, transform.position);
             _lineRenderer.SetPosition(1, _playerTransform.position);
        }
-        else
+        else if(!_detection) 
         {
             _lineRenderer.enabled = false;
         }
