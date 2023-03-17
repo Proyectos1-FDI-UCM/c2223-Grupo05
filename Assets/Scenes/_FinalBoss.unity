@@ -24234,6 +24234,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &801108313 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1052197326608708984, guid: 1cfcb573802f8634f92c4857a70c2d2e, type: 3}
+  m_PrefabInstance: {fileID: 490926255}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &817366338
 GameObject:
   m_ObjectHideFlags: 0
@@ -26255,7 +26260,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dafb8c358b648640a2b791c17a6452d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 0}
+  _player: {fileID: 801108313}
   _feathersCant: 0
   _sword: 0
 --- !u!1 &1003893443
@@ -91344,9 +91349,9 @@ GameObject:
   - component: {fileID: 1941007966}
   - component: {fileID: 1941007968}
   - component: {fileID: 1941007967}
-  - component: {fileID: 1941007969}
   - component: {fileID: 1941007970}
   - component: {fileID: 1941007971}
+  - component: {fileID: 1941007972}
   m_Layer: 0
   m_Name: Final Boss
   m_TagString: Untagged
@@ -91403,27 +91408,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed14966788a8f354bbe41a6f93247f33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!50 &1941007969
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1941007964}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
 --- !u!95 &1941007970
 Animator:
   serializedVersion: 4
@@ -91496,6 +91480,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &1941007972
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1941007964}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 4
 --- !u!1 &1961072092
 GameObject:
   m_ObjectHideFlags: 0
