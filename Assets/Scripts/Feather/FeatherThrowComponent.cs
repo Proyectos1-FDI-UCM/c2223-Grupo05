@@ -43,12 +43,10 @@ public class FeatherThrowComponent : MonoBehaviour
         else if(_relativeFeatherPosition.x > 0 && !_movementComp.LookingRight)
         {
             _movementComp.Turn();
-
         }
         if (GameManager.Instance.FeatherCant > 0)
         {
             GameObject go = Instantiate(_featherPrefab, spawnPoint.position, Quaternion.identity);
-            
         }
             
         

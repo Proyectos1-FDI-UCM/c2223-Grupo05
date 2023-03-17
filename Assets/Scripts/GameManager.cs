@@ -20,7 +20,8 @@ public class GameManager : MonoBehaviour
 
     private GameStates _currentState;
     private GameStates _nextState;
-   
+
+    [SerializeField]
     private int _feathersCant; // Amount of feather that can be shot
     public  int FeatherCant { get { return _feathersCant; } }
 
