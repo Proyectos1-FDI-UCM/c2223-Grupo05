@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class RangeDeteccion : MonoBehaviour
 {
+    private ShowRay _showRay;
     [Header("Range")]
 
     [SerializeField] private Transform _rangeControler; //controlador del suelo
@@ -11,6 +12,12 @@ public class RangeDeteccion : MonoBehaviour
     [SerializeField] private LayerMask _playerLayer;
     [SerializeField] private float _timeToShoot;
     [SerializeField] private float _shootCooldown;
+
+    [Header("Rayo")]
+    [SerializeField] private Transform _playerTransform;
+    [SerializeField] private float _range;
+    [SerializeField] private LineRenderer _lineRenderer;
+    private Transform _myTransform;
 
     private Animator _animator;
     private bool _detection;
@@ -20,8 +27,10 @@ public class RangeDeteccion : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        _showRay= GetComponent<ShowRay>();
         _projectile= GetComponent<EnemyShoot>();
         _animator = GetComponent<Animator>();
+        _myTransform = transform;
     }
 
     // Update is called once per frame
@@ -31,7 +40,18 @@ public class RangeDeteccion : MonoBehaviour
     }
     private void Update()
     {
-       
+       if(_detection && !_showRay.StopRay)
+       {
+            RaycastHit2D _raycastHit2D = Physics2D.Raycast(_myTransform.position, _playerTransform.position, Mathf.Infinity, _playerLayer);
+            _lineRenderer.startColor = Color.red;
+            _lineRenderer.enabled = true;
+            _lineRenderer.SetPosition(0, transform.position);
+            _lineRenderer.SetPosition(1, _playerTransform.position);
+       }
+        else if(!_detection) 
+        {
+            _lineRenderer.enabled = false;
+        }
         if (_detection && _timeToShoot > _shootCooldown )
         {
             Debug.Log("Detectado");
