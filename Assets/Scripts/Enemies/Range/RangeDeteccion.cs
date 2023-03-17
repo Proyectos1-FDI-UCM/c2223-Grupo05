@@ -15,6 +15,7 @@ public class RangeDeteccion : MonoBehaviour
 
     [Header("Rayo")]
     [SerializeField] private Transform _playerTransform;
+    [SerializeField] private Transform _startTransform;
     [SerializeField] private float _range;
     [SerializeField] private LineRenderer _lineRenderer;
     private Transform _myTransform;
@@ -45,7 +46,7 @@ public class RangeDeteccion : MonoBehaviour
             RaycastHit2D _raycastHit2D = Physics2D.Raycast(_myTransform.position, _playerTransform.position, Mathf.Infinity, _playerLayer);
             _lineRenderer.startColor = Color.red;
             _lineRenderer.enabled = true;
-            _lineRenderer.SetPosition(0, transform.position);
+            _lineRenderer.SetPosition(0, _startTransform.position);
             _lineRenderer.SetPosition(1, _playerTransform.position);
        }
         else if(!_detection) 
