@@ -17,6 +17,7 @@ public class ShowRay : MonoBehaviour
     [SerializeField]
     private Transform _playerTransform;
     private bool _stopRay;
+    public bool StopRay { get { return _stopRay; }}
 
     RaycastHit2D _raycastHit2D;
 
@@ -49,16 +50,21 @@ public class ShowRay : MonoBehaviour
     //}
     public IEnumerator CanRay()
     {
+        yield return new WaitForSeconds(0.3f);
+
         _lineRenderer.enabled = false;
-        _lineRenderer.endColor = Color.red;
+        
 
         yield return new WaitForSeconds(_rayTime);
 
+        _stopRay = false;
         
     }
-    public void StopRay()
+    public void Stop()
     {
         _lineRenderer.SetPosition(0, transform.position);
         _lineRenderer.SetPosition(1, _playerTransform.position);
+        _stopRay = true;
+        StartCoroutine(CanRay());
     }
 }
