@@ -102,7 +102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _timeToPick: 2
-  _maxHeight: 0.9
+  _maxHeight: 0.4
 --- !u!60 &7061196073700932413
 PolygonCollider2D:
   m_ObjectHideFlags: 0

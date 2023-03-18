@@ -8,9 +8,7 @@ public class CheckPointComponent : MonoBehaviour
     private Light2D _light;
   
     [SerializeField] private float _intensityMax;
-    [SerializeField] private float _outerRatius;
-    [SerializeField] private float _innerAngle;
-    [SerializeField] private float _outerAngle;
+    
 
     private GameObject _particleSys;
     
@@ -30,9 +28,7 @@ public class CheckPointComponent : MonoBehaviour
             GameManager.Instance.Checkpoint();
             //stablish new light settings
             _light.intensity = _intensityMax;
-            _light.pointLightOuterRadius = _outerRatius;
-            _light.pointLightInnerAngle = _innerAngle;
-            _light.pointLightOuterAngle= _outerAngle;
+            
 
             //Activate particles
             _particleSys.SetActive(true);
