@@ -40,7 +40,7 @@ public class PlayerCombat : MonoBehaviour
     {
       
         _animator = GetComponent<Animator>();
-       
+        
         
         _gravIni = GetComponent<Rigidbody2D>().gravityScale;
     }

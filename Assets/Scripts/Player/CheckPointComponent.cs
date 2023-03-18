@@ -11,9 +11,15 @@ public class CheckPointComponent : MonoBehaviour
     [SerializeField] private float _outerRatius;
     [SerializeField] private float _innerAngle;
     [SerializeField] private float _outerAngle;
+
+    private GameObject _particleSys;
     
     private void Start()
     {
+        _particleSys = GetComponentInChildren<ParticleSystem>().gameObject ;
+        _particleSys.SetActive(false);
+        
+        
         _light = GetComponentInChildren<Light2D>();
        
     }
@@ -22,10 +28,14 @@ public class CheckPointComponent : MonoBehaviour
         if ((bool)collision.gameObject.GetComponent<InputComponent>())
         {
             GameManager.Instance.Checkpoint();
+            //stablish new light settings
             _light.intensity = _intensityMax;
             _light.pointLightOuterRadius = _outerRatius;
             _light.pointLightInnerAngle = _innerAngle;
             _light.pointLightOuterAngle= _outerAngle;
+
+            //Activate particles
+            _particleSys.SetActive(true);
 
         }
     }
