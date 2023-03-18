@@ -28,7 +28,7 @@ public class FeatheritemComponent : MonoBehaviour
         if (_counter < _timeToPick)
         {
             _counter += Time.fixedDeltaTime;
-            _currentHeight = _counter * 0.1f;
+            _currentHeight = _counter * 0.5f;
             if(_currentHeight < _maxHeight)
             {
                 this.transform.position = new Vector2(transform.position.x, transform.position.y + _counter * 0.01f);
