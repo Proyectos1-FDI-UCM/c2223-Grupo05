@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
@@ -14,7 +15,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TMP_Text _sword;
     [SerializeField] private TMP_Text _button;
 
-    [SerializeField] private 
+    //[SerializeField] private 
     
 
     //MENUS
@@ -29,6 +30,15 @@ public class UIManager : MonoBehaviour
     private GameObject[] _menus;
     #endregion
     #region methods
+    public void Play()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+    public void Salir()
+    {
+        Debug.Log("salir");
+        Application.Quit(); 
+    }
     #endregion
     // Start is called before the first frame update
     void Start()
