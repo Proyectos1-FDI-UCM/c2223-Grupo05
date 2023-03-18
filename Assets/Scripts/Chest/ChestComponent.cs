@@ -36,23 +36,15 @@ public class ChestComponent : MonoBehaviour
 
     private void Update()
     {
+        
         if (_canInteract)
         {
-            
             if (Input.GetButtonDown("Interact"))     // Habría que ver como recibir el input de forma externa
             {
                 _opened = true;
-
-                gameObject.GetComponentInChildren<Light2D>().intensity = 0; //Se realiza desde animacion
-
+                Instantiate(_content, new Vector2(transform.position.x, transform.position.y + _objectOffset) , Quaternion.identity);
                 _myAnimator.SetBool("Opened", _opened);
-
-
-                Instantiate(_content, transform.position , Quaternion.identity);
-
                 this.enabled = false;
-
-                
             }
         }
     }

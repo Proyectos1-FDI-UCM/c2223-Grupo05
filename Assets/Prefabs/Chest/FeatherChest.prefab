@@ -125,7 +125,7 @@ GameObject:
   - component: {fileID: 2161070033936057521}
   - component: {fileID: 2161070033936057520}
   m_Layer: 0
-  m_Name: Chest
+  m_Name: FeatherChest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -228,7 +228,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _content: {fileID: 659360953136785782, guid: a5ef9083021400445a22956f8c7cc9b4, type: 3}
-  _objectOffset: 1.5
+  _objectOffset: 0
 --- !u!95 &2161070033936057520
 Animator:
   serializedVersion: 4

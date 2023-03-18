@@ -101,6 +101,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0540d72fd981ed4fb85a1f2402b3859, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _timeToPick: 2
+  _maxHeight: 0.9
 --- !u!60 &7061196073700932413
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -950,7 +952,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1.5
+      scalar: 1
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -1435,7 +1437,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     randomizeRotationDirection: 0
-    maxNumParticles: 15
+    maxNumParticles: 6
     customEmitterVelocity: {x: 0, y: 0, z: 0}
     size3D: 0
     rotation3D: 0
@@ -1495,7 +1497,7 @@ ParticleSystem:
   ShapeModule:
     serializedVersion: 6
     enabled: 1
-    type: 4
+    type: 0
     angle: 11.965924
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
