@@ -26,7 +26,6 @@ public class Boss_Movement : StateMachineBehaviour
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         _playerPosition = new Vector2(_player.position.x, animator.transform.position.y);
-        Debug.Log(_playerPosition);
         animator.transform.position = Vector2.MoveTowards(animator.transform.position, _playerPosition, _speed * Time.fixedDeltaTime);
         LookingPlayer(animator);
 
