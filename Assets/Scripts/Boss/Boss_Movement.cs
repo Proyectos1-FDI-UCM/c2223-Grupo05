@@ -8,7 +8,10 @@ public class Boss_Movement : StateMachineBehaviour
     [SerializeField] private float _speed;
     private bool _turned;
     Vector3 _flipped;
-    private float _attackDistance = 5f;
+    [SerializeField] private float _attackDistance = 5f;
+
+    [SerializeField] private float _maxTimer;
+    private float _currentTime;
 
     private Transform _player;
     //private Rigidbody2D _myRigidBody2D;
@@ -20,6 +23,7 @@ public class Boss_Movement : StateMachineBehaviour
     {
         _player = GameManager.Instance.SetPlayer().transform;
         _flipped = animator.transform.localScale;
+        _currentTime = 0;
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -29,10 +33,12 @@ public class Boss_Movement : StateMachineBehaviour
         animator.transform.position = Vector2.MoveTowards(animator.transform.position, _playerPosition, _speed * Time.fixedDeltaTime);
         LookingPlayer(animator);
 
-        if (Vector2.Distance(_player.transform.position, animator.transform.position) <= _attackDistance)
+        if (Vector2.Distance(_player.transform.position, animator.transform.position) <= _attackDistance && _currentTime >= _maxTimer)
         {
             animator.SetTrigger("Attack");
         }
+
+        _currentTime += Time.deltaTime;
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
