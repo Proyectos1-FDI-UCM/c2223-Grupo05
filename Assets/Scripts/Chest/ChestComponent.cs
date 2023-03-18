@@ -43,21 +43,16 @@ public class ChestComponent : MonoBehaviour
             {
                 _opened = true;
 
-                gameObject.GetComponentInChildren<Light2D>().intensity = 0; /*Mathf.Lerp(gameObject.GetComponentInChildren<Light2D>().intensity, 0, 0.1f * Time.time);*/
+                gameObject.GetComponentInChildren<Light2D>().intensity = 0; //Se realiza desde animacion
 
                 _myAnimator.SetBool("Opened", _opened);
 
-                //_countdown += Time.deltaTime;
 
-                //if (_countdown > _limit)
-                //{
-
-                Instantiate(_content, new Vector2(transform.position.x, transform.position.y + _objectOffset), Quaternion.identity);
+                Instantiate(_content, transform.position , Quaternion.identity);
 
                 this.enabled = false;
 
-                //}
-                //_canInteract = false;
+                
             }
         }
     }
