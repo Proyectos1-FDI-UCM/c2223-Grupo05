@@ -150,7 +150,6 @@ public class GameManager : MonoBehaviour
     public void LoseSouls()
     {
         _souls--;
-        Debug.Log("DUUUSSS" + _souls);
 
         //avisar al HUD de cambio en almas
     }

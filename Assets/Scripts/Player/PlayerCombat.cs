@@ -56,20 +56,16 @@ public class PlayerCombat : MonoBehaviour
             _animator.SetTrigger("Attack");
             
 
-            Debug.Log("suelo");
             Collider2D[] _hitEnemies = Physics2D.OverlapCapsuleAll(_attackPoint.position, _attackSize, _direction, _angleAttack, _enemylayer);
 
             foreach (Collider2D enemies in _hitEnemies)
             {
-                Debug.Log("Tocado");
                 enemies.GetComponent<LifeEnemyComponent>().TakeDamage(_attackDamage, transform.localScale.x);
-
             }
         }
         else
         {
             GetComponent<InputComponent>().enabled = false;
-            Debug.Log("aire");
             GetComponent<Rigidbody2D>().gravityScale = 0;
             GetComponent<Rigidbody2D>().velocity = Vector2.zero;
           
@@ -81,7 +77,6 @@ public class PlayerCombat : MonoBehaviour
             
             foreach(Collider2D enemiesOnAir in _hitEnemisOnAir)
             {
-                Debug.Log("Tocado");
                 enemiesOnAir.GetComponent<LifeEnemyComponent>().TakeDamage(_attackDamage, transform.localScale.x);
             }
         }

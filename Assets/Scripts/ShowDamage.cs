@@ -11,7 +11,6 @@ public class ShowDamage : MonoBehaviour
     public IEnumerator ModSprite(GameObject whatever)
     {
         whatever.GetComponent<SpriteRenderer>().color = Color.red;
-        Debug.Log(whatever.name);
 
         yield return new WaitForSeconds(_timeOfDamage);
 
