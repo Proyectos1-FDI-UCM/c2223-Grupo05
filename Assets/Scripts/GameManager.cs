@@ -139,12 +139,14 @@ public class GameManager : MonoBehaviour
 
             _lifes--;
             _player.GetComponent<ShowDamage>().StartCoroutine(GetComponent<ShowDamage>().ModSprite(_player.gameObject)); //animacion de daño
-            
+            _player.GetComponent<KnockbackComponent>().KnockBack();
+
             UI.QuitLifes(_lifes);
         }
         else
         {
             LoseSouls();
+            _player.GetComponent<KnockbackComponent>().KnockBack();
             _player.GetComponent<ShowDamage>().StartCoroutine(_player.GetComponent<ShowDamage>().ModSprite(_player.gameObject)); //animacion de daño
         }
     }
@@ -153,7 +155,7 @@ public class GameManager : MonoBehaviour
     public void LoseSouls()
     {
         _souls--;
-        UI.QuitSouls(_souls);
+        //UI.QuitSouls(_souls);
 
         
     }
@@ -161,7 +163,7 @@ public class GameManager : MonoBehaviour
     {
         _souls = 3;
         _isDeath = false;
-        UI.Addsouls(_souls);
+        //UI.Addsouls(_souls);
     }
     #endregion
 
