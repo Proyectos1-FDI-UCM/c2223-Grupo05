@@ -11,10 +11,16 @@ public class InputComponent : MonoBehaviour
     private FeatherThrowComponent _myFeatherThrowComponent;
     private PlayerCombat _myAttackComponent;
     private ChestComponent _myChestComponent;
-    [SerializeField] private float _dashCoolDown;
+    [SerializeField]
+    private float _dashCoolDown;
+
+    [Header("ATTACK")]
     private float _timeToDash = 0;
     [SerializeField]
     private float _attackRate;
+    [SerializeField]
+    private float _attackRateOnAir;
+
     float _nextAttackTime = 0f;
     [SerializeField] private LayerMask _interactuableLayer;
     
@@ -48,6 +54,7 @@ public class InputComponent : MonoBehaviour
         if (Input.GetButtonDown("Dash") && _timeToDash > _dashCoolDown) // Si se recibe Input de Dash 
         {
             _myMovementComponent.StartCoroutine(_myMovementComponent.Dash());  // Llama al método Dash del MovementComponent
+
             if (!GetComponent<MovementComponent>().CanDash)
             {
                 _timeToDash = 0;
@@ -71,16 +78,27 @@ public class InputComponent : MonoBehaviour
             
         }
 
-        if(Time.time >= _nextAttackTime)
+        if (Time.time >= _nextAttackTime && GetComponent<MovementComponent>().TouchingFloor)
         {
             if (Input.GetButtonDown("Basic Attack") && GameManager.Instance._sword == true)
             {
+                Debug.Log("En el suelo");
                 _myAttackComponent.Attack();
                 _nextAttackTime = Time.time + 1f / _attackRate; //de esta forma decidimos las veces que podemos atacar por segundo
                 _myMovementComponent.Move(0);
             }
         }
-        
+        if (Time.time >= _nextAttackTime && !GetComponent<MovementComponent>().TouchingFloor)
+        {
+            if (Input.GetButtonDown("Basic Attack") && GameManager.Instance._sword == true)
+            {
+                Debug.Log("En el aire");
+                _myAttackComponent.Attack();
+                _nextAttackTime = Time.time + 1f / _attackRateOnAir; //de esta forma decidimos las veces que podemos atacar por segundo
+                _myMovementComponent.Move(0);
+            }
+        }
+
 
         if (Input.GetButtonDown("Interact"))
         {
