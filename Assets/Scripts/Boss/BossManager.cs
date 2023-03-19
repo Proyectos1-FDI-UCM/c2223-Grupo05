@@ -39,6 +39,11 @@ public class BossManager : MonoBehaviour
         //    }
         //}                     //TODO LO QUE HAY EN EL UPDATE HABRÄ Q PONERLO AQUI
     }
+
+    public void BossDeath()
+    {
+        Destroy(gameObject);
+    }
     #endregion
     // Start is called before the first frame update
     void Start()
