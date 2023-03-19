@@ -5,8 +5,11 @@ using static GameManager;
 
 public class BossManager : MonoBehaviour
 {
+    [SerializeField] private int _teleportCounter;
+    [SerializeField] private int _teleportsDesired;
+
     [SerializeField] private float _CurrentHitsReceived;       //Quitar SerializeField
-    [SerializeField] private float _maxHitsReceived;
+    [SerializeField] private float _maxHitsReceivedForTeleport;
 
     private Animator _myAnimator;
 
@@ -17,9 +20,14 @@ public class BossManager : MonoBehaviour
     }
     private void CheckAction()      // Cada vez que recibamos daño, verá que acción deberá hacer el boss
     {
-        if (_CurrentHitsReceived >= _maxHitsReceived)
+        if (_CurrentHitsReceived == _maxHitsReceivedForTeleport && _teleportCounter < _teleportsDesired)
         {
+            _teleportCounter++;
             _myAnimator.SetTrigger("Teleport");
+            if (_teleportCounter != _teleportsDesired)
+            {
+                _CurrentHitsReceived = 0;
+            }
         }
     }
     #endregion
@@ -32,10 +40,14 @@ public class BossManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (_CurrentHitsReceived >= _maxHitsReceived)          // Quitar de update, está para probar
+        if (_CurrentHitsReceived == _maxHitsReceivedForTeleport && _teleportCounter <T _teleportsDesired)          // Quitar de update, está para probar
         {
+            _teleportCounter++;
             _myAnimator.SetTrigger("Teleport");
-            _CurrentHitsReceived = 0;
+            if (_teleportCounter != _teleportsDesired)
+            {
+                _CurrentHitsReceived = 0;
+            }
         }
     }
 }
