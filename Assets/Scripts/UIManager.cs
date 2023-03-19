@@ -75,6 +75,8 @@ public class UIManager : MonoBehaviour
         _feathers[0].SetActive(false);
         _feathers[1].SetActive(false);
         _feathers[2].SetActive(false);
+        _lifes[0].SetActive(false);
+        _lifes[1].SetActive(false);
     }
 
     // Update is called once per frame
