@@ -5,15 +5,20 @@ using UnityEngine;
 public class BossThrowTrunk : MonoBehaviour
 {
     [SerializeField] private GameObject _myTrunkPrefab;
-    [SerializeField] Transform _trunkSpawnPoint;
+    private Vector3 _trunkSpawnPoint;
+    [SerializeField] private float _offset;
+    private Transform _playerTransform;
     // Start is called before the first frame update
     public void SpawnTrunk()
     {
-        Instantiate(_myTrunkPrefab, _trunkSpawnPoint.position, Quaternion.identity);
+        _trunkSpawnPoint = _playerTransform.position;
+        _trunkSpawnPoint.y += _offset;
+
+        Instantiate(_myTrunkPrefab, _trunkSpawnPoint, Quaternion.identity);
     }
     void Start()
     {
-
+        _playerTransform = GameManager.Instance.SetPlayer().transform;
     }
 
     // Update is called once per frame

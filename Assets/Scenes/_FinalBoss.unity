@@ -24466,7 +24466,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 828596142}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.452, y: 0.008, z: 0}
+  m_LocalPosition: {x: 0.452, y: -0.116, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -91727,7 +91727,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _myTrunkPrefab: {fileID: 4971307722527395188, guid: 67e1020249345ed419262a476120b9cb, type: 3}
-  _trunkSpawnPoint: {fileID: 828596143}
+  _offset: 2
 --- !u!1 &1961072092
 GameObject:
   m_ObjectHideFlags: 0
