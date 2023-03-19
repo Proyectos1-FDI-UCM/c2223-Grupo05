@@ -16,6 +16,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TMP_Text _button;
 
     //[SerializeField] private 
+    public GameObject[] _souls;
     
 
     //MENUS
@@ -38,6 +39,15 @@ public class UIManager : MonoBehaviour
     {
         Debug.Log("salir");
         Application.Quit(); 
+    }
+
+    public void QuitSouls(int ind)
+    {
+        _souls[ind].SetActive(false);
+    }
+    public void Addsouls(int ind)
+    {
+        _souls[ind].SetActive(true);
     }
     #endregion
     // Start is called before the first frame update
