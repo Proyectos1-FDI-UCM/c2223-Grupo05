@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
 
 public class UIManager : MonoBehaviour
 {
@@ -26,13 +27,14 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject _gameplayHUD;
     [SerializeField] private GameObject _retryMenu;
     [SerializeField] private GameObject _gameOverMenu;
+    [SerializeField] private AudioMixer _audioMixer;
     #endregion
 
     #region properties
     //array de distintos menus
     private GameObject[] _menus;
     #endregion
-    #region methods
+    #region methods MenuInicial
     public void Play()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
@@ -42,7 +44,8 @@ public class UIManager : MonoBehaviour
         Debug.Log("salir");
         Application.Quit(); 
     }
-
+    #endregion
+    #region methods
     public void QuitSouls(int ind)
     {
         _souls[ind].SetActive(false);
@@ -67,6 +70,16 @@ public class UIManager : MonoBehaviour
     public void QuitFeathers(int ind)
     {
         _feathers[ind].SetActive(false);
+    }
+    #endregion
+    #region methods MenuOpciones
+    public void FullScreen(bool _fullScreen)
+    {
+        Screen.fullScreen = _fullScreen;
+    }
+    public void ChangeVolume(float _volume)
+    {
+        _audioMixer.SetFloat("Volumen", _volume);
     }
     #endregion
     // Start is called before the first frame update
