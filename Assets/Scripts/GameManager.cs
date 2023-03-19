@@ -122,12 +122,13 @@ public class GameManager : MonoBehaviour
     public void AddFeather()
     {
         _feathersCant++;
-        
+        UI.AddFeathers(_feathersCant);
     }
     
     public void RemoveFeather()
     {
         _feathersCant--;
+        UI.QuitFeathers(_feathersCant);
     }
     //metodo para perder vidas
     public void Loselifes()
@@ -138,7 +139,8 @@ public class GameManager : MonoBehaviour
 
             _lifes--;
             _player.GetComponent<ShowDamage>().StartCoroutine(GetComponent<ShowDamage>().ModSprite(_player.gameObject)); //animacion de daño
-            //avisar al HUD de cambio en vidas
+            
+            UI.QuitLifes(_lifes);
         }
         else
         {
@@ -153,7 +155,7 @@ public class GameManager : MonoBehaviour
         _souls--;
         UI.QuitSouls(_souls);
 
-        //avisar al HUD de cambio en almas
+        
     }
     public void ResetSouls()
     {

@@ -15,8 +15,10 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TMP_Text _sword;
     [SerializeField] private TMP_Text _button;
 
-    //[SerializeField] private 
+    
     public GameObject[] _souls;
+    public GameObject[] _lifes;
+    public GameObject[] _feathers;
     
 
     //MENUS
@@ -49,11 +51,30 @@ public class UIManager : MonoBehaviour
     {
         _souls[ind].SetActive(true);
     }
+    public void QuitLifes(int ind)
+    {
+        _lifes[ind].SetActive(false);
+    }
+    public void AddLifes(int ind)
+    {
+        _lifes[ind].SetActive(true);
+    }
+
+    public void AddFeathers(int ind)
+    {
+        _feathers[ind].SetActive(true);
+    }
+    public void QuitFeathers(int ind)
+    {
+        _feathers[ind].SetActive(false);
+    }
     #endregion
     // Start is called before the first frame update
     void Start()
     {
-        
+        _feathers[0].SetActive(false);
+        _feathers[1].SetActive(false);
+        _feathers[2].SetActive(false);
     }
 
     // Update is called once per frame
