@@ -4,12 +4,23 @@ using UnityEngine;
 
 public class BossTeleport : MonoBehaviour
 {
-    [SerializeField] private Transform _teleportPoint;
+    [SerializeField] private Transform _teleportPoint1;
+    [SerializeField] private Transform _teleportPoint2;
+    private bool _teleportedOnce = false;
 
     public void TeleportToPoint()
     {
-        Debug.Log("Nos teletransportamos");
-        transform.position = _teleportPoint.position;
+        if (!_teleportedOnce)
+        {
+            transform.position = _teleportPoint1.position;
+            _teleportedOnce = !_teleportedOnce;
+        }
+        else
+        {
+            transform.position = _teleportPoint2.position;
+            _teleportedOnce = !_teleportedOnce;
+        }
+
     }
     // Start is called before the first frame update
     void Start()

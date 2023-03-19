@@ -40,7 +40,7 @@ public class Boss_Movement : StateMachineBehaviour
             animator.SetTrigger("Attack");
         }
 
-        if (_currentAttackTime >= _maxAttackTimer)
+        if (_currentAttackTime >= _maxAttackTimer)      //Está con este timer temporalmente
         {
             animator.SetTrigger("Teleport");
         }
