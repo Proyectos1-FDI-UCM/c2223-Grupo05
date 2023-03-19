@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviour
     private int _maxLifes;  //estaba como maxLifes = 2, pero da el error de que no se usa, en el futuro lo volvemos a añadir
     public bool _sword = false; //variable para saber si tenemos la esapda o no
     private Vector3 _respawnPoint;
+    public UIManager UI;
     #endregion
 
 
@@ -150,6 +151,7 @@ public class GameManager : MonoBehaviour
     public void LoseSouls()
     {
         _souls--;
+        UI.QuitSouls(_souls);
 
         //avisar al HUD de cambio en almas
     }
@@ -157,6 +159,7 @@ public class GameManager : MonoBehaviour
     {
         _souls = 3;
         _isDeath = false;
+        UI.Addsouls(_souls);
     }
     #endregion
 
