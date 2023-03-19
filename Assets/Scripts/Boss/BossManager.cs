@@ -5,20 +5,26 @@ using static GameManager;
 
 public class BossManager : MonoBehaviour
 {
+    [Header ("Teleport")]
     [SerializeField] private int _teleportCounter;      // Quitar SerializeField
     [SerializeField] private int _teleportsDesired;
 
+    [Header("Enemies")]
     [SerializeField] private int _enemiesCounter;       // Quitar SerializedField
     [SerializeField] private int _enemiesDesired;
 
+    [Header("Trunk")]
     [SerializeField] private int _trunkCounter;         // Quitar Serialized Field
     [SerializeField] private int _trunkDesired;
 
-    [SerializeField] private float _currentHitsReceived;       //Quitar SerializeField
+    [Header("Hits Received")]
     [SerializeField] private float _maxHitsReceivedForTeleport;
     [SerializeField] private float _maxHitsReceivedForEnemy;
     [SerializeField] private float _maxHitsReceivedForTrunk;
     [SerializeField] private float _auxHitsReceived;
+
+
+    [SerializeField] private float _currentHitsReceived;       //Quitar SerializeField
 
     private Animator _myAnimator;
 
