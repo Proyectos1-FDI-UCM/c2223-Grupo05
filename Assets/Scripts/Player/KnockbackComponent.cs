@@ -22,27 +22,27 @@ public class KnockbackComponent : MonoBehaviour
     }
     public void KnockBack()
     {
-        GetComponent<InputComponent>().enabled = false;
+        //GetComponent<InputComponent>().enabled = false;
         Debug.Log("Entra en metodo");
-        if(!GetComponent<MovementComponent>().TouchingFloor)
+        if (!GetComponent<MovementComponent>().TouchingFloor)
         {
             Debug.Log("Aire");
-            _playerRB.AddForce(new Vector2(0, _knockbackForce), ForceMode2D.Impulse);
+            _playerRB.AddForce(new Vector2(0, _knockbackForce / 700f), ForceMode2D.Impulse);
         }
         else if(GetComponent<MovementComponent>().LookingRight)
         {
             Debug.Log("derecha");
-            _playerRB.AddForce(new Vector2(-_knockbackForce, _knockbackForce * 0.1f));
+            _playerRB.AddForce(new Vector2(-_knockbackForce, 0));
         }
-        else
+        else if(!GetComponent<MovementComponent>().LookingRight)
         {
-            Debug.Log("izquierda");
-            _playerRB.AddForce(new Vector2(_knockbackForce, _knockbackForce * 0.9f), ForceMode2D.Impulse);
+            _playerRB.AddForce(new Vector2(_knockbackForce, 0));
         }
+        
         ActivaInput(); //esto HAY QUE QUITARLO y activarlo CON LA ANIMACION ;3
     }
     public void ActivaInput()
     {
-        GetComponent<InputComponent>().enabled = true;
+        //GetComponent<InputComponent>().enabled = true;
     }
 }

@@ -155,7 +155,7 @@ public class GameManager : MonoBehaviour
     public void LoseSouls()
     {
         _souls--;
-        //UI.QuitSouls(_souls);
+        UI.QuitSouls(_souls);
 
         
     }
@@ -163,7 +163,7 @@ public class GameManager : MonoBehaviour
     {
         _souls = 3;
         _isDeath = false;
-        //UI.Addsouls(_souls);
+        UI.Addsouls(_souls);
     }
     #endregion
 
