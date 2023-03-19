@@ -89261,6 +89261,37 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!1 &1398222606
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1398222607}
+  m_Layer: 0
+  m_Name: EnemySpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1398222607
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1398222606}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.2, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1941007966}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1407836551
 GameObject:
   m_ObjectHideFlags: 0
@@ -91418,6 +91449,7 @@ GameObject:
   - component: {fileID: 1941007973}
   - component: {fileID: 1941007974}
   - component: {fileID: 1941007975}
+  - component: {fileID: 1941007976}
   m_Layer: 0
   m_Name: Final Boss
   m_TagString: Untagged
@@ -91438,6 +91470,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1003893444}
+  - {fileID: 1398222607}
   m_Father: {fileID: 19680583}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -91592,8 +91625,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _teleportCounter: 0
   _teleportsDesired: 3
-  _CurrentHitsReceived: 0
+  _enemiesCounter: 0
+  _enemiesDesired: 2
+  _currentHitsReceived: 0
   _maxHitsReceivedForTeleport: 3
+  _maxHitsReceivedForEnemy: 6
+  _auxHitsReceived: 0
 --- !u!114 &1941007974
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -91626,6 +91663,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _teleportPoint1: {fileID: 8691342}
   _teleportPoint2: {fileID: 650268310}
+--- !u!114 &1941007976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1941007964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc75ab9d28fdc5f42a81f52fe6fdcf5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _myEnemyPrefab: {fileID: 1526129433}
+  _enemySpawnPoint: {fileID: 1398222607}
 --- !u!1 &1961072092
 GameObject:
   m_ObjectHideFlags: 0
