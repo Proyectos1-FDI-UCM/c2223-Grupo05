@@ -5,15 +5,19 @@ using static GameManager;
 
 public class BossManager : MonoBehaviour
 {
-    [SerializeField] private int _teleportCounter;
+    [SerializeField] private int _teleportCounter;      // Quitar SerializeField
     [SerializeField] private int _teleportsDesired;
 
-    [SerializeField] private int _enemiesCounter;
+    [SerializeField] private int _enemiesCounter;       // Quitar SerializedField
     [SerializeField] private int _enemiesDesired;
+
+    [SerializeField] private int _trunkCounter;         // Quitar Serialized Field
+    [SerializeField] private int _trunkDesired;
 
     [SerializeField] private float _currentHitsReceived;       //Quitar SerializeField
     [SerializeField] private float _maxHitsReceivedForTeleport;
     [SerializeField] private float _maxHitsReceivedForEnemy;
+    [SerializeField] private float _maxHitsReceivedForTrunk;
     [SerializeField] private float _auxHitsReceived;
 
     private Animator _myAnimator;
@@ -25,15 +29,15 @@ public class BossManager : MonoBehaviour
     }
     private void CheckAction()      // Cada vez que recibamos daño, verá que acción deberá hacer el boss
     {
-        if (_currentHitsReceived == _maxHitsReceivedForTeleport && _teleportCounter < _teleportsDesired)
-        {
-            _teleportCounter++;
-            _myAnimator.SetTrigger("Teleport");
-            if (_teleportCounter != _teleportsDesired)
-            {
-                _currentHitsReceived = 0;
-            }
-        }
+        //if (_currentHitsReceived == _maxHitsReceivedForTeleport && _teleportCounter < _teleportsDesired)
+        //{
+        //    _teleportCounter++;
+        //    _myAnimator.SetTrigger("Teleport");
+        //    if (_teleportCounter != _teleportsDesired)
+        //    {
+        //        _currentHitsReceived = 0;
+        //    }
+        //}                     //TODO LO QUE HAY EN EL UPDATE HABRÄ Q PONERLO AQUI
     }
     #endregion
     // Start is called before the first frame update
@@ -74,6 +78,22 @@ public class BossManager : MonoBehaviour
                 _auxHitsReceived = _currentHitsReceived;
                 _myAnimator.SetBool("isPhase2", false);
                 _myAnimator.SetBool("isPhase3", true);
+            }
+        }
+
+        if (_currentHitsReceived == _maxHitsReceivedForTrunk && _trunkCounter < _trunkDesired)              // Qujitar de update
+        {
+            _trunkCounter++;
+            _myAnimator.SetTrigger("Throw Trunk");
+            if (_trunkCounter != _trunkDesired)
+            {
+                _currentHitsReceived = _auxHitsReceived;
+            }
+            else
+            {
+                _auxHitsReceived = _currentHitsReceived;
+                _myAnimator.SetBool("isPhase3", false);
+                _myAnimator.SetBool("isDead", true);
             }
         }
     }

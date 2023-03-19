@@ -26328,6 +26328,7 @@ MonoBehaviour:
   _player: {fileID: 801108313}
   _feathersCant: 3
   _sword: 1
+  UI: {fileID: 0}
 --- !u!1 &1003893443
 GameObject:
   m_ObjectHideFlags: 0
@@ -91624,12 +91625,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _teleportCounter: 0
-  _teleportsDesired: 3
+  _teleportsDesired: 4
   _enemiesCounter: 0
   _enemiesDesired: 2
+  _trunkCounter: 0
+  _trunkDesired: 3
   _currentHitsReceived: 0
   _maxHitsReceivedForTeleport: 3
   _maxHitsReceivedForEnemy: 6
+  _maxHitsReceivedForTrunk: 8
   _auxHitsReceived: 0
 --- !u!114 &1941007974
 MonoBehaviour:
