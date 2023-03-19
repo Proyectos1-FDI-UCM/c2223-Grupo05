@@ -16,16 +16,12 @@ public class Boss_Movement : StateMachineBehaviour
     private Transform _player;
     private Vector2 _playerPosition;
 
-    [SerializeField] private int _currentHitsToTeleport;
-    [SerializeField] private int _maxHitsToTeleport;
-
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateinfo, int layerindex)
     {
         _player = GameManager.Instance.SetPlayer().transform;
         _flipped = animator.transform.localScale;
         _currentAttackTime = 0;
-        _currentHitsToTeleport = 0;
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -38,11 +34,6 @@ public class Boss_Movement : StateMachineBehaviour
         if (Vector2.Distance(_player.transform.position, animator.transform.position) <= _attackDistance && _currentAttackTime >= _maxAttackTimer)
         {
             animator.SetTrigger("Attack");
-        }
-
-        if (_currentAttackTime >= _maxAttackTimer)      //Está con este timer temporalmente
-        {
-            animator.SetTrigger("Teleport");
         }
 
         _currentAttackTime += Time.deltaTime;
