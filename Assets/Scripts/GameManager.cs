@@ -132,7 +132,7 @@ public class GameManager : MonoBehaviour
     //metodo para perder vidas
     public void Loselifes()
     {
-        
+        SoundComponent.Instance.PlaySound(SoundComponent.Instance._playerTakesDamage);
         if (_lifes > 0)
         {
 

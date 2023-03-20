@@ -47,3 +47,4 @@ MonoBehaviour:
   _player: {fileID: 0}
   _feathersCant: 0
   _sword: 0
+  UI: {fileID: 0}
