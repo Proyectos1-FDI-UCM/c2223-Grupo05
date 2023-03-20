@@ -49,7 +49,7 @@ public class LifeEnemyComponent : MonoBehaviour
         _recComp.Recoil(playerDirection);
         if ((bool)this.gameObject.GetComponent<SpinComponent>())
         {
-            _patrolComp.enabled = false;
+            //_patrolComp.enabled = false;
         }
             Debug.Log(_currentHealth + "NAshe");
     }
