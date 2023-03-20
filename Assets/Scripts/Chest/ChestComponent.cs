@@ -44,6 +44,7 @@ public class ChestComponent : MonoBehaviour
                 _opened = true;
                 Instantiate(_content, new Vector2(transform.position.x, transform.position.y + _objectOffset) , Quaternion.identity);
                 _myAnimator.SetBool("Opened", _opened);
+                SoundComponent.Instance.PlaySound(SoundComponent.Instance._chestOpening);
                 this.enabled = false;
             }
         }
