@@ -9,11 +9,12 @@ public class PatrolComponent : MonoBehaviour
     Animator _animator;
     private bool _lookingRight;
     public bool lookingRight { get { return _lookingRight; } }
-    private bool _touchingFloor;
+    //private bool _touchingFloor;
+    private bool _stop;
 
     [Header("Move")]
 
-    [SerializeField] private LayerMask _floor;
+    [SerializeField] private LayerMask _patrolStop;
     [SerializeField] private float _moveSpeed;
     [SerializeField] private Transform _detectorControler;
     [SerializeField] private Vector2 _detectorDimensions;
@@ -38,9 +39,8 @@ public class PatrolComponent : MonoBehaviour
     void Update()
     {
         Move();
-        if(!_touchingFloor)
+        if(_stop)
         {
-            
             _enemyRB.velocity = new Vector2(0, 0);
             if(_time > _timeCoolDown)
             {
@@ -54,7 +54,7 @@ public class PatrolComponent : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        _touchingFloor = Physics2D.OverlapBox(_detectorControler.position, _detectorDimensions, 0, _floor);
+        _stop = Physics2D.OverlapBox(_detectorControler.position, _detectorDimensions, 0, _patrolStop);
     }
     private void Move()
     {
@@ -69,5 +69,10 @@ public class PatrolComponent : MonoBehaviour
         scale.x *= -1;
         transform.localScale = scale;
         _direction *= -1;
+    }
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireCube(_detectorControler.position, _detectorDimensions);
     }
 }

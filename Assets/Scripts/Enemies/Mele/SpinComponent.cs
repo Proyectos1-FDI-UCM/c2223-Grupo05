@@ -77,7 +77,7 @@ public class SpinComponent : MonoBehaviour
         
         yield return new WaitForSeconds(_timeCharge); //spin charge time
 
-        GetComponent<LifeEnemyComponent>().enabled = false;
+       // GetComponent<LifeEnemyComponent>().enabled = false;
         _finishCharge = true; //activa animacion spin
         _enemyRB.velocity = new Vector2(_spinVelocity * transform.localScale.x * (-1f), 0);
 
@@ -85,7 +85,7 @@ public class SpinComponent : MonoBehaviour
 
         
         _enemyRB.velocity = _inicialVelocity;
-        GetComponent<LifeEnemyComponent>().enabled = true;
+        //GetComponent<LifeEnemyComponent>().enabled = true;
         GetComponent<PatrolComponent>().enabled = true;
 
         _canSpin = false;

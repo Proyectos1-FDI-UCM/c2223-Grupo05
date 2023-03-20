@@ -46,11 +46,8 @@ public class LifeEnemyComponent : MonoBehaviour
         
         _currentHealth -= damage;
         _showDamage.StartCoroutine(_showDamage.ModSprite(this.gameObject)); //Animacion daño
-        _recComp.Recoil(playerDirection);
-        if ((bool)this.gameObject.GetComponent<SpinComponent>())
-        {
-            //_patrolComp.enabled = false;
-        }
+        _recComp.StartCoroutine(_recComp.Recoil(playerDirection));
+       
             Debug.Log(_currentHealth + "NAshe");
     }
     

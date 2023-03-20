@@ -29,11 +29,4 @@ public class EnemyComponent : MonoBehaviour
             
         }
     }
-   
-
-     
-    private void Update()
-    {
-       
-    }
 }
