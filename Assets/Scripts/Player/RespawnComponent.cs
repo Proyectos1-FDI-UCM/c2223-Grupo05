@@ -31,7 +31,7 @@ public class RespawnComponent : MonoBehaviour
     public void Respawn() //Llamar cuando tengamos HUD y esas vainas
     {
 
-        GameManager.Instance.ResetSouls();
+        
         for (int i = 0; i < transform.childCount; i++)
         {
             transform.GetChild(i).gameObject.SetActive(value: true);
@@ -40,6 +40,7 @@ public class RespawnComponent : MonoBehaviour
         GetComponent<InputComponent>().enabled = true;
         _rb.gravityScale = _gravIni;
         GameManager.Instance.Respawne();
+        GameManager.Instance.ResetSouls();
         Debug.Log("Resp");
         
 

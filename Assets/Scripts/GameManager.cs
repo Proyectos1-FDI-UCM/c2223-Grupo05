@@ -114,10 +114,9 @@ public class GameManager : MonoBehaviour
         
         _player.transform.position = _respawnPoint;
     }
-    public void Checkpoint()
+    public void Checkpoint(Vector2 respawnP)
     {
-        _respawnPoint = _player.transform.position;
-        
+        _respawnPoint = respawnP;
     }
     public void AddFeather()
     {

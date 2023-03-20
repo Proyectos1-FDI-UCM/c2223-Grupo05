@@ -13,6 +13,7 @@ public class VoidComponent : MonoBehaviour
     {
         if ((bool)collision.gameObject.GetComponent<InputComponent>())
         {
+            Debug.Log("ColRes");
             collision.gameObject.GetComponent<RespawnComponent>().Respawn();
         }
     }
