@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3385138709715814237}
   - component: {fileID: 6400826579642681793}
   - component: {fileID: 1523684255851335117}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -170,7 +170,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2633007828559038521}
   - component: {fileID: 5272139637465647388}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -217,8 +217,9 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.3417611, y: -0.41364765}
-      - {x: 0.33831424, y: -0.612702}
-      - {x: 0.37535924, y: -0.93329376}
+    - - {x: 0.335916, y: -0.06892899}
+      - {x: 0.33619878, y: -0.22321215}
+      - {x: 0.3799461, y: -0.6293548}
+      - {x: 0.3878488, y: -0.90831465}
       - {x: 1.2609508, y: -0.91775906}
-      - {x: 1.2772828, y: -0.4262868}
+      - {x: 1.2635989, y: -0.07853603}
