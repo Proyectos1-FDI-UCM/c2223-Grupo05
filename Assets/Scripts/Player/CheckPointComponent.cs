@@ -32,6 +32,8 @@ public class CheckPointComponent : MonoBehaviour
 
             //Activate particles
             _particleSys.SetActive(true);
+            SoundComponent.Instance.PlaySound(SoundComponent.Instance._checkPoint);
+            GetComponent<Collider2D>().enabled = false;
 
         }
     }
