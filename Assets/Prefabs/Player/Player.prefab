@@ -430,8 +430,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.031326294, y: -0.008543539}
-  m_Size: {x: 0.3836937, y: 0.657087}
+  m_Offset: {x: -0.025761032, y: -0.008543539}
+  m_Size: {x: 0.31691208, y: 0.657087}
   m_Direction: 0
 --- !u!50 &1052197326608708989
 Rigidbody2D:
@@ -469,19 +469,19 @@ MonoBehaviour:
   _rayDistance: 0.5
   _offSet: 0.5
   _floorControler: {fileID: 1052197325630803764}
-  _floorDimensions: {x: 0.5, y: 0.2}
+  _floorDimensions: {x: 0.6, y: 0.2}
   _floor:
     serializedVersion: 2
     m_Bits: 8
   _jumpForce: 12.3
   _wallsController: {fileID: 7545831640769984600}
-  _wallsDimensions: {x: 0.3, y: 1.4}
+  _wallsDimensions: {x: 0.3, y: 1.2}
   _walls:
     serializedVersion: 2
     m_Bits: 256
   _moveSpeed: 6
   _dashVelocity: 6
-  _timeDash: 0.4
+  _timeDash: 0.3
 --- !u!114 &1052197326608708991
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -496,7 +496,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _dashCoolDown: 3
   _attackRate: 6
-  _attackRateOnAir: 0
+  _attackRateOnAir: 0.8
   _interactuableLayer:
     serializedVersion: 2
     m_Bits: 0
