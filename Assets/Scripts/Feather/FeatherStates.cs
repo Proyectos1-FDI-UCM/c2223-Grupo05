@@ -21,11 +21,13 @@ public class FeatherStates : MonoBehaviour
         switch (state)
         {
             case FeatherState.FEATHER:
+                SoundComponent.Instance.PlaySound(SoundComponent.Instance._featherThrow);
                 this.gameObject.transform.GetChild((int)FeatherState.FEATHER).gameObject.SetActive(true);
                 
                 break;
             case FeatherState.PLATFORM:
-                
+
+                SoundComponent.Instance.PlaySound(SoundComponent.Instance._featherPlatform);
                 //seteamos todo lo que no vaya a interferir con el estado antes de cambiar para que no haya errores en la maquina de estados
                 this.gameObject.transform.GetChild((int)FeatherState.FEATHER).gameObject.SetActive(false);
                 //Se realiza lo que verdaderamente hace el estado
@@ -38,6 +40,7 @@ public class FeatherStates : MonoBehaviour
           
             case FeatherState.RETURN:
                 //seteamos todo lo que no vaya a interferir con el estado antes de cambiar para que no haya errores en la maquina de estados
+                SoundComponent.Instance.PlaySound(SoundComponent.Instance._featherReturn);
                 GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
                 this.gameObject.transform.GetChild((int)FeatherState.FEATHER).gameObject.SetActive(false);
                 this.gameObject.transform.GetChild((int)FeatherState.PLATFORM).gameObject.SetActive(false);
