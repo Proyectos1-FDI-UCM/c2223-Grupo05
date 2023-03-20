@@ -48,7 +48,7 @@ public class UIManager : MonoBehaviour
     #region methods
     public void QuitSouls(int ind)
     {
-        _souls[ind -1 ].SetActive(false);
+        _souls[ind - 1 ].SetActive(false);
     }
     public void Addsouls(int ind)
     {
@@ -56,11 +56,11 @@ public class UIManager : MonoBehaviour
     }
     public void QuitLifes(int ind)
     {
-        _lifes[ind].SetActive(false);
+        _lifes[ind - 1].SetActive(false);
     }
     public void AddLifes(int ind)
     {
-        _lifes[ind].SetActive(true);
+        _lifes[ind - 1].SetActive(true);
     }
 
     public void AddFeathers(int ind)
