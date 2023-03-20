@@ -14,6 +14,7 @@ public class SoundComponent : MonoBehaviour
     public AudioClip _chestOpening;
     public AudioClip _itemRecolectable;
     public AudioClip _checkPoint;
+    public AudioClip _dash;
 
 
     public void PlaySound(AudioClip myAudio)

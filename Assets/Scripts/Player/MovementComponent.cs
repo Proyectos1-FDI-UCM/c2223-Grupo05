@@ -103,6 +103,7 @@ public class MovementComponent : MonoBehaviour
     {
         if (!_touchingFloor) // Dash only if jumping
         {
+            SoundComponent.Instance.PlaySound(SoundComponent.Instance._dash);
             GetComponent<InputComponent>().enabled = false;
             //_canMove = false;
             _canDash = false;
