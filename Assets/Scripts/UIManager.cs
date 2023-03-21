@@ -18,13 +18,14 @@ public class UIManager : MonoBehaviour
     public GameObject[] _souls;
     public GameObject[] _lifes;
     public GameObject[] _feathers;
+
     
 
     //MENUS
-    [SerializeField] private GameObject _startMenu;
-    [SerializeField] private GameObject _gameplayHUD;
-    [SerializeField] private GameObject _retryMenu;
-    [SerializeField] private GameObject _gameOverMenu;
+    //[SerializeField] private GameObject _startMenu;
+    //[SerializeField] private GameObject _gameplayHUD;
+    [SerializeField] private GameObject _pauseMenu;
+    //[SerializeField] private GameObject _gameOverMenu;
     [SerializeField] private AudioMixer _audioMixer;
     #endregion
 
@@ -80,6 +81,22 @@ public class UIManager : MonoBehaviour
         _audioMixer.SetFloat("Volumen", _volume);
         _audioMixer.SetFloat("Music", _volume);
         _audioMixer.SetFloat("Effects", _volume);
+    }
+    #endregion
+    #region methods MenuPause
+    public void Pause()
+    {
+        Time.timeScale = 0f;
+        _pauseMenu.SetActive(true);
+    }
+    public void Reanudar()
+    {
+        Time.timeScale = 1f;
+        _pauseMenu.SetActive(false);
+    }
+    public void Quit()
+    {
+        SceneManager.LoadScene(0);
     }
     #endregion
     // Start is called before the first frame update
