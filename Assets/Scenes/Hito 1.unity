@@ -3000,10 +3000,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 883134073419582690, guid: 7e9ffe99543ac584bbb4ab358589d963, type: 3}
-      propertyPath: _pauseMenu
-      value: 
-      objectReference: {fileID: 883134074233905104}
     - target: {fileID: 883134073419582691, guid: 7e9ffe99543ac584bbb4ab358589d963, type: 3}
       propertyPath: m_Name
       value: UI
@@ -3092,17 +3088,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4611650571686403444, guid: 7e9ffe99543ac584bbb4ab358589d963, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7e9ffe99543ac584bbb4ab358589d963, type: 3}
---- !u!1 &883134074233905104 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4611650571686403444, guid: 7e9ffe99543ac584bbb4ab358589d963, type: 3}
-  m_PrefabInstance: {fileID: 883134074233905103}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3532119357858946596
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -63176,6 +63163,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1052197326608708991, guid: 1cfcb573802f8634f92c4857a70c2d2e, type: 3}
+      propertyPath: _myUIManager
+      value: 
+      objectReference: {fileID: 1358336813}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1cfcb573802f8634f92c4857a70c2d2e, type: 3}
 --- !u!1 &7741347684084574810 stripped

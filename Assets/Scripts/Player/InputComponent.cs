@@ -11,6 +11,7 @@ public class InputComponent : MonoBehaviour
     private FeatherThrowComponent _myFeatherThrowComponent;
     private PlayerCombat _myAttackComponent;
     private ChestComponent _myChestComponent;
+    [SerializeField] private UIManager _myUIManager;
     [SerializeField]
     private float _dashCoolDown;
 
@@ -107,6 +108,10 @@ public class InputComponent : MonoBehaviour
         if(_timeToDash <= _dashCoolDown)
         {
             _timeToDash += Time.deltaTime;
+        }
+        if (Input.GetButtonDown("Cancel"))
+        {
+            _myUIManager.Pause();
         }
        
 

@@ -37,6 +37,7 @@ public class UIManager : MonoBehaviour
     public void Play()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        Time.timeScale = 1f;
     }
     public void Salir()
     {
@@ -86,12 +87,9 @@ public class UIManager : MonoBehaviour
     #region methods MenuPause
     public void Pause()
     {
-        if (Input.GetButtonDown("cancel"))
-        {
-            Time.timeScale = 0f;
-            _pauseMenu.SetActive(true);
-        }
-       
+        
+        Time.timeScale = 0f;
+        _pauseMenu.SetActive(true);      
     }
     public void Reanudar()
     {
