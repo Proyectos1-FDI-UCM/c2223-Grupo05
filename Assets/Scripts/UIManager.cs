@@ -65,7 +65,7 @@ public class UIManager : MonoBehaviour
 
     public void AddFeathers(int ind)
     {
-        _feathers[ind].SetActive(true);
+        _feathers[ind - 1].SetActive(true);
     }
     public void QuitFeathers(int ind)
     {
