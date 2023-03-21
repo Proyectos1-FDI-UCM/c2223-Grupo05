@@ -31,6 +31,7 @@ public class BossManager : MonoBehaviour
     #region Methods
     public void ReceiveDamage(int damageReceived)
     {
+        //Hay que llamar al ShowDamage
         Debug.Log("-1 vida boss");
         _currentHitsReceived += damageReceived;
         CheckAction();
