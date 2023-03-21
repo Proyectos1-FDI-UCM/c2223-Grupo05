@@ -29,36 +29,13 @@ public class BossManager : MonoBehaviour
     private Animator _myAnimator;
 
     #region Methods
-    private void ReceiveDamage(int damageReceived)
+    public void ReceiveDamage(int damageReceived)
     {
+        Debug.Log("-1 vida boss");
         _currentHitsReceived += damageReceived;
+        CheckAction();
     }
     private void CheckAction()      // Cada vez que recibamos daño, verá que acción deberá hacer el boss
-    {
-        //if (_currentHitsReceived == _maxHitsReceivedForTeleport && _teleportCounter < _teleportsDesired)
-        //{
-        //    _teleportCounter++;
-        //    _myAnimator.SetTrigger("Teleport");
-        //    if (_teleportCounter != _teleportsDesired)
-        //    {
-        //        _currentHitsReceived = 0;
-        //    }
-        //}                     //TODO LO QUE HAY EN EL UPDATE HABRÄ Q PONERLO AQUI
-    }
-
-    public void BossDeath()
-    {
-        Destroy(gameObject);
-    }
-    #endregion
-    // Start is called before the first frame update
-    void Start()
-    {
-        _myAnimator = GetComponent<Animator>();
-    }
-
-    // Update is called once per frame
-    void Update()
     {
         if (_currentHitsReceived == _maxHitsReceivedForTeleport && _teleportCounter < _teleportsDesired)          // Quitar de update, está para probar
         {
@@ -76,7 +53,7 @@ public class BossManager : MonoBehaviour
             }
         }
 
-        if (_currentHitsReceived == _maxHitsReceivedForEnemy && _enemiesCounter < _enemiesDesired)              // Qujitar de update
+        else if (_currentHitsReceived == _maxHitsReceivedForEnemy && _enemiesCounter < _enemiesDesired)              // Qujitar de update
         {
             _enemiesCounter++;
             _myAnimator.SetTrigger("Throw Enemy");
@@ -92,7 +69,7 @@ public class BossManager : MonoBehaviour
             }
         }
 
-        if (_currentHitsReceived == _maxHitsReceivedForTrunk && _trunkCounter < _trunkDesired)              // Qujitar de update
+        else if (_currentHitsReceived == _maxHitsReceivedForTrunk && _trunkCounter < _trunkDesired)              // Qujitar de update
         {
             _trunkCounter++;
             _myAnimator.SetTrigger("Throw Trunk");
@@ -107,5 +84,22 @@ public class BossManager : MonoBehaviour
                 _myAnimator.SetBool("isDead", true);
             }
         }
+    }
+
+    public void BossDeath()
+    {
+        Destroy(gameObject);
+    }
+    #endregion
+    // Start is called before the first frame update
+    void Start()
+    {
+        _myAnimator = GetComponent<Animator>();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
     }
 }
