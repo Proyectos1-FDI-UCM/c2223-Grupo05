@@ -162,9 +162,11 @@ public class GameManager : MonoBehaviour
     }
     public void ResetSouls()
     {
+        
         _souls = 3;
         _isDeath = false;
         UI.Addsouls(_souls);
+
     }
     #endregion
 

@@ -86,8 +86,12 @@ public class UIManager : MonoBehaviour
     #region methods MenuPause
     public void Pause()
     {
-        Time.timeScale = 0f;
-        _pauseMenu.SetActive(true);
+        if (Input.GetButtonDown("cancel"))
+        {
+            Time.timeScale = 0f;
+            _pauseMenu.SetActive(true);
+        }
+       
     }
     public void Reanudar()
     {
