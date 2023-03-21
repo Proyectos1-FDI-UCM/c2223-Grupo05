@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private GameObject _player;
     [SerializeField]private ShowDamage _showDamage;
+    private RecoilComponent _recComp;
     #endregion
 
     #region PROPERTIES
@@ -145,7 +146,10 @@ public class GameManager : MonoBehaviour
             //_player.GetComponent<ShowDamage>().StartCoroutine(_player.GetComponent<ShowDamage>().ModSprite(_player.gameObject)); //animacion de daño
         }
     }
-    
+    public void SetKnocBackToPlayer(float enemyDirection)
+    {
+        _recComp.StartCoroutine(_recComp.Recoil(enemyDirection * -1));
+    }
     //metodo para perder almas
     public void LoseSouls(int cant)
     {
@@ -167,6 +171,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        _recComp = _player.GetComponent<RecoilComponent>();
         _feathersCant = 0;
         _currentState = GameStates.TUTORIAL;
         _nextState = GameStates.TUTORIAL;
