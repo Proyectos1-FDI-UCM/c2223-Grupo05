@@ -14,21 +14,21 @@ public class RespawnComponent : MonoBehaviour
 
     public void Die() //Desactiva componentes de player que interactuan con el mapa
     {
-        for(int i = 0; i < transform.childCount; i++) //Desactiva componentes hijos
-        {
-            transform.GetChild(i).gameObject.SetActive(value: false);
-        }
-        _rb.velocity = Vector2.zero;
         GetComponent<CapsuleCollider2D>().enabled = false;
         GetComponent<InputComponent>().enabled = false;
         _rb.gravityScale = 0;
+        _rb.velocity = Vector2.zero;
+        for (int i = 0; i < transform.childCount; i++) //Desactiva componentes hijos
+        {
+            transform.GetChild(i).gameObject.SetActive(value: false);
+        }
+        
+        
 
     }
 
     public void Respawn() //Llamar cuando tengamos HUD y esas vainas
     {
-
-        
         for (int i = 0; i < transform.childCount; i++)
         {
             transform.GetChild(i).gameObject.SetActive(value: true);
