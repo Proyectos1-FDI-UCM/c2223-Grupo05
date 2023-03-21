@@ -27,7 +27,7 @@ public class ProyectileComponent : MonoBehaviour
         if ((bool)collision.gameObject.GetComponent<InputComponent>())
         {
             Destroy(gameObject);
-            GameManager.Instance.Loselifes();
+            GameManager.Instance.Loselifes(1);
         }
         if((bool)collision.gameObject.GetComponent<TilemapCollider2D>())
         {

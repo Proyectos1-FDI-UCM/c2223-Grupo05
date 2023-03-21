@@ -218,7 +218,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.36044857, g: 0.8519301, b: 0.9433962, a: 0}
+  m_Color: {r: 0.4625756, g: 0.9055207, b: 0.990566, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -553,7 +553,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   _attackDamage: 1
-  _radius: 5
+  _radius: 4
 --- !u!114 &1052197326608708930
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -591,7 +591,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f5980855987af74c8db24ed60df4cb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _recForceX: 0
+  _recForceY: 0
+  _recForceX: 4
+  _timeBetween: 0.1
 --- !u!1 &1105019943694459968
 GameObject:
   m_ObjectHideFlags: 0

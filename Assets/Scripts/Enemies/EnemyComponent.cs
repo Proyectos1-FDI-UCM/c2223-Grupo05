@@ -1,7 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.InteropServices;
-using TMPro;
 using UnityEngine;
 
 public class EnemyComponent : MonoBehaviour
@@ -19,12 +15,12 @@ public class EnemyComponent : MonoBehaviour
 
             if (this.GetComponent<SpinComponent>().EnableSpinDamage)
             {
-                GameManager.Instance.Loselifes();
-                GameManager.Instance.Loselifes();
+                GameManager.Instance.Loselifes(2);
+               
             }
             else
             {
-                GameManager.Instance.Loselifes();
+                GameManager.Instance.Loselifes(1);
             }
             
         }
