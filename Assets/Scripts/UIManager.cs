@@ -80,6 +80,8 @@ public class UIManager : MonoBehaviour
     public void ChangeVolume(float _volume)
     {
         _audioMixer.SetFloat("Volumen", _volume);
+        _audioMixer.SetFloat("Music", _volume);
+        _audioMixer.SetFloat("Effects", _volume);
     }
     #endregion
     // Start is called before the first frame update
