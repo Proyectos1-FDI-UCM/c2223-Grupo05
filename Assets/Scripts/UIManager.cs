@@ -63,7 +63,7 @@ public class UIManager : MonoBehaviour
 
     public void AddFeathers(int ind)
     {
-        _feathers[ind].SetActive(true);
+        _feathers[ind - 1].SetActive(true);
     }
     public void QuitFeathers(int ind)
     {
@@ -78,6 +78,8 @@ public class UIManager : MonoBehaviour
     public void ChangeVolume(float _volume)
     {
         _audioMixer.SetFloat("Volumen", _volume);
+        _audioMixer.SetFloat("Music", _volume);
+        _audioMixer.SetFloat("Effects", _volume);
     }
     #endregion
     // Start is called before the first frame update
