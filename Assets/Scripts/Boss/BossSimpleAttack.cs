@@ -20,7 +20,7 @@ public class BossSimpleAttack : MonoBehaviour
         Collider2D myCollision = Physics2D.OverlapCircle(attackPosition, _attackRadius, _myLayerMask);
         if (myCollision != null)
         {
-            GameManager.Instance.Loselifes();
+            GameManager.Instance.Loselifes(1);
         }
     }
     private void OnDrawGizmosSelected()

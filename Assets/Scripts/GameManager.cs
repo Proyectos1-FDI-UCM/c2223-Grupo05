@@ -1,8 +1,3 @@
-using System.IO.Compression;
-using System.Net.Http.Headers;
-
-using Unity.VisualScripting;
-
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -14,6 +9,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get { return _instance; } }
 
     [SerializeField] private GameObject _player;
+    [SerializeField]private ShowDamage _showDamage;
     #endregion
 
     #region PROPERTIES
@@ -130,30 +126,32 @@ public class GameManager : MonoBehaviour
         UI.QuitFeathers(_feathersCant);
     }
     //metodo para perder vidas
-    public void Loselifes()
+    public void Loselifes(int cant)
     {
         SoundComponent.Instance.PlaySound(SoundComponent.Instance._playerTakesDamage);
         if (_lifes > 0)
         {
 
-            _lifes--;
-            _player.GetComponent<ShowDamage>().StartCoroutine(GetComponent<ShowDamage>().ModSprite(_player.gameObject)); //animacion de daño
-            _player.GetComponent<KnockbackComponent>().KnockBack();
+            _lifes -= cant;
+            //_showDamage.StartCoroutine(_showDamage.ModSprite());  //animacion de daño
+
 
             UI.QuitLifes(_lifes);
         }
         else
         {
-            LoseSouls();
-            _player.GetComponent<KnockbackComponent>().KnockBack();
-            _player.GetComponent<ShowDamage>().StartCoroutine(_player.GetComponent<ShowDamage>().ModSprite(_player.gameObject)); //animacion de daño
+            LoseSouls(cant);
+           
+            //_player.GetComponent<ShowDamage>().StartCoroutine(_player.GetComponent<ShowDamage>().ModSprite(_player.gameObject)); //animacion de daño
         }
     }
     
     //metodo para perder almas
-    public void LoseSouls()
+    public void LoseSouls(int cant)
     {
-        _souls--;
+        _souls -= cant;
+        Debug.Log("OK");
+        _showDamage.StartCoroutine(_showDamage.ModSprite());
         UI.QuitSouls(_souls);
 
         
@@ -170,7 +168,6 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         _feathersCant = 0;
-
         _currentState = GameStates.TUTORIAL;
         _nextState = GameStates.TUTORIAL;
         _respawnPoint = _player.transform.position;

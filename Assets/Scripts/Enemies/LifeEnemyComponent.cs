@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 
 public class LifeEnemyComponent : MonoBehaviour
@@ -45,7 +44,7 @@ public class LifeEnemyComponent : MonoBehaviour
     {
         
         _currentHealth -= damage;
-        _showDamage.StartCoroutine(_showDamage.ModSprite(this.gameObject)); //Animacion daño
+        _showDamage.StartCoroutine(_showDamage.ModSprite()); //Animacion daño
         _recComp.StartCoroutine(_recComp.Recoil(playerDirection));
        
             Debug.Log(_currentHealth + "NAshe");
