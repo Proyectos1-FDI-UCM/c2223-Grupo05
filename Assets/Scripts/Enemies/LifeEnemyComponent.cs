@@ -24,7 +24,6 @@ public class LifeEnemyComponent : MonoBehaviour
     }
     void Update()
     {
-
         if (_currentHealth <= 0)
         {
             _isDeath = true;

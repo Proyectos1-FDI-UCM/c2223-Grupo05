@@ -61,6 +61,10 @@ public class PlayerCombat : MonoBehaviour
             foreach (Collider2D enemies in _hitEnemies)
             {
                 enemies.GetComponent<LifeEnemyComponent>().TakeDamage(_attackDamage, transform.localScale.x);
+                if ((bool)enemies.GetComponent<BossManager>())
+                {
+                    // CODIGO
+                }
             }
         }
         else
@@ -78,6 +82,10 @@ public class PlayerCombat : MonoBehaviour
             foreach(Collider2D enemiesOnAir in _hitEnemisOnAir)
             {
                 enemiesOnAir.GetComponent<LifeEnemyComponent>().TakeDamage(_attackDamage, transform.localScale.x);
+                if((bool) enemiesOnAir.GetComponent<BossManager>())
+                {
+                    // CODIGO
+                }
             }
         }
     }
