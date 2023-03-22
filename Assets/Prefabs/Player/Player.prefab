@@ -494,6 +494,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f261e84f50f6b449afd9ae85f61c7c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _myUIManager: {fileID: 0}
   _dashCoolDown: 3
   _attackRate: 6
   _attackRateOnAir: 0.8
@@ -591,9 +592,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f5980855987af74c8db24ed60df4cb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _recForceY: 0
-  _recForceX: 4
-  _timeBetween: 0.1
+  _recForce: 3.5
+  _delay: 0.15
 --- !u!1 &1105019943694459968
 GameObject:
   m_ObjectHideFlags: 0

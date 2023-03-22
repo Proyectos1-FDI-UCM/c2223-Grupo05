@@ -317,10 +317,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 849681db58da1a14c895fc0f5bb3eeac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spinVelocity: 6
+  _spinVelocity: 10
   _timeCharge: 0.7
-  _timeSpin: 0.7
-  _spinCoolDown: 4
+  _timeSpin: 0.5
+  _spinCoolDown: 2
 --- !u!95 &1982846469
 Animator:
   serializedVersion: 4
@@ -384,9 +384,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f5980855987af74c8db24ed60df4cb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _recForceY: 7
-  _recForceX: 8
-  _timeBetween: 0.0001
+  _recForce: 2.5
+  _delay: 0.5
 --- !u!70 &1982846472
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
