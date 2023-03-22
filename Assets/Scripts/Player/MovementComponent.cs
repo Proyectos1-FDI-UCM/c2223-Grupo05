@@ -74,6 +74,7 @@ public class MovementComponent : MonoBehaviour
     {
         if (_touchingFloor)
         {
+            SoundComponent.Instance.PlaySound(SoundComponent.Instance._jump);
             _playerRB.AddForce(new Vector2(0, _jumpForce), ForceMode2D.Impulse);
         }
 

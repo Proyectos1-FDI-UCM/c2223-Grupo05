@@ -9,6 +9,7 @@ public class SwordComponent : MonoBehaviour
      {
         if ((bool)collision.gameObject.GetComponent<InputComponent>())
         {
+            SoundComponent.Instance.PlaySound(SoundComponent.Instance._pickItem);
             GameManager.Instance.Sword();
             Destroy(gameObject);
 

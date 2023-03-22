@@ -46,7 +46,7 @@ public class FeatheritemComponent : MonoBehaviour
     {
         if(!_canRise && (bool)collision.gameObject.GetComponent<InputComponent>())
         {
-
+            SoundComponent.Instance.PlaySound(SoundComponent.Instance._pickItem);
             GameManager.Instance.AddFeather();
             Destroy(gameObject);
         }
