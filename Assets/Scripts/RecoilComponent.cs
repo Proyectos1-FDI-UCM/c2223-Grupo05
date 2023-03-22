@@ -1,35 +1,30 @@
 using System.Collections;
 using UnityEngine;
 
+
 public class RecoilComponent : MonoBehaviour
 {
-    private Rigidbody2D _rb;
-    [SerializeField] private float _recForceY;
-    [SerializeField] private float _recForceX;
-    [SerializeField] private float _timeBetween;
+    private Rigidbody2D _rb2D;
+    [SerializeField] private float _recForce;
+    [SerializeField] private float _delay;
     
     void Start()
     {
-        _rb = GetComponent<Rigidbody2D>();
+        _rb2D = GetComponent<Rigidbody2D>();
+    }
+    public void KnockBack(GameObject sender)
+    {
+        StopAllCoroutines();
+        Vector2 direction = (transform.position - sender.transform.position).normalized;
+        
+        _rb2D.AddForce(direction * _recForce, ForceMode2D.Impulse);
+        StartCoroutine(Reset());
     }
 
 
-    public IEnumerator Recoil(float direction)
+    public IEnumerator Reset()
     {
-        
-        Vector3 aux = new Vector3(direction, 0, 0).normalized; //direction into 1 / -1
-        Vector3 force1= new Vector3(direction, _recForceY, 0f);
-        _rb.AddForce(force1, ForceMode2D.Impulse);
-
-        yield return new WaitForSeconds(_timeBetween);
-
-        Vector3 force2 = new Vector3(direction * _recForceX, 0, 0);
-        _rb.AddForce(force2, ForceMode2D.Impulse);
-        
-       
-
-        
-
-
+        yield return new WaitForSeconds(_delay);
+        _rb2D.velocity = Vector3.zero;
     }
 }

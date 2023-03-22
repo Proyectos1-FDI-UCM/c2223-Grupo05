@@ -15,14 +15,11 @@ public class EnemyComponent : MonoBehaviour
 
             if (this.GetComponent<SpinComponent>().EnableSpinDamage)
             {
-                GameManager.Instance.Loselifes(2);
-                GameManager.Instance.SetKnocBackToPlayer(transform.localScale.x);
-
+                GameManager.Instance.Loselifes(2, this.gameObject);
             }
             else
             {
-                GameManager.Instance.Loselifes(1);
-                GameManager.Instance.SetKnocBackToPlayer(transform.localScale.x);
+                GameManager.Instance.Loselifes(1, this.gameObject); 
             }
             
         }

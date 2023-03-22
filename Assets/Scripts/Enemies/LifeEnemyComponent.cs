@@ -11,7 +11,7 @@ public class LifeEnemyComponent : MonoBehaviour
 
     private Animator _animator;
     private ShowDamage _showDamage;
-    private RecoilComponent _recComp;
+   
     private PatrolComponent _patrolComp;
     // Start is called before the first frame update
     void Start()
@@ -19,7 +19,7 @@ public class LifeEnemyComponent : MonoBehaviour
         _currentHealth = _maxHealth;
         _animator = GetComponent<Animator>();
         _showDamage = GetComponent<ShowDamage>();
-        _recComp = GetComponent<RecoilComponent>();
+        
         _patrolComp = GetComponent<PatrolComponent>();
     }
     void Update()
@@ -39,12 +39,12 @@ public class LifeEnemyComponent : MonoBehaviour
         }
         _animator.SetBool("Death", _isDeath); //Activa animacion de muerte y al final de la anim llama a Die()
     }
-    public void TakeDamage(int damage, float playerDirection)
+    public void TakeDamage(int damage)
     {
         
         _currentHealth -= damage;
         _showDamage.StartCoroutine(_showDamage.ModSprite()); //Animacion daño
-        _recComp.StartCoroutine(_recComp.Recoil(playerDirection));
+       
        
             Debug.Log(_currentHealth + "NAshe");
     }

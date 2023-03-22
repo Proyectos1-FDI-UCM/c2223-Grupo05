@@ -1,4 +1,4 @@
-using UnityEngine;
+ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
@@ -127,35 +127,33 @@ public class GameManager : MonoBehaviour
         UI.QuitFeathers(_feathersCant);
     }
     //metodo para perder vidas
-    public void Loselifes(int cant)
+    public void Loselifes(int cant, GameObject enemy)
     {
         SoundComponent.Instance.PlaySound(SoundComponent.Instance._playerTakesDamage);
         if (_lifes > 0)
         {
 
             _lifes -= cant;
-            //_showDamage.StartCoroutine(_showDamage.ModSprite());  //animacion de daño
+            _showDamage.StartCoroutine(_showDamage.ModSprite());  //animacion de daño
+            _recComp.KnockBack(enemy);
 
 
             UI.QuitLifes(_lifes);
         }
         else
         {
-            LoseSouls(cant);
+            LoseSouls(cant, enemy);
            
             //_player.GetComponent<ShowDamage>().StartCoroutine(_player.GetComponent<ShowDamage>().ModSprite(_player.gameObject)); //animacion de daño
         }
     }
-    public void SetKnocBackToPlayer(float enemyDirection)
-    {
-        _recComp.StartCoroutine(_recComp.Recoil(enemyDirection * -1));
-    }
     //metodo para perder almas
-    public void LoseSouls(int cant)
+    public void LoseSouls(int cant, GameObject enemy)
     {
         _souls -= cant;
         Debug.Log("OK");
         _showDamage.StartCoroutine(_showDamage.ModSprite());
+        _recComp.KnockBack(enemy);
         UI.QuitSouls(_souls);
 
         

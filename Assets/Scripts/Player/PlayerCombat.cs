@@ -64,8 +64,12 @@ public class PlayerCombat : MonoBehaviour
                 {
                     enemies.GetComponent<BossManager>().ReceiveDamage(1);
                 }
-                else enemies.GetComponent<LifeEnemyComponent>().TakeDamage(_attackDamage, transform.localScale.x);
-                
+                else
+                {
+                    enemies.GetComponent<LifeEnemyComponent>().TakeDamage(_attackDamage);
+                    enemies.GetComponent<RecoilComponent>().KnockBack(this.gameObject);
+                }
+
             }
         }
         else
@@ -86,7 +90,11 @@ public class PlayerCombat : MonoBehaviour
                 {
                     enemiesOnAir.GetComponent<BossManager>().ReceiveDamage(1);
                 }
-                else enemiesOnAir.GetComponent<LifeEnemyComponent>().TakeDamage(_attackDamage, transform.localScale.x);                
+                else
+                {
+                    enemiesOnAir.GetComponent<LifeEnemyComponent>().TakeDamage(_attackDamage);
+                    enemiesOnAir.GetComponent<RecoilComponent>().KnockBack(this.gameObject);
+                }             
             }
         }
     }

@@ -7,12 +7,7 @@ public class ProyectileComponent : MonoBehaviour
 {
     [SerializeField] private float _timer;
     [SerializeField] private float _maxTime;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
+    
     // Update is called once per frame
     void Update()
     {
@@ -27,7 +22,7 @@ public class ProyectileComponent : MonoBehaviour
         if ((bool)collision.gameObject.GetComponent<InputComponent>())
         {
             Destroy(gameObject);
-            GameManager.Instance.Loselifes(1);
+            GameManager.Instance.Loselifes(1, this.gameObject);
         }
         if((bool)collision.gameObject.GetComponent<TilemapCollider2D>())
         {
