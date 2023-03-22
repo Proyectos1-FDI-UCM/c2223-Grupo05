@@ -233,6 +233,8 @@ MonoBehaviour:
   _playerTakesDamage: {fileID: 8300000, guid: ba7c99466c5d9474ea35d435dcd93ac8, type: 3}
   _pickItem: {fileID: 8300000, guid: f1ec4fc29f7edf54c9c8d704ae829cf9, type: 3}
   _button: {fileID: 8300000, guid: a061b93a9daa68c42854282772792595, type: 3}
+  _enemyHit: {fileID: 8300000, guid: 4f140b76ba4b52442a34639434391a53, type: 3}
+  _respawn: {fileID: 8300000, guid: 4c3bd59cf99f02e43b7800dba8f5eaed, type: 3}
 --- !u!82 &612479337783911094
 AudioSource:
   m_ObjectHideFlags: 0
