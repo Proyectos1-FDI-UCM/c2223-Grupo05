@@ -3000,6 +3000,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 455522293, guid: 7e9ffe99543ac584bbb4ab358589d963, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 883134073419582691, guid: 7e9ffe99543ac584bbb4ab358589d963, type: 3}
       propertyPath: m_Name
       value: UI
@@ -3087,6 +3091,10 @@ PrefabInstance:
     - target: {fileID: 883134073419582718, guid: 7e9ffe99543ac584bbb4ab358589d963, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6429350124409008625, guid: 7e9ffe99543ac584bbb4ab358589d963, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7e9ffe99543ac584bbb4ab358589d963, type: 3}
