@@ -21,6 +21,7 @@ public class SoundComponent : MonoBehaviour
     public AudioClip _featherReturn;
     public AudioClip _playerTakesDamage;
     public AudioClip _pickItem;
+    public AudioClip _button;
 
 
     public void PlaySound(AudioClip myAudio)
