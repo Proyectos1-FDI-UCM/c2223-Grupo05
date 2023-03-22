@@ -14,6 +14,7 @@ public class ButtonComponent : MonoBehaviour
     {
         if (!_buttonActivated && (bool)collision.gameObject.GetComponent<FeatherComponent>() && collision.gameObject.GetComponentInParent<FeatherStates>().CurrrentState == FeatherStates.FeatherState.FEATHER)
         {
+            SoundComponent.Instance.PlaySound(SoundComponent.Instance._button);
             _buttonActivated = !_buttonActivated;
 
             _myPlatformComponent.ChangeMove();

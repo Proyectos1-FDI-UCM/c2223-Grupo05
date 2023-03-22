@@ -226,11 +226,15 @@ MonoBehaviour:
   _itemRecolectable: {fileID: 0}
   _checkPoint: {fileID: 8300000, guid: a7e81888ec1979748933c0c92bbc7998, type: 3}
   _dash: {fileID: 8300000, guid: 714be3996f4b0bd40b10d12cbc45a31b, type: 3}
+  _jump: {fileID: 8300000, guid: cba239357c74df744992d04ec64ba9cc, type: 3}
   _featherThrow: {fileID: 8300000, guid: 5597fc8da4eab7449adb8ff1fde78e5d, type: 3}
   _featherPlatform: {fileID: 8300000, guid: 31864b372614a0843a083d8f468b0c20, type: 3}
   _featherReturn: {fileID: 8300000, guid: 5c77722503e2de5428f51cac203d9437, type: 3}
   _playerTakesDamage: {fileID: 8300000, guid: ba7c99466c5d9474ea35d435dcd93ac8, type: 3}
   _pickItem: {fileID: 8300000, guid: f1ec4fc29f7edf54c9c8d704ae829cf9, type: 3}
+  _button: {fileID: 8300000, guid: a061b93a9daa68c42854282772792595, type: 3}
+  _enemyHit: {fileID: 8300000, guid: 4f140b76ba4b52442a34639434391a53, type: 3}
+  _respawn: {fileID: 8300000, guid: 4c3bd59cf99f02e43b7800dba8f5eaed, type: 3}
 --- !u!82 &612479337783911094
 AudioSource:
   m_ObjectHideFlags: 0

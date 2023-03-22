@@ -71,17 +71,29 @@ public class UIManager : MonoBehaviour
     {
         _feathers[ind].SetActive(false);
     }
+    public void AddAllSouls()
+    {
+        _souls[0].SetActive(true);
+        _souls[1].SetActive(true);
+        _souls[2].SetActive(true);
+    }
     #endregion
     #region methods MenuOpciones
     public void FullScreen(bool _fullScreen)
     {
         Screen.fullScreen = _fullScreen;
     }
-    public void ChangeVolume(float _volume)
+    public void ChangeVolumeMusic(float _volume)
     {
-        _audioMixer.SetFloat("Volumen", _volume);
         _audioMixer.SetFloat("Music", _volume);
-        _audioMixer.SetFloat("Effects", _volume);
+    }
+    public void ChangeVolumeFX(float _volumeFx)
+    {
+        _audioMixer.SetFloat("Effects", _volumeFx);
+    }
+    public void ChangeVolumeGeneral(float _volumeGeneral)
+    {
+        _audioMixer.SetFloat("Volumen", _volumeGeneral);
     }
     #endregion
     #region methods MenuPause
@@ -109,9 +121,7 @@ public class UIManager : MonoBehaviour
         _feathers[2].SetActive(false);
         _lifes[0].SetActive(false);
         _lifes[1].SetActive(false);
-        _souls[0].SetActive(true);
-        _souls[1].SetActive(true);
-        _souls[2].SetActive(true);
+        
 
 
     }
