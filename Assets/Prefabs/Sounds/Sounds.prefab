@@ -230,6 +230,7 @@ MonoBehaviour:
   _featherPlatform: {fileID: 8300000, guid: 31864b372614a0843a083d8f468b0c20, type: 3}
   _featherReturn: {fileID: 8300000, guid: 5c77722503e2de5428f51cac203d9437, type: 3}
   _playerTakesDamage: {fileID: 8300000, guid: ba7c99466c5d9474ea35d435dcd93ac8, type: 3}
+  _pickItem: {fileID: 8300000, guid: f1ec4fc29f7edf54c9c8d704ae829cf9, type: 3}
 --- !u!82 &612479337783911094
 AudioSource:
   m_ObjectHideFlags: 0
