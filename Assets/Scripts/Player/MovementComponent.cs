@@ -37,6 +37,8 @@ public class MovementComponent : MonoBehaviour
 
     [SerializeField] private float _dashVelocity;
     [SerializeField] private float _timeDash;
+    [SerializeField] private TrailRenderer _trail;
+    
 
 
     private float _initialGravity;
@@ -106,6 +108,7 @@ public class MovementComponent : MonoBehaviour
             GetComponent<InputComponent>().enabled = false;
             //_canMove = false;
             _canDash = false;
+            _trail.emitting = true;
             _playerRB.gravityScale = 0;
             _playerRB.velocity = new Vector2(_dashVelocity * transform.localScale.x, 0);
 
@@ -114,6 +117,7 @@ public class MovementComponent : MonoBehaviour
             _playerRB.velocity = new Vector2(0, _playerRB.velocity.y); //stop dash 
                                                                        //_canMove = true;
             _canDash = true;
+            _trail.emitting = false;
             _playerRB.gravityScale = _initialGravity;
             GetComponent<InputComponent>().enabled = true;
         }
