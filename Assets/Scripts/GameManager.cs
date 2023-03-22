@@ -165,7 +165,7 @@ public class GameManager : MonoBehaviour
         
         _souls = 3;
         _isDeath = false;
-        UI.AddAllSouls();
+        UI.Addsouls(_souls);
 
     }
     #endregion
