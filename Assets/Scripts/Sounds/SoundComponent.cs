@@ -15,10 +15,12 @@ public class SoundComponent : MonoBehaviour
     public AudioClip _itemRecolectable;
     public AudioClip _checkPoint;
     public AudioClip _dash;
+    public AudioClip _jump;
     public AudioClip _featherThrow;
     public AudioClip _featherPlatform;
     public AudioClip _featherReturn;
     public AudioClip _playerTakesDamage;
+    public AudioClip _pickItem;
 
 
     public void PlaySound(AudioClip myAudio)
