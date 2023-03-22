@@ -304,7 +304,7 @@ MonoBehaviour:
   _moveSpeed: 2.5
   _detectorControler: {fileID: 1301605596782627354}
   _detectorDimensions: {x: 0.6, y: 1}
-  _timeCoolDown: 2
+  _timeCoolDown: 1
 --- !u!114 &1301605595433793617
 MonoBehaviour:
   m_ObjectHideFlags: 0

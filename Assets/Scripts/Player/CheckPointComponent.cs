@@ -6,6 +6,7 @@ public class CheckPointComponent : MonoBehaviour
     private Light2D _light;
   
     [SerializeField] private float _intensityMax;
+    [SerializeField] private Color _color;
     [SerializeField] private Transform _spawnPoint;
 
     private GameObject _particleSys;
@@ -26,6 +27,7 @@ public class CheckPointComponent : MonoBehaviour
             GameManager.Instance.Checkpoint(_spawnPoint.position);
             //stablish new light settings
             _light.intensity = _intensityMax;
+            _light.color = _color;
             
 
             //Activate particles
