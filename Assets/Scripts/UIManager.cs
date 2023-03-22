@@ -113,6 +113,12 @@ public class UIManager : MonoBehaviour
         SceneManager.LoadScene(0);
     }
     #endregion
+    #region MenuSeleccion
+    public void ChangeLevels (int level)
+    {
+        SceneManager.LoadScene(level);
+    }
+    #endregion
     // Start is called before the first frame update
     void Start()
     {
