@@ -2805,6 +2805,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1336417013093026903, guid: 4fcb7f00c0a705744a6248ed8037f5f3, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.00048828125
+      objectReference: {fileID: 0}
     - target: {fileID: 3693007444608022223, guid: 4fcb7f00c0a705744a6248ed8037f5f3, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -2893,8 +2897,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI Tutorial
       objectReference: {fileID: 0}
+    - target: {fileID: 3693007444608022227, guid: 4fcb7f00c0a705744a6248ed8037f5f3, type: 3}
+      propertyPath: _souls.Array.data[0]
+      value: 
+      objectReference: {fileID: 3693007443258598912}
+    - target: {fileID: 3693007444608022227, guid: 4fcb7f00c0a705744a6248ed8037f5f3, type: 3}
+      propertyPath: _souls.Array.data[2]
+      value: 
+      objectReference: {fileID: 3693007443258598911}
+    - target: {fileID: 4540111620609839808, guid: 4fcb7f00c0a705744a6248ed8037f5f3, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4fcb7f00c0a705744a6248ed8037f5f3, type: 3}
+--- !u!1 &3693007443258598911 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3693007444592898086, guid: 4fcb7f00c0a705744a6248ed8037f5f3, type: 3}
+  m_PrefabInstance: {fileID: 3693007443258598910}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3693007443258598912 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3693007443821718823, guid: 4fcb7f00c0a705744a6248ed8037f5f3, type: 3}
+  m_PrefabInstance: {fileID: 3693007443258598910}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4692318670678821675
 PrefabInstance:
   m_ObjectHideFlags: 0

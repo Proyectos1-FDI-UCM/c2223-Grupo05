@@ -38,6 +38,7 @@ public class RespawnComponent : MonoBehaviour
         _rb.gravityScale = _gravIni;
         GameManager.Instance.Respawne();
         GameManager.Instance.ResetSouls();
+        GetComponent<UIManager>().AddAllSouls();
         Debug.Log("Resp");
         
 
