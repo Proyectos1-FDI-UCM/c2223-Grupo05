@@ -71,6 +71,13 @@ public class UIManager : MonoBehaviour
     {
         _feathers[ind].SetActive(false);
     }
+    public void AddAllSouls()
+    {
+        _souls[0].SetActive(true);
+        _souls[1].SetActive(true);
+        _souls[2].SetActive(true);
+
+    }
     #endregion
     #region methods MenuOpciones
     public void FullScreen(bool _fullScreen)
@@ -109,10 +116,7 @@ public class UIManager : MonoBehaviour
         _feathers[2].SetActive(false);
         _lifes[0].SetActive(false);
         _lifes[1].SetActive(false);
-        _souls[0].SetActive(true);
-        _souls[1].SetActive(true);
-        _souls[2].SetActive(true);
-
+        
 
     }
 
