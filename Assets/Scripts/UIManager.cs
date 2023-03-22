@@ -83,11 +83,17 @@ public class UIManager : MonoBehaviour
     {
         Screen.fullScreen = _fullScreen;
     }
-    public void ChangeVolume(float _volume)
+    public void ChangeVolumeMusic(float _volume)
     {
-        _audioMixer.SetFloat("Volumen", _volume);
         _audioMixer.SetFloat("Music", _volume);
-        _audioMixer.SetFloat("Effects", _volume);
+    }
+    public void ChangeVolumeFX(float _volumeFx)
+    {
+        _audioMixer.SetFloat("Effects", _volumeFx);
+    }
+    public void ChangeVolumeGeneral(float _volumeGeneral)
+    {
+        _audioMixer.SetFloat("Volumen", _volumeGeneral);
     }
     #endregion
     #region methods MenuPause
