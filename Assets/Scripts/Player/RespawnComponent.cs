@@ -6,6 +6,7 @@ public class RespawnComponent : MonoBehaviour
     private float _gravIni;
     private Rigidbody2D _rb;
     
+    
     void Start()
     {
         _gravIni = GetComponent<Rigidbody2D>().gravityScale;
@@ -38,7 +39,6 @@ public class RespawnComponent : MonoBehaviour
         _rb.gravityScale = _gravIni;
         GameManager.Instance.Respawne();
         GameManager.Instance.ResetSouls();
-        GetComponent<UIManager>().AddAllSouls();
         Debug.Log("Resp");
         
 
