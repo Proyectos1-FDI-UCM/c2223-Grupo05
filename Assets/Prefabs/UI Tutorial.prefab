@@ -1951,9 +1951,9 @@ MonoBehaviour:
   _sword: {fileID: 0}
   _button: {fileID: 0}
   _souls:
-  - {fileID: 3693007444592898086}
-  - {fileID: 3693007443916888894}
   - {fileID: 3693007443821718823}
+  - {fileID: 3693007443916888894}
+  - {fileID: 3693007444592898086}
   _lifes:
   - {fileID: 3693007444579337900}
   - {fileID: 3693007443155782028}

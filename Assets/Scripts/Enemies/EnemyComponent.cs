@@ -15,7 +15,8 @@ public class EnemyComponent : MonoBehaviour
 
             if (this.GetComponent<SpinComponent>().EnableSpinDamage)
             {
-                GameManager.Instance.Loselifes(2, this.gameObject);
+                GameManager.Instance.Loselifes(1, this.gameObject);
+                GameManager.Instance.Loselifes(1, this.gameObject);
             }
             else
             {
