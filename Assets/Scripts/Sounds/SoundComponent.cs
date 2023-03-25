@@ -24,6 +24,7 @@ public class SoundComponent : MonoBehaviour
     public AudioClip _button;
     public AudioClip _enemyHit;
     public AudioClip _respawn;
+    public AudioClip _trunkHit;
 
 
     public void PlaySound(AudioClip myAudio)

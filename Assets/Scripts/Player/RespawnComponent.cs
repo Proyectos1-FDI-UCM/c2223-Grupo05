@@ -30,6 +30,7 @@ public class RespawnComponent : MonoBehaviour
 
     public void Respawn() //Llamar cuando tengamos HUD y esas vainas
     {
+        SoundComponent.Instance.PlaySound(SoundComponent.Instance._respawn);
         for (int i = 0; i < transform.childCount; i++)
         {
             transform.GetChild(i).gameObject.SetActive(value: true);

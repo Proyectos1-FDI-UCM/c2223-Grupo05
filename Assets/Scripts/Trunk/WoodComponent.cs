@@ -51,6 +51,7 @@ public class WoodComponent : MonoBehaviour
         {
             if (transform.position.y <= _limitPoint.position.y)
             {
+                SoundComponent.Instance.PlaySound(SoundComponent.Instance._trunkHit);
                 _falling = false;
                 StartCoroutine(ChangeToReturn());                
             }
