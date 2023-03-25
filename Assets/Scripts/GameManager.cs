@@ -172,7 +172,6 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         _recComp = _player.GetComponent<RecoilComponent>();
-        _feathersCant = 0;
         _currentState = GameStates.TUTORIAL;
         _nextState = GameStates.TUTORIAL;
         _respawnPoint = _player.transform.position;

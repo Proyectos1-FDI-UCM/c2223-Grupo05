@@ -235,6 +235,7 @@ MonoBehaviour:
   _button: {fileID: 8300000, guid: a061b93a9daa68c42854282772792595, type: 3}
   _enemyHit: {fileID: 8300000, guid: 4f140b76ba4b52442a34639434391a53, type: 3}
   _respawn: {fileID: 8300000, guid: 4c3bd59cf99f02e43b7800dba8f5eaed, type: 3}
+  _trunkHit: {fileID: 8300000, guid: aaab1258888628a458af3d57c24fbd82, type: 3}
 --- !u!82 &612479337783911094
 AudioSource:
   m_ObjectHideFlags: 0
