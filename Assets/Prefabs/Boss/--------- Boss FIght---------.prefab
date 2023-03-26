@@ -214,7 +214,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc75ab9d28fdc5f42a81f52fe6fdcf5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _myEnemyPrefab: {fileID: 0}
+  _myEnemyPrefab: {fileID: 5661195829223886998, guid: 5cab5376ffec7274fa9c2d04f558ee09, type: 3}
   _enemySpawnPoint: {fileID: 1993628279551278776}
 --- !u!114 &1993628280077811678
 MonoBehaviour:
@@ -229,7 +229,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _myTrunkPrefab: {fileID: 4971307722527395188, guid: 67e1020249345ed419262a476120b9cb, type: 3}
-  _offset: 2
+  _offset: -3.5
 --- !u!60 &1993628280077811677
 PolygonCollider2D:
   m_ObjectHideFlags: 0
