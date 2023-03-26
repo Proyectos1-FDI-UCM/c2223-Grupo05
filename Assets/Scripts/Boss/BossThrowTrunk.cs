@@ -12,7 +12,7 @@ public class BossThrowTrunk : MonoBehaviour
     public void SpawnTrunk()
     {
         _trunkSpawnPoint = _playerTransform.position;
-        _trunkSpawnPoint.y += gameObject.transform.position.y + _offset;
+        _trunkSpawnPoint.y = gameObject.transform.position.y + _offset;
 
         Instantiate(_myTrunkPrefab, _trunkSpawnPoint, Quaternion.identity);
     }

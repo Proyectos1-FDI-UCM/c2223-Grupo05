@@ -83,6 +83,7 @@ public class BossManager : MonoBehaviour
                 _auxHitsReceived = _currentHitsReceived;
                 _myAnimator.SetBool("isPhase3", false);
                 _myAnimator.SetBool("isDead", true);
+                Debug.Log("Boss la palma");
             }
         }
     }

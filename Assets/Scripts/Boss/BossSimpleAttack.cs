@@ -20,6 +20,7 @@ public class BossSimpleAttack : MonoBehaviour
         Collider2D myCollision = Physics2D.OverlapCircle(attackPosition, _attackRadius, _myLayerMask);
         if (myCollision != null)
         {
+            SoundComponent.Instance.PlaySound(SoundComponent.Instance._bossAttack);
             GameManager.Instance.Loselifes(1, this.gameObject);
         }
     }
