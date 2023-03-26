@@ -26,6 +26,7 @@ public class SoundComponent : MonoBehaviour
     public AudioClip _respawn;
     public AudioClip _trunkHit;
     public AudioClip _bossAttack;
+    public AudioClip _spawnTrunk;
 
 
     public void PlaySound(AudioClip myAudio)

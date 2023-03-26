@@ -13,7 +13,7 @@ public class BossThrowTrunk : MonoBehaviour
     {
         _trunkSpawnPoint = _playerTransform.position;
         _trunkSpawnPoint.y = gameObject.transform.position.y + _offset;
-
+        SoundComponent.Instance.PlaySound(SoundComponent.Instance._spawnTrunk);
         Instantiate(_myTrunkPrefab, _trunkSpawnPoint, Quaternion.identity);
     }
     void Start()

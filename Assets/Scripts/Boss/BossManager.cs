@@ -17,10 +17,15 @@ public class BossManager : MonoBehaviour
     [SerializeField] private int _trunkCounter;         // Quitar Serialized Field
     [SerializeField] private int _trunkDesired;
 
+    //[Header("Death")]
+    //[SerializeField] private int _deathCounter;         // Quitar Serialized Field
+    //[SerializeField] private int _deathDesired;
+
     [Header("Hits Received")]
     [SerializeField] private float _maxHitsReceivedForTeleport;
     [SerializeField] private float _maxHitsReceivedForEnemy;
     [SerializeField] private float _maxHitsReceivedForTrunk;
+    //[SerializeField] private float _maxHitsReceivedForDeath;
     [SerializeField] private float _auxHitsReceived;
 
 
