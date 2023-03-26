@@ -206,6 +206,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _movSpeed: 10
   _wallLayerIndex: 8
+  _parSys: {fileID: 4644098854206551532}
 --- !u!1 &7053998345992016597
 GameObject:
   m_ObjectHideFlags: 0
@@ -297,5 +298,10 @@ PrefabInstance:
 --- !u!4 &4094209762162633840 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8482862105274198814, guid: c9cd046142a722444b08cb3ac5b71f37, type: 3}
+  m_PrefabInstance: {fileID: 5577884291529852782}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &4644098854206551532 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 944497499418784386, guid: c9cd046142a722444b08cb3ac5b71f37, type: 3}
   m_PrefabInstance: {fileID: 5577884291529852782}
   m_PrefabAsset: {fileID: 0}

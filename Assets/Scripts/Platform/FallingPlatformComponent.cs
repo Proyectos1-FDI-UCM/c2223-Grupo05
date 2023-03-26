@@ -20,7 +20,7 @@ public class FallingPlatformComponent : MonoBehaviour
     private bool _readyToShake;
     private bool _fall;
     //Vector auxiliar para la posicion inicial
-    //private Vector2 _myOriginalPos;
+    private Vector2 _myOriginalPos;
 
 
     // Start is called before the first frame update
@@ -29,7 +29,7 @@ public class FallingPlatformComponent : MonoBehaviour
         _myPlatformRB = _myPlatform.GetComponent<Rigidbody2D>();
         _myPlatformTransform = _myPlatform.transform;
         
-        //_myOriginalPos = _myTransform.position;
+        _myOriginalPos = _myPlatform.transform.position;
     }
 
     // Update is called once per frame
@@ -64,14 +64,21 @@ public class FallingPlatformComponent : MonoBehaviour
         _fall = true;
 
         //desactivamos los colliders para que no colisionen
-        //Debug.Log("Se desactica collider");
+        
         _myPlatform.GetComponent<BoxCollider2D>().enabled = false;
         gameObject.GetComponent<BoxCollider2D>().enabled = false;
         
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(3f);
 
-        Destroy(_myPlatform);
-         
+        //Destroy(_myPlatform);
+
+        _myPlatform.GetComponent<BoxCollider2D>().enabled = true;
+        gameObject.GetComponent<BoxCollider2D>().enabled = true;
+        _myPlatformRB.constraints = RigidbodyConstraints2D.FreezeAll;
+        _fall = false;
+        _myPlatformTransform.position = _myOriginalPos;
+
+
     }
     
 }
