@@ -10,6 +10,8 @@ public class SpinComponent : MonoBehaviour
     private Animator _animator;
     Vector2 _inicialVelocity;
 
+    [SerializeField] private ParticleSystem _parSys;
+
     [Header("Spin")]
 
     [SerializeField] private float _spinVelocity;
@@ -57,6 +59,7 @@ public class SpinComponent : MonoBehaviour
     {
         _enabledSpinDamage = true;
         GetComponentInChildren<BoxCollider2D>().enabled = false;
+        _parSys.Play();
         //Gira al detectar al jugador si no está orientado a este
         Vector3 _playerRelativePos = _player.transform.position - this.transform.position;
         if(_playerRelativePos.x < 0 && _patrol.lookingRight) 
@@ -87,7 +90,7 @@ public class SpinComponent : MonoBehaviour
         _enemyRB.velocity = _inicialVelocity;
         //GetComponent<LifeEnemyComponent>().enabled = true;
         GetComponent<PatrolComponent>().enabled = true;
-
+        _parSys.Stop();
         _canSpin = false;
         _enabledSpinDamage = false;
 

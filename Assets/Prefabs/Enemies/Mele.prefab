@@ -157,14 +157,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6653132100185389874}
     m_Modifications:
-    - target: {fileID: 2106910221, guid: 56ebc95cd99776a49810d8a680bbd17b, type: 3}
-      propertyPath: m_Icon
-      value: 
-      objectReference: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
-    - target: {fileID: 1301605595433793616, guid: 56ebc95cd99776a49810d8a680bbd17b, type: 3}
-      propertyPath: _floor.m_Bits
-      value: 8192
-      objectReference: {fileID: 0}
     - target: {fileID: 1301605595433793619, guid: 56ebc95cd99776a49810d8a680bbd17b, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -213,18 +205,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: "Enemy Mel\xE9"
       objectReference: {fileID: 0}
-    - target: {fileID: 1301605596782627354, guid: 56ebc95cd99776a49810d8a680bbd17b, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.384
-      objectReference: {fileID: 0}
-    - target: {fileID: 1301605596782627354, guid: 56ebc95cd99776a49810d8a680bbd17b, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.018
-      objectReference: {fileID: 0}
-    - target: {fileID: 1301605596782627355, guid: 56ebc95cd99776a49810d8a680bbd17b, type: 3}
-      propertyPath: m_Icon
-      value: 
-      objectReference: {fileID: 7866945982896999795, guid: 0000000000000000d000000000000000, type: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 56ebc95cd99776a49810d8a680bbd17b, type: 3}
 --- !u!4 &4827235700798311827 stripped
