@@ -59,7 +59,7 @@ public class SpinComponent : MonoBehaviour
     {
         _enabledSpinDamage = true;
         GetComponentInChildren<BoxCollider2D>().enabled = false;
-        _parSys.Play();
+        
         //Gira al detectar al jugador si no está orientado a este
         Vector3 _playerRelativePos = _player.transform.position - this.transform.position;
         if(_playerRelativePos.x < 0 && _patrol.lookingRight) 
@@ -80,7 +80,8 @@ public class SpinComponent : MonoBehaviour
         
         yield return new WaitForSeconds(_timeCharge); //spin charge time
 
-       // GetComponent<LifeEnemyComponent>().enabled = false;
+        _parSys.Play();
+        // GetComponent<LifeEnemyComponent>().enabled = false;
         _finishCharge = true; //activa animacion spin
         _enemyRB.velocity = new Vector2(_spinVelocity * transform.localScale.x * (-1f), 0);
 
