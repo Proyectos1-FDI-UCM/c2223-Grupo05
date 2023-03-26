@@ -283,7 +283,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   _timeToShoot: 0
-  _shootCooldown: 5
+  _shootCooldown: 4
   _playerTransform: {fileID: 0}
   _startTransform: {fileID: 2550315132883028445}
   _range: 10
