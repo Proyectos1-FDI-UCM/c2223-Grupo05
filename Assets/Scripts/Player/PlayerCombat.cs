@@ -54,7 +54,7 @@ public class PlayerCombat : MonoBehaviour
             GetComponent<InputComponent>().enabled = false;
 
             _animator.SetTrigger("Attack");
-            
+            SoundComponent.Instance.PlaySound(SoundComponent.Instance._playerAttack);
 
             Collider2D[] _hitEnemies = Physics2D.OverlapCapsuleAll(_attackPoint.position, _attackSize, _direction, _angleAttack, _enemylayer);
 
@@ -79,6 +79,7 @@ public class PlayerCombat : MonoBehaviour
             GetComponent<Rigidbody2D>().velocity = Vector2.zero;
           
             _animator.SetTrigger("Air");
+            SoundComponent.Instance.PlaySound(SoundComponent.Instance._playerAirAttack);
             Collider2D[] _hitEnemisOnAir = Physics2D.OverlapCircleAll(_attackPoint.position, _radius, _enemylayer);
 
 

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class ShowTutorialImages : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class ShowTutorialImages : MonoBehaviour
         if ((bool)collision.GetComponent<InputComponent>())
         {
             GetComponent<SpriteRenderer>().enabled = true;
+            GetComponent<Light2D>().enabled = true;
         }
     }
 
@@ -17,6 +19,7 @@ public class ShowTutorialImages : MonoBehaviour
         if ((bool)collision.GetComponent<InputComponent>())
         {
             GetComponent<SpriteRenderer>().enabled = false;
+            GetComponent<Light2D>().enabled = false;
             Destroy(gameObject);
         }
     }

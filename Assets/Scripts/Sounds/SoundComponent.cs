@@ -16,6 +16,8 @@ public class SoundComponent : MonoBehaviour
     public AudioClip _checkPoint;
     public AudioClip _dash;
     public AudioClip _jump;
+    public AudioClip _playerAttack;
+    public AudioClip _playerAirAttack;
     public AudioClip _featherThrow;
     public AudioClip _featherPlatform;
     public AudioClip _featherReturn;

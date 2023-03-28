@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class ShowTutorialImages3 : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class ShowTutorialImages3 : MonoBehaviour
         if ((bool)collision.GetComponent<InputComponent>() && GameManager.Instance._sword)
         {
             GetComponent<SpriteRenderer>().enabled = true;
+            GetComponent<Light2D>().enabled = true;
             _canDestroy = true;
         }
     }
@@ -19,6 +21,7 @@ public class ShowTutorialImages3 : MonoBehaviour
         if ((bool)collision.GetComponent<InputComponent>() && _canDestroy)
         {
             GetComponent<SpriteRenderer>().enabled = false;
+            GetComponent<Light2D>().enabled = false;
             Destroy(gameObject);
         }
     }
