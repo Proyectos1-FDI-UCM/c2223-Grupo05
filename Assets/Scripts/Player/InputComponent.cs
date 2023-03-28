@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
+using System.Threading;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InputComponent : MonoBehaviour
 {
@@ -14,6 +16,9 @@ public class InputComponent : MonoBehaviour
     [SerializeField] private UIManager _myUIManager;
     [SerializeField]
     private float _dashCoolDown;
+    [SerializeField] private Slider _slide;
+    private float _timer;
+    private bool _oncd;
 
     [Header("ATTACK")]
     private float _timeToDash = 0;
@@ -28,6 +33,9 @@ public class InputComponent : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
+        //_timer = 0;
+        _oncd = false;
         _myMovementComponent = GetComponent<MovementComponent>();
         _myFeatherThrowComponent = GetComponent<FeatherThrowComponent>();
         _myAttackComponent = GetComponent<PlayerCombat>();
@@ -52,8 +60,12 @@ public class InputComponent : MonoBehaviour
             _myMovementComponent.Jump();                                // Llama al método Jump del MovementComponent
         }
 
+        
+        
         if (Input.GetButtonDown("Dash") && _timeToDash > _dashCoolDown) // Si se recibe Input de Dash 
         {
+            _oncd= true;
+            _slide.maxValue = _dashCoolDown;
             _myMovementComponent.StartCoroutine(_myMovementComponent.Dash());  // Llama al método Dash del MovementComponent
 
             if (!GetComponent<MovementComponent>().CanDash)
@@ -62,6 +74,20 @@ public class InputComponent : MonoBehaviour
             }
 
         }
+        if (_oncd)
+        {
+            _timer += Time.deltaTime;
+            if (_timer < _dashCoolDown)
+            {
+                _slide.value = _timer;
+            }
+            else if (_timer >= _dashCoolDown)
+            {
+                _oncd = false;
+                _timer = 0;
+            }
+        }
+        
 
         if (Input.GetButtonDown("FeatherThrow"))                        // Si se recibe Input de Lanzamiento de Pluma
         {
