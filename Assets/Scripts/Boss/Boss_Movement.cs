@@ -28,12 +28,15 @@ public class Boss_Movement : StateMachineBehaviour
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         _playerPosition = new Vector2(_player.position.x, animator.transform.position.y);
-        animator.transform.position = Vector2.MoveTowards(animator.transform.position, _playerPosition, _speed * Time.fixedDeltaTime);
-        LookingPlayer(animator);
 
-        if (Vector2.Distance(_player.transform.position, animator.transform.position) <= _attackDistance && _currentAttackTime >= _maxAttackTimer)
+        if (Vector2.Distance(_player.transform.position, animator.transform.position) > _attackDistance)
         {
-            animator.SetTrigger("Attack");
+            animator.transform.position = Vector2.MoveTowards(animator.transform.position, _playerPosition, _speed * Time.fixedDeltaTime);
+            LookingPlayer(animator);
+        }
+        else
+        {
+            if (_currentAttackTime >= _maxAttackTimer) animator.SetTrigger("Attack");
         }
 
         _currentAttackTime += Time.deltaTime;

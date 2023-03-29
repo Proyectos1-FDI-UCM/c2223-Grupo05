@@ -161,14 +161,15 @@ MonoBehaviour:
   _teleportCounter: 0
   _teleportsDesired: 4
   _enemiesCounter: 0
-  _enemiesDesired: 2
+  _enemiesDesired: 1
   _trunkCounter: 0
   _trunkDesired: 3
   _maxHitsReceivedForTeleport: 3
-  _maxHitsReceivedForEnemy: 6
-  _maxHitsReceivedForTrunk: 8
+  _maxHitsReceivedForEnemy: 8
+  _maxHitsReceivedForTrunk: 10
   _auxHitsReceived: 0
   _currentHitsReceived: 0
+  _throwCoolDown: 2
 --- !u!114 &1993628280077811665
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -213,7 +214,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc75ab9d28fdc5f42a81f52fe6fdcf5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _myEnemyPrefab: {fileID: 5661195829223886998, guid: 5cab5376ffec7274fa9c2d04f558ee09, type: 3}
+  _myEnemyPrefab: {fileID: 1684022755440138800, guid: 6ca32df358a1e324fbd54834cc160588, type: 3}
   _enemySpawnPoint: {fileID: 1993628279551278776}
 --- !u!114 &1993628280077811678
 MonoBehaviour:

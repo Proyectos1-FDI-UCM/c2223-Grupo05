@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using static GameManager;
 
@@ -32,6 +34,9 @@ public class BossManager : MonoBehaviour
     [SerializeField] private float _currentHitsReceived;       //Quitar SerializeField
 
     private Animator _myAnimator;
+    private bool _throw = false;
+    [SerializeField] private float _throwCoolDown;
+    private float _counter = 0;
 
     #region Methods
     public void ReceiveDamage(int damageReceived)
@@ -56,13 +61,14 @@ public class BossManager : MonoBehaviour
                 _auxHitsReceived = _currentHitsReceived;
                 _myAnimator.SetBool("isPhase1", false);
                 _myAnimator.SetBool("isPhase2", true);
+                _throw = _myAnimator.GetBool("isPhase2");
             }
         }
 
-        else if (_currentHitsReceived == _maxHitsReceivedForEnemy && _enemiesCounter < _enemiesDesired)              // Qujitar de update
+        else if (_currentHitsReceived <= _maxHitsReceivedForEnemy && _enemiesCounter < _enemiesDesired)              // Qujitar de update
         {
             _enemiesCounter++;
-            _myAnimator.SetTrigger("Throw Enemy");
+            
             if (_enemiesCounter != _enemiesDesired)
             {
                 _currentHitsReceived = _auxHitsReceived;
@@ -72,9 +78,10 @@ public class BossManager : MonoBehaviour
                 _auxHitsReceived = _currentHitsReceived;
                 _myAnimator.SetBool("isPhase2", false);
                 _myAnimator.SetBool("isPhase3", true);
+                _throw = _myAnimator.GetBool("isPhase2");
+
             }
         }
-
         else if (_currentHitsReceived == _maxHitsReceivedForTrunk && _trunkCounter < _trunkDesired)              // Qujitar de update
         {
             _trunkCounter++;
@@ -107,6 +114,17 @@ public class BossManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (_throw)
+        {
+            if(_counter < _throwCoolDown) _counter += Time.deltaTime;
+            else
+            {
+                _myAnimator.SetTrigger("Throw Enemy");
+                _counter = 0;
+            }
+        }
+            
         
+
     }
 }
