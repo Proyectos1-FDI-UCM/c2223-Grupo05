@@ -14,8 +14,11 @@ public class DamageFallEnemy : MonoBehaviour
     private bool _touchingFloor;
     public bool TouchingFloor { get { return _touchingFloor; } }
     [SerializeField] private float _allowedSpeed;
+    [SerializeField] private float _allowedSpeedToDie;
+    [SerializeField] private int _dead;
+    [SerializeField] private int _damageFall;
 
-    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,15 +38,15 @@ public class DamageFallEnemy : MonoBehaviour
         }
         else
         {
-           /*if(_yVelocity < 2 * _allowedSpeed)
+           if(_yVelocity < _allowedSpeedToDie)
            {
                 print(rb.velocity.y);
-                GetComponent<LifeEnemyComponent>().Die();
-           }
-           else*/ if (_yVelocity < _allowedSpeed)
+                GetComponent<LifeEnemyComponent>().TakeDamage(_dead);
+            }
+           else if (_yVelocity < _allowedSpeed)
            {
                 print(rb.velocity.y); 
-                GetComponent<LifeEnemyComponent>().TakeDamage(1);
+                GetComponent<LifeEnemyComponent>().TakeDamage(_damageFall);
                 _yVelocity = 0;
 
            }
