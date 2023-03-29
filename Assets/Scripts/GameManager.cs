@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
     private bool _isDeath = false;
     
 
-    private int _lifes = 0; //implementaar dinamica del nivel; 
+     [SerializeField] private int _lifes = 0; //implementaar dinamica del nivel; 
     private int _maxLifes;  //estaba como maxLifes = 2, pero da el error de que no se usa, en el futuro lo volvemos a añadir
     public bool _sword = false; //variable para saber si tenemos la esapda o no
     private Vector3 _respawnPoint;
