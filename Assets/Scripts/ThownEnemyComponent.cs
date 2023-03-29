@@ -25,8 +25,6 @@ public class ThownEnemyComponent : MonoBehaviour
     {
         _rb2D = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
-
-        SetSpin(-1);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

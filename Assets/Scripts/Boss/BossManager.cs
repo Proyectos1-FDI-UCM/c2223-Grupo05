@@ -65,7 +65,7 @@ public class BossManager : MonoBehaviour
             }
         }
 
-        else if (_currentHitsReceived <= _maxHitsReceivedForEnemy && _enemiesCounter < _enemiesDesired)              // Qujitar de update
+        else if (_currentHitsReceived == _maxHitsReceivedForEnemy && _enemiesCounter < _enemiesDesired)              // Qujitar de update
         {
             _enemiesCounter++;
             
@@ -79,7 +79,6 @@ public class BossManager : MonoBehaviour
                 _myAnimator.SetBool("isPhase2", false);
                 _myAnimator.SetBool("isPhase3", true);
                 _throw = _myAnimator.GetBool("isPhase2");
-
             }
         }
         else if (_currentHitsReceived == _maxHitsReceivedForTrunk && _trunkCounter < _trunkDesired)              // Qujitar de update
@@ -119,11 +118,11 @@ public class BossManager : MonoBehaviour
             if(_counter < _throwCoolDown) _counter += Time.deltaTime;
             else
             {
+                Debug.Log("Lanza enemigo");
                 _myAnimator.SetTrigger("Throw Enemy");
                 _counter = 0;
             }
-        }
-            
+        }         
         
 
     }

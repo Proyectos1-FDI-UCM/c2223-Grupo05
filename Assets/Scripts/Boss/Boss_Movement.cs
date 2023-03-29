@@ -6,30 +6,30 @@ public class Boss_Movement : StateMachineBehaviour
 {
 
     [SerializeField] private float _speed;
-    private bool _turned;
-    Vector3 _flipped;
+    private bool _lookingRight;
     [SerializeField] private float _attackDistance = 5f;
 
     [SerializeField] private float _maxAttackTimer;
     private float _currentAttackTime;
 
-    private Transform _player;
+    private Transform _playerTransform;
+    private Transform _myTransform;
     private Vector2 _playerPosition;
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateinfo, int layerindex)
     {
-        _player = GameManager.Instance.SetPlayer().transform;
-        _flipped = animator.transform.localScale;
+        _playerTransform = GameManager.Instance.SetPlayer().transform;
+        _myTransform = animator.transform;
         _currentAttackTime = 0;
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        _playerPosition = new Vector2(_player.position.x, animator.transform.position.y);
+        _playerPosition = new Vector2(_playerTransform.position.x, animator.transform.position.y);
 
-        if (Vector2.Distance(_player.transform.position, animator.transform.position) > _attackDistance)
+        if (Vector2.Distance(_playerTransform.transform.position, animator.transform.position) > _attackDistance)
         {
             animator.transform.position = Vector2.MoveTowards(animator.transform.position, _playerPosition, _speed * Time.fixedDeltaTime);
             LookingPlayer(animator);
@@ -50,23 +50,28 @@ public class Boss_Movement : StateMachineBehaviour
 
     private void LookingPlayer(Animator animator)
     {
-        _flipped.z *= -1;
+        Debug.Log("Looking player");
 
-        if (animator.transform.position.x > _player.position.x && _turned)
+        if (animator.transform.position.x < _playerTransform.position.x && !_lookingRight)
         {
+            Debug.Log("Giramos derecha");
+            _lookingRight = true;
             Turn(animator);
         }
 
-        if (animator.transform.position.x < _player.position.x && !_turned)
+        if (animator.transform.position.x > _playerTransform.position.x && _lookingRight)
         {
+            Debug.Log("Giramos izq");
+            _lookingRight = false;
             Turn(animator);
         }
     }
 
     private void Turn(Animator animator)
     {
-        animator.transform.localScale = _flipped;
-        animator.transform.Rotate(0, 180, 0);
-        _turned = !_turned;
+        Vector3 scale = animator.transform.localScale;
+        scale.x *= -1;
+        animator.transform.localScale = scale;
+
     }
 }

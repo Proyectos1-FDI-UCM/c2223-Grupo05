@@ -9,16 +9,8 @@ public class BossThrowEnemy : MonoBehaviour
     // Start is called before the first frame update
     public void SpawnEnemy()
     {
-        Instantiate(_myEnemyPrefab, _enemySpawnPoint.position, Quaternion.identity);
+        GameObject go = Instantiate(_myEnemyPrefab, _enemySpawnPoint.position, Quaternion.identity);
+        go.GetComponentInChildren<ThownEnemyComponent>().SetSpin(this.transform.localScale.x);
     }
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 }
