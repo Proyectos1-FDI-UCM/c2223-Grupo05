@@ -54,51 +54,7 @@ public class GameManager : MonoBehaviour
     {
         _nextState = state;
     }
-    private void EnterState(GameStates newState )
-    {
-        switch (newState)
-        {
-            case GameStates.START:
-            case GameStates.TUTORIAL:
-            case GameStates.LEVEL:
-            case GameStates.GAMEOVER:
-            case GameStates.PAUSE:
-                break;
-        }
-    }
-    private void ExitState(GameStates state)
-    {
-        switch (state)
-        {
-            case GameStates.START:
-            case GameStates.TUTORIAL:
-            case GameStates.LEVEL:
-            case GameStates.GAMEOVER:
-            case GameStates.PAUSE:
-                break;
-        }
-    }
-    private void UpdateState(GameStates newState)
-    {
-        switch (newState)
-        {
-            case GameStates.START:
-                break;
-            case GameStates.TUTORIAL:
-                if (_souls <= 0)
-                {
-                    _isDeath = true;
-                }
-                _player.GetComponent<Animator>().SetBool("Death", _isDeath);
-                break;
-            case GameStates.LEVEL:
-                break;
-            case GameStates.GAMEOVER:
-                break;
-            case GameStates.PAUSE:
-                break;
-        }
-    }
+    
     #endregion
 
     //metodo para cambiar la variable de la espada a true
@@ -180,15 +136,13 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
-        if (_nextState != _currentState)
+
+        if (_souls <= 0)
         {
-            ExitState(_currentState);
-            _currentState = _nextState;
-            EnterState(_currentState);
+            _isDeath = true;
         }
-        UpdateState(_currentState);
-        
+        _player.GetComponent<Animator>().SetBool("Death", _isDeath);
+
     }
     
 }
