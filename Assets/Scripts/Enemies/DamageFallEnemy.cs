@@ -35,19 +35,19 @@ public class DamageFallEnemy : MonoBehaviour
         }
         else
         {
-           if(_yVelocity < 3 * _allowedSpeed)
+           /*if(_yVelocity < 2 * _allowedSpeed)
            {
+                print(rb.velocity.y);
                 GetComponent<LifeEnemyComponent>().Die();
            }
-            else if (_yVelocity < _allowedSpeed)
-            {
-
-                print("take");
+           else*/ if (_yVelocity < _allowedSpeed)
+           {
+                print(rb.velocity.y); 
                 GetComponent<LifeEnemyComponent>().TakeDamage(1);
                 _yVelocity = 0;
 
-            }
-        }
+           }
+        } 
             
         
        
