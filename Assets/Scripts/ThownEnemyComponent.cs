@@ -1,4 +1,6 @@
+using System.Resources;
 using UnityEngine;
+using UnityEngine.Assertions.Must;
 
 public class ThownEnemyComponent : MonoBehaviour
 {
@@ -6,6 +8,7 @@ public class ThownEnemyComponent : MonoBehaviour
     [SerializeField] private float _movSpeed;
 
     [SerializeField] private int _wallLayerIndex;
+    [SerializeField] private TrailRenderer _trailRenderer;
 
     private bool _dieByWall = false;
 
@@ -31,6 +34,7 @@ public class ThownEnemyComponent : MonoBehaviour
         if (collision.collider.gameObject.layer == _wallLayerIndex)
         {
             _rb2D.velocity = Vector2.zero;
+            _trailRenderer.emitting = false;
             _dieByWall = true;
 
             
@@ -39,7 +43,7 @@ public class ThownEnemyComponent : MonoBehaviour
     private void Update()
     {
         _animator.SetBool("Death", _dieByWall);
-        if (_canMove) Move();        
+        if (_canMove) Move();
         
         Debug.Log("speed" + _rb2D.velocity);
     }
@@ -56,6 +60,7 @@ public class ThownEnemyComponent : MonoBehaviour
         scale.x *= _direction;
         transform.localScale = scale;
         _parSys.Play();
+        _trailRenderer.emitting = true;
         _canMove = true;
     }
     public void Die()
