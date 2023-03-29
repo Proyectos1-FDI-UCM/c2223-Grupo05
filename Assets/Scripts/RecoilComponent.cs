@@ -49,8 +49,9 @@ public class RecoilComponent : MonoBehaviour
             if ((bool)GetComponent<SpinComponent>())
             {
                 this.GetComponent<SpinComponent>().enabled = aux;
+                this.GetComponent<PatrolComponent>().enabled = aux;
             }
-            this.GetComponent<PatrolComponent>().enabled = aux;
+            
         }
     }
 

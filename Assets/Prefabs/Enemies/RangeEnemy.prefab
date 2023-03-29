@@ -360,8 +360,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f5980855987af74c8db24ed60df4cb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _recForce: 3.5
-  _delay: 0.15
+  _recForce: 0.8
+  _delay: 0.5
 --- !u!114 &1284687868
 MonoBehaviour:
   m_ObjectHideFlags: 0
