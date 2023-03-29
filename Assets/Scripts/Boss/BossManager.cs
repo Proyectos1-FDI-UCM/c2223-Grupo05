@@ -19,15 +19,10 @@ public class BossManager : MonoBehaviour
     [SerializeField] private int _trunkCounter;         // Quitar Serialized Field
     [SerializeField] private int _trunkDesired;
 
-    //[Header("Death")]
-    //[SerializeField] private int _deathCounter;         // Quitar Serialized Field
-    //[SerializeField] private int _deathDesired;
-
     [Header("Hits Received")]
     [SerializeField] private float _maxHitsReceivedForTeleport;
     [SerializeField] private float _maxHitsReceivedForEnemy;
     [SerializeField] private float _maxHitsReceivedForTrunk;
-    //[SerializeField] private float _maxHitsReceivedForDeath;
     [SerializeField] private float _auxHitsReceived;
 
 
@@ -48,7 +43,7 @@ public class BossManager : MonoBehaviour
     }
     private void CheckAction()      // Cada vez que recibamos daño, verá que acción deberá hacer el boss
     {
-        if (_currentHitsReceived == _maxHitsReceivedForTeleport && _teleportCounter < _teleportsDesired)          // Quitar de update, está para probar
+        if (_currentHitsReceived == _maxHitsReceivedForTeleport && _teleportCounter < _teleportsDesired)
         {
             _teleportCounter++;
             _myAnimator.SetTrigger("Teleport");
@@ -65,7 +60,7 @@ public class BossManager : MonoBehaviour
             }
         }
 
-        else if (_currentHitsReceived == _maxHitsReceivedForEnemy && _enemiesCounter < _enemiesDesired)              // Qujitar de update
+        else if (_currentHitsReceived == _maxHitsReceivedForEnemy && _enemiesCounter < _enemiesDesired)
         {
             _enemiesCounter++;
             
@@ -81,7 +76,7 @@ public class BossManager : MonoBehaviour
                 _throw = _myAnimator.GetBool("isPhase2");
             }
         }
-        else if (_currentHitsReceived == _maxHitsReceivedForTrunk && _trunkCounter < _trunkDesired)              // Qujitar de update
+        else if (_currentHitsReceived == _maxHitsReceivedForTrunk && _trunkCounter < _trunkDesired)
         {
             _trunkCounter++;
             _myAnimator.SetTrigger("Throw Trunk");
