@@ -8,6 +8,7 @@ public class DoorComponent : MonoBehaviour
     [Header("INDEX")]
     [SerializeField]
     private int _myIndex;
+    
 
     private void OnTriggerStay2D(Collider2D collision)
     {
@@ -19,5 +20,6 @@ public class DoorComponent : MonoBehaviour
     public void CambiarNivel(int _index)
     {
         SceneManager.LoadScene(_index);
+        GameManager.Instance.Featherslvl2();
     }
 }

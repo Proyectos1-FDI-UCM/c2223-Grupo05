@@ -10,6 +10,7 @@ public class ThownEnemyComponent : MonoBehaviour
     private bool _dieByWall = false;
 
     private float _direction = 1;
+    private bool _canMove = false;
 
     private Rigidbody2D _rb2D;
     private Animator _animator;
@@ -29,15 +30,22 @@ public class ThownEnemyComponent : MonoBehaviour
     {
         if (collision.collider.gameObject.layer == _wallLayerIndex)
         {
-
-            _dieByWall = true;
             _rb2D.velocity = Vector2.zero;
+            _dieByWall = true;
+
+            
         }
     }
     private void Update()
     {
         _animator.SetBool("Death", _dieByWall);
-
+        if (_canMove) Move();        
+        
+        Debug.Log("speed" + _rb2D.velocity);
+    }
+    private void Move()
+    {
+        _rb2D.velocity = new Vector2(_movSpeed * _direction, _rb2D.velocity.y);
     }
 
     public void SetSpin(float otherScale)
@@ -48,8 +56,7 @@ public class ThownEnemyComponent : MonoBehaviour
         scale.x *= _direction;
         transform.localScale = scale;
         _parSys.Play();
-
-        _rb2D.velocity = new Vector2(_movSpeed * _direction, _rb2D.velocity.y);
+        _canMove = true;
     }
     public void Die()
     {

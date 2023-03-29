@@ -18,8 +18,9 @@ public class UIManager : MonoBehaviour
     public GameObject[] _souls;
     public GameObject[] _lifes;
     public GameObject[] _feathers;
-
     
+
+
 
     //MENUS
     //[SerializeField] private GameObject _startMenu;
@@ -77,6 +78,13 @@ public class UIManager : MonoBehaviour
         _souls[1].SetActive(true);
         _souls[2].SetActive(true);
     }
+    public void AddAllFeathers()
+    {
+        _feathers[0].SetActive(true);
+        _feathers[1].SetActive(true);
+        _feathers[2].SetActive(true);
+
+    }
     #endregion
     #region methods MenuOpciones
     public void FullScreen(bool _fullScreen)
@@ -122,11 +130,7 @@ public class UIManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _feathers[0].SetActive(false);
-        _feathers[1].SetActive(false);
-        _feathers[2].SetActive(false);
-        _lifes[0].SetActive(false);
-        _lifes[1].SetActive(false);
+        
         
 
 
