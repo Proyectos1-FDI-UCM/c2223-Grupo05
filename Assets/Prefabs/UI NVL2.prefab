@@ -5035,16 +5035,16 @@ MonoBehaviour:
   _sword: {fileID: 0}
   _button: {fileID: 0}
   _souls:
-  - {fileID: 8290193907286713801}
-  - {fileID: 8290193907316773840}
   - {fileID: 8290193905574901960}
+  - {fileID: 8290193907316773840}
+  - {fileID: 8290193907286713801}
   _lifes:
   - {fileID: 8290193906853724514}
   - {fileID: 8290193905563274818}
   _feathers:
-  - {fileID: 8290193906853702493}
-  - {fileID: 8290193906383252047}
   - {fileID: 8290193905972991704}
+  - {fileID: 8290193906383252047}
+  - {fileID: 8290193906853702493}
   _pauseMenu: {fileID: 4662058422800691115}
   _audioMixer: {fileID: 24100000, guid: a8b9352beb57a5f43aa9a2c15f7134f0, type: 2}
 --- !u!1 &8290193905515830581

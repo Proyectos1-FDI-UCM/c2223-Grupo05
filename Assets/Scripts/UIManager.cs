@@ -57,7 +57,7 @@ public class UIManager : MonoBehaviour
     }
     public void QuitLifes(int ind)
     {
-        _lifes[ind - 1].SetActive(false);
+        _lifes[ind].SetActive(false);
     }
     public void AddLifes(int ind)
     {

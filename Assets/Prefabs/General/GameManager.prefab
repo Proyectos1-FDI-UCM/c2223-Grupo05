@@ -45,6 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _player: {fileID: 0}
-  _feathersCant: 0
-  _sword: 0
+  _showDamage: {fileID: 0}
+  _feathersCant: 3
+  _lifes: 0
+  _sword: 1
   UI: {fileID: 0}
