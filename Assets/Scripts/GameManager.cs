@@ -62,6 +62,11 @@ public class GameManager : MonoBehaviour
     {
         _sword = true;
     }
+    public void AddLife()
+    {
+      _lifes++;
+        UI.AddLifes(_lifes);
+    }
     public void Respawne()
     {
         
