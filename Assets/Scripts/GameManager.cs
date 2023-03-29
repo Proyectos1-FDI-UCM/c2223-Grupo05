@@ -114,7 +114,7 @@ public class GameManager : MonoBehaviour
         _showDamage.StartCoroutine(_showDamage.ModSprite());
         _recComp.KnockBack(enemy);
         UI.QuitSouls(_souls);
-
+    
         
     }
     public void ResetSouls()

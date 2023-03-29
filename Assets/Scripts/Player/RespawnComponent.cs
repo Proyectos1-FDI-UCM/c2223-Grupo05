@@ -4,12 +4,20 @@ public class RespawnComponent : MonoBehaviour
     
     private float _gravIni;
     private Rigidbody2D _rb;
+    private bool _isDeath = false;
     
     
     void Start()
     {
         _gravIni = GetComponent<Rigidbody2D>().gravityScale;
         _rb = GetComponent<Rigidbody2D>();
+    }
+    private void Update()
+    {
+        if (_isDeath)
+        {
+            Die();
+        }
     }
 
     public void Die() //Desactiva componentes de player que interactuan con el mapa
@@ -22,9 +30,10 @@ public class RespawnComponent : MonoBehaviour
         {
             transform.GetChild(i).gameObject.SetActive(value: false);
         }
-        
-        
-
+    }
+    public void ActivateDeath()
+    {
+        _isDeath = true;
     }
 
     public void Respawn() //Llamar cuando tengamos HUD y esas vainas
@@ -38,6 +47,7 @@ public class RespawnComponent : MonoBehaviour
         GetComponent<InputComponent>().enabled = true;
         _rb.gravityScale = _gravIni;
         GameManager.Instance.Respawne();
+        _isDeath = false;
         GameManager.Instance.ResetSouls();
         Debug.Log("Resp");
         
