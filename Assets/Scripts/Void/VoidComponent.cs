@@ -15,6 +15,10 @@ public class VoidComponent : MonoBehaviour
             Debug.Log("ColRes");
             collision.gameObject.GetComponent<RespawnComponent>().Respawn();
         }
+        if ((bool)collision.gameObject.GetComponent<LifeEnemyComponent>())
+        {
+            Destroy(collision.gameObject);
+        }
     }
 }
 
