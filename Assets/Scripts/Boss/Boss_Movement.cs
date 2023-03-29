@@ -54,14 +54,12 @@ public class Boss_Movement : StateMachineBehaviour
 
         if (animator.transform.position.x < _playerTransform.position.x && !_lookingRight)
         {
-            Debug.Log("Giramos derecha");
             _lookingRight = true;
             Turn(animator);
         }
 
         if (animator.transform.position.x > _playerTransform.position.x && _lookingRight)
         {
-            Debug.Log("Giramos izq");
             _lookingRight = false;
             Turn(animator);
         }
