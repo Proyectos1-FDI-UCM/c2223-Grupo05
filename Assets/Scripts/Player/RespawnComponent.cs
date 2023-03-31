@@ -1,28 +1,46 @@
+using Unity.VisualScripting;
 using UnityEngine;
+using static UnityEditor.Experimental.GraphView.GraphView;
+
 public class RespawnComponent : MonoBehaviour
 {
     
     private float _gravIni;
     private Rigidbody2D _rb;
-    private bool _isDeath = false;
+    [SerializeField] private float countdown = 0.5f;
+    private float _timeAnim;
     private bool _isRespawn = false;
-    
+    private Animator _playerAnim;
     
     void Start()
     {
         _gravIni = GetComponent<Rigidbody2D>().gravityScale;
         _rb = GetComponent<Rigidbody2D>();
+        _playerAnim = GetComponent<Animator>();
         
     }
     private void Update()
     {
-        if (_isDeath)
+        if (GameManager.Instance.IsDeath)
         {
-            Die();
-        }
-        if(GetComponent<MovementComponent>().TouchingFloor && _isRespawn)
-        {
-            Respawn();
+            
+            countdown -= Time.deltaTime;
+            if (countdown > 0f)
+            {
+                Die();
+            }
+            
+                if (GetComponent<MovementComponent>().TouchingFloor)
+                {
+                    _rb.constraints = RigidbodyConstraints2D.FreezePosition;
+                    _timeAnim += Time.deltaTime;
+                    if (_timeAnim > 1f)
+                    {
+                        Respawn();
+                        _timeAnim = 0f;
+                    }
+                }
+            
         }
     }
 
@@ -33,11 +51,7 @@ public class RespawnComponent : MonoBehaviour
         DisablePhysics();
         _rb.gravityScale = 6f;
         _rb.velocity = Vector2.zero;
-        if(GetComponent<MovementComponent>().TouchingFloor)
-        {
-            _isRespawn = true;
-        }
-
+       
         /*for (int i = 0; i < transform.childCount; i++) //Desactiva componentes hijos
         {
             transform.GetChild(i).gameObject.SetActive(value: false);
@@ -59,14 +73,8 @@ public class RespawnComponent : MonoBehaviour
             collider.enabled = true;
         }
     }
-    public void ActivateDeath()
-    {
-        _isDeath = true;
-    }
-    /*public void AtivateRespawn()
-    {
-        _isRespawn = true;
-    }*/
+    
+    
 
     public void Respawn() //Llamar cuando tengamos HUD y esas vainas
     {
@@ -77,13 +85,14 @@ public class RespawnComponent : MonoBehaviour
         }*/
 
         EnablePhysics();
+        _rb.constraints = RigidbodyConstraints2D.None;
+        _rb.constraints = RigidbodyConstraints2D.FreezeRotation;
         GetComponent<InputComponent>().enabled = true;
         _rb.gravityScale = _gravIni;
         GameManager.Instance.Respawne();
-        _isDeath = false;
-        _isRespawn = false;
+       // _isRespawn = false;
         GameManager.Instance.ResetSouls();
         Debug.Log("Resp");
-        
+
     }
 }

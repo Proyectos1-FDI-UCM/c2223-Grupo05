@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
     private int _souls = 3;
     public int Soul { get { return _souls; } }
     private bool _isDeath = false;
+    public bool IsDeath { get { return _isDeath; } }
     
 
      [SerializeField] private int _lifes = 0; //implementaar dinamica del nivel; 
