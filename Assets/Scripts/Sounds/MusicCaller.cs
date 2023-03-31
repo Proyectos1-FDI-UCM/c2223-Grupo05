@@ -21,10 +21,11 @@ public class MusicCaller : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if ((bool)other.GetComponent<InputComponent>())
+        if ((bool)collision.GetComponent<InputComponent>())
         {
+            Debug.Log("Jugador debe cambiar musica");
             if (_OST1)
             {
                 _myMusicComponent._playOST1 = true;
@@ -32,6 +33,7 @@ public class MusicCaller : MonoBehaviour
             if (_OST2)
             {
                 _myMusicComponent._playOST2 = true;
+                Debug.Log("Cambio a OST2");
             }
             if (_OST3)
             {
