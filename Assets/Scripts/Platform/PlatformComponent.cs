@@ -40,4 +40,18 @@ public class PlatformComponent : MonoBehaviour
     {
         transform.position = Vector2.MoveTowards(transform.position, targetPosition, _speed * Time.deltaTime);
     }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if ((bool)collision.gameObject.GetComponent<InputComponent>())
+        {
+            collision.transform.SetParent(this.transform);
+        }
+    }
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if ((bool)collision.gameObject.GetComponent<InputComponent>())
+        {
+            collision.transform.SetParent(null);
+        }
+    }
 }
