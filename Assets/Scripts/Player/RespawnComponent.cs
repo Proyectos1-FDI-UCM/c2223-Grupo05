@@ -7,39 +7,30 @@ public class RespawnComponent : MonoBehaviour
     
     private float _gravIni;
     private Rigidbody2D _rb;
-    [SerializeField] private float countdown = 0.5f;
     private float _timeAnim;
-    private bool _isRespawn = false;
-    private Animator _playerAnim;
     
     void Start()
     {
         _gravIni = GetComponent<Rigidbody2D>().gravityScale;
         _rb = GetComponent<Rigidbody2D>();
-        _playerAnim = GetComponent<Animator>();
         
     }
     private void Update()
     {
         if (GameManager.Instance.IsDeath)
         {
-            
-            countdown -= Time.deltaTime;
-            if (countdown > 0f)
+            Die(); 
+            if (GetComponent<MovementComponent>().TouchingFloor)
             {
-                Die();
-            }
-            
-                if (GetComponent<MovementComponent>().TouchingFloor)
+                EnablePhysics();
+                Physics2D.IgnoreLayerCollision(7, 9, true);
+                _timeAnim += Time.deltaTime;
+                if (_timeAnim > 1f)
                 {
-                    _rb.constraints = RigidbodyConstraints2D.FreezePosition;
-                    _timeAnim += Time.deltaTime;
-                    if (_timeAnim > 1f)
-                    {
-                        Respawn();
-                        _timeAnim = 0f;
-                    }
+                    Respawn();
+                    _timeAnim = 0f;
                 }
+            }
             
         }
     }
@@ -52,10 +43,6 @@ public class RespawnComponent : MonoBehaviour
         _rb.gravityScale = 6f;
         _rb.velocity = Vector2.zero;
        
-        /*for (int i = 0; i < transform.childCount; i++) //Desactiva componentes hijos
-        {
-            transform.GetChild(i).gameObject.SetActive(value: false);
-        }*/
     }
     private void DisablePhysics()
     {
@@ -79,18 +66,10 @@ public class RespawnComponent : MonoBehaviour
     public void Respawn() //Llamar cuando tengamos HUD y esas vainas
     {
         SoundComponent.Instance.PlaySound(SoundComponent.Instance._respawn);
-        /*for (int i = 0; i < transform.childCount; i++)
-        {
-            transform.GetChild(i).gameObject.SetActive(value: true);
-        }*/
-
-        EnablePhysics();
-        _rb.constraints = RigidbodyConstraints2D.None;
-        _rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+        Physics2D.IgnoreLayerCollision(7, 9, false);
         GetComponent<InputComponent>().enabled = true;
         _rb.gravityScale = _gravIni;
         GameManager.Instance.Respawne();
-       // _isRespawn = false;
         GameManager.Instance.ResetSouls();
         Debug.Log("Resp");
 
