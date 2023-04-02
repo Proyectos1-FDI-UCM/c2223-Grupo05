@@ -7,7 +7,11 @@ public class ProyectileComponent : MonoBehaviour
 {
     [SerializeField] private float _timer;
     [SerializeField] private float _maxTime;
-    
+    [SerializeField] private ParticleSystem _parSys;
+    private void Start()
+    {
+        _parSys.Play();
+    }
     // Update is called once per frame
     void Update()
     {

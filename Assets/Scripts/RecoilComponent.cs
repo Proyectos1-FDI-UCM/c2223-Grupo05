@@ -18,10 +18,15 @@ public class RecoilComponent : MonoBehaviour
     {
         StopAllCoroutines();
         float individualDirection = 1;
-        if ((bool)this.GetComponent<InputComponent>())
+        if ((bool)this.GetComponent<InputComponent>() || !(bool)sender.GetComponent<ProyectileComponent>())
         {
             individualDirection *= -1;
         }
+        if (!(bool)this.GetComponent<InputComponent>())
+        {
+            individualDirection *= -1;
+        }
+        
         Vector2 direction;
         if (sender.transform.localScale.x > 0)
         {
