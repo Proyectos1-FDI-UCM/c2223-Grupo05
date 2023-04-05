@@ -6,10 +6,10 @@ using UnityEngine;
 public class DialogueControl : MonoBehaviour
 {
     private Queue<string> _colaDialogos;
-    Text _text;
+    Textos _text;
     [SerializeField] TextMeshProUGUI _textMeshPro;
     [SerializeField] private float _timeCaracter;
-    public void MessageActive(Text ObjectText)
+    public void MessageActive(Textos ObjectText)
     { 
         //animacion cartel
         _text = ObjectText; 

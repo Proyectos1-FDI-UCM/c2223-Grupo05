@@ -4,7 +4,7 @@ using UnityEngine;
 
 //Este script sera llamado desde otros scripts y no se asignara a ningun objeto
 [System.Serializable]
-public class Text
+public class Textos
 {
     [TextArea(2, 6)] //Indicamos entre parentesis el minimo y maximo de lineas
     public string[] _arrayText;
