@@ -50,3 +50,6 @@ TagManager:
   - name: particles
     uniqueID: 1079010479
     locked: 0
+  - name: text
+    uniqueID: 1495823479
+    locked: 0
