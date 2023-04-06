@@ -20,6 +20,7 @@ public class CheckPointComponent : MonoBehaviour
         _light = GetComponentInChildren<Light2D>();
        
     }
+    //al entrar en el checkpoint detecta que lo que ha entrado es el player e inicializa la posicion del spawn donde el checkpoint (GameManager)
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if ((bool)collision.gameObject.GetComponent<InputComponent>())

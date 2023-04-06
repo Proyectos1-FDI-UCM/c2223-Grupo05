@@ -10,6 +10,7 @@ public class DoorComponent : MonoBehaviour
     private int _myIndex;
     
 
+    //metodo que detecta al player y si le da al boton de interactuar
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.GetComponent<InputComponent>() && Input.GetKeyDown(KeyCode.E))
@@ -17,6 +18,7 @@ public class DoorComponent : MonoBehaviour
             CambiarNivel(_myIndex);
         }
     }
+    //metodo publico para cambiar el nivel al interactuar con la puerta
     public void CambiarNivel(int _index)
     {
         SceneManager.LoadScene(_index);

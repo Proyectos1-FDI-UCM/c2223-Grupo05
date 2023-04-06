@@ -14,12 +14,7 @@ public class KnockbackComponent : MonoBehaviour
     {
         _playerRB = GetComponent<Rigidbody2D>();
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    //metodo publico que le aplica fuerzas al player cuando recibe daño
     public void KnockBack()
     {
         //GetComponent<InputComponent>().enabled = false;
@@ -41,6 +36,7 @@ public class KnockbackComponent : MonoBehaviour
         
         ActivaInput(); //esto HAY QUE QUITARLO y activarlo CON LA ANIMACION ;3
     }
+    //metodo publico que activa el input desde la animacion
     public void ActivaInput()
     {
         //GetComponent<InputComponent>().enabled = true;

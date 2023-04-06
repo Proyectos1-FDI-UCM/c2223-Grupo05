@@ -67,12 +67,13 @@ public class MovementComponent : MonoBehaviour
         _playerAnim.SetFloat("Vertical", _playerRB.velocity.y);
         _playerAnim.SetBool("Dash", _canDash);
     }
-
+    //evaluacion de las fisicas para saber si toca suelo o una pared
     private void FixedUpdate()
     {
         _touchingFloor = Physics2D.OverlapBox(_floorControler.position, _floorDimensions, 0, _floor);
         _touchingWalls = Physics2D.OverlapBox(_wallsController.position, _wallsDimensions, 0, _walls);
     }
+    //metodo para saltar dandole una fuerza de impulso al player
     public void Jump()
     {
         if (_touchingFloor)
@@ -82,13 +83,14 @@ public class MovementComponent : MonoBehaviour
         }
 
     }
+    //metodo que comprueba si toca una pared y si no, mueve al jugador en funcion de un valor (desde -1 a 1)
     public void Move(float _playerDirection)
     {
         if(!_touchingWalls)
         {
             _playerRB.velocity = new Vector2(_playerDirection * _moveSpeed, _playerRB.velocity.y);
         }
-        
+        //evaluaciones auxiliares para llamar al metodo turn
         if (_playerDirection > 0 && !_lookingRight)
         {
             Turn();
@@ -100,7 +102,7 @@ public class MovementComponent : MonoBehaviour
 
     }
 
-
+    //Metodo de dash 
     public IEnumerator Dash()
     {
         if (!_touchingFloor) // Dash only if jumping
@@ -123,21 +125,7 @@ public class MovementComponent : MonoBehaviour
             GetComponent<InputComponent>().enabled = true;
         }
     }
-    //public bool RayCast2D(float _playerDirection)
-    //{
-    //    Vector2 _myOffSet = new Vector2(_playerTransform.position.x, _playerTransform.position.y - _offSet); 
-    //    bool _stop = false;
-    //    RaycastHit2D _ray = Physics2D.Raycast(_playerTransform.position, Vector2.right * _playerDirection, _rayDistance, _walls);
-    //    RaycastHit2D _rayFeet = Physics2D.Raycast(_myOffSet, Vector2.right * _playerDirection, _rayDistance, _walls);
-    //    if (((_ray || _rayFeet) && _playerRB.velocity.x > 0 && Input.GetKey(KeyCode.D)) || ((_ray || _rayFeet) && _playerRB.velocity.x < 0 && Input.GetKey(KeyCode.A)))
-    //    {
-    //        _stop = true;
-    //    }
-    //    return _stop;
-    //    //Debug.DrawRay(_myOffSet, Vector2.right * _playerDirection, Color.white);
-    //}
-    
-
+    //metodo que le da la vuelta al jugador en funcion de donde se mueva
     public void Turn()
     {
         _lookingRight = !_lookingRight;
@@ -145,7 +133,7 @@ public class MovementComponent : MonoBehaviour
         scale.x *= -1;
         transform.localScale = scale;
     }
-
+    //metodo auxiliar para ver las cajas de colision del player desde la escena
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;
