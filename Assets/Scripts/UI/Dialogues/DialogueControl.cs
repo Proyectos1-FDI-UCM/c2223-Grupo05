@@ -1,17 +1,20 @@
-    using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
 public class DialogueControl : MonoBehaviour
 {
-    private Queue<string> _colaDialogos;
+    private Queue <string> _colaDialogos;  
     Textos _text;
     [SerializeField] TextMeshProUGUI _textMeshPro;
     [SerializeField] private float _timeCaracter;
+    private Animator _animator;
+    private GameObject _player;
     public void MessageActive(Textos ObjectText)
-    { 
+    {
         //animacion cartel
+        _animator.SetBool("Activado", true);
         _text = ObjectText; 
     }
     public void TextActive()
@@ -21,6 +24,7 @@ public class DialogueControl : MonoBehaviour
         {
             _colaDialogos.Enqueue(_saveText);
         }
+        NextPhrase();
     }
     public void NextPhrase()
     {
@@ -31,6 +35,7 @@ public class DialogueControl : MonoBehaviour
         }
         string _targetPhrase = _colaDialogos.Dequeue();
         _textMeshPro.text = _targetPhrase;
+        StartCoroutine(ShowCharacters(_targetPhrase));
 
     }
     IEnumerator ShowCharacters(string showText)
@@ -45,12 +50,15 @@ public class DialogueControl : MonoBehaviour
 
     public void CloseMessage()
     {
-        //animacion cerrar cartel
+        //_player.GetComponent<InputComponent>().enabled= true;
+        _animator.SetBool("Activado", false);
     }
     // Start is called before the first frame update
     void Start()
     {
-        
+        _animator = GetComponent<Animator>();
+        _colaDialogos = new Queue<string>();
+        _player = GameManager.Instance.SetPlayer();
     }
 
     // Update is called once per frame
