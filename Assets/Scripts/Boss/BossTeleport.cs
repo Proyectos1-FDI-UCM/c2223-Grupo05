@@ -10,6 +10,7 @@ public class BossTeleport : MonoBehaviour
 
     public void TeleportToPoint()
     {
+        SoundComponent.Instance.PlaySound(SoundComponent.Instance._bossTeleport);
         if (!_teleportedOnce)
         {
             transform.position = _teleportPoint1.position;
