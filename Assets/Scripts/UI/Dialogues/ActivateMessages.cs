@@ -7,14 +7,23 @@ public class ActivateMessages : MonoBehaviour
     private GameObject _player;
     public Textos text;
     [SerializeField]private DialogueControl _dialogueControl;
+    [SerializeField] private GameObject _message;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if ((bool)collision.gameObject.GetComponent<MovementComponent>())
         {
-           // _player.GetComponent<InputComponent>().enabled = false;
+             _player.GetComponent<InputComponent>().enabled = false;
             _dialogueControl.MessageActive(text);
             
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if ((bool)collision.gameObject.GetComponent<MovementComponent>())
+        {
+            _message.SetActive(false);
+
         }
     }
 

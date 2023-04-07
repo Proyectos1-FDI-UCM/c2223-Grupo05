@@ -11,11 +11,13 @@ public class DialogueControl : MonoBehaviour
     [SerializeField] private float _timeCaracter;
     private Animator _animator;
     private GameObject _player;
+    
     public void MessageActive(Textos ObjectText)
     {
         //animacion cartel
+        Debug.Log("Entro");
         _animator.SetBool("Activado", true);
-        _text = ObjectText; 
+        _text = ObjectText;
     }
     public void TextActive()
     {
@@ -50,8 +52,13 @@ public class DialogueControl : MonoBehaviour
 
     public void CloseMessage()
     {
-        //_player.GetComponent<InputComponent>().enabled= true;
+        _player.GetComponent<InputComponent>().enabled= true;
         _animator.SetBool("Activado", false);
+        
+    }
+    public void ResetAnim()
+    {
+        _animator.SetTrigger("Empezar");
     }
     // Start is called before the first frame update
     void Start()
