@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DialogueControl : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class DialogueControl : MonoBehaviour
     [SerializeField] private float _timeCaracter;
     private Animator _animator;
     private GameObject _player;
+    [SerializeField] private Button _button;
     
     public void MessageActive(Textos ObjectText)
     {
@@ -45,9 +47,12 @@ public class DialogueControl : MonoBehaviour
         _textMeshPro.text = "";
         foreach(char caracter in showText.ToCharArray())
         {
+            _button.interactable = false;
             _textMeshPro.text += caracter;
             yield return new WaitForSeconds(_timeCaracter);
         }
+        _button.interactable = true;
+
     }
 
     public void CloseMessage()
