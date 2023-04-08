@@ -30,6 +30,7 @@ public class SoundComponent : MonoBehaviour
     public AudioClip _bossAttack;
     public AudioClip _spawnTrunk;
     public AudioClip _bossTeleport;
+    public AudioClip _bossEneymThrow;
 
 
     public void PlaySound(AudioClip myAudio)

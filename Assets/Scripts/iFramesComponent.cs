@@ -32,9 +32,9 @@ public class iFramesComponent : MonoBehaviour
         for (int i = 0; i < _flashes; i++)
         {
             _mySpriteRenderer.color = new Color(1, 0, 0, 0.75f);
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(_time);
             _mySpriteRenderer.color = Color.white;
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(_time);
         }
 
         Physics2D.IgnoreLayerCollision(_ownLayer, _objectiveLayer, false);
