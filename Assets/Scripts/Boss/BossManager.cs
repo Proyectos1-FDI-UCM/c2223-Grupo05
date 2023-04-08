@@ -39,6 +39,7 @@ public class BossManager : MonoBehaviour
         //Hay que llamar al ShowDamage
         Debug.Log("-1 vida boss");
         _currentHitsReceived += damageReceived;
+        StartCoroutine(GetComponent<iFramesComponent>().IFrames());
         CheckAction();
     }
     private void CheckAction()      // Cada vez que recibamos daño, verá que acción deberá hacer el boss
