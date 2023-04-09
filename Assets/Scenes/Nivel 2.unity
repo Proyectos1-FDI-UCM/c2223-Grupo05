@@ -3410,6 +3410,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1340472818450983089, guid: dd8ab8b7511deda4dbfa0e0d00ae2092, type: 3}
   m_PrefabInstance: {fileID: 193869449}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< Updated upstream
 --- !u!1 &2142486996
 GameObject:
   m_ObjectHideFlags: 0
@@ -64504,6 +64505,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b749dee3fd9eb7e488447aea2829d31c, type: 3}
+=======
+>>>>>>> Stashed changes
 --- !u!1001 &1143823279402519254
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -64620,6 +64623,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< Updated upstream
 --- !u!114 &1143823279402519256 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8545651293060893918, guid: bc138daae7158d2409f2eb6281998bc7, type: 3}
@@ -64631,6 +64635,73 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4c2126058b684e4590fb89d0eba674d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+=======
+--- !u!1001 &3278821992599934362
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8766985896284677978, guid: fc9eba863d5c39f4e891aaac15e003d3, type: 3}
+      propertyPath: m_TileAssetArray.Array.data[0].m_Data
+      value: 
+      objectReference: {fileID: 531327647}
+    - target: {fileID: 8766985896284677978, guid: fc9eba863d5c39f4e891aaac15e003d3, type: 3}
+      propertyPath: m_TileSpriteArray.Array.data[0].m_Data
+      value: 
+      objectReference: {fileID: 1802689986}
+    - target: {fileID: 8766985897149888792, guid: fc9eba863d5c39f4e891aaac15e003d3, type: 3}
+      propertyPath: m_Name
+      value: --------- Map2 ---------
+      objectReference: {fileID: 0}
+    - target: {fileID: 8766985897149888795, guid: fc9eba863d5c39f4e891aaac15e003d3, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8766985897149888795, guid: fc9eba863d5c39f4e891aaac15e003d3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 49.0214
+      objectReference: {fileID: 0}
+    - target: {fileID: 8766985897149888795, guid: fc9eba863d5c39f4e891aaac15e003d3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 18.271503
+      objectReference: {fileID: 0}
+    - target: {fileID: 8766985897149888795, guid: fc9eba863d5c39f4e891aaac15e003d3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.044175744
+      objectReference: {fileID: 0}
+    - target: {fileID: 8766985897149888795, guid: fc9eba863d5c39f4e891aaac15e003d3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8766985897149888795, guid: fc9eba863d5c39f4e891aaac15e003d3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8766985897149888795, guid: fc9eba863d5c39f4e891aaac15e003d3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8766985897149888795, guid: fc9eba863d5c39f4e891aaac15e003d3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8766985897149888795, guid: fc9eba863d5c39f4e891aaac15e003d3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8766985897149888795, guid: fc9eba863d5c39f4e891aaac15e003d3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8766985897149888795, guid: fc9eba863d5c39f4e891aaac15e003d3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: fc9eba863d5c39f4e891aaac15e003d3, type: 3}
+>>>>>>> Stashed changes
 --- !u!1001 &3532119357858946596
 PrefabInstance:
   m_ObjectHideFlags: 0
