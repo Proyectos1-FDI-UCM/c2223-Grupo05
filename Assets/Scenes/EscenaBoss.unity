@@ -2756,15 +2756,23 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 478951902, guid: aee0bc836f28c5e44a081aafe1664051, type: 3}
       propertyPath: _time
-      value: 0.5
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 478951902, guid: aee0bc836f28c5e44a081aafe1664051, type: 3}
       propertyPath: _flashes
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 478951902, guid: aee0bc836f28c5e44a081aafe1664051, type: 3}
-      propertyPath: _objectiveLayer
-      value: 7
+    - target: {fileID: 1993628280077811666, guid: aee0bc836f28c5e44a081aafe1664051, type: 3}
+      propertyPath: _finalCounter
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1993628280077811666, guid: aee0bc836f28c5e44a081aafe1664051, type: 3}
+      propertyPath: _finalDesired
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1993628280077811666, guid: aee0bc836f28c5e44a081aafe1664051, type: 3}
+      propertyPath: _maxHitsReceivedForFinal
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 1993628280924200176, guid: aee0bc836f28c5e44a081aafe1664051, type: 3}
       propertyPath: m_RootOrder
@@ -3267,6 +3275,7 @@ MonoBehaviour:
   _spawnTrunk: {fileID: 8300000, guid: 2fb20ad28102c5845aa2f7acf966917c, type: 3}
   _bossTeleport: {fileID: 8300000, guid: 1ca22b7ff628bee47af9b970d8467347, type: 3}
   _bossEneymThrow: {fileID: 8300000, guid: 7a0640405d999bd47b8208cc6410b12b, type: 3}
+  _bossReceiveDamage: {fileID: 8300000, guid: 8ca433633cfb35846a79f984f73f64da, type: 3}
 --- !u!4 &612479336883808724
 Transform:
   m_ObjectHideFlags: 0

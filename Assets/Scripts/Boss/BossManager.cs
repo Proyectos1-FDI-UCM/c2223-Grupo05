@@ -19,10 +19,15 @@ public class BossManager : MonoBehaviour
     [SerializeField] private int _trunkCounter;         // Quitar Serialized Field
     [SerializeField] private int _trunkDesired;
 
+    [Header("Final")]
+    [SerializeField] private int _finalCounter;         // Quitar Serialized Field
+    [SerializeField] private int _finalDesired;
+
     [Header("Hits Received")]
     [SerializeField] private float _maxHitsReceivedForTeleport;
     [SerializeField] private float _maxHitsReceivedForEnemy;
     [SerializeField] private float _maxHitsReceivedForTrunk;
+    [SerializeField] private float _maxHitsReceivedForFinal;
     [SerializeField] private float _auxHitsReceived;
 
 
@@ -36,10 +41,10 @@ public class BossManager : MonoBehaviour
     #region Methods
     public void ReceiveDamage(int damageReceived)
     {
-        //Hay que llamar al ShowDamage
         Debug.Log("-1 vida boss");
         _currentHitsReceived += damageReceived;
         StartCoroutine(GetComponent<iFramesComponent>().IFrames());
+        SoundComponent.Instance.PlaySound(SoundComponent.Instance._bossReceiveDamage);
         CheckAction();
     }
     private void CheckAction()      // Cada vez que recibamos daño, verá que acción deberá hacer el boss
@@ -89,8 +94,21 @@ public class BossManager : MonoBehaviour
             {
                 _auxHitsReceived = _currentHitsReceived;
                 _myAnimator.SetBool("isPhase3", false);
+                _myAnimator.SetBool("isPhase4", true);
+            }
+        }
+        else if (_currentHitsReceived == _maxHitsReceivedForFinal && _finalCounter < _finalDesired)
+        {
+            _finalCounter++;
+            if (_finalCounter != _finalDesired)
+            {
+                _currentHitsReceived = _auxHitsReceived;
+            }
+            else
+            {
+                _auxHitsReceived = _currentHitsReceived;
+                _myAnimator.SetBool("isPhase4", false);
                 _myAnimator.SetBool("isDead", true);
-                Debug.Log("Boss la palma");
             }
         }
     }
