@@ -14,6 +14,7 @@ public class ActivateMessages : MonoBehaviour
         if ((bool)collision.gameObject.GetComponent<MovementComponent>())
         {
              _player.GetComponent<InputComponent>().enabled = false;
+            _player.GetComponent<MovementComponent>().Move(0);
             _dialogueControl.MessageActive(text);
             
         }
