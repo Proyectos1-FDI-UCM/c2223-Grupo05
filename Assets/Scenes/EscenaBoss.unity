@@ -1169,6 +1169,7 @@ GameObject:
   - component: {fileID: 730039125}
   - component: {fileID: 730039127}
   - component: {fileID: 730039126}
+  - component: {fileID: 730039128}
   m_Layer: 0
   m_Name: CM vcam1
   m_TagString: Untagged
@@ -1245,6 +1246,21 @@ MonoBehaviour:
         m_Calls: []
   m_LegacyBlendHint: 0
   m_ComponentOwner: {fileID: 1491013778}
+--- !u!114 &730039128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 730039124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6f387e23564024884c10e8095cc270, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _cameraDistance: 10
+  _movementSpeed: 1
+  _decimals: 0.01
 --- !u!1 &748800718
 GameObject:
   m_ObjectHideFlags: 0
@@ -2822,7 +2838,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: --------- Boss FIght---------
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1993628280077811676, guid: aee0bc836f28c5e44a081aafe1664051, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: aee0bc836f28c5e44a081aafe1664051, type: 3}
 --- !u!1 &1938177721
 GameObject:
