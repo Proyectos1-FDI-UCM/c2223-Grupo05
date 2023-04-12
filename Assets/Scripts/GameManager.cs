@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
     public bool IsDeath { get { return _isDeath; } }
     
 
-     [SerializeField] static int _lifes = 0; //implementaar dinamica del nivel; 
+    [SerializeField] public static int _lifes = 0; //implementaar dinamica del nivel; 
     private int _maxLifes;  //estaba como maxLifes = 2, pero da el error de que no se usa, en el futuro lo volvemos a añadir
     public bool _sword = false; //variable para saber si tenemos la esapda o no
     private Vector3 _respawnPoint;
@@ -140,6 +140,8 @@ public class GameManager : MonoBehaviour
         _currentState = GameStates.TUTORIAL;
         _nextState = GameStates.TUTORIAL;
         _respawnPoint = _player.transform.position;
+        string _lifesvalue = PlayerPrefs.GetString("lifes");
+
     }
 
     // Update is called once per frame
