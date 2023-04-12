@@ -29,14 +29,18 @@ public class ThownEnemyComponent : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.gameObject.layer == _wallLayerIndex)
+        if (collision.collider.gameObject.layer == _wallLayerIndex || (bool)collision.collider.GetComponent<InputComponent>())
         {
             _rb2D.velocity = Vector2.zero;
             _trailRenderer.emitting = false;
-            _dieByWall = true;
-
             
+            _dieByWall = true;
+            _canMove = false;
         }
+    }
+    public void UnableMove()
+    {
+        _canMove = !_canMove;
     }
     private void Update()
     {
@@ -63,6 +67,7 @@ public class ThownEnemyComponent : MonoBehaviour
     }
     public void Die()
     {
+        
         Destroy(transform.parent.gameObject);
     }
 

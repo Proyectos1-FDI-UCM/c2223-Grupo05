@@ -1,9 +1,10 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyComponent : MonoBehaviour
 {
     //Inflinge daño al player
-    
+
     
     
 
@@ -12,14 +13,15 @@ public class EnemyComponent : MonoBehaviour
         
         if ((bool)collision.gameObject.GetComponent<InputComponent>())
         {
-
-            if (this.GetComponent<SpinComponent>().EnableSpinDamage)
+            
+            if ((bool)this.GetComponent<SpinComponent>() && this.GetComponent<SpinComponent>().EnableSpinDamage)
             {
                 GameManager.Instance.Loselifes(1, this.gameObject);
                 GameManager.Instance.Loselifes(1, this.gameObject);
             }
             else
             {
+                
                 GameManager.Instance.Loselifes(1, this.gameObject); 
             }
             

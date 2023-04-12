@@ -109,7 +109,7 @@ public class GameManager : MonoBehaviour
         {
             LoseSouls(cant, enemy);
            
-            //_player.GetComponent<ShowDamage>().StartCoroutine(_player.GetComponent<ShowDamage>().ModSprite(_player.gameObject)); //animacion de daño
+            
         }
     }
     //metodo para perder almas

@@ -38,6 +38,10 @@ public class BossManager : MonoBehaviour
     [SerializeField] private float _throwCoolDown;
     private float _counter = 0;
 
+    //Variables del direccion
+    private bool _lookingRight;
+    private Transform _playerTransform;
+
     #region Methods
     public void ReceiveDamage(int damageReceived)
     {
@@ -122,6 +126,7 @@ public class BossManager : MonoBehaviour
     void Start()
     {
         _myAnimator = GetComponent<Animator>();
+        _playerTransform = GameManager.Instance.SetPlayer().transform;
     }
 
     // Update is called once per frame
