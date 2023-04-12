@@ -105,8 +105,8 @@ public class MovementComponent : MonoBehaviour
     //Metodo de dash 
     public IEnumerator Dash()
     {
-        if (!_touchingFloor) // Dash only if jumping
-        {
+       // if (!_touchingFloor) // Dash only if jumping
+       // {
             SoundComponent.Instance.PlaySound(SoundComponent.Instance._dash);
             GetComponent<InputComponent>().enabled = false;
             //_canMove = false;
@@ -123,7 +123,7 @@ public class MovementComponent : MonoBehaviour
             _trail.emitting = false;
             _playerRB.gravityScale = _initialGravity;
             GetComponent<InputComponent>().enabled = true;
-        }
+       // }
     }
     //metodo que le da la vuelta al jugador en funcion de donde se mueva
     public void Turn()

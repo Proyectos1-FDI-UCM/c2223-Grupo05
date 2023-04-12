@@ -62,7 +62,7 @@ public class InputComponent : MonoBehaviour
 
         
         
-        if (Input.GetButtonDown("Dash") && _timeToDash > _dashCoolDown) // Si se recibe Input de Dash 
+        if (Input.GetButtonDown("Dash") && _timeToDash > _dashCoolDown && !_myMovementComponent.TouchingFloor) // Si se recibe Input de Dash 
         {
             _oncd= true;
             _slide.maxValue = _dashCoolDown;

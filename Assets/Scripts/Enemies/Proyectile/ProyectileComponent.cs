@@ -8,6 +8,7 @@ public class ProyectileComponent : MonoBehaviour
     [SerializeField] private float _timer;
     [SerializeField] private float _maxTime;
     [SerializeField] private ParticleSystem _parSys;
+    
     private void Start()
     {
         _parSys.Play();
@@ -28,7 +29,7 @@ public class ProyectileComponent : MonoBehaviour
             Destroy(gameObject);
             GameManager.Instance.Loselifes(1, this.gameObject);
         }
-        if((bool)collision.gameObject.GetComponent<TilemapCollider2D>() || (bool)collision.gameObject.GetComponent<PlatformComponent>())
+        if((bool)collision.gameObject.GetComponent<TilemapCollider2D>())
         {
             Destroy(gameObject);
         }
