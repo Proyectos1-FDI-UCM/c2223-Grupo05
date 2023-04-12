@@ -8307,7 +8307,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _textMeshPro: {fileID: 5520831777866009974}
-  _timeCaracter: 0.1
+  _timeCaracter: 0.05
   _button: {fileID: 545824960952554019}
 --- !u!114 &545824960952554019
 MonoBehaviour:
