@@ -8,7 +8,8 @@ public class DoorComponent : MonoBehaviour
     [Header("INDEX")]
     [SerializeField]
     private int _myIndex;
-    
+    int _lifes = GameManager._lifes;
+
 
     //metodo que detecta al player y si le da al boton de interactuar
     private void OnTriggerStay2D(Collider2D collision)
@@ -21,6 +22,8 @@ public class DoorComponent : MonoBehaviour
     //metodo publico para cambiar el nivel al interactuar con la puerta
     public void CambiarNivel(int _index)
     {
+        PlayerPrefs.SetString("lifes", "_lifes");
+
         SceneManager.LoadScene(_index);
         GameManager.Instance.Featherslvl2();
     }
