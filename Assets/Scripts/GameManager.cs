@@ -80,7 +80,7 @@ public class GameManager : MonoBehaviour
     public void AddFeather()
     {
         _feathersCant++;
-       
+       UI.AddFeathers(_feathersCant);
     }
     public void Featherslvl2()
     {
