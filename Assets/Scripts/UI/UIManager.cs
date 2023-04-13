@@ -125,6 +125,7 @@ public class UIManager : MonoBehaviour
     public void ChangeLevels (int level)
     {
         SceneManager.LoadScene(level);
+        Time.timeScale = 1f;
     }
     #endregion
     // Start is called before the first frame update
