@@ -38,10 +38,11 @@ public class BossManager : MonoBehaviour
     [SerializeField] private float _throwCoolDown;
     private float _counter = 0;
 
+    [Header("LookingAt")]
     //Variables del direccion
     private bool _lookingRight;
     private Transform _playerTransform;
-    private float _turningDistance;
+    [SerializeField] private float _turningDistance;
 
     #region Methods
     public void ReceiveDamage(int damageReceived)
