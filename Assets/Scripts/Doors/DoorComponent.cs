@@ -25,5 +25,6 @@ public class DoorComponent : MonoBehaviour
 
         SceneManager.LoadScene(_index);
         GameManager.Instance.Featherslvl2();
+        
     }
 }

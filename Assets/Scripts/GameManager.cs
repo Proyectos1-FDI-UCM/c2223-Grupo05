@@ -22,13 +22,13 @@ public class GameManager : MonoBehaviour
     private int _feathersCant; // Amount of feather that can be shot
     public  int FeatherCant { get { return _feathersCant; } }
 
-    private int _souls = 3;
+    public int _souls = 3;
     public int Soul { get { return _souls; } }
     private bool _isDeath = false;
     public bool IsDeath { get { return _isDeath; } }
     
 
-    [SerializeField] public static int _lifes = 0; //implementaar dinamica del nivel; 
+    public static int _lifes = 0; //implementaar dinamica del nivel; 
     private int _maxLifes;  //estaba como maxLifes = 2, pero da el error de que no se usa, en el futuro lo volvemos a añadir
     public bool _sword = false; //variable para saber si tenemos la esapda o no
     private Vector3 _respawnPoint;
@@ -80,7 +80,7 @@ public class GameManager : MonoBehaviour
     public void AddFeather()
     {
         _feathersCant++;
-        UI.AddFeathers(_feathersCant);
+       
     }
     public void Featherslvl2()
     {
@@ -140,6 +140,8 @@ public class GameManager : MonoBehaviour
         _currentState = GameStates.TUTORIAL;
         _nextState = GameStates.TUTORIAL;
         _respawnPoint = _player.transform.position;
+        UI.Evalue();
+        Debug.Log(_lifes);
         
 
     }

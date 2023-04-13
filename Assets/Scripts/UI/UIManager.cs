@@ -62,7 +62,7 @@ public class UIManager : MonoBehaviour
     }
     public void AddLifes(int ind)
     {
-        _lifes[ind - 1].SetActive(true);
+        _lifes[ind -1].SetActive(true);
     }
 
     public void AddFeathers(int ind)
@@ -88,7 +88,9 @@ public class UIManager : MonoBehaviour
     }
     public void Evalue()
     {
-
+        Addsouls(GameManager.Instance._souls);
+        AddLifes(GameManager._lifes);
+        Debug.Log(_lifes);
     }
     #endregion
     #region methods MenuOpciones
