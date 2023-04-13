@@ -41,6 +41,7 @@ public class BossManager : MonoBehaviour
     //Variables del direccion
     private bool _lookingRight;
     private Transform _playerTransform;
+    private float _turningDistance;
 
     #region Methods
     public void ReceiveDamage(int damageReceived)
@@ -141,8 +142,35 @@ public class BossManager : MonoBehaviour
                 _myAnimator.SetTrigger("Throw Enemy");
                 _counter = 0;
             }
-        }         
-        
+        }
+        if (Vector2.Distance(_playerTransform.transform.position, _myAnimator.transform.position) > _turningDistance)
+        {
+            LookingPlayer(_myAnimator);
+        }
+
+    }
+
+    private void LookingPlayer(Animator animator)
+    {
+        Debug.Log("Looking player");
+
+        if (animator.transform.position.x < _playerTransform.position.x && !_lookingRight)
+        {
+            _lookingRight = true;
+            Turn(animator);
+        }
+
+        if (animator.transform.position.x > _playerTransform.position.x && _lookingRight)
+        {
+            _lookingRight = false;
+            Turn(animator);
+        }
+    }
+    private void Turn(Animator animator)
+    {
+        Vector3 scale = animator.transform.localScale;
+        scale.x *= -1;
+        animator.transform.localScale = scale;
 
     }
 }

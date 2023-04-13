@@ -32,7 +32,6 @@ public class Boss_Movement : StateMachineBehaviour
         if (Vector2.Distance(_playerTransform.transform.position, animator.transform.position) > _attackDistance)
         {
             animator.transform.position = Vector2.MoveTowards(animator.transform.position, _playerPosition, _speed * Time.fixedDeltaTime);
-            LookingPlayer(animator);
         }
         else
         {
@@ -48,28 +47,7 @@ public class Boss_Movement : StateMachineBehaviour
         animator.ResetTrigger("Attack");
     }
 
-    private void LookingPlayer(Animator animator)
-    {
-        Debug.Log("Looking player");
+    
 
-        if (animator.transform.position.x < _playerTransform.position.x && !_lookingRight)
-        {
-            _lookingRight = true;
-            Turn(animator);
-        }
-
-        if (animator.transform.position.x > _playerTransform.position.x && _lookingRight)
-        {
-            _lookingRight = false;
-            Turn(animator);
-        }
-    }
-
-    private void Turn(Animator animator)
-    {
-        Vector3 scale = animator.transform.localScale;
-        scale.x *= -1;
-        animator.transform.localScale = scale;
-
-    }
+    
 }
