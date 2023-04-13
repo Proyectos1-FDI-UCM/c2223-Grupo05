@@ -140,7 +140,7 @@ public class GameManager : MonoBehaviour
         _currentState = GameStates.TUTORIAL;
         _nextState = GameStates.TUTORIAL;
         _respawnPoint = _player.transform.position;
-        string _lifesvalue = PlayerPrefs.GetString("lifes");
+        
 
     }
 

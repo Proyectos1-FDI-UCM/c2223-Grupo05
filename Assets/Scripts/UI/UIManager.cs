@@ -18,6 +18,7 @@ public class UIManager : MonoBehaviour
     public GameObject[] _souls;
     public GameObject[] _lifes;
     public GameObject[] _feathers;
+
     
 
 
@@ -83,6 +84,10 @@ public class UIManager : MonoBehaviour
         _feathers[0].SetActive(true);
         _feathers[1].SetActive(true);
         _feathers[2].SetActive(true);
+
+    }
+    public void Evalue()
+    {
 
     }
     #endregion
