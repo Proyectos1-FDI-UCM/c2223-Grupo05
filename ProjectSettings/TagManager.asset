@@ -53,3 +53,6 @@ TagManager:
   - name: text
     uniqueID: 1495823479
     locked: 0
+  - name: tuto
+    uniqueID: 632571185
+    locked: 0
