@@ -3596,6 +3596,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3336010937231237423, guid: b0310a877719afc42b20a7ee4dc0b9bb, type: 3}
   m_PrefabInstance: {fileID: 1219014197}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1237768195 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8290193906853724514, guid: 8f3c3fd48ae9ca841a0a8718a8572ee7, type: 3}
+  m_PrefabInstance: {fileID: 8290193906759249168}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1247316906
 Transform:
   m_ObjectHideFlags: 0
@@ -4973,6 +4978,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 3336010937231237423, guid: b0310a877719afc42b20a7ee4dc0b9bb, type: 3}
   m_PrefabInstance: {fileID: 1595914653}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1634716946 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8290193905563274818, guid: 8f3c3fd48ae9ca841a0a8718a8572ee7, type: 3}
+  m_PrefabInstance: {fileID: 8290193906759249168}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1703501795
 GameObject:
@@ -67565,7 +67575,7 @@ MonoBehaviour:
   m_LightType: 4
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
-  m_Color: {r: 0.1981132, g: 0.1981132, b: 0.1981132, a: 1}
+  m_Color: {r: 0.4339623, g: 0.4278213, b: 0.4278213, a: 1}
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
@@ -70570,8 +70580,8 @@ CompositeCollider2D:
         Y: 937161393
       - X: 2671603589
         Y: 937142579
-      - X: 2671624524
-        Y: 937127846
+      - X: 2671615085
+        Y: 937134489
       - X: 2671629450
         Y: 937124379
       - X: 2671308544
@@ -71508,6 +71518,8 @@ CompositeCollider2D:
         Y: 898757318
       - X: 2601161879
         Y: 898552253
+      - X: 2601112922
+        Y: 898380855
       - X: 2601094002
         Y: 898314618
       - X: 2600659200
@@ -71522,6 +71534,8 @@ CompositeCollider2D:
         Y: 897766093
       - X: 2600717755
         Y: 897766071
+      - X: 2601383801
+        Y: 897297344
       - X: 2601493296
         Y: 897220287
       - X: 2601629578
@@ -72590,8 +72604,10 @@ CompositeCollider2D:
         Y: 899467881
       - X: 3334096584
         Y: 899467865
-      - X: 3333985988
-        Y: 899338836
+      - X: 3334067292
+        Y: 899433691
+      - X: 3334046341
+        Y: 899409248
       - X: 3333900001
         Y: 899238518
       - X: 3333354496
@@ -72844,8 +72860,10 @@ CompositeCollider2D:
         Y: 899467881
       - X: 3314096584
         Y: 899467865
-      - X: 3313985988
-        Y: 899338836
+      - X: 3314067292
+        Y: 899433691
+      - X: 3314046341
+        Y: 899409248
       - X: 3313900001
         Y: 899238518
       - X: 3313354496
@@ -73082,8 +73100,10 @@ CompositeCollider2D:
         Y: 899467881
       - X: 3294096584
         Y: 899467865
-      - X: 3293985988
-        Y: 899338836
+      - X: 3294067292
+        Y: 899433691
+      - X: 3294046341
+        Y: 899409248
       - X: 3293900001
         Y: 899238518
       - X: 3293354496
@@ -76142,6 +76162,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI NVL2
       objectReference: {fileID: 0}
+    - target: {fileID: 8290193905417764413, guid: 8f3c3fd48ae9ca841a0a8718a8572ee7, type: 3}
+      propertyPath: _lifes.Array.data[0]
+      value: 
+      objectReference: {fileID: 1237768195}
+    - target: {fileID: 8290193905417764413, guid: 8f3c3fd48ae9ca841a0a8718a8572ee7, type: 3}
+      propertyPath: _lifes.Array.data[1]
+      value: 
+      objectReference: {fileID: 1634716946}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f3c3fd48ae9ca841a0a8718a8572ee7, type: 3}
 --- !u!114 &8304972860632220952

@@ -62,7 +62,11 @@ public class UIManager : MonoBehaviour
     }
     public void AddLifes(int ind)
     {
-        _lifes[ind -1].SetActive(true);
+        if(GameManager.Instance.Lifes > -1)
+        {
+            _lifes[ind].SetActive(true);
+        }
+        
     }
 
     public void AddFeathers(int ind)

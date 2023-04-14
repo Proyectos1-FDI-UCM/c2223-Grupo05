@@ -28,7 +28,9 @@ public class GameManager : MonoBehaviour
     public bool IsDeath { get { return _isDeath; } }
     
 
-    public static int _lifes = 0; //implementaar dinamica del nivel; 
+    public static int _lifes = -1; //implementaar dinamica del nivel; 
+    public int Lifes { get { return _lifes; } }
+
     private int _maxLifes;  //estaba como maxLifes = 2, pero da el error de que no se usa, en el futuro lo volvemos a añadir
     public bool _sword = false; //variable para saber si tenemos la esapda o no
     private Vector3 _respawnPoint;
@@ -66,7 +68,10 @@ public class GameManager : MonoBehaviour
     public void AddLife()
     {
       _lifes++;
-        UI.AddLifes(_lifes);
+        if(_lifes > -1) {
+            UI.AddLifes(_lifes); //PAra que no se salga del array en 
+        }
+        
     }
     public void Respawne()
     {
