@@ -456,7 +456,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 81.33577, y: 33.689705}
+  m_Offset: {x: 97.47398, y: 33.689705}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -467,7 +467,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 48.602997, y: 48.428314}
+  m_Size: {x: 80.879425, y: 48.428314}
   m_EdgeRadius: 0
 --- !u!1 &114398479
 GameObject:
@@ -3196,7 +3196,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 155.99321, y: 51.96634}
+  m_Offset: {x: 195.01396, y: 57.25753}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -3207,7 +3207,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 100.17264, y: 42.71968}
+  m_Size: {x: 18.34732, y: 32.1373}
   m_EdgeRadius: 0
 --- !u!1 &1044641358
 GameObject:
@@ -3425,7 +3425,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 9162747663318172535, guid: a8b9352beb57a5f43aa9a2c15f7134f0, type: 2}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 0b1e51380e348e54ca6db497d3101c4a, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -4162,6 +4162,81 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3336010937231237423, guid: b0310a877719afc42b20a7ee4dc0b9bb, type: 3}
   m_PrefabInstance: {fileID: 1397590759}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1404790632
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1404790633}
+  - component: {fileID: 1404790635}
+  - component: {fileID: 1404790634}
+  m_Layer: 0
+  m_Name: OST3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1404790633
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1404790632}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1894770499}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1404790634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1404790632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2d2d40a8103921488743b6a2efc0678, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _myMusicComponent: {fileID: 612479336861797988}
+  _OST1: 0
+  _OST2: 0
+  _OST3: 1
+--- !u!61 &1404790635
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1404790632}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 161.92769, y: 44.65811}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 47.325226, y: 33.293198}
+  m_EdgeRadius: 0
 --- !u!1001 &1456069560
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5873,6 +5948,7 @@ Transform:
   m_Children:
   - {fileID: 1044641345}
   - {fileID: 103982898}
+  - {fileID: 1404790633}
   m_Father: {fileID: 612479337279948714}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -70580,8 +70656,8 @@ CompositeCollider2D:
         Y: 937161393
       - X: 2671603589
         Y: 937142579
-      - X: 2671615085
-        Y: 937134489
+      - X: 2671624524
+        Y: 937127846
       - X: 2671629450
         Y: 937124379
       - X: 2671308544
