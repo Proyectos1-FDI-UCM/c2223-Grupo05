@@ -15630,7 +15630,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1993628280077811666, guid: aee0bc836f28c5e44a081aafe1664051, type: 3}
       propertyPath: _turningDistance
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1993628280077811666, guid: aee0bc836f28c5e44a081aafe1664051, type: 3}
       propertyPath: _maxHitsReceivedForFinal

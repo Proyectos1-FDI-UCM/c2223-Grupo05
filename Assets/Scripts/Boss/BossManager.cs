@@ -33,6 +33,7 @@ public class BossManager : MonoBehaviour
 
     [SerializeField] private float _currentHitsReceived;       //Quitar SerializeField
 
+    private BossSimpleAttack _myBossSimpleAttackComponent;
     private Animator _myAnimator;
     private bool _throw = false;
     [SerializeField] private float _throwCoolDown;
@@ -129,6 +130,7 @@ public class BossManager : MonoBehaviour
     {
         _myAnimator = GetComponent<Animator>();
         _playerTransform = GameManager.Instance.SetPlayer().transform;
+        _myBossSimpleAttackComponent = GetComponent<BossSimpleAttack>();
     }
 
     // Update is called once per frame
@@ -172,6 +174,6 @@ public class BossManager : MonoBehaviour
         Vector3 scale = animator.transform.localScale;
         scale.x *= -1;
         animator.transform.localScale = scale;
-
+        _myBossSimpleAttackComponent.isTurned();
     }
 }
