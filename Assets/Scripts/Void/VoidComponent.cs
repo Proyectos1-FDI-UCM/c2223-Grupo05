@@ -19,6 +19,11 @@ public class VoidComponent : MonoBehaviour
         {
             Destroy(collision.gameObject);
         }
+        if(GameManager._lifes >= 0)
+        {
+            GameManager._lifes = -1;
+            GameManager.Instance.EvalueG();
+        }
     }
 }
 
