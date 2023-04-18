@@ -9,6 +9,7 @@ public class ProyectileComponent : MonoBehaviour
     [SerializeField] private float _maxTime;
     [SerializeField] private ParticleSystem _parSys;
     [SerializeField] private ParticleSystem _explossionSys;
+    private bool _canDamage = true;
     
     private void Start()
     {
@@ -25,13 +26,15 @@ public class ProyectileComponent : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if ((bool)collision.gameObject.GetComponent<InputComponent>())
+        
+        if ((bool)collision.gameObject.GetComponent<InputComponent>() && _canDamage)
         {
             Destroy(gameObject);
             GameManager.Instance.Loselifes(1, this.gameObject);
         }
         if ((bool)collision.gameObject.GetComponent<TilemapCollider2D>() || (bool)collision.gameObject.GetComponent<FeatherWallCol>()) 
         {
+            _canDamage = !_canDamage;
             _explossionSys.Play();
             GetComponent<SpriteRenderer>().enabled = false;
             GetComponent<Rigidbody2D>().velocity = Vector2.zero;
