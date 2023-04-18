@@ -16,6 +16,8 @@ public class MovementBackground : MonoBehaviour
     void Awake()
     {
         _material = GetComponent<SpriteRenderer>().material;
+        QualitySettings.vSyncCount = 0;
+        Application.targetFrameRate = -1;
     }
 
     // Update is called once per frame
