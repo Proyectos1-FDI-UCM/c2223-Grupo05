@@ -8,6 +8,7 @@ public class ProyectileComponent : MonoBehaviour
     [SerializeField] private float _timer;
     [SerializeField] private float _maxTime;
     [SerializeField] private ParticleSystem _parSys;
+    [SerializeField] private ParticleSystem _explossionSys;
     
     private void Start()
     {
@@ -31,7 +32,14 @@ public class ProyectileComponent : MonoBehaviour
         }
         if ((bool)collision.gameObject.GetComponent<TilemapCollider2D>() || (bool)collision.gameObject.GetComponent<FeatherWallCol>()) 
         {
-            Destroy(gameObject);
+            _explossionSys.Play();
+            GetComponent<SpriteRenderer>().enabled = false;
+            GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            if(_explossionSys.isStopped)
+            {
+                Destroy(gameObject);
+            }
+           
         }
     }
     
