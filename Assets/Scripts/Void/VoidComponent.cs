@@ -14,16 +14,17 @@ public class VoidComponent : MonoBehaviour
         {
             Debug.Log("ColRes");
             collision.gameObject.GetComponent<RespawnComponent>().Respawn();
+            if (GameManager._lifes >= 0)
+            {
+                GameManager._lifes = -1;
+                GameManager.Instance.EvalueG();
+            }
         }
         if ((bool)collision.gameObject.GetComponent<LifeEnemyComponent>())
         {
             Destroy(collision.gameObject);
         }
-        if(GameManager._lifes >= 0)
-        {
-            GameManager._lifes = -1;
-            GameManager.Instance.EvalueG();
-        }
+        
     }
 }
 
