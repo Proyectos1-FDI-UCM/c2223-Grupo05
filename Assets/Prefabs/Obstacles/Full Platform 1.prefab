@@ -66,6 +66,37 @@ PolygonCollider2D:
       - {x: 1.7454052, y: -0.6716845}
       - {x: 1.8921223, y: -0.61044145}
       - {x: 1.91677, y: -0.09955388}
+--- !u!1 &3613418778057980032
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3379606340705249073}
+  m_Layer: 0
+  m_Name: Collider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3379606340705249073
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3613418778057980032}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.00963974, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6991086363812504729}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3681172180465903834
 GameObject:
   m_ObjectHideFlags: 0
@@ -228,6 +259,7 @@ Transform:
   - {fileID: 7295804680010731784}
   - {fileID: 5080748232222817879}
   - {fileID: 6630123180773894009}
+  - {fileID: 3379606340705249073}
   m_Father: {fileID: 6991086362016977698}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -298,6 +330,12 @@ MonoBehaviour:
   _moveTowardsTarget: 0
   _targetPosition: {fileID: 6991086362319696263}
   _speed: 5
+  _colliderController: {fileID: 3379606340705249073}
+  _colliderDimensions: {x: 0, y: 0}
+  _playerLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  _player: {fileID: 0}
 --- !u!1 &8812209022902949130
 GameObject:
   m_ObjectHideFlags: 0

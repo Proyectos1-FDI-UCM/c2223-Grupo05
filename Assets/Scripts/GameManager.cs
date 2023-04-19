@@ -101,15 +101,13 @@ public class GameManager : MonoBehaviour
     public void Loselifes(int cant, GameObject enemy)
     {
         SoundComponent.Instance.PlaySound(SoundComponent.Instance._playerTakesDamage);
-        if (_lifes >= 0)
+        if (_lifes  != -1)
         {
 
             _lifes -= cant;
             //_showDamage.StartCoroutine(_showDamage.ModSprite());  //animacion de daño
             StartCoroutine(_player.GetComponent<iFramesComponent>().IFrames());
             _recComp.KnockBack(enemy);
-
-
             UI.QuitLifes(_lifes);
         }
         else

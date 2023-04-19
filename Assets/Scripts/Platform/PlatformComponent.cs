@@ -13,6 +13,13 @@ public class PlatformComponent : MonoBehaviour
 
     [SerializeField] private float _speed;
 
+    [Header("Collider")]
+
+    [SerializeField] private Transform _colliderController;
+    [SerializeField] private Vector2 _colliderDimensions;
+    [SerializeField] private LayerMask _playerLayer;
+    [SerializeField] private GameObject _player;
+    private bool _touching;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +29,13 @@ public class PlatformComponent : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        _touching = Physics2D.OverlapBox(_colliderController.position, _colliderDimensions, 0, _playerLayer);
+        if(_touching)
+        {
+            _player.transform.SetParent(this.transform);
+        }
+        else _player.transform.SetParent(null);
+
         if (_moveTowardsTarget)
         {
             PlatformBehaviour(_targetPosition.position);
@@ -40,18 +54,18 @@ public class PlatformComponent : MonoBehaviour
     {
         transform.position = Vector2.MoveTowards(transform.position, targetPosition, _speed * Time.deltaTime);
     }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if ((bool)collision.gameObject.GetComponent<InputComponent>())
-        {
-            collision.transform.SetParent(this.transform);
-        }
-    }
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        if ((bool)collision.gameObject.GetComponent<InputComponent>())
-        {
-            collision.transform.SetParent(null);
-        }
-    }
+    //private void OnCollisionEnter2D(Collision2D collision)
+    //{
+    //    if ((bool)collision.gameObject.GetComponent<InputComponent>())
+    //    {
+    //        collision.transform.SetParent(this.transform);
+    //    }
+    //}
+    //private void OnCollisionExit2D(Collision2D collision)
+    //{
+    //    if ((bool)collision.gameObject.GetComponent<InputComponent>())
+    //    {
+    //        collision.transform.SetParent(null);
+    //    }
+    //}
 }
