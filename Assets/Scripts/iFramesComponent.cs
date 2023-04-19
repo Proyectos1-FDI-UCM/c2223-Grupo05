@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class iFramesComponent : MonoBehaviour
 {
-    [SerializeField] private float _time;
+    [SerializeField] private float _time; //tiempo para que pueda volver a recibir daño
     [SerializeField] private int _flashes;
 
     private SpriteRenderer _mySpriteRenderer;
@@ -21,18 +21,33 @@ public class iFramesComponent : MonoBehaviour
         
     }
 
-    public IEnumerator IFrames()
+    public void IFrames()
     {
-        GetComponent<PolygonCollider2D>().enabled = false;
-
-        for (int i = 0; i < _flashes; i++)
+        if ((bool)GetComponent<BossManager>())
         {
-            _mySpriteRenderer.color = new Color(1, 0, 0, 0.75f);
-            yield return new WaitForSeconds(_time);
-            _mySpriteRenderer.color = Color.white;
-            yield return new WaitForSeconds(_time);
+            GetComponent<PolygonCollider2D>().enabled = false;
+            StartCoroutine(IFrameProcess());
+            GetComponent<PolygonCollider2D>().enabled = true;
+        }
+        else
+        {
+            StartCoroutine(IFrameProcess());
+            
         }
 
-        GetComponent<PolygonCollider2D>().enabled = true;
+
+        
+    }
+    private IEnumerator IFrameProcess()
+    {
+        for (int i = 0; i < _flashes; i++)
+        {
+            //_mySpriteRenderer.color = new Color(1, 0, 0, 0.75f);
+            //yield return new WaitForSeconds(_damageTime);
+            //_mySpriteRenderer.color = Color.white;
+            GetComponent<ShowDamage>().StartCoroutine(GetComponent<ShowDamage>().ModSprite());
+            yield return new WaitForSeconds(_time);
+            GameManager.Instance.CanTakeDamage = true;
+        }
     }
 }
