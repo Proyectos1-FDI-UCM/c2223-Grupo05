@@ -33,7 +33,7 @@ public class ThownEnemyComponent : MonoBehaviour
         {
             _rb2D.velocity = Vector2.zero;
             _trailRenderer.emitting = false;
-            
+            GetComponent<EnemyComponent>().enabled= false;
             _dieByWall = true;
             _canMove = false;
         }
