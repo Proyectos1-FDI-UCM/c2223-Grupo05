@@ -104,7 +104,8 @@ public class GameManager : MonoBehaviour
         {
 
             _lifes -= cant;
-            _showDamage.StartCoroutine(_showDamage.ModSprite());  //animacion de daño
+            //_showDamage.StartCoroutine(_showDamage.ModSprite());  //animacion de daño
+            StartCoroutine(_player.GetComponent<iFramesComponent>().IFrames());
             _recComp.KnockBack(enemy);
 
 
@@ -122,7 +123,8 @@ public class GameManager : MonoBehaviour
     {
         _souls -= cant;
         Debug.Log("OK");
-        _showDamage.StartCoroutine(_showDamage.ModSprite());
+        //_showDamage.StartCoroutine(_showDamage.ModSprite());
+        StartCoroutine(_player.GetComponent<iFramesComponent>().IFrames());
         _recComp.KnockBack(enemy);
         UI.QuitSouls(_souls);
     

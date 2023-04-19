@@ -477,6 +477,7 @@ GameObject:
   - component: {fileID: 1052197326608708930}
   - component: {fileID: 1052197326608708931}
   - component: {fileID: 2186340423217882115}
+  - component: {fileID: 1802123967971685971}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -638,6 +639,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _myUIManager: {fileID: 0}
   _dashCoolDown: 3
+  _slide: {fileID: 0}
   _attackRate: 6
   _attackRateOnAir: 0.8
   _interactuableLayer:
@@ -716,7 +718,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1052197326608708984}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f672d4e5931f7f74f98609218e6da454, type: 3}
   m_Name: 
@@ -736,6 +738,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _recForce: 3.5
   _delay: 0.15
+--- !u!114 &1802123967971685971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1052197326608708984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f247808a04e29641aacda7332a76b19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _time: 0.5
+  _flashes: 2
 --- !u!1 &1105019943694459968
 GameObject:
   m_ObjectHideFlags: 0
