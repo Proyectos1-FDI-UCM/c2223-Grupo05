@@ -318,6 +318,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 849681db58da1a14c895fc0f5bb3eeac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _parSys: {fileID: 0}
   _spinVelocity: 10
   _timeCharge: 0.7
   _timeSpin: 0.5
@@ -360,6 +361,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   _allowedSpeed: 2
+  _allowedSpeedToDie: 0
+  _dead: 0
+  _damageFall: 0
 --- !u!114 &1982846470
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -101,11 +101,12 @@ public class GameManager : MonoBehaviour
     public void Loselifes(int cant, GameObject enemy)
     {
         SoundComponent.Instance.PlaySound(SoundComponent.Instance._playerTakesDamage);
-        if (_lifes > 0)
+        if (_lifes >= 0)
         {
 
             _lifes -= cant;
-            _showDamage.StartCoroutine(_showDamage.ModSprite());  //animacion de daño
+            //_showDamage.StartCoroutine(_showDamage.ModSprite());  //animacion de daño
+            StartCoroutine(_player.GetComponent<iFramesComponent>().IFrames());
             _recComp.KnockBack(enemy);
 
 
@@ -123,7 +124,8 @@ public class GameManager : MonoBehaviour
     {
         _souls -= cant;
         Debug.Log("OK");
-        _showDamage.StartCoroutine(_showDamage.ModSprite());
+        //_showDamage.StartCoroutine(_showDamage.ModSprite());
+        StartCoroutine(_player.GetComponent<iFramesComponent>().IFrames());
         _recComp.KnockBack(enemy);
         UI.QuitSouls(_souls);
     
@@ -137,6 +139,11 @@ public class GameManager : MonoBehaviour
         UI.AddAllSouls();
 
     }
+    public void EvalueG()
+    {
+        UI.Evalue();
+        Debug.Log(_lifes);
+    }
     #endregion
 
     // Start is called before the first frame update
@@ -146,8 +153,7 @@ public class GameManager : MonoBehaviour
         _currentState = GameStates.TUTORIAL;
         _nextState = GameStates.TUTORIAL;
         _respawnPoint = _player.transform.position;
-        UI.Evalue();
-        Debug.Log(_lifes);
+        EvalueG();
         
 
     }
