@@ -58,7 +58,7 @@ public class UIManager : MonoBehaviour
     }
     public void QuitLifes(int ind)
     {
-        _lifes[ind].SetActive(false);
+        _lifes[ind + 1].SetActive(false);
     }
     public void AddLifes(int ind)
     {
@@ -93,7 +93,15 @@ public class UIManager : MonoBehaviour
     public void Evalue()
     {
         Addsouls(GameManager.Instance._souls);
-        AddLifes(GameManager._lifes);
+        if(GameManager._lifes != -1)
+        {
+            AddLifes(GameManager._lifes);
+        }
+        if(GameManager._lifes == -1)
+        {
+            QuitLifes(GameManager._lifes);
+        }
+        
         Debug.Log(_lifes);
     }
     #endregion
