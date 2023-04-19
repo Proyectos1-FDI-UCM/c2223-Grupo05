@@ -50,7 +50,7 @@ public class BossManager : MonoBehaviour
     {
         Debug.Log("-1 vida boss");
         _currentHitsReceived += damageReceived;
-        StartCoroutine(GetComponent<iFramesComponent>().IFrames());
+        GetComponent<iFramesComponent>().IFrames();
         SoundComponent.Instance.PlaySound(SoundComponent.Instance._bossReceiveDamage);
         CheckAction();
     }

@@ -35,6 +35,8 @@ public class GameManager : MonoBehaviour
     public bool _sword = false; //variable para saber si tenemos la esapda o no
     private Vector3 _respawnPoint;
     public UIManager UI;
+    private bool _canTakeDamage = true;
+    public bool CanTakeDamage { set { _canTakeDamage = value ; } }
     #endregion
 
 
@@ -101,31 +103,36 @@ public class GameManager : MonoBehaviour
     public void Loselifes(int cant, GameObject enemy)
     {
         SoundComponent.Instance.PlaySound(SoundComponent.Instance._playerTakesDamage);
-        if (_lifes  != -1)
+        if (_lifes  > -1 && _canTakeDamage)
         {
 
             _lifes -= cant;
+            _canTakeDamage = false;
             //_showDamage.StartCoroutine(_showDamage.ModSprite());  //animacion de daño
-            StartCoroutine(_player.GetComponent<iFramesComponent>().IFrames());
+            _player.GetComponent<iFramesComponent>().IFrames();
             _recComp.KnockBack(enemy);
             UI.QuitLifes(_lifes);
         }
         else
         {
             LoseSouls(cant, enemy);
-           
-            
         }
     }
     //metodo para perder almas
     public void LoseSouls(int cant, GameObject enemy)
     {
-        _souls -= cant;
-        Debug.Log("OK");
-        //_showDamage.StartCoroutine(_showDamage.ModSprite());
-        StartCoroutine(_player.GetComponent<iFramesComponent>().IFrames());
-        _recComp.KnockBack(enemy);
-        UI.QuitSouls(_souls);
+        if (_canTakeDamage)
+        {
+            _souls -= cant;
+            Debug.Log("OK");
+            _canTakeDamage = false;
+            //_showDamage.StartCoroutine(_showDamage.ModSprite());
+            _player.GetComponent<iFramesComponent>().IFrames();
+            _recComp.KnockBack(enemy);
+            UI.QuitSouls(_souls);
+            
+        }
+        
     
         
     }
