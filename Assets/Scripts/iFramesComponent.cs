@@ -27,27 +27,29 @@ public class iFramesComponent : MonoBehaviour
         {
             GetComponent<PolygonCollider2D>().enabled = false;
             StartCoroutine(IFrameProcess());
-            GetComponent<PolygonCollider2D>().enabled = true;
         }
         else
         {
-            StartCoroutine(IFrameProcess());
-            
+            StartCoroutine(IFrameProcess());            
         }
-
-
-        
     }
     private IEnumerator IFrameProcess()
     {
         for (int i = 0; i < _flashes; i++)
         {
             //_mySpriteRenderer.color = new Color(1, 0, 0, 0.75f);
-            //yield return new WaitForSeconds(_damageTime);
+            //yield return new WaitForSeconds(_time);
             //_mySpriteRenderer.color = Color.white;
             GetComponent<ShowDamage>().StartCoroutine(GetComponent<ShowDamage>().ModSprite());
             yield return new WaitForSeconds(_time);
-            GameManager.Instance.CanTakeDamage = true;
+            if ((bool)GetComponent<BossManager>())
+            {
+                GetComponent<PolygonCollider2D>().enabled = true;
+            }
+            else
+            {
+                GameManager.Instance.CanTakeDamage = true;
+            }
         }
     }
 }
