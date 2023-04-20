@@ -28,6 +28,7 @@ public class WoodComponent : MonoBehaviour
     }
     private IEnumerator ChangeToReturn()
     {
+        GetComponent<BoxCollider2D>().enabled = false;
         _myRigidbody2D.gravityScale = 0;
         _myRigidbody2D.velocity = Vector2.zero;
 
@@ -35,7 +36,6 @@ public class WoodComponent : MonoBehaviour
 
         _myRigidbody2D.gravityScale = -1;
         _returning = true;
-
     } 
     // Start is called before the first frame update
     void Start()
@@ -64,6 +64,7 @@ public class WoodComponent : MonoBehaviour
                 _myRigidbody2D.velocity = Vector2.zero;
                 _canFall = true;
                 _returning = false;
+                GetComponent<BoxCollider2D>().enabled = true;
             }
         }
     }

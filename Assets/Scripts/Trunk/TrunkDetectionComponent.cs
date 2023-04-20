@@ -5,14 +5,14 @@ using UnityEngine;
 public class TrunkDetectionComponent : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D _myRigidbody2D;
-    [SerializeField] private WoodComponent _woodCoponent;
+    [SerializeField] private WoodComponent _woodComponent;
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if ((bool)collision.GetComponent<InputComponent>() && _woodCoponent.CanFall)
+        if ((bool)collision.GetComponent<InputComponent>() && _woodComponent.CanFall)
         {
             _myRigidbody2D.gravityScale = 2;
-            _woodCoponent.CanFall = false;
-            _woodCoponent.Falling = true;
+            _woodComponent.CanFall = false;
+            _woodComponent.Falling = true;
         }
     }
     // Start is called before the first frame update
