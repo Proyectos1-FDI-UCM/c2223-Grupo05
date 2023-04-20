@@ -236,7 +236,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _myRigidbody2D: {fileID: 4971307721641157115}
-  _woodCoponent: {fileID: 4971307721641157112}
+  _woodComponent: {fileID: 4971307721641157112}
 --- !u!1 &4971307721641157118
 GameObject:
   m_ObjectHideFlags: 0
