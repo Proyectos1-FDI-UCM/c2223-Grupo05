@@ -2,6 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
+using UnityEngine.Jobs;
 
 public class UIManager : MonoBehaviour
 {
@@ -48,17 +49,35 @@ public class UIManager : MonoBehaviour
     }
     #endregion
     #region methods
-    public void QuitSouls(int ind)
+    public void QuitSouls(int cant)
     {
-        _souls[ind].SetActive(false);
+        
+        for (int i = 0; i < cant; i--)//ayuda cuando queda una vida ns q hacer
+        {
+            _souls[ i].SetActive(false);
+        }
+        
     }
-    public void Addsouls(int ind)
+    public void Addsouls(int cant)
     {
-        _souls[ind - 1].SetActive(true);
+        for (int i = 0; i < cant; i++)
+        {
+            
+            _souls[1 - i].SetActive(true);
+        }
     }
-    public void QuitLifes(int ind)
+    public void QuitLifes(int cant)
     {
-        _lifes[ind + 1].SetActive(false);
+        for(int i = 0; i < cant; i++)
+        {
+            if(cant == 1)
+            {
+                _lifes[0].SetActive(false);
+            }
+            else
+            _lifes[1 - i].SetActive(false);
+        }
+       
     }
     public void AddLifes(int ind)
     {
