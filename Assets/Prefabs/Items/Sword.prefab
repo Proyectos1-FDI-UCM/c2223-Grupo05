@@ -441,6 +441,7 @@ GameObject:
   - component: {fileID: 3931390768755025178}
   - component: {fileID: 3407647761716398626}
   - component: {fileID: 6507881258877724032}
+  - component: {fileID: 6128449452110130118}
   m_Layer: 0
   m_Name: Sword
   m_TagString: Untagged
@@ -578,6 +579,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _timeToPick: 2
   _maxHeight: 1.5
+--- !u!95 &6128449452110130118
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3931390768755025179}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e1a01e37d7fda6d40b99bea675c3021a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &4906765669231855953
 GameObject:
   m_ObjectHideFlags: 0

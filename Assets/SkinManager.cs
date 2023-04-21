@@ -1,31 +1,44 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
 public class SkinManager : MonoBehaviour
 {
-   [SerializeField] private GameObject _player;
+    [SerializeField] private GameObject _player;
     private SpriteRenderer _renderer;
     [SerializeField] private Color[] _colorSelector;
-    //private Color _color;
+    
+    private Color _color;
+    public Color Col { get { return _color; } } 
     private int _cIndex = 0;
-
+    static private SkinManager _insatance;
+    static public SkinManager Instance { get { return _insatance; } }
+    private void Awake()
+    {
+        if(this == null)
+        {
+            _insatance  = this;
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
+    }
     // Start is called before the first frame update
     void Start()
     {
         
         _renderer = _player.GetComponent<SpriteRenderer>();
         
-        ChangeSkin(_colorSelector[_cIndex]);
+        _color = _colorSelector[_cIndex];
     }
     public void ChangeSkin(Color color)
-    { 
-        //NECESARIO PODER ACCEDER AL LIGHT DEL PLAYER PARA PODER MODIFICARLO, NO SE COMO HACERLO
-        _player.GetComponent<ChangeColor>().ChangeColors(color);
-        _renderer.color = color;
-        
+    {
+        _player.GetComponentInChildren<Light2D>().color = color;
+
     }
     public void AvanzaColor()
     {
@@ -35,7 +48,7 @@ public class SkinManager : MonoBehaviour
         }
         else _cIndex++;
 
-        ChangeSkin(_colorSelector[_cIndex]);
+        _color = _colorSelector[_cIndex];
     }
     public void RetrocedeColor()
     {
@@ -44,6 +57,6 @@ public class SkinManager : MonoBehaviour
             _cIndex = _colorSelector.Length - 1;
         }
         else _cIndex--;
-        ChangeSkin(_colorSelector[_cIndex]);
+        _color = _colorSelector[_cIndex];
     }
 }

@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
     public  int FeatherCant { get { return _feathersCant; } }
 
     public int _souls = 3;
+    public int _soul1;
     public int Soul { get { return _souls; } }
     private bool _isDeath = false;
     public bool IsDeath { get { return _isDeath; } }
@@ -103,33 +104,49 @@ public class GameManager : MonoBehaviour
     public void Loselifes(int cant, GameObject enemy)
     {
         SoundComponent.Instance.PlaySound(SoundComponent.Instance._playerTakesDamage);
-        if (_lifes  > -1 && _canTakeDamage)
+        if (_canTakeDamage)
         {
+            if (_lifes < 1) 
+            {
+                if(cant > 1 && _lifes > -1)  //Evalua cuando el daño es mas de 1 y solo queda una vida
+                {
+                    _lifes--;
+                    UI.QuitLifes(1);
+                    LoseSouls(cant - 1, enemy);
+                }
+                else
+                {
+                    LoseSouls(cant, enemy);
+                }  
+            }
+            else  //solo quita vida de cant = 2
+            {
+                _lifes -= cant;
+                UI.QuitLifes(cant);
+                _canTakeDamage = false;
+                _player.GetComponent<iFramesComponent>().IFrames();
+                _recComp.KnockBack(enemy);
 
-            _lifes -= cant;
-            _canTakeDamage = false;
-            //_showDamage.StartCoroutine(_showDamage.ModSprite());  //animacion de daño
-            _player.GetComponent<iFramesComponent>().IFrames();
-            _recComp.KnockBack(enemy);
-            UI.QuitLifes(_lifes);
+                
+
+            }
         }
-        else
-        {
-            LoseSouls(cant, enemy);
-        }
+        
     }
     //metodo para perder almas
     public void LoseSouls(int cant, GameObject enemy)
     {
         if (_canTakeDamage)
         {
+            _soul1 = _souls;
             _souls -= cant;
+             UI.QuitSouls(cant);
+             _canTakeDamage = false;
+            
             Debug.Log("OK");
             _canTakeDamage = false;
-            //_showDamage.StartCoroutine(_showDamage.ModSprite());
             _player.GetComponent<iFramesComponent>().IFrames();
             _recComp.KnockBack(enemy);
-            UI.QuitSouls(_souls);
             
         }
         
