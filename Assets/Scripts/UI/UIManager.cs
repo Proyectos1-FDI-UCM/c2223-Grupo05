@@ -49,12 +49,16 @@ public class UIManager : MonoBehaviour
     }
     #endregion
     #region methods
-    public void QuitSouls(int cant)
+    public void QuitSouls(int cant)//ayuda cuando queda una vida ns q hacer
     {
-        
-        for (int i = 0; i < cant; i--)//ayuda cuando queda una vida ns q hacer
+        if(cant == 1)
         {
-            _souls[ i].SetActive(false);
+            _souls[GameManager.Instance._soul1 -1].SetActive(false);
+        }
+        else
+        for (int i = 0; i < cant; i++)
+        {
+            _souls[2 - i].SetActive(false);
         }
         
     }

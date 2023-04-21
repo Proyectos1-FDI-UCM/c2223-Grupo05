@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
     public  int FeatherCant { get { return _feathersCant; } }
 
     public int _souls = 3;
+    public int _soul1;
     public int Soul { get { return _souls; } }
     private bool _isDeath = false;
     public bool IsDeath { get { return _isDeath; } }
@@ -137,6 +138,7 @@ public class GameManager : MonoBehaviour
     {
         if (_canTakeDamage)
         {
+            _soul1 = _souls;
             _souls -= cant;
              UI.QuitSouls(cant);
              _canTakeDamage = false;
