@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
 using UnityEngine.Jobs;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TMP_Text _dash;
     [SerializeField] private TMP_Text _sword;
     [SerializeField] private TMP_Text _button;
+    [SerializeField] private Image _bloodEffect;
 
     
     public GameObject[] _souls;
@@ -35,6 +37,11 @@ public class UIManager : MonoBehaviour
     #region properties
     //array de distintos menus
     private GameObject[] _menus;
+    private float r;
+    private float g;
+    private float b;
+    private float a;
+    
     #endregion
     #region methods MenuInicial
     public void Play()
@@ -173,15 +180,34 @@ public class UIManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        r = _bloodEffect.color.r;
+        g = _bloodEffect.color.g;
+        b = _bloodEffect.color.b;
+        a = _bloodEffect.color.a;
         
-        
-
-
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (GameManager.Instance.Soul == 1 && a < 0.05f)
+        {
+
+            a += 0.005f;
+        }
+        else if(GameManager.Instance.Soul > 1)
+        {
+            a = 0;
+        }
+
+        a = Mathf.Clamp(a, 0f, 1f);
+        ChangeColor();
+        
+    }
+    private void ChangeColor()
+    {
+        Color c = new Color(r, g, b, a);
+        _bloodEffect.color = c;
         
     }
 }

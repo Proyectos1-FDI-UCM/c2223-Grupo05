@@ -7902,11 +7902,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3336010937231237423, guid: b0310a877719afc42b20a7ee4dc0b9bb, type: 3}
   m_PrefabInstance: {fileID: 1219014197}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1237768195 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8290193906853724514, guid: 8f3c3fd48ae9ca841a0a8718a8572ee7, type: 3}
-  m_PrefabInstance: {fileID: 8290193906759249168}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1247316906
 Transform:
   m_ObjectHideFlags: 0
@@ -10496,11 +10491,6 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 3336010937231237423, guid: b0310a877719afc42b20a7ee4dc0b9bb, type: 3}
   m_PrefabInstance: {fileID: 1595914653}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1634716946 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8290193905563274818, guid: 8f3c3fd48ae9ca841a0a8718a8572ee7, type: 3}
-  m_PrefabInstance: {fileID: 8290193906759249168}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1703501795
 GameObject:
@@ -91988,8 +91978,6 @@ CompositeCollider2D:
         Y: 937161393
       - X: 2671603589
         Y: 937142579
-      - X: 2671624524
-        Y: 937127846
       - X: 2671629450
         Y: 937124379
       - X: 2671308544
@@ -92706,14 +92694,6 @@ CompositeCollider2D:
         Y: 890004764
       - X: 2750053673
         Y: 890004764
-    - - X: 1930004764
-        Y: 909202964
-      - X: 1929999942
-        Y: 909201753
-      - X: 1929999899
-        Y: 909201697
-      - X: 1930004764
-        Y: 908897139
     - - X: 2150004892
         Y: 909202964
       - X: 2150000070
@@ -92722,6 +92702,14 @@ CompositeCollider2D:
         Y: 909201697
       - X: 2150004892
         Y: 908896161
+    - - X: 1930004764
+        Y: 909202964
+      - X: 1929999942
+        Y: 909201753
+      - X: 1929999899
+        Y: 909201697
+      - X: 1930004764
+        Y: 908897139
     - - X: 3339941475
         Y: 896738261
       - X: 3339941683
@@ -93144,8 +93132,6 @@ CompositeCollider2D:
         Y: 897766093
       - X: 2600717755
         Y: 897766071
-      - X: 2601383801
-        Y: 897297344
       - X: 2601493296
         Y: 897220287
       - X: 2601629578
@@ -95603,7 +95589,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 7346757823332081442}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7741347684084574810}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f672d4e5931f7f74f98609218e6da454, type: 3}
   m_Name: 
@@ -95978,14 +95964,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI NVL2
       objectReference: {fileID: 0}
-    - target: {fileID: 8290193905417764413, guid: 8f3c3fd48ae9ca841a0a8718a8572ee7, type: 3}
-      propertyPath: _lifes.Array.data[0]
-      value: 
-      objectReference: {fileID: 1237768195}
-    - target: {fileID: 8290193905417764413, guid: 8f3c3fd48ae9ca841a0a8718a8572ee7, type: 3}
-      propertyPath: _lifes.Array.data[1]
-      value: 
-      objectReference: {fileID: 1634716946}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f3c3fd48ae9ca841a0a8718a8572ee7, type: 3}
 --- !u!114 &8304972860632220952
