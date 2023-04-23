@@ -6,6 +6,7 @@ public class iFramesComponent : MonoBehaviour
 {
     [SerializeField] private float _time; //tiempo para que pueda volver a recibir daño
     [SerializeField] private int _flashes;
+    [SerializeField] private LayerMask _enemyLayer;
 
     private SpriteRenderer _mySpriteRenderer;
 
@@ -37,11 +38,10 @@ public class iFramesComponent : MonoBehaviour
     {
         for (int i = 0; i < _flashes; i++)
         {
-            //_mySpriteRenderer.color = new Color(1, 0, 0, 0.75f);
-            //yield return new WaitForSeconds(_time);
-            //_mySpriteRenderer.color = Color.white;
-            GetComponent<ShowDamage>().StartCoroutine(GetComponent<ShowDamage>().ModSprite());
-            yield return new WaitForSeconds(_time);
+            Physics2D.IgnoreLayerCollision(gameObject.layer, _enemyLayer);      //Desactivamos las colisiones entre el player y el enemigo
+            GetComponent<ShowDamage>().StartCoroutine(GetComponent<ShowDamage>().ModSprite());      //Modificamos el sprite del player
+            yield return new WaitForSeconds(_time);                             
+            Physics2D.SetLayerCollisionMask(gameObject.layer, _enemyLayer);     //Volvemos a activar las colisiones     ¿¡Activar correctamente 2 argumento!?
             if ((bool)GetComponent<BossManager>())
             {
                 GetComponent<PolygonCollider2D>().enabled = true;
