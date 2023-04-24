@@ -1,10 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class ControllerComponent : MonoBehaviour
 {
-    private Vector3 _myCursorPosition;
+    private Vector2 _myCursorPosition;
+    private Vector2 _myJoystickMovement;
+    private Vector2 _newCursorPosition;
+    private float _newX;
+    private float _newY;
     private float _horizontal;
     private float _vertical;
     [SerializeField] private float _sensitivity;
@@ -17,21 +22,25 @@ public class ControllerComponent : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _horizontal = Input.GetAxis("Joystick Right X");
-        _vertical = Input.GetAxis("Joystick Right Y");
-        _myCursorPosition = Input.mousePosition;
+        _myCursorPosition = Mouse.current.position.ReadDefaultValue();
+
+        _newX = _myCursorPosition.x + (_myJoystickMovement.x * _sensitivity);
+        _newY = _myCursorPosition.y + (_myJoystickMovement.y * _sensitivity);
         
         _myCursorPosition.x += _horizontal * _sensitivity;
         _myCursorPosition.y += _vertical * _sensitivity;
 
-        _myCursorPosition.x = Mathf.Clamp(_myCursorPosition.x, 0, Screen.width);
-        _myCursorPosition.y = Mathf.Clamp(_myCursorPosition.y, 0, Screen.height);
-            
+        _newCursorPosition = new Vector2(_newX, _newY);
+
+        Mouse.current.WarpCursorPosition(_newCursorPosition);
+
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Confined; //hace que el cursor no pueda salir de la ventana de juego
-        transform.position = _myCursorPosition;
-        
-        
-
     }
+    private void OnJoystickMove(InputAction.CallbackContext context)
+    {
+        _myJoystickMovement = context.ReadValue<Vector2>();
+    }
+
+
 }
