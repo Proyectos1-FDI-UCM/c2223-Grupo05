@@ -26,5 +26,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/EscenaBoss.unity
     guid: ab973855e49acef42afd94d0faf1ed64
-  m_configObjects:
-    com.unity.input.settings: {fileID: 11400000, guid: 546a52cc363b0f947ace1052976ce6cc, type: 2}
+  m_configObjects: {}
