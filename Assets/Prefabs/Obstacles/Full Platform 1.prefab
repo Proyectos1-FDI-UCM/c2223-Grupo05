@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7295804680010731784}
-  - component: {fileID: 4598085382852611644}
+  - component: {fileID: 5370132807081905650}
   m_Layer: 8
   m_Name: Wall
   m_TagString: Untagged
@@ -32,8 +32,8 @@ Transform:
   m_Father: {fileID: 6991086363812504729}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!60 &4598085382852611644
-PolygonCollider2D:
+--- !u!61 &5370132807081905650
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -45,7 +45,7 @@ PolygonCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.037807465, y: -0.42009258}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -55,17 +55,9 @@ PolygonCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: -0.20163155, y: -0.114284515}
-      - {x: -2.0494223, y: -0.06241104}
-      - {x: -2.0759888, y: -0.68324447}
-      - {x: -0.64141655, y: -0.7475722}
-      - {x: -0.43921417, y: -0.7559558}
-      - {x: 1.1024796, y: -0.71881294}
-      - {x: 1.7454052, y: -0.6716845}
-      - {x: 1.8921223, y: -0.61044145}
-      - {x: 1.91677, y: -0.09955388}
+  serializedVersion: 2
+  m_Size: {x: 3.7306023, y: 0.6135149}
+  m_EdgeRadius: 0
 --- !u!1 &3613418778057980032
 GameObject:
   m_ObjectHideFlags: 0
@@ -106,7 +98,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5080748232222817879}
-  - component: {fileID: 5290977991620303415}
+  - component: {fileID: 2175595008275281050}
   m_Layer: 3
   m_Name: Floor
   m_TagString: Untagged
@@ -129,8 +121,8 @@ Transform:
   m_Father: {fileID: 6991086363812504729}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!60 &5290977991620303415
-PolygonCollider2D:
+--- !u!61 &2175595008275281050
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -142,7 +134,7 @@ PolygonCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.7435646, y: 0.31086862}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -152,16 +144,9 @@ PolygonCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0.6008625, y: 0.37534094}
-      - {x: -1.0747671, y: 0.39808872}
-      - {x: -1.2345829, y: 0.36337805}
-      - {x: -1.2276115, y: 0.19344354}
-      - {x: -0.018716276, y: 0.19551384}
-      - {x: 2.6166415, y: 0.18066859}
-      - {x: 2.7456036, y: 0.24430394}
-      - {x: 2.6346598, y: 0.34471172}
+  serializedVersion: 2
+  m_Size: {x: 3.8314247, y: 0.14301085}
+  m_EdgeRadius: 0
 --- !u!1 &6991086362016977699
 GameObject:
   m_ObjectHideFlags: 0
