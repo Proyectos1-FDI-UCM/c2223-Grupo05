@@ -180,34 +180,34 @@ public class UIManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        r = _bloodEffect.color.r;
-        g = _bloodEffect.color.g;
-        b = _bloodEffect.color.b;
-        a = _bloodEffect.color.a;
+        //r = _bloodEffect.color.r;
+        //g = _bloodEffect.color.g;
+        //b = _bloodEffect.color.b;
+        //a = _bloodEffect.color.a;
         
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (GameManager.Instance.Soul == 1 && a < 0.05f)
-        {
+        //if (GameManager.Instance.Soul == 1 && a < 0.05f)
+        //{
 
-            a += 0.005f;
-        }
-        else if(GameManager.Instance.Soul > 1)
-        {
-            a = 0;
-        }
+        //    a += 0.005f;
+        //}
+        //else if(GameManager.Instance.Soul > 1)
+        //{
+        //    a = 0;
+        //}
 
-        a = Mathf.Clamp(a, 0f, 1f);
-        ChangeColor();
+        //a = Mathf.Clamp(a, 0f, 1f);
+        //ChangeColor();
         
     }
-    private void ChangeColor()
-    {
-        Color c = new Color(r, g, b, a);
-        _bloodEffect.color = c;
+    //private void ChangeColor()
+    //{
+    //    Color c = new Color(r, g, b, a);
+    //    _bloodEffect.color = c;
         
-    }
+    //}
 }
