@@ -13,13 +13,14 @@ public class SkinManager : MonoBehaviour
     private Color _color;
     public Color Col { get { return _color; } } 
     private int _cIndex = 0;
-    static private SkinManager _insatance;
-    static public SkinManager Instance { get { return _insatance; } }
+    static private SkinManager _instance;
+    static public SkinManager Instance { get { return _instance; } }
     private void Awake()
     {
-        if(this == null)
+        _color = _colorSelector[_cIndex];
+        if (_instance == null)
         {
-            _insatance  = this;
+            _instance  = this;
         }
         else
         {
@@ -32,11 +33,11 @@ public class SkinManager : MonoBehaviour
         
         _renderer = _player.GetComponent<SpriteRenderer>();
         
-        _color = _colorSelector[_cIndex];
+      
     }
-    public void ChangeSkin(Color color)
+    public void ChangeSkin()
     {
-        _player.GetComponentInChildren<Light2D>().color = color;
+        _player.GetComponent<ChangeColor>().ChangeColors(_color);
 
     }
     public void AvanzaColor()
@@ -48,6 +49,7 @@ public class SkinManager : MonoBehaviour
         else _cIndex++;
 
         _color = _colorSelector[_cIndex];
+        ChangeSkin();
     }
     public void RetrocedeColor()
     {
@@ -57,5 +59,6 @@ public class SkinManager : MonoBehaviour
         }
         else _cIndex--;
         _color = _colorSelector[_cIndex];
+        ChangeSkin();
     }
 }
