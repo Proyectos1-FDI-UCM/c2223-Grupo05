@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using static GameManager;
 
 public class BossManager : MonoBehaviour
@@ -123,6 +124,7 @@ public class BossManager : MonoBehaviour
     public void BossDeath()
     {
         Destroy(gameObject);
+        SceneManager.LoadScene(5);
     }
     #endregion
     // Start is called before the first frame update

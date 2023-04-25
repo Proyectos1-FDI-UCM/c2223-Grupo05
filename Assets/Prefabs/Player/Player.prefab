@@ -753,6 +753,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _time: 1.5
   _flashes: 1
+  _enemyLayer:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!114 &1588399133
 MonoBehaviour:
   m_ObjectHideFlags: 0
