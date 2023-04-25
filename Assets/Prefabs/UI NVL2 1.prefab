@@ -1910,7 +1910,6 @@ MonoBehaviour:
   _dash: {fileID: 0}
   _sword: {fileID: 0}
   _button: {fileID: 0}
-  _bloodEffect: {fileID: 3487520662560556725}
   _souls:
   - {fileID: 1143823277832298254}
   - {fileID: 1143823279851271190}
@@ -4309,7 +4308,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 440203976224773932}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -8421,7 +8420,7 @@ RectTransform:
   - {fileID: 1708518516660895988}
   - {fileID: 466385329}
   m_Father: {fileID: 440203976224773932}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
@@ -8632,8 +8631,8 @@ RectTransform:
   - {fileID: 7604766911037255047}
   - {fileID: 8571363845043846585}
   - {fileID: 679203469024947253}
-  - {fileID: 4210445667409388899}
   - {fileID: 4210606894631073881}
+  - {fileID: 4210445667409388899}
   m_Father: {fileID: 1143823278057101799}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

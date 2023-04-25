@@ -3365,6 +3365,7 @@ GameObject:
   - component: {fileID: 3693007444608022225}
   - component: {fileID: 3693007444608022224}
   - component: {fileID: 3693007444608022227}
+  - component: {fileID: 1358336815}
   m_Layer: 5
   m_Name: UI Tutorial
   m_TagString: Untagged
@@ -3477,7 +3478,6 @@ MonoBehaviour:
   _dash: {fileID: 0}
   _sword: {fileID: 0}
   _button: {fileID: 0}
-  _bloodEffect: {fileID: 1859271418}
   _souls:
   - {fileID: 3693007444592898086}
   - {fileID: 3693007443916888894}
@@ -3491,6 +3491,19 @@ MonoBehaviour:
   - {fileID: 3693007445259689526}
   _pauseMenu: {fileID: 71609766624126789}
   _audioMixer: {fileID: 24100000, guid: a8b9352beb57a5f43aa9a2c15f7134f0, type: 2}
+--- !u!114 &1358336815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3693007444608022226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8548024fce737a142981bd40ece2205c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bloodEffect: {fileID: 1859271418}
 --- !u!1 &3693007444833182369
 GameObject:
   m_ObjectHideFlags: 0
@@ -10257,7 +10270,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Press to Pass
+  m_text: Click to Pass
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c2682c9f2cfc3374cb898b7724cb7e6e, type: 2}
   m_sharedMaterial: {fileID: -8038925240361756317, guid: c2682c9f2cfc3374cb898b7724cb7e6e, type: 2}

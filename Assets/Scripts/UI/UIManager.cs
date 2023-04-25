@@ -15,7 +15,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TMP_Text _dash;
     [SerializeField] private TMP_Text _sword;
     [SerializeField] private TMP_Text _button;
-    [SerializeField] private Image _bloodEffect;
+    //[SerializeField] private Image _bloodEffect;
 
     
     public GameObject[] _souls;
@@ -37,10 +37,10 @@ public class UIManager : MonoBehaviour
     #region properties
     //array de distintos menus
     private GameObject[] _menus;
-    private float r;
-    private float g;
-    private float b;
-    private float a;
+    //private float r;
+    //private float g;
+    //private float b;
+    //private float a;
     
     #endregion
     #region methods MenuInicial
