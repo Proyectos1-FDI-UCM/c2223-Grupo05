@@ -106,7 +106,7 @@ MonoBehaviour:
   _targetPosition: {fileID: 1695762443815625984}
   _speed: 5
   _colliderController: {fileID: 1818244819012130326}
-  _colliderDimensions: {x: 4, y: 0.5}
+  _colliderDimensions: {x: 4, y: 3}
   _playerLayer:
     serializedVersion: 2
     m_Bits: 128
@@ -532,7 +532,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1695762443815625985}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 49.73, y: -2.78, z: 0.044175744}
+  m_LocalPosition: {x: 23, y: 5.3, z: 0.044175744}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -562,7 +562,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1695762444718894277}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 157.24, y: 76.02, z: 0.044175744}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

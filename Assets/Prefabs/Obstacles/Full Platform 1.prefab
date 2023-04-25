@@ -219,7 +219,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6991086362319696280}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 23, y: 6.34, z: 0.044175744}
+  m_LocalPosition: {x: 5.39, y: -3.55, z: 0.044175744}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -331,7 +331,7 @@ MonoBehaviour:
   _targetPosition: {fileID: 6991086362319696263}
   _speed: 5
   _colliderController: {fileID: 3379606340705249073}
-  _colliderDimensions: {x: 0, y: 0}
+  _colliderDimensions: {x: 4, y: 3}
   _playerLayer:
     serializedVersion: 2
     m_Bits: 128
