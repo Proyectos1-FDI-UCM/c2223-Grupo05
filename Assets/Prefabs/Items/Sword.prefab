@@ -440,7 +440,6 @@ GameObject:
   - component: {fileID: 3931390768755025188}
   - component: {fileID: 3931390768755025178}
   - component: {fileID: 3407647761716398626}
-  - component: {fileID: 6507881258877724032}
   - component: {fileID: 6128449452110130118}
   m_Layer: 0
   m_Name: Sword
@@ -530,6 +529,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06fb2d80a3a3f8b4ab81cd472f8fec8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _timeToPick: 2
+  _maxHeight: 1.5
 --- !u!60 &3407647761716398626
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -565,20 +566,6 @@ PolygonCollider2D:
       - {x: 0.065580845, y: -0.010115981}
       - {x: 0.1618711, y: 0.10384885}
       - {x: 0.16, y: 0.16}
---- !u!114 &6507881258877724032
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3931390768755025179}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0540d72fd981ed4fb85a1f2402b3859, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _timeToPick: 2
-  _maxHeight: 1.5
 --- !u!95 &6128449452110130118
 Animator:
   serializedVersion: 4
