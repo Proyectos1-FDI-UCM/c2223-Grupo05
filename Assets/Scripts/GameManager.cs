@@ -71,7 +71,7 @@ public class GameManager : MonoBehaviour
     }
     public void AddLife()
     {
-      _lifes++;
+        _lifes++;
         if(_lifes > -1) {
             UI.AddLifes(_lifes); //PAra que no se salga del array en 
         }

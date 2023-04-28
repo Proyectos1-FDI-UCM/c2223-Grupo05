@@ -46,7 +46,7 @@ public class LifeComponent : MonoBehaviour
         if (!_canRise && (bool)collision.gameObject.GetComponent<InputComponent>())
         {
             SoundComponent.Instance.PlaySound(SoundComponent.Instance._pickItem);
-            GameManager.Instance.Sword();
+            GameManager.Instance.AddLife();
             Destroy(gameObject);
         }
     }
