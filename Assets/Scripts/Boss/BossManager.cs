@@ -30,6 +30,7 @@ public class BossManager : MonoBehaviour
     [SerializeField] private float _maxHitsReceivedForTrunk;
     [SerializeField] private float _maxHitsReceivedForFinal;
     [SerializeField] private float _auxHitsReceived;
+    [SerializeField] private LifeBoss _lifeBoss;
 
 
     [SerializeField] private float _currentHitsReceived;       //Quitar SerializeField
@@ -51,6 +52,7 @@ public class BossManager : MonoBehaviour
     {
         Debug.Log("-1 vida boss");
         _currentHitsReceived += damageReceived;
+        _lifeBoss.ChangeCurrentLife(_maxHitsReceivedForEnemy- _currentHitsReceived);
         GetComponent<iFramesComponent>().IFrames();
         SoundComponent.Instance.PlaySound(SoundComponent.Instance._bossReceiveDamage);
         CheckAction();
@@ -76,6 +78,7 @@ public class BossManager : MonoBehaviour
 
         else if (_currentHitsReceived == _maxHitsReceivedForEnemy && _enemiesCounter < _enemiesDesired)
         {
+         //   _lifeBoss.InitialLife(_maxHitsReceivedForTrunk);
             _enemiesCounter++;
             
             if (_enemiesCounter != _enemiesDesired)
@@ -85,6 +88,7 @@ public class BossManager : MonoBehaviour
             else
             {
                 _auxHitsReceived = _currentHitsReceived;
+            //    _lifeBoss.ChangeCurrentLife(_maxHitsReceivedForTrunk - _currentHitsReceived);
                 _myAnimator.SetBool("isPhase2", false);
                 _myAnimator.SetBool("isPhase3", true);
                 _throw = _myAnimator.GetBool("isPhase2");
@@ -133,6 +137,7 @@ public class BossManager : MonoBehaviour
         _myAnimator = GetComponent<Animator>();
         _playerTransform = GameManager.Instance.SetPlayer().transform;
         _myBossSimpleAttackComponent = GetComponent<BossSimpleAttack>();
+        _lifeBoss.InitialLife(_maxHitsReceivedForEnemy);
     }
 
     // Update is called once per frame
