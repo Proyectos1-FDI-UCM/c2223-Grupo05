@@ -31,6 +31,7 @@ public class BossManager : MonoBehaviour
     [SerializeField] private float _maxHitsReceivedForFinal;
     [SerializeField] private float _auxHitsReceived;
     [SerializeField] private LifeBoss _lifeBoss;
+    [SerializeField] private float _totalHits;
 
 
     [SerializeField] private float _currentHitsReceived;       //Quitar SerializeField
@@ -52,7 +53,8 @@ public class BossManager : MonoBehaviour
     {
         Debug.Log("-1 vida boss");
         _currentHitsReceived += damageReceived;
-        _lifeBoss.ChangeCurrentLife(_maxHitsReceivedForEnemy- _currentHitsReceived);
+        _totalHits += damageReceived;
+        _lifeBoss.ChangeCurrentLife(((_teleportsDesired - 1) * _maxHitsReceivedForTeleport + _maxHitsReceivedForEnemy + (_trunkDesired) * (_maxHitsReceivedForTrunk - _maxHitsReceivedForEnemy) + (_maxHitsReceivedForFinal - _maxHitsReceivedForTrunk)) - _totalHits);
         GetComponent<iFramesComponent>().IFrames();
         SoundComponent.Instance.PlaySound(SoundComponent.Instance._bossReceiveDamage);
         CheckAction();
@@ -74,11 +76,14 @@ public class BossManager : MonoBehaviour
                 _myAnimator.SetBool("isPhase2", true);
                 _throw = _myAnimator.GetBool("isPhase2");
             }
+            //if(_totalHits == 3*_maxHitsReceivedForTeleport)
+            //{
+            //    _lifeBoss.InitialLife(_maxHitsReceivedForEnemy);
+            //}
         }
 
         else if (_currentHitsReceived == _maxHitsReceivedForEnemy && _enemiesCounter < _enemiesDesired)
         {
-         //   _lifeBoss.InitialLife(_maxHitsReceivedForTrunk);
             _enemiesCounter++;
             
             if (_enemiesCounter != _enemiesDesired)
@@ -137,7 +142,7 @@ public class BossManager : MonoBehaviour
         _myAnimator = GetComponent<Animator>();
         _playerTransform = GameManager.Instance.SetPlayer().transform;
         _myBossSimpleAttackComponent = GetComponent<BossSimpleAttack>();
-        _lifeBoss.InitialLife(_maxHitsReceivedForEnemy);
+        _lifeBoss.InitialLife(((_teleportsDesired -1) * _maxHitsReceivedForTeleport + _maxHitsReceivedForEnemy + (_trunkDesired) *(_maxHitsReceivedForTrunk - _maxHitsReceivedForEnemy) + (_maxHitsReceivedForFinal - _maxHitsReceivedForTrunk)));
     }
 
     // Update is called once per frame

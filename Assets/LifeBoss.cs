@@ -5,11 +5,11 @@ using UnityEngine.UI;
 
 public class LifeBoss : MonoBehaviour
 {
-    private Slider _slider;
+    [SerializeField]private Slider _slider;
     // Start is called before the first frame update
     void Start()
     {
-        _slider  = GetComponent<Slider>();
+        
     }
 
     public void ChangeLifeMax(float _maxLife)
