@@ -150,7 +150,7 @@ GameObject:
   - component: {fileID: 1364956816}
   - component: {fileID: 1364956818}
   - component: {fileID: 1284687868}
-  m_Layer: 9
+  m_Layer: 14
   m_Name: RangeEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}

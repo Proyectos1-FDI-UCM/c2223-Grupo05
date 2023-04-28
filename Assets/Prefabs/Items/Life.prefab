@@ -4824,7 +4824,7 @@ GameObject:
   - component: {fileID: 1079743077275143162}
   - component: {fileID: 6640075332865462401}
   - component: {fileID: 9202774158795311669}
-  - component: {fileID: 9001959726877290722}
+  - component: {fileID: 7706798369258130977}
   m_Layer: 0
   m_Name: Life
   m_TagString: Untagged
@@ -4964,17 +4964,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4242b2599873054eaf74de9e9be12f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &9001959726877290722
-MonoBehaviour:
+  _timeToPick: 2
+  _maxHeight: 1.5
+--- !u!95 &7706798369258130977
+Animator:
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6846707928548364759}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0540d72fd981ed4fb85a1f2402b3859, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _timeToPick: 2
-  _maxHeight: 1.5
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e1a01e37d7fda6d40b99bea675c3021a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
