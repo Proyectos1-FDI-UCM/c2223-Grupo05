@@ -24,6 +24,8 @@ public class PlayerCombat : MonoBehaviour
 
     [SerializeField]
     private LayerMask _enemylayer;
+    [SerializeField]
+    private LayerMask _rangeLayer;
 
     [SerializeField]
     private int _attackDamage;
@@ -56,7 +58,7 @@ public class PlayerCombat : MonoBehaviour
             _animator.SetTrigger("Attack");
             SoundComponent.Instance.PlaySound(SoundComponent.Instance._playerAttack);
 
-            Collider2D[] _hitEnemies = Physics2D.OverlapCapsuleAll(_attackPoint.position, _attackSize, _direction, _angleAttack, _enemylayer);
+            Collider2D[] _hitEnemies = Physics2D.OverlapCapsuleAll(_attackPoint.position, _attackSize, _direction, _angleAttack, _enemylayer | _rangeLayer);
 
             foreach (Collider2D enemies in _hitEnemies)
             {
@@ -80,7 +82,7 @@ public class PlayerCombat : MonoBehaviour
           
             _animator.SetTrigger("Air");
             SoundComponent.Instance.PlaySound(SoundComponent.Instance._playerAirAttack);
-            Collider2D[] _hitEnemisOnAir = Physics2D.OverlapCircleAll(_attackPoint.position, _radius, _enemylayer);
+            Collider2D[] _hitEnemisOnAir = Physics2D.OverlapCircleAll(_attackPoint.position, _radius, _enemylayer | _rangeLayer);
 
 
 
