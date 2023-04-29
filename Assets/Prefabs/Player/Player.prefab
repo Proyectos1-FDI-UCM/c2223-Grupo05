@@ -698,6 +698,9 @@ MonoBehaviour:
   _enemylayer:
     serializedVersion: 2
     m_Bits: 512
+  _rangeLayer:
+    serializedVersion: 2
+    m_Bits: 16384
   _attackDamage: 1
   _radius: 4
 --- !u!114 &1052197326608708930
