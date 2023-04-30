@@ -68,11 +68,12 @@ public class GameManager : MonoBehaviour
     public void Sword()
     {
         _sword = true;
+        Debug.Log("SWORD" + _sword);
     }
     public void AddLife()
     {
         _lifes++;
-        if(_lifes > -1) {
+        if(_lifes > -2) {
             UI.AddLifes(_lifes); //PAra que no se salga del array en 
         }
         
@@ -101,36 +102,71 @@ public class GameManager : MonoBehaviour
         UI.QuitFeathers(_feathersCant);
     }
     //metodo para perder vidas
-    public void Loselifes(int cant, GameObject enemy)
+    public void Loselifes(int cant, GameObject enemy) //cant --> daño del hit
     {
         SoundComponent.Instance.PlaySound(SoundComponent.Instance._playerTakesDamage);
         if (_canTakeDamage)
         {
-            if (_lifes < 1) 
+            if(_lifes > -1)
             {
-                if(cant > 1 && _lifes > -1)  //Evalua cuando el daño es mas de 1 y solo queda una vida
+                // Daño mayor que un hit 
+                if (cant > 1)
+                {
+                    if (_lifes > 0) //Mas de 1 vida --> SOLO QUITA VIDA
+                    {
+                        _lifes -= cant;
+                        UI.QuitLifes(cant);
+                        ReceiveDamage(enemy);
+                        Debug.Log("PIERDE VIDA");
+                    }
+                    else //Solo 1 vida --> se elimina y llama al metodo que corresponde quitar las almas
+                    {
+                        _lifes = -1;
+                        UI.QuitLifes(1);
+                        LoseSouls(cant - 1, enemy);
+                        Debug.Log("PIERDE VIDA");
+
+                    }
+                }
+                // Daño igual a 1 hit
+                else
                 {
                     _lifes--;
                     UI.QuitLifes(1);
-                    LoseSouls(cant - 1, enemy);
+                    ReceiveDamage(enemy);
+                    Debug.Log("PIERDE VIDA");
                 }
-                else
-                {
-                    LoseSouls(cant, enemy);
-                }  
             }
-            else  //solo quita vida de cant = 2
+            else
             {
-                _lifes -= cant;
-                UI.QuitLifes(cant);
-                _canTakeDamage = false;
-                _player.GetComponent<iFramesComponent>().IFrames();
-                _recComp.KnockBack(enemy);
-
+                LoseSouls(cant, enemy);
+            }
+            
+            //if (_lifes < 1) 
+            //{
+            //    if(cant > 1 && _lifes > -1)  //Evalua cuando el daño es mas de 1 y solo queda una vida
+            //    {
+            //        _lifes--;
+            //        UI.QuitLifes(1);
+            //        LoseSouls(cant - 1, enemy);
+            //    }
+            //    else
+            //    {
+            //        LoseSouls(cant, enemy);
+            //    }  
+            //}
+            //else  //solo quita vida de cant = 2
+            //{
+            //    _lifes -= cant;
+            //    UI.QuitLifes(cant);
+            //    _canTakeDamage = false;
+            //    _player.GetComponent<iFramesComponent>().IFrames();
+            //    _recComp.KnockBack(enemy);
+            //    Debug.Log("PIERDE VIDA");
                 
 
             }
-        }
+        
         
     }
     //metodo para perder almas
@@ -140,26 +176,29 @@ public class GameManager : MonoBehaviour
         {
             _soul1 = _souls;
             _souls -= cant;
-             UI.QuitSouls(cant);
-             _canTakeDamage = false;
-            
-            Debug.Log("OK");
-            _canTakeDamage = false;
-            _player.GetComponent<iFramesComponent>().IFrames();
-            _recComp.KnockBack(enemy);
-            
+            UI.QuitSouls(cant);
+
+            ReceiveDamage(enemy);
+
+            Debug.Log("PIERDE ALMA");
         }
-        
-    
-        
+    }
+    private void ReceiveDamage(GameObject enemy)
+    {
+        _canTakeDamage = false;
+        _player.GetComponent<iFramesComponent>().IFrames();
+        _recComp.KnockBack(enemy);
     }
     public void ResetSouls()
     {
-        
         _souls = 3;
         _isDeath = false;
         UI.AddAllSouls();
-
+    }
+    public void ResetLifes()
+    {
+        _lifes = -1;
+        UI.QuitAllLifes();
     }
     public void EvalueG()
     {
@@ -189,6 +228,7 @@ public class GameManager : MonoBehaviour
             _isDeath = true;
         }
         _player.GetComponent<Animator>().SetBool("Death", _isDeath);
+        Debug.Log("VIDAS = " + _lifes);
 
     }
     

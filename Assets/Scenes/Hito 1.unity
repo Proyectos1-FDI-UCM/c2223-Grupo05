@@ -1922,7 +1922,7 @@ Transform:
   m_Children:
   - {fileID: 911523359}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &804474356
 SpriteRenderer:
@@ -2096,6 +2096,11 @@ Transform:
   m_Father: {fileID: 778669261}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &991170162 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3693007443155782028, guid: 4fcb7f00c0a705744a6248ed8037f5f3, type: 3}
+  m_PrefabInstance: {fileID: 3693007443258598910}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1003196861
 GameObject:
   m_ObjectHideFlags: 0
@@ -2359,6 +2364,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1270433059 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3693007444579337900, guid: 4fcb7f00c0a705744a6248ed8037f5f3, type: 3}
+  m_PrefabInstance: {fileID: 3693007443258598910}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1358336813 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3693007444608022227, guid: 4fcb7f00c0a705744a6248ed8037f5f3, type: 3}
@@ -3158,7 +3168,7 @@ Transform:
   m_Children:
   - {fileID: 26450105}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1883219205
 PrefabInstance:
@@ -33242,7 +33252,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2706994742174724922, guid: fd9cf2110ca3d394986b4728deb851ad, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 2706994742174724922, guid: fd9cf2110ca3d394986b4728deb851ad, type: 3}
       propertyPath: m_LocalPosition.x
@@ -34391,7 +34401,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3693007444608022223, guid: 4fcb7f00c0a705744a6248ed8037f5f3, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3693007444608022223, guid: 4fcb7f00c0a705744a6248ed8037f5f3, type: 3}
       propertyPath: m_AnchorMax.x
@@ -34469,6 +34479,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI Tutorial
       objectReference: {fileID: 0}
+    - target: {fileID: 3693007444608022227, guid: 4fcb7f00c0a705744a6248ed8037f5f3, type: 3}
+      propertyPath: _lifes.Array.data[0]
+      value: 
+      objectReference: {fileID: 991170162}
+    - target: {fileID: 3693007444608022227, guid: 4fcb7f00c0a705744a6248ed8037f5f3, type: 3}
+      propertyPath: _lifes.Array.data[1]
+      value: 
+      objectReference: {fileID: 1270433059}
     - target: {fileID: 4540111621039230404, guid: 4fcb7f00c0a705744a6248ed8037f5f3, type: 3}
       propertyPath: m_IsActive
       value: 0

@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
 using UnityEngine.Jobs;
 using UnityEngine.UI;
+using JetBrains.Annotations;
 
 public class UIManager : MonoBehaviour
 {
@@ -106,6 +107,13 @@ public class UIManager : MonoBehaviour
     public void QuitFeathers(int ind)
     {
         _feathers[ind].SetActive(false);
+    }
+    public void QuitAllLifes()
+    {
+        for(int i = 0; i < _lifes.Length; i++)
+        {
+            _lifes[i].SetActive(false);
+        }
     }
     public void AddAllSouls()
     {
