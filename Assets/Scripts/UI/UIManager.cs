@@ -75,7 +75,7 @@ public class UIManager : MonoBehaviour
         for (int i = 0; i < cant; i++)
         {
             
-            _souls[1 - i].SetActive(true);
+            _souls[2 - i].SetActive(true);
         }
     }
     public void QuitLifes(int cant)
