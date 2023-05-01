@@ -1,5 +1,7 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using System.Collections.Generic;
+using System.Collections;
 
 public class RespawnComponent : MonoBehaviour
 {
@@ -7,6 +9,8 @@ public class RespawnComponent : MonoBehaviour
     private float _gravIni;
     private Rigidbody2D _rb;
     private float _timeAnim;
+    [SerializeField] private float _delay;
+    private bool _spawning = false;
     
     void Start()
     {
@@ -18,14 +22,16 @@ public class RespawnComponent : MonoBehaviour
     {
         if (GameManager.Instance.IsDeath)
         {
+            StartCoroutine("Res");
             Die(); 
-            if (GetComponent<MovementComponent>().TouchingFloor)
+            if (GetComponent<MovementComponent>().TouchingFloor || _spawning)
             {
                 EnablePhysics();
                 Physics2D.IgnoreLayerCollision(7, 9, true);
                 _timeAnim += Time.deltaTime;
                 if (_timeAnim > 1f)
                 {
+                    _spawning = false;
                     Respawn();
                     _timeAnim = 0f;
                 }
@@ -73,5 +79,14 @@ public class RespawnComponent : MonoBehaviour
         GameManager.Instance.ResetLifes();
         Debug.Log("Resp");
 
+    }
+    
+    private IEnumerator Res()
+    {
+        Debug.Log("Enumerator");
+
+        yield return new WaitForSeconds(_delay);
+
+        _spawning = true;
     }
 }
