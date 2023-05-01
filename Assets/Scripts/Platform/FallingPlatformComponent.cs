@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class FallingPlatformComponent : MonoBehaviour
 {
-    private Transform _myTransform;
-
     [Header("FALLING")]
     [SerializeField]
     private float _delay;

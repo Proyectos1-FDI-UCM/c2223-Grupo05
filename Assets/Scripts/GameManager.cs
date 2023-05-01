@@ -228,7 +228,7 @@ public class GameManager : MonoBehaviour
             _isDeath = true;
         }
         _player.GetComponent<Animator>().SetBool("Death", _isDeath);
-        Debug.Log("VIDAS = " + _lifes);
+        //Debug.Log("VIDAS = " + _lifes);
 
     }
     
