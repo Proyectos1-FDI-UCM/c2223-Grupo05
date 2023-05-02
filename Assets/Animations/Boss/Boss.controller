@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 066ace1be93dc8a49940e9e762c4bbc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 0.25
+  _speed: 0.5
   _attackDistance: 7
   _maxAttackTimer: 5
 --- !u!1101 &-7952727733347024178
@@ -679,7 +679,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 066ace1be93dc8a49940e9e762c4bbc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 0.25
+  _speed: 0.55
   _attackDistance: 7
   _maxAttackTimer: 5
 --- !u!1101 &532287679693325572
@@ -1019,7 +1019,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 066ace1be93dc8a49940e9e762c4bbc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 0.3
+  _speed: 0.6
   _attackDistance: 7
   _maxAttackTimer: 5
 --- !u!1107 &6248161093579555568
@@ -1245,7 +1245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 066ace1be93dc8a49940e9e762c4bbc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 0.35
+  _speed: 0.65
   _attackDistance: 7
   _maxAttackTimer: 5
 --- !u!1102 &8693468445980243168
