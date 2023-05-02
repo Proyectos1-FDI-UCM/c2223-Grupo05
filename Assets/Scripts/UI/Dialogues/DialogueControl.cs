@@ -20,6 +20,7 @@ public class DialogueControl : MonoBehaviour
         Debug.Log("Entro");
         _animator.SetBool("Activado", true);
         _text = ObjectText;
+
     }
     public void TextActive()
     {
@@ -35,6 +36,7 @@ public class DialogueControl : MonoBehaviour
         if(_colaDialogos.Count == 0)
         {
             CloseMessage();
+            _textMeshPro.text = "";
             return;
         }
         string _targetPhrase = _colaDialogos.Dequeue();
@@ -59,6 +61,7 @@ public class DialogueControl : MonoBehaviour
     {
         _player.GetComponent<InputComponent>().enabled= true;
         _animator.SetBool("Activado", false);
+        _colaDialogos.Clear();
         
     }
     public void ResetAnim()

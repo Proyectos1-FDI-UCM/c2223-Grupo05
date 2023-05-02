@@ -34383,6 +34383,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 831706060124803790, guid: 4fcb7f00c0a705744a6248ed8037f5f3, type: 3}
+      propertyPath: m_isRightToLeft
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1191109655852919725, guid: 4fcb7f00c0a705744a6248ed8037f5f3, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -118667,8 +118671,6 @@ CompositeCollider2D:
         Y: -14563094
       - X: 481837682
         Y: -14367107
-      - X: 481856167
-        Y: -14563053
       - X: 481856773
         Y: -14569481
       - X: 481804092
