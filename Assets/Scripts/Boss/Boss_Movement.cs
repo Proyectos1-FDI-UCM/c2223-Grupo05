@@ -31,7 +31,7 @@ public class Boss_Movement : StateMachineBehaviour
 
         if (Vector2.Distance(_playerTransform.transform.position, animator.transform.position) > _attackDistance)
         {
-            animator.transform.position = Vector2.MoveTowards(animator.transform.position, _playerPosition, _speed * Time.fixedDeltaTime);
+            animator.transform.position = Vector2.MoveTowards(animator.transform.position, _playerPosition, _speed * Time.deltaTime);
         }
         else
         {
