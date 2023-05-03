@@ -21784,58 +21784,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 478951902, guid: aee0bc836f28c5e44a081aafe1664051, type: 3}
-      propertyPath: _time
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 478951902, guid: aee0bc836f28c5e44a081aafe1664051, type: 3}
-      propertyPath: _flashes
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1993628280077811665, guid: aee0bc836f28c5e44a081aafe1664051, type: 3}
-      propertyPath: _attackRadius
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1993628280077811665, guid: aee0bc836f28c5e44a081aafe1664051, type: 3}
-      propertyPath: _attackOffset.x
-      value: -2.31
-      objectReference: {fileID: 0}
-    - target: {fileID: 1993628280077811665, guid: aee0bc836f28c5e44a081aafe1664051, type: 3}
-      propertyPath: _attackOffset.y
-      value: -2.5
-      objectReference: {fileID: 0}
     - target: {fileID: 1993628280077811666, guid: aee0bc836f28c5e44a081aafe1664051, type: 3}
       propertyPath: _lifeBoss
       value: 
       objectReference: {fileID: 882027340037737399}
-    - target: {fileID: 1993628280077811666, guid: aee0bc836f28c5e44a081aafe1664051, type: 3}
-      propertyPath: _finalCounter
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1993628280077811666, guid: aee0bc836f28c5e44a081aafe1664051, type: 3}
-      propertyPath: _finalDesired
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1993628280077811666, guid: aee0bc836f28c5e44a081aafe1664051, type: 3}
-      propertyPath: _turningDistance
-      value: 6.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1993628280077811666, guid: aee0bc836f28c5e44a081aafe1664051, type: 3}
-      propertyPath: _teleportsDesired
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1993628280077811666, guid: aee0bc836f28c5e44a081aafe1664051, type: 3}
-      propertyPath: _maxHitsReceivedForEnemy
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 1993628280077811666, guid: aee0bc836f28c5e44a081aafe1664051, type: 3}
-      propertyPath: _maxHitsReceivedForFinal
-      value: 13
-      objectReference: {fileID: 0}
-    - target: {fileID: 1993628280077811668, guid: aee0bc836f28c5e44a081aafe1664051, type: 3}
-      propertyPath: m_Color.a
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1993628280924200176, guid: aee0bc836f28c5e44a081aafe1664051, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -21884,35 +21836,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: --------- Boss FIght---------
       objectReference: {fileID: 0}
-    - target: {fileID: 1993628280929914681, guid: aee0bc836f28c5e44a081aafe1664051, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -22.34
-      objectReference: {fileID: 0}
-    - target: {fileID: 1993628281504980769, guid: aee0bc836f28c5e44a081aafe1664051, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 4.96
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 1993628280077811676, guid: aee0bc836f28c5e44a081aafe1664051, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aee0bc836f28c5e44a081aafe1664051, type: 3}
---- !u!1 &1930732641 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1993628280077811691, guid: aee0bc836f28c5e44a081aafe1664051, type: 3}
-  m_PrefabInstance: {fileID: 1930732640}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1930732642
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1930732641}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f672d4e5931f7f74f98609218e6da454, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _timeOfDamage: 0.2
 --- !u!1 &1938177721
 GameObject:
   m_ObjectHideFlags: 0
@@ -21941,7 +21866,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1938177721}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -61.082245, y: -15.118733, z: -16.8}
+  m_LocalPosition: {x: -61.082603, y: -15.118733, z: -16.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
