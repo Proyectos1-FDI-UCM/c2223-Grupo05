@@ -224,7 +224,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _teleportCounter: 0
-  _teleportsDesired: 1
+  _teleportsDesired: 4
   _enemiesCounter: 0
   _enemiesDesired: 1
   _trunkCounter: 0
