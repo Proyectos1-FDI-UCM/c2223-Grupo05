@@ -36,7 +36,6 @@ public class ButtonComponent : MonoBehaviour
     {
         _animator.SetBool("isActivated", _buttonActivated);
     }
-
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (_buttonActivated && (bool)collision.gameObject.GetComponent<FeatherReturn>() && collision.gameObject.GetComponentInParent<FeatherStates>().CurrrentState == FeatherStates.FeatherState.RETURN)
