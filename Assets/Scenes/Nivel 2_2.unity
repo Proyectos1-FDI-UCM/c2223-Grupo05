@@ -880,6 +880,7 @@ GameObject:
   m_Component:
   - component: {fileID: 363742231}
   - component: {fileID: 363742232}
+  - component: {fileID: 363742233}
   m_Layer: 0
   m_Name: ColliderEnemyRange
   m_TagString: Untagged
@@ -895,8 +896,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 363742230}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 328.54, y: 107.340546, z: -6.5217304}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 345.4, y: 107.340546, z: -6.5217304}
+  m_LocalScale: {x: 42.171, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 778669261}
@@ -928,6 +929,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 5.4085693}
   m_EdgeRadius: 0
+--- !u!114 &363742233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 363742230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ae957b608a688441880abc3e4cc811e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _myPlatformComponent: {fileID: 933844253}
 --- !u!1 &393102675
 GameObject:
   m_ObjectHideFlags: 0
@@ -1415,7 +1429,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 707416044}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 224.12862, y: 94.46355, z: -16.844175}
+  m_LocalPosition: {x: 224.1361, y: 94.46355, z: -16.844175}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1641,7 +1655,7 @@ PrefabInstance:
       objectReference: {fileID: 1258908788}
     - target: {fileID: 6991086363812504711, guid: a0eece196abe2c0489dfab153e6183f8, type: 3}
       propertyPath: _moveTowardsTarget
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6991086363812504711, guid: a0eece196abe2c0489dfab153e6183f8, type: 3}
       propertyPath: _playerLayer.m_Bits
@@ -1649,6 +1663,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a0eece196abe2c0489dfab153e6183f8, type: 3}
+--- !u!114 &933844253 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6991086363812504711, guid: a0eece196abe2c0489dfab153e6183f8, type: 3}
+  m_PrefabInstance: {fileID: 933844252}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e51bd7d102187264095f80c88ca5911c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &998204695
 PrefabInstance:
   m_ObjectHideFlags: 0
