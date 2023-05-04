@@ -160,6 +160,10 @@ public class UIManager : MonoBehaviour
     {
         _audioMixer.SetFloat("Volumen", _volumeGeneral);
     }
+    public void ChangeQuality(int index)
+    {
+        QualitySettings.SetQualityLevel(index);
+    }
     #endregion
     #region methods MenuPause
     public void Pause()

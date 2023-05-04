@@ -1798,6 +1798,7 @@ GameObject:
   - component: {fileID: 1143823278057101817}
   - component: {fileID: 1143823278057101816}
   - component: {fileID: 1143823278057101819}
+  - component: {fileID: 1143823279402519259}
   m_Layer: 5
   m_Name: UI NVL2 1
   m_TagString: Untagged
@@ -1923,6 +1924,19 @@ MonoBehaviour:
   - {fileID: 1143823279241120923}
   _pauseMenu: {fileID: 1947109178700531975}
   _audioMixer: {fileID: 24100000, guid: a8b9352beb57a5f43aa9a2c15f7134f0, type: 2}
+--- !u!114 &1143823279402519259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1143823278057101818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8548024fce737a142981bd40ece2205c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bloodEffect: {fileID: 3487520662560556725}
 --- !u!1 &1143823278507487518
 GameObject:
   m_ObjectHideFlags: 0
@@ -2841,7 +2855,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Press to Pass
+  m_text: Click to Pass
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c2682c9f2cfc3374cb898b7724cb7e6e, type: 2}
   m_sharedMaterial: {fileID: -8038925240361756317, guid: c2682c9f2cfc3374cb898b7724cb7e6e, type: 2}
@@ -10018,7 +10032,19 @@ MonoBehaviour:
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1143823278057101819}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: ChangeQuality
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_AlphaFadeSpeed: 0.15
 --- !u!1 &7573524888894078196
 GameObject:

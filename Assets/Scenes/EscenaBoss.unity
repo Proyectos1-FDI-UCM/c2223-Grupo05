@@ -22197,7 +22197,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1938177721}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -61.082245, y: -15.118733, z: -16.8}
+  m_LocalPosition: {x: -61.082222, y: -15.118733, z: -16.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -25572,6 +25572,34 @@ PrefabInstance:
     - target: {fileID: 2070033889364146790, guid: efbbb7103a870f243b33780fe70d452b, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2798445950639099541, guid: efbbb7103a870f243b33780fe70d452b, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2798445950639099541, guid: efbbb7103a870f243b33780fe70d452b, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2798445950639099541, guid: efbbb7103a870f243b33780fe70d452b, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 3693007443533327533}
+    - target: {fileID: 2798445950639099541, guid: efbbb7103a870f243b33780fe70d452b, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2798445950639099541, guid: efbbb7103a870f243b33780fe70d452b, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeQuality
+      objectReference: {fileID: 0}
+    - target: {fileID: 2798445950639099541, guid: efbbb7103a870f243b33780fe70d452b, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UIManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2798445950639099541, guid: efbbb7103a870f243b33780fe70d452b, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 4574994788562806532, guid: efbbb7103a870f243b33780fe70d452b, type: 3}
       propertyPath: m_Pivot.x

@@ -2976,6 +2976,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1579131261379814767, guid: 7e9ffe99543ac584bbb4ab358589d963, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1579131261379814767, guid: 7e9ffe99543ac584bbb4ab358589d963, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1579131261379814767, guid: 7e9ffe99543ac584bbb4ab358589d963, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1810048243}
+    - target: {fileID: 1579131261379814767, guid: 7e9ffe99543ac584bbb4ab358589d963, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1579131261379814767, guid: 7e9ffe99543ac584bbb4ab358589d963, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeQuality
+      objectReference: {fileID: 0}
+    - target: {fileID: 1579131261379814767, guid: 7e9ffe99543ac584bbb4ab358589d963, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UIManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1579131261379814767, guid: 7e9ffe99543ac584bbb4ab358589d963, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 2909285031827867911, guid: 7e9ffe99543ac584bbb4ab358589d963, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -2986,6 +3014,17 @@ PrefabInstance:
       objectReference: {fileID: 796668923}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7e9ffe99543ac584bbb4ab358589d963, type: 3}
+--- !u!114 &1810048243 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 883134073419582690, guid: 7e9ffe99543ac584bbb4ab358589d963, type: 3}
+  m_PrefabInstance: {fileID: 1810048242}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35568de658ecfe94c82167344dfd9286, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1813073925
 GameObject:
   m_ObjectHideFlags: 0

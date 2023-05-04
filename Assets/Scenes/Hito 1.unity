@@ -34456,6 +34456,34 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3092711747925974878, guid: 4fcb7f00c0a705744a6248ed8037f5f3, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3092711747925974878, guid: 4fcb7f00c0a705744a6248ed8037f5f3, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3092711747925974878, guid: 4fcb7f00c0a705744a6248ed8037f5f3, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1358336813}
+    - target: {fileID: 3092711747925974878, guid: 4fcb7f00c0a705744a6248ed8037f5f3, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3092711747925974878, guid: 4fcb7f00c0a705744a6248ed8037f5f3, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeQuality
+      objectReference: {fileID: 0}
+    - target: {fileID: 3092711747925974878, guid: 4fcb7f00c0a705744a6248ed8037f5f3, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UIManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3092711747925974878, guid: 4fcb7f00c0a705744a6248ed8037f5f3, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 3693007444608022223, guid: 4fcb7f00c0a705744a6248ed8037f5f3, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -118939,6 +118967,8 @@ CompositeCollider2D:
         Y: -14563094
       - X: 481837682
         Y: -14367107
+      - X: 481856167
+        Y: -14563053
       - X: 481856773
         Y: -14569481
       - X: 481804092
