@@ -72,13 +72,10 @@ img.img-header {
 }
 
 footer p {
-  font-size: 0.8rem;
-  margin-bottom: 0.5rem;
-}
-.footer-color{
+    font-size: 0.8rem;
+    margin-bottom: 0.5rem;
     color: white;
 }
-
 /* RESPONSIVE CSS
 -------------------------------------------------- */
 
