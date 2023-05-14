@@ -9,10 +9,6 @@ html,body {
 body {
     padding-bottom: 1rem;
     color: #0a0a0a;
-    background-image: url(.img/Nivel1.jpg);
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
 }
 
 
@@ -25,12 +21,7 @@ img.img-header {
   max-height: 15500px;
 }
 
-.container {
-    background-image: url(.img/Nivel1.jpg);
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-}
+
 /* MARKETING CONTENT
 -------------------------------------------------- */
 
