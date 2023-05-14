@@ -42,7 +42,8 @@ img.img-header {
 }
 
 .media-item {
-  margin: 1rem;
+    margin: 1rem;
+    color: #BA9AF9;
 }
 .row{
     color:white;
