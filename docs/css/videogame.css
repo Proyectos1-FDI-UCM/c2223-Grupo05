@@ -4,10 +4,11 @@
 
 html,body {
   font-size: 18px;
+
 }
 body {
   padding-bottom: 1rem;
-  color: #5a5a5a;
+  color: #0a0a0a;
 }
 
 
@@ -17,7 +18,7 @@ body {
 -------------------------------------------------- */
 
 img.img-header {
-  max-height: 500px;
+  max-height: 15500px;
 }
 
 
