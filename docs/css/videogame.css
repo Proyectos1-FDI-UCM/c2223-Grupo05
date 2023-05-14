@@ -21,17 +21,19 @@ img.img-header {
   max-height: 15500px;
 }
 
-
+.container {
+    background-image: url(img/Nivel1.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
 /* MARKETING CONTENT
 -------------------------------------------------- */
 
 /* Center align the text within the three columns below the carousel */
 .marketing {
     margin-top: 1rem;
-    background-image: url(img/Nivel1.jpg);
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
+   
 }
 
 .marketing h2 {
