@@ -60,6 +60,7 @@ img.img-header {
 }
 .img-thumbnail {
     border-color: #BA9AF9;
+    border-block-color: #BA9AF9;
 }
 
 
