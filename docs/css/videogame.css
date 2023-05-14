@@ -28,7 +28,7 @@ img.img-header {
 /* Center align the text within the three columns below the carousel */
 .marketing {
     margin-top: 1rem;
-    background-image: url(.img/Nivel1.jpg);
+    background-image: url(img/Nivel1.jpg);
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
