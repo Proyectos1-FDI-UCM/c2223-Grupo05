@@ -56,6 +56,9 @@ img.img-header {
 .btn.btn-primary {
     background-color: #BA9AF9;
     color: #29007C;
+    
+}
+.btn {
     position: center;
 }
 
