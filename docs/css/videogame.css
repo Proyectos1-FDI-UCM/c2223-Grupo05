@@ -43,10 +43,9 @@ img.img-header {
 
 .media-item {
     margin: 1rem;
+    outline-color: #BA9AF9;
 }
-.img-thumbnail {
-    color: #BA9AF9;
-}
+
 .row{
     color:white;
     font-family: "Berlin Sans FB", sans-serif
