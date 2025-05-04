@@ -43,7 +43,6 @@ public class ButtonComponent : MonoBehaviour
             _buttonActivated = !_buttonActivated;
             _myPlatformComponent.ChangeMove();
             gameObject.GetComponentInChildren<Light2D>().intensity = 1;
-
         }
     }
 

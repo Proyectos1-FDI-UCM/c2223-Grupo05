@@ -27,7 +27,7 @@ InputManager:
     descriptiveNegativeName: 
     negativeButton: 
     positiveButton: joystick button 3
-    altNegativeButton: 
+    altNegativeButton: up
     altPositiveButton: w
     gravity: 3
     dead: 0.001
@@ -43,7 +43,7 @@ InputManager:
     descriptiveNegativeName: 
     negativeButton: 
     positiveButton: left ctrl
-    altNegativeButton: 
+    altNegativeButton: right ctrl
     altPositiveButton: mouse 0
     gravity: 1000
     dead: 0.001
@@ -73,7 +73,7 @@ InputManager:
     m_Name: Dash
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: 
+    negativeButton: right shift
     positiveButton: left shift
     altNegativeButton: 
     altPositiveButton: joystick button 2
@@ -91,7 +91,7 @@ InputManager:
     descriptiveNegativeName: 
     negativeButton: 
     positiveButton: space
-    altNegativeButton: 
+    altNegativeButton: return
     altPositiveButton: joystick button 1
     gravity: 1000
     dead: 0.001
